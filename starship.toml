@@ -1,0 +1,62 @@
+format="""$character$git_branch$golang$rust$nodejs$directory[黎 ](fg:#DC143C)"""
+# Inserts a blank line between shell prompts
+add_newline = false
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+# The name of the module we are configuring is "character"
+success_symbol = "[﬿  ](fg:#34be5b)"
+error_symbol = "[﬿  ](fg:#34be5b)"
+format="$symbol"
+# The "success_symbol" segment is being set to "➜" with the color "bold
+# green
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = false
+format="[$symbol$version]($style) "
+
+[[battery.display]]
+disabled = true
+threshold = 100
+style = "#6ab017"
+
+[git_branch]
+truncation_symbol = ""
+format = "[[ ](fg:#DC143C)$branch]($style) "
+style="bold #60ACED"
+
+[gcloud]
+disabled = true
+
+[git_status]
+disabled = true
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+
+[golang]
+format = "[ﳑ $version](bold fg:#4bb8fd) "
+
+[status]
+style = "bg:blue"
+symbol = "🔴"
+format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
+
+[directory]
+style = "bold fg:#00FF7F"
+
+[ruby]
+style = "fg:red"
+symbol = " "
+format = "[$symbol($version )]($style)"
+
+[rust]
+style = "red"
+symbol = " "
+format = "[$symbol($version )]($style)"
+
+[nodejs]
+style = "bold fg:#ACE791"
