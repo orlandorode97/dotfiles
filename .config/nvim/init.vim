@@ -1,5 +1,6 @@
 " LOAD PLUGIN FIRST
 source $HOME/.config/nvim/vim-plug.vim
+source $HOME/.config/nvim/ginit.vim
 
 " LOAD NVIM SETTING
 source $HOME/.config/nvim/settings/set.vim

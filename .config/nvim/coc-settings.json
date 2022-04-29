@@ -1,113 +1,30 @@
 {
-  "coc.preferences.bracketEnterImprove": true,
-  "coc.preferences.colorSupport": true,
-  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.enableFloatHighlight": true,
-  "coc.preferences.extensionUpdateCheck": "never",
-  "coc.preferences.hoverTarget": "float",
-  "coc.preferences.previewAutoClose": true,
-  "coc.preferences.rootPatterns": [".git", ".hg", ".projections.json", ".vim"],
-  "coc.source.buffer.ignoreGitignore": false,
-  "codeLens.enable": false,
-  "codeLens.separator": "❱",
-  "diagnostic.enable": false,
-  "diagnostic.enableSign": false,
-  "diagnostic.errorSign": "EE",
-  "diagnostic.hintSign": "HH",
-  "diagnostic.infoSign": "II",
-  "diagnostic.messageTarget": "float",
-  "diagnostic.refreshOnInsertMode": false,
-  "diagnostic.virtualText": false,
-  "diagnostic.checkCurrentLine": true,
-  "diagnostic.warningSign": "WW",
-  "emmet.includeLanguages": { "vue-html": "html", "javascript": "javascriptreact", "jinja2.html": "html" },
-  "emmet.showExpandedAbbreviation": "always",
-  "go.goplsOptions": { "usePlaceholders": true, "completeUnimported": true },
-  "highlight.colors.enable": false,
-  "highlight.document.enable": true,
-  "html.filetypes": ["html", "handlebars", "jinja2.html", "blade.php","php"],
-  "html.suggest.html5": true,
-  "html.validate.styles": true,
-  "languageserver": {
-    "clangd": {
-      "command": "clangd",
-      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "html",
+        "json",
+        "css",
+        "scss",
+        "go"
+    ],
+    "coc.preferences.hoverTarget": "float",
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.errorSign": "\u2718",
+    "diagnostic.infoSign": "?",
+    "diagnostic.warningSign": "!",
+    "go.goplsOptions": {
+        "staticcheck": true
     },
-
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "disableWorkspaceFolders": true,
-      "filetypes": ["go"]
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "filetypes": [
+                "go"
+            ],
+            "rootPatterns": [
+                "go.mod"
+            ]
+        }
     },
-    "intelephense": {
-      "command": "intelephense",
-      "args": ["--stdio"],
-      "filetypes": ["php"],
-      "initializationOptions": {
-        "storagePath": "/tmp/intelephense"
-      }
-    },
-    "kotlin": {
-      "command": "kotlin-language-server",
-      "filetypes": ["kotlin"]
-    },
-   "rust": {
-    "command": "rust-analyzer",
-    "filetypes": ["rust"],
-    "rootPatterns": ["Cargo.toml", ".zshrc", "main.rs"]
-  }
-  },
-  "phpls.path": "~/.config/coc/extensions/node_modules/coc-phpls/node_modules/intelephense/",
-  "phpls.enable": false,
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-11",
-      "path": "/usr/lib/jvm/java-11-openjdk",
-      "default": true
-    },
-    {
-      "name": "JavaSE-14",
-      "path": "/usr/lib/jvm/java-14-openjdk"
-      }
-  ],
-  "latex.build.args": [ "-xelatex", "-file-line-error", "-synctex=1", "-interaction=nonstopmode" ],
-  "latex.build.executable": "latexmk",
-  "prettier.htmlWhitespaceSensitivity": "css",
-  "prettier.printWidth": 500,
-  "python.analysis.diagnosticEnabled": false,
-  "python.autoComplete.addBrackets": false,
-  "python.autoUpdateLanguageServer": false,
-  "python.formatting.blackArgs": ["--line-length=80"],
-  "python.formatting.blackPath": "/usr/bin/black",
-  "python.formatting.provider": "black",
-  "python.formatting.yapfPath": "/usr/bin/yapf",
-  "python.jediEnabled": false,
-  "python.linting.enabled": true,
-  "python.linting.pydocstyleArgs": ["--ignore=D100"],
-  "python.linting.pydocstyleEnabled": false,
-  "python.linting.pydocstylePath": "/usr/bin/pydocstyle",
-  "python.linting.pylintEnabled": true,
-  "python.linting.pylintPath": "/usr/bin/pylint",
-  "python.linting.pylintUseMinimalCheckers": true,
-  "python.pipenvPath": "/usr/bin/pipenv",
-  "python.pythonPath": "python",
-  "python.terminal.activateEnvironment": true,
-  "signature.enable": true,
-  "signature.hideOnTextChange": true,
-  "signature.target": "float",
-  "signature.triggerSignatureWait": 50,
-  "suggest.acceptSuggestionOnCommitCharacter": true,
-  "suggest.autoTrigger": "always",
-  "suggest.floatEnable": true,
-  "suggest.highPrioritySourceLimit": 90,
-  "suggest.lowPrioritySourceLimit": 89,
-  "suggest.minTriggerInputLength": 1,
-  "suggest.noselect": true,
-  "suggest.timeout": 2000,
-  "suggest.triggerAfterInsertEnter": true,
-  "vimlsp.indexes.count": 2,
-  "vimlsp.indexes.runtimepath": true,
-  "vimlsp.suggest.fromRuntimepath": true
+    "suggest.noselect": false
 }

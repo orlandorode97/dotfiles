@@ -4,7 +4,7 @@ filetype plugin indent on
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
 au BufRead /tmp/mutt-* set tw=72
-
+autocmd FileType go hi FgCocErrorFloatBgCocFloating ctermfg=Black ctermbg=White guifg=White guibg=Black
 if (has('nvim'))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
@@ -15,7 +15,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+
 syntax enable
+set autoindent
 set termguicolors
 set backspace=indent,eol,start
 set backup
@@ -103,3 +105,4 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 set ruler
 set timeoutlen=1000 ttimeoutlen=0
+command PrettierJson %python -m json.tool
