@@ -1,6 +1,5 @@
 format = "$all"
 add_newline = false
-truncation_symbol = ""
 
 [character]
 format="$symbol "
