@@ -3,7 +3,6 @@ add_newline = false
 
 [character]
 format="$symbol "
-style="bold #60ACED"
 
 [package]
 disabled = false
@@ -19,7 +18,7 @@ disabled = true
 format = "[ﳑ $version](bold fg:#4bb8fd) "
 
 [directory]
-style = "bold fg:#FFFF00"
+style = "bold fg:#9aed3e"
 
 [rust]
 style = "red"
