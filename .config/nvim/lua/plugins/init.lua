@@ -7,16 +7,16 @@ local plugins = {
    ["wbthomason/packer.nvim"] = {},
    ["NvChad/extensions"] = { module = { "telescope", "nvchad" } },
 
-   ["NvChad/base46"] = {
-      config = function()
-         local ok, base46 = pcall(require, "base46")
+  ["NvChad/base46"] = {
+     config = function()
+        local ok, base46 = pcall(require, "base46")
 
-         if ok then
-            base46.load_theme()
-         end
-      end,
-   },
-
+        if ok then
+           base46.load_theme()
+        end
+     end,
+  },
+   ["catppuccin/nvim"] = {},
    ["NvChad/nvterm"] = {
       module = "nvterm",
       config = function()
@@ -30,6 +30,7 @@ local plugins = {
          require("plugins.configs.others").devicons()
       end,
    },
+   ["fatih/vim-go"] = {},
 
    ["lukas-reineke/indent-blankline.nvim"] = {
       opt = true,
@@ -196,11 +197,7 @@ local plugins = {
       end
    },
 
-   ["ray-x/go.nvim"] = {
-      config = function ()
-         require("go.format").gofmt()
-      end
-   },
-}
+   ["nvim-treesitter/nvim-treesitter-context"] = {},
+ }
 
 require("core.packer").run(plugins)
