@@ -17,8 +17,8 @@ M.ui = {
    hl_add = {},
    hl_override = {},
    changed_themes = {},
-   theme_toggle = { "onedark", "one_light", "catppuccin" },
-   theme = "catppuccin", -- default theme
+   theme_toggle = { "onedark", "one_light", "rosepine" },
+   theme = "kanagawa",
    transparency = false,
 
    statusline = {

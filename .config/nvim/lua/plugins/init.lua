@@ -17,6 +17,9 @@ local plugins = {
      end,
   },
    ["catppuccin/nvim"] = {},
+   ["rose-pine/neovim"] = {},
+   ["drewtempelmeyer/palenight.vim"] = {},
+   ["bluz71/vim-nightfly-guicolors"] = {},
    ["NvChad/nvterm"] = {
       module = "nvterm",
       config = function()
@@ -184,12 +187,7 @@ local plugins = {
       end,
    },
 
-   ["f-person/git-blame.nvim"] = {
-      module = "gitblame",
-      config = function ()
-         require ("git-blame")
-      end
-   },
+   ['f-person/git-blame.nvim'] = {},
 
    ["ellisonleao/glow.nvim"] = {
       config = function ()
