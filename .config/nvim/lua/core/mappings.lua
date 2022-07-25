@@ -12,17 +12,24 @@ M.general = {
 
       ["<ESC>"] = { "<cmd> noh <CR>", "  no highlight" },
 
-      -- -- switch between windows
+      -- switch between windows
      -- ["<C-h>"] = { "<C-w>h", " window left" },
-      --["<C-l>"] = { "<C-w>l", " window right" },
-      --["<C-j>"] = { "<C-w>j", " window down" },
-      -- ["<C-k>"] = { "<C-w>k", " window up" },
+     -- ["<C-l>"] = { "<C-w>l", " window right" },
+     -- ["<C-j>"] = { "<C-w>j", " window down" },
+     -- ["<C-k>"] = { "<C-w>k", " window up" },
 
-      -- -- save
+      -- save
       ["<C-s>"] = { "<cmd> w <CR>", "﬚  save file" },
 
-      -- -- Copy all
+      -- Copy all
       ["<C-c>"] = { "<cmd> %y+ <CR>", "  copy whole file" },
+
+      ["<C-j>"] = {
+         function()
+            require("nvterm.terminal").toggle "horizontal"
+         end,
+         "   toggle horizontal term",
+      },
 
       -- line numbers
       ["<leader>n"] = { "<cmd> set nu! <CR>", "   toggle line number" },
@@ -38,10 +45,29 @@ M.general = {
 
          "   toggle theme",
       },
+
+      -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
+      -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
+      -- empty mode is same as using <cmd> :map
+      -- also don't use g[j|k] when in operator pending mode, so it doesn't alter d, y or c behaviour
+      ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
+      ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
+      ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
+      ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
    },
 
    t = {
       ["<C-x>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
+   },
+
+   v = {
+      ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
+      ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
+      ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
+      ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
+      -- Don't copy the replaced text after pasting in visual mode
+      -- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
+      ["p"] = { 'p:let @+=@0<CR>:let @"=@0<CR>', opts = { silent = true } },
    },
 }
 
@@ -101,7 +127,7 @@ M.lspconfig = {
          "   lsp declaration",
       },
 
-      ["<C-k>"] = {
+      ["gd"] = {
          function()
             vim.lsp.buf.definition()
          end,
@@ -138,7 +164,7 @@ M.lspconfig = {
 
       ["<leader>ra"] = {
          function()
-            require("nvchad.ui.renamer").open()
+            require("nvchad_ui.renamer").open()
          end,
          "   lsp rename",
       },
@@ -231,7 +257,9 @@ M.telescope = {
       -- find
       ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "  find files" },
       ["<C-f>"] = { "<cmd> Telescope live_grep <CR>", "  find expression" },
+ 
       ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all" },
+      ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "   live grep" },
       ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "  find buffers" },
       ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "  help page" },
       ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "   find oldfiles" },
@@ -251,7 +279,7 @@ M.telescope = {
 
 M.nvterm = {
    t = {
-      -- toggle in terminal mode
+ -- toggle in terminal mode
       ["<C-l>"] = {
          function()
             require("nvterm.terminal").toggle "float"
@@ -283,7 +311,7 @@ M.nvterm = {
          "   toggle floating term",
       },
 
-      ["<C-j>"] = {
+      ["<A-h>"] = {
          function()
             require("nvterm.terminal").toggle "horizontal"
          end,
@@ -351,6 +379,13 @@ M.blankline = {
          "  Jump to current_context",
       },
    },
+}
+
+M.diffview = {
+   n = {
+      ["<C-a>"] = { "<cmd> DiffviewOpen <CR>", "open git diff extension" },
+      ["<C-w>"] = { "<cmd> DiffviewClose <CR>", "close git diff extension" },
+   }
 }
 
 return M

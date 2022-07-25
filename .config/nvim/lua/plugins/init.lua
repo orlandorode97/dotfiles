@@ -1,25 +1,28 @@
 vim.cmd "packadd packer.nvim"
 
-
 local plugins = {
 
    ["nvim-lua/plenary.nvim"] = { module = "plenary" },
    ["wbthomason/packer.nvim"] = {},
    ["NvChad/extensions"] = { module = { "telescope", "nvchad" } },
 
-  ["NvChad/base46"] = {
-     config = function()
-        local ok, base46 = pcall(require, "base46")
+   ["NvChad/base46"] = {
+      config = function()
+         local ok, base46 = pcall(require, "base46")
 
-        if ok then
-           base46.load_theme()
-        end
-     end,
-  },
-   ["catppuccin/nvim"] = {},
-   ["rose-pine/neovim"] = {},
-   ["drewtempelmeyer/palenight.vim"] = {},
-   ["bluz71/vim-nightfly-guicolors"] = {},
+         if ok then
+            base46.load_theme()
+         end
+      end,
+   },
+
+   ["NvChad/ui"] = {
+      after = "base46",
+      config = function()
+         require("plugins.configs.nvchad_ui").load_ui_plugins()
+      end,
+   },
+
    ["NvChad/nvterm"] = {
       module = "nvterm",
       config = function()
@@ -33,7 +36,6 @@ local plugins = {
          require("plugins.configs.others").devicons()
       end,
    },
-   ["fatih/vim-go"] = {},
 
    ["lukas-reineke/indent-blankline.nvim"] = {
       opt = true,
@@ -69,7 +71,7 @@ local plugins = {
 
    -- git stuff
    ["lewis6991/gitsigns.nvim"] = {
-      opt = true,
+      ft = "gitcommit",
       setup = function()
          require("core.lazy_load").gitsigns()
       end,
@@ -187,7 +189,12 @@ local plugins = {
       end,
    },
 
+   ["catppuccin/nvim"] = {},
+   ["rose-pine/neovim"] = {},
+   ["drewtempelmeyer/palenight.vim"] = {},
+   ["bluz71/vim-nightfly-guicolors"] = {},
    ['f-person/git-blame.nvim'] = {},
+   ["sindrets/diffview.nvim"] = {},
 
    ["ellisonleao/glow.nvim"] = {
       config = function ()
@@ -196,6 +203,9 @@ local plugins = {
    },
 
    ["nvim-treesitter/nvim-treesitter-context"] = {},
- }
+   ["fatih/vim-go"] = {},
+   ["tpope/vim-rails"] = {}
+
+}
 
 require("core.packer").run(plugins)

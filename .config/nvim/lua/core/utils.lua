@@ -5,24 +5,14 @@ local merge_tb = vim.tbl_deep_extend
 
 M.close_buffer = function(bufnr)
    if vim.bo.buftype == "terminal" then
-      if vim.bo.buflisted then
-         vim.bo.buflisted = false
-         vim.cmd "enew"
-      else
-         vim.cmd "hide"
-      end
-      return
+      vim.cmd(vim.bo.buflisted and "set nobl | enew" or "hide")
+   elseif vim.bo.modified then
+      print "save the file bruh"
+   else
+      bufnr = bufnr or api.nvim_get_current_buf()
+      require("core.utils").tabuflinePrev()
+      vim.cmd("bd" .. bufnr)
    end
-
-   -- if file doesnt exist & its modified
-   if vim.bo.modified then
-      print "save the file!"
-      return
-   end
-
-   bufnr = bufnr or api.nvim_get_current_buf()
-   require("core.utils").tabuflinePrev()
-   vim.cmd("bd" .. bufnr)
 end
 
 M.load_config = function()
@@ -76,15 +66,15 @@ end
 
 M.load_mappings = function(mappings, mapping_opt)
    -- set mapping function with/without whichkey
-   local map_func
+   local set_maps
    local whichkey_exists, wk = pcall(require, "which-key")
 
    if whichkey_exists then
-      map_func = function(keybind, mapping_info, opts)
+      set_maps = function(keybind, mapping_info, opts)
          wk.register({ [keybind] = mapping_info }, opts)
       end
    else
-      map_func = function(keybind, mapping_info, opts)
+      set_maps = function(keybind, mapping_info, opts)
          local mode = opts.mode
          opts.mode = nil
          vim.keymap.set(mode, keybind, mapping_info[1], opts)
@@ -94,12 +84,10 @@ M.load_mappings = function(mappings, mapping_opt)
    mappings = mappings or vim.deepcopy(M.load_config().mappings)
    mappings.lspconfig = nil
 
-   for _, section_mappings in pairs(mappings) do
-      -- skip mapping this as its mapppings are loaded in lspconfig
-      for mode, mode_mappings in pairs(section_mappings) do
-         for keybind, mapping_info in pairs(mode_mappings) do
+   for _, section in pairs(mappings) do
+      for mode, mode_values in pairs(section) do
+         for keybind, mapping_info in pairs(mode_values) do
             -- merge default + user opts
-
             local default_opts = merge_tb("force", { mode = mode }, mapping_opt or {})
             local opts = merge_tb("force", default_opts, mapping_info.opts or {})
 
@@ -107,7 +95,7 @@ M.load_mappings = function(mappings, mapping_opt)
                mapping_info.opts = nil
             end
 
-            map_func(keybind, mapping_info, opts)
+            set_maps(keybind, mapping_info, opts)
          end
       end
    end
@@ -137,7 +125,6 @@ M.merge_plugins = function(default_plugins)
 
    for key, _ in pairs(default_plugins) do
       default_plugins[key][1] = key
-
       final_table[#final_table + 1] = default_plugins[key]
    end
 
@@ -145,17 +132,9 @@ M.merge_plugins = function(default_plugins)
 end
 
 M.load_override = function(default_table, plugin_name)
-   local user_table = M.load_config().plugins.override[plugin_name]
-
-   if type(user_table) == "function" then
-      user_table = user_table()
-   elseif type(user_table) == "table" then
-      default_table = merge_tb("force", default_table, user_table)
-   else
-      default_table = default_table
-   end
-
-   return default_table
+   local user_table = M.load_config().plugins.override[plugin_name] or {}
+   user_table = type(user_table) == "table" and user_table or user_table()
+   return merge_tb("force", default_table, user_table)
 end
 
 M.packer_sync = function(...)
@@ -199,7 +178,7 @@ M.bufilter = function()
    local bufs = vim.t.bufs
 
    for i = #bufs, 1, -1 do
-      if not vim.api.nvim_buf_is_loaded(bufs[i]) then
+      if not vim.api.nvim_buf_is_valid(bufs[i]) then
          table.remove(bufs, i)
       end
    end
@@ -228,14 +207,21 @@ M.tabuflinePrev = function()
       end
    end
 end
--- closes tab + all of its buffers
-M.tabuflineCloseTab = function()
-   local bufs = vim.t.bufs or {}
 
-   vim.cmd "tabclose"
+-- closes tab + all of its buffers
+M.closeAllBufs = function(action)
+   local bufs = vim.t.bufs
+
+   if action == "closeTab" then
+      vim.cmd "tabclose"
+   end
 
    for _, buf in ipairs(bufs) do
-      vim.cmd("bd" .. buf)
+      M.close_buffer(buf)
+   end
+
+   if action ~= "closeTab" then
+      vim.cmd "enew"
    end
 end
 

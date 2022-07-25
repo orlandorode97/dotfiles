@@ -23,6 +23,7 @@ local options = {
       update_cwd = false,
    },
    view = {
+      adaptive_size = true,
       side = "left",
       width = 25,
       hide_root_folder = true,
@@ -30,6 +31,9 @@ local options = {
    git = {
       enable = false,
       ignore = true,
+   },
+   filesystem_watchers = {
+      enable = true,
    },
    actions = {
       open_file = {
@@ -81,5 +85,6 @@ local options = {
 
 -- check for any override
 options = require("core.utils").load_override(options, "kyazdani42/nvim-tree.lua")
+vim.g.nvimtree_side = options.view.side
 
 nvimtree.setup(options)
