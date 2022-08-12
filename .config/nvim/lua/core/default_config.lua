@@ -3,34 +3,26 @@
 local M = {}
 
 M.options = {
-   -- load your options here or load module with options
-   user = function() end,
-
-   nvChad = {
-      update_url = "https://github.com/NvChad/NvChad",
-      update_branch = "main",
-   },
+  nvChad = {
+    update_url = "https://github.com/NvChad/NvChad",
+    update_branch = "main",
+  },
 }
 
 M.ui = {
-   -- hl = highlights
-   hl_add = {},
-   hl_override = {},
-   changed_themes = {},
-   theme_toggle = { "onedark", "one_light", "rosepine" },
-   theme = "rosepine",
-   transparency = false,
+  -- hl = highlights
+  hl_add = {},
+  hl_override = {},
+  changed_themes = {},
+  theme_toggle = { "onedark", "one_light", "catppuccin" },
+  theme = "nightfox", -- default theme
+  transparency = false,
 }
 
 M.plugins = {
-   override = {},
-   remove = {},
-   user = {},
-   options = {
-      lspconfig = {
-         setup_lspconf = "", -- path of lspconfig file
-      },
-   },
+  override = {},
+  remove = {},
+  user = {},
 }
 
 -- check core.mappings for table structure

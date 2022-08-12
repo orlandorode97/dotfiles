@@ -1,12 +1,10 @@
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/orlando.romo/.oh-my-zsh"
-# export ZSH_VERSION=5.8
-# export ZSH_CACHE_DIR="$HOME/.oh-my-zsh/cache"
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
@@ -14,13 +12,15 @@ export GOPATH=$HOME/go
 PATH=$GOPATH/bin:$PATH
 source $HOME/.cargo/env
 # DispatchHealth
+export ENVAR_AWS_SECRET_KEY="ur++X656KsLzxkPOTSWR2bVDl+z5S3kYUC/0bLqB"
 export PATH=$HOME/dh-tools/dh-dev-tools:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH=$PATH:~/.gem/ruby/2.6.0/bin
+export GUM=$HOME/gum/gum.sh
 
 # alias for logo-ls
 alias lsi="logo-ls -1"
-
+alias gotest="go test -v -run Test"
 # Ruby
 # Add rbenv to bash so that it loads every time you open a terminal
 # echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
@@ -122,24 +122,30 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(starship init zsh)"
-
-# . $HOME/.asdf/asdf.sh
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-#. $HOME/.asdf/asdf.sh
-#. $HOME/.asdf/asdf.sh
-
-SERVICE="colima"
-if ps ax | grep -v grep | grep "${SERVICE}" &> /dev/null; then
-else
-    colima start
-fi
-
-
-# . $HOME/.asdf/asdf.sh
-
 ulimit -n 8096
 
-bindkey "^X\\x7f" backward-kill-line
+#bindkey "^X\\x7f" backward-kill-line
+
+
+
+
+#export ASDF_DATA_DIR=`brew --prefix asdf`/
+#export PATH="/usr/local/opt/ruby/bin:$PATH"
+#export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.3/bin:$PATH"
+#eval "$(rbenv init -)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export GEM_HOME="$HOME/.gem"
+
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export GEM_HOME="/Users/orlando.romo/.gem"
+
+# . /usr/local/opt/asdf/libexec/asdf.sh
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"

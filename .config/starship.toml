@@ -1,0 +1,35 @@
+format = "$all"
+add_newline = false
+
+[character]
+format="$symbol "
+
+[package]
+disabled = true
+format="[$symbol$version]($style)"
+
+[gcloud]
+disabled = true
+
+[git_status]
+disabled = true
+
+[golang]
+format = "[ﳑ $version](bold fg:#4bb8fd) "
+
+[directory]
+style = "bold fg:#9aed3e"
+
+[rust]
+style = "red"
+symbol = " "
+format = "[$symbol($version )]($style)"
+
+[nodejs]
+style = "bold fg:#ACE791"
+
+[git_branch]
+truncation_symbol = ""
+format = "[[ ](fg:#DC143C)$branch]($style) "
+style="bold #60ACED"
+
