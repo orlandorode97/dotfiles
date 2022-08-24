@@ -8,6 +8,18 @@ g.toggle_theme_icon = "   "
 g.transparency = config.ui.transparency
 g.theme_switcher_loaded = false
 
+g.multi_cursor_use_default_mapping=0
+
+g.multi_cursor_start_word_key      = '<C-n>'
+g.multi_cursor_select_all_word_key = '<A-n>'
+g.multi_cursor_start_key           = 'g<C-n>'
+g.multi_cursor_select_all_key      = 'g<A-n>'
+g.multi_cursor_next_key            = '<C-n>'
+g.multi_cursor_prev_key            = '<C-p>'
+g.multi_cursor_skip_key            = '<C-x>'
+g.multi_cursor_quit_key            = '<Esc>'
+
+
 -- use filetype.lua instead of filetype.vim. it's enabled by default in neovim 0.8 (nightly)
 if g.vim_version < 8 then
   g.did_load_filetypes = 0

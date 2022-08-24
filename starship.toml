@@ -1,11 +1,140 @@
-format = "$all"
+# format = "$all"
+# add_newline = false
+# 
+# [character]
+# format="$symbol "
+# 
+# [package]
+# disabled = true
+# symbol = " "
+# format="[$symbol$version]($style)"
+# 
+# [gcloud]
+# disabled = true
+# 
+# [git_status]
+# disabled = true
+# 
+# [golang]
+# format = "[ﳑ $version](bold fg:#4bb8fd) "
+# 
+# #[directory]
+# #style = "bold fg:#9aed3e"
+# 
+# [rust]
+# style = "red"
+# symbol = " "
+# format = "[$symbol($version )]($style)"
+# 
+# [nodejs]
+# style = "bold fg:#ACE791"
+# 
+# [git_branch]
+# truncation_symbol = ""
+# format = "[[ ](fg:#DC143C)$branch]($style) "
+# style="bold #60ACED"
+# 
+# 
+# 
+# [aws]
+# symbol = "  "
+# 
+# [conda]
+# symbol = " "
+# 
+# [dart]
+# symbol = " "
+# format = "via [$symbol]($style)"
+# 
+# [directory]
+# read_only = " "
+# truncation_length = 1
+# 
+# [docker_context]
+# symbol = " "
+# 
+# [elixir]
+# symbol = " "
+# format = 'via [$symbol]($style)'
+# 
+# [elm]
+# symbol = " "
+# 
+# [java]
+# symbol = " "
+# format = 'via [$symbol]($style)'
+# 
+# [julia]
+# symbol = " "
+# 
+# [memory_usage]
+# symbol = " "
+# 
+# [nim]
+# symbol = " "
+# 
+# [nix_shell]
+# symbol = " "
+# 
+# [perl]
+# symbol = " "
+# 
+# [php]
+# symbol = " "
+# 
+# [python]
+# symbol = " "
+# format = 'via [$symbol]($style)'
+# 
+# [ruby]
+# symbol = " "
+# 
+# [scala]
+# symbol = " "
+# 
+# [shlvl]
+# symbol = " "
+# 
+# [swift]
+# symbol = "ﯣ "
+# format = 'via [$symbol]($style)'
+
+#format = """
+#[╭─user───❯](bold blue) $username
+#[┣─system─❯](bold yellow) $hostname
+#[┣─project❯](bold red) $directory$rust$git_branch$git_status$package$golang$terraform$docker_context$python$docker_context$nodejs
+#[╰─cmd────❯](bold green) 
+#"""
+# Replace the "❯" symbol in the prompt with "➜"
+
 add_newline = false
 
-[character]
-format="$symbol "
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[﬌](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[✗](bold red)"
+#  
+# configure directory
+[directory]
+read_only = " "
+truncation_length = 10
+truncate_to_repo = true # truncates directory to root folder if in github repo
+style = "bold italic blue"
+
+[docker_context]
+symbol = " "
+format = "via [$symbol$context]($style) "
+style = "blue bold"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+ 
+[golang]
+format = "[ﳑ $version](bold fg:#4bb8fd) "
 
 [package]
-disabled = false
+disabled = true
+symbol = " "
 format="[$symbol$version]($style)"
 
 [gcloud]
@@ -13,12 +142,6 @@ disabled = true
 
 [git_status]
 disabled = true
-
-[golang]
-format = "[ﳑ $version](bold fg:#4bb8fd) "
-
-[directory]
-style = "bold fg:#9aed3e"
 
 [rust]
 style = "red"
@@ -32,3 +155,59 @@ style = "bold fg:#ACE791"
 truncation_symbol = ""
 format = "[[ ](fg:#DC143C)$branch]($style) "
 style="bold #60ACED"
+
+[aws]
+symbol = "  "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+format = "via [$symbol]($style)"
+
+[elixir]
+symbol = " "
+format = 'via [$symbol]($style)'
+
+[elm]
+symbol = " "
+
+[java]
+symbol = " "
+format = 'via [$symbol]($style)'
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+format = 'via [$symbol]($style)'
+
+[ruby]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
+format = 'via [$symbol]($style)'

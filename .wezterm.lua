@@ -1,8 +1,10 @@
 local wezterm = require 'wezterm'
 return {
-  font = wezterm.font('FiraCode Nerd Font', { weight = 'Bold'}),
+  font = wezterm.font('FiraCode Nerd Font'),
   font_size = 15,
-  color_scheme = 'nightfox',
+  -- color_scheme = "PencilDark", 
+  color_scheme = "DoomOne", 
+
   keys = {
     {
       key = 'e',

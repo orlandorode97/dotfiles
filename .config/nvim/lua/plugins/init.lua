@@ -234,13 +234,15 @@ local plugins = {
   ["nvim-lualine/lualine.nvim"] = {
     config = function ()
         require('lualine').setup({
-          options = { theme = 'molokai'}
+          options = { theme = 'onenord'}
         })
     end
   },
   ["rhysd/vim-grammarous"] = {},
   ["EdenEast/nightfox.nvim"] = {},
   ["sindrets/diffview.nvim"] = {},
+  ["terryma/vim-multiple-cursors"] = {},
+  ["iamcco/markdown-preview.nvim"] = {},
 }
 
 require("core.packer").run(plugins)

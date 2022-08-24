@@ -15,7 +15,7 @@ M.ui = {
   hl_override = {},
   changed_themes = {},
   theme_toggle = { "onedark", "one_light", "catppuccin" },
-  theme = "nightfox", -- default theme
+  theme = "doomchad" , -- default theme
   transparency = false,
 }
 

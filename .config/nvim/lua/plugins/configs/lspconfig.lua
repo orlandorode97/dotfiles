@@ -72,7 +72,7 @@ lspconfig.sumneko_lua.setup {
 }
 
 lspconfig.gopls.setup {
-	capabilities = capabilities,
+  capabilities = M.capabilities,
 	on_attach = M.on_attach,
 	settings = {
 		gopls = {
@@ -101,5 +101,15 @@ lspconfig.rust_analyzer.setup({
         }
     }
 })
+
+
+local servers = { "bufls", "dockerls", "cmake", "grammarly", "sqls"}
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+  }
+end
 
 return M
