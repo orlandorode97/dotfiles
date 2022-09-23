@@ -1,3 +1,6 @@
+colors/*
+!colors/default_theme.lua
 plugin
-custom
-spell
+docs
+lua/packer_compiled.lua
+ginit.vim
