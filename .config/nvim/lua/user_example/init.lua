@@ -5,7 +5,6 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 local config = {
-
   -- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
@@ -26,7 +25,7 @@ local config = {
   },
 
   -- Set colorscheme to use
-  colorscheme = "default_theme",
+  colorscheme = "tokyodark",
 
   -- Override highlight groups in any theme
   highlights = {
@@ -77,33 +76,30 @@ local config = {
 
   -- Default theme configuration
   default_theme = {
-    -- set the highlight style for diagnostic messages
-    diagnostics_style = { italic = true },
-    -- Modify the color palette for the default theme
-    colors = {
-      fg = "#abb2bf",
-      bg = "#1e222a",
-    },
-    -- enable or disable highlighting for extra plugins
-    plugins = {
-      aerial = true,
-      beacon = false,
-      bufferline = true,
-      dashboard = true,
-      highlighturl = true,
-      hop = false,
-      indent_blankline = true,
-      lightspeed = false,
-      ["neo-tree"] = true,
-      notify = true,
-      ["nvim-tree"] = false,
-      ["nvim-web-devicons"] = true,
-      rainbow = true,
-      symbols_outline = false,
-      telescope = true,
-      vimwiki = false,
-      ["which-key"] = true,
-    },
+    colors = function(C)
+      C.telescope_green = C.green
+      C.telescope_red = C.red
+      C.telescope_fg = C.fg
+      C.telescope_bg = C.black_1
+      C.telescope_bg_alt = C.bg_1
+      return C
+    end,
+    highlights = function(hl)
+      local C = require "default_theme.colors"
+      hl.TelescopeBorder = { fg = C.telescope_bg_alt, bg = C.telescope_bg }
+      hl.TelescopeNormal = { bg = C.telescope_bg }
+      hl.TelescopePreviewBorder = { fg = C.telescope_bg, bg = C.telescope_bg }
+      hl.TelescopePreviewNormal = { bg = C.telescope_bg }
+      hl.TelescopePreviewTitle = { fg = C.telescope_bg, bg = C.telescope_green }
+      hl.TelescopePromptBorder = { fg = C.telescope_bg_alt, bg = C.telescope_bg_alt }
+      hl.TelescopePromptNormal = { fg = C.telescope_fg, bg = C.telescope_bg_alt }
+      hl.TelescopePromptPrefix = { fg = C.telescope_red, bg = C.telescope_bg_alt }
+      hl.TelescopePromptTitle = { fg = C.telescope_bg, bg = C.telescope_red }
+      hl.TelescopeResultsBorder = { fg = C.telescope_bg, bg = C.telescope_bg }
+      hl.TelescopeResultsNormal = { bg = C.telescope_bg }
+      hl.TelescopeResultsTitle = { fg = C.telescope_bg, bg = C.telescope_bg }
+      return hl
+    end,
   },
 
   -- Diagnostics configuration (for vim.diagnostics.config({...}))
@@ -187,7 +183,6 @@ local config = {
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
-      -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
@@ -195,6 +190,114 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+      { "catppuccin/nvim", as = "catppuccin" },
+      { "rose-pine/neovim" },
+      { "drewtempelmeyer/palenight.vim" },
+      { "bluz71/vim-nightfly-guicolors" },
+      { "f-person/git-blame.nvim" },
+      { "ellisonleao/glow.nvim", config = function() require "glow" end },
+      { "fatih/vim-go" },
+      { "pineapplegiant/spaceduck" },
+      { "mfussenegger/nvim-dap" },
+      { "leoluz/nvim-dap-go" },
+      { "rcarriga/nvim-dap-ui" },
+      { "theHamsta/nvim-dap-virtual-text" },
+      {
+        "nvim-lualine/lualine.nvim",
+        config = function()
+          require("lualine").setup {
+            options = {
+              theme = "tokyonight",
+              component_separators = "|",
+              section_separators = { left = "", right = "" },
+            },
+            sections = {
+              lualine_a = {
+                { "mode", separator = { left = "" }, right_padding = 2 },
+              },
+              lualine_b = { "filename", "branch" },
+              lualine_c = { "fileformat" },
+              lualine_x = {},
+              lualine_y = { "filetype", "progress" },
+              lualine_z = {
+                { "location", separator = { right = "" }, left_padding = 2 },
+              },
+            },
+            inactive_sections = {
+              lualine_a = { "filename" },
+              lualine_b = {},
+              lualine_c = {},
+              lualine_x = {},
+              lualine_y = {},
+              lualine_z = { "location" },
+            },
+            tabline = {},
+            extensions = {},
+          }
+        end,
+      },
+      { "rhysd/vim-grammarous" },
+      { "EdenEast/nightfox.nvim" },
+      { "sindrets/diffview.nvim" },
+      { "terryma/vim-multiple-cursors" },
+      { "iamcco/markdown-preview.nvim" },
+      {
+        "olimorris/onedarkpro.nvim",
+        config = function()
+          require("onedarkpro").setup {
+            dark_theme = "onedark_vivid",
+            plugins = {
+              all = true,
+            },
+          }
+        end,
+      },
+      { "junegunn/seoul256.vim" },
+      { "w0ng/vim-hybrid" },
+      { "liuchengxu/space-vim-dark" },
+      {
+        "olivercederborg/poimandres.nvim",
+        config = function() require("poimandres").setup {} end,
+      },
+      { "mangeshrex/everblush.vim" },
+      {
+        "VDuchauffour/neodark.nvim",
+        config = function()
+          require("neodark").setup {
+            theme_style = "neodarker",
+          }
+        end,
+      },
+      { "shaunsingh/moonlight.nvim" },
+      { "sam4llis/nvim-tundra" },
+      { "rafamadriz/neon" },
+      { "marko-cerovac/material.nvim" },
+      { "bluz71/vim-nightfly-guicolors" },
+      { "yonlu/omni.vim" },
+      { "shaunsingh/nord.nvim" },
+      { "shaunsingh/moonlight.nvim" },
+      {
+        "navarasu/onedark.nvim",
+        config = function()
+          require("onedark").setup {
+            style = "warm",
+          }
+        end,
+      },
+      { "yashguptaz/calvera-dark.nvim" },
+      {
+        "folke/tokyonight.nvim",
+        config = function()
+          require("lualine").setup {
+            options = {
+              -- ... your lualine config
+              theme = "tokyonight",
+              -- ... your lualine config
+            },
+          }
+        end,
+      },
+      { "tiagovla/tokyodark.nvim" },
 
       -- We also support a key value style plugin definition similar to NvChad:
       -- ["ray-x/lsp_signature.nvim"] = {
@@ -286,6 +389,43 @@ local config = {
     },
   },
 
+  indent_blankline = {
+    show_current_context = false,
+    show_current_context_start = false,
+  },
+  overrides = {
+    telescope = {
+      defaults = {
+        prompt_prefix = "  ",
+        borderchars = {
+          prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+          results = { "─", "▐", "─", "│", "╭", "▐", "▐", "╰" },
+          preview = { " ", "│", " ", "▌", "▌", "╮", "╯", "▌" },
+        },
+        selection_caret = "  ",
+        layout_config = {
+          width = 0.90,
+          height = 0.85,
+          preview_cutoff = 120,
+          horizontal = {
+            preview_width = function(_, cols, _) return math.floor(cols * 0.6) end,
+          },
+          vertical = {
+            width = 0.9,
+            height = 0.95,
+            preview_height = 0.5,
+          },
+          flex = {
+            horizontal = {
+              preview_width = 0.9,
+            },
+          },
+        },
+        layout_strategy = "horizontal",
+      },
+    },
+  },
+
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
@@ -299,6 +439,9 @@ local config = {
       pattern = "plugins.lua",
       command = "source <afile> | PackerSync",
     })
+    vim.cmd [[
+      autocmd VimEnter,ColorScheme * lua require("user.theme").telescope_theme()
+    ]]
 
     -- Set up custom filetypes
     -- vim.filetype.add {
