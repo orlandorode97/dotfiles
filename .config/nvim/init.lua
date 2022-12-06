@@ -5,7 +5,7 @@ for _, source in ipairs {
   "core.utils",
   "core.options",
   "core.bootstrap",
-  "core.plugins",
+  "core.diagnostics",
   "core.autocmds",
   "core.mappings",
   "configs.which-key-register",
@@ -13,6 +13,13 @@ for _, source in ipairs {
   local status_ok, fault = pcall(require, source)
   if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
 end
+
+astronvim.conditional_func(astronvim.user_plugin_opts("polish", nil, false))
+
+if vim.fn.has "nvim-0.8" ~= 1 or vim.version().prerelease then
+  vim.schedule(function() astronvim.notify("Unsupported Neovim Version! Please check the requirements", "error") end)
+end
+
 
 local dap, dapui = require("dap"), require("dapui")
 
@@ -88,7 +95,7 @@ dap.configurations.go = {
     type = "delve",
     name = "Debug",
     request = "launch",
-    program = "${file}"
+    program = "${fileDirname}"
   },
   {
     type = "delve",
@@ -117,5 +124,13 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
+vim.api.nvim_set_hl(0,'DapBreakpoint', { ctermbg=0, bg='#993939' })
+vim.api.nvim_set_hl(0,'DapLogPoint', { ctermbg=0, bg='#61afef' })
+vim.api.nvim_set_hl(0,'DapStopped', { ctermbg=0, bg='#98c379' })
 
-astronvim.conditional_func(astronvim.user_plugin_opts("polish", nil, false))
+
+vim.fn.sign_define('DapBreakpoint', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointCondition', { text='ﳁ', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointRejected', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl= 'DapBreakpoint' })
+vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', linehl='DapLogPoint', numhl= 'DapLogPoint' })
+vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })

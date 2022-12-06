@@ -1,6 +1,4 @@
-local status_ok, neotree = pcall(require, "neo-tree")
-if not status_ok then return end
-neotree.setup(astronvim.user_plugin_opts("plugins.neo-tree", {
+require("neo-tree").setup(astronvim.user_plugin_opts("plugins.neo-tree", {
   close_if_last_window = true,
   popup_border_style = "rounded",
   enable_diagnostics = false,
@@ -42,7 +40,7 @@ neotree.setup(astronvim.user_plugin_opts("plugins.neo-tree", {
     },
   },
   window = {
-    width = 25,
+    width = 35,
     mappings = {
       ["o"] = "open",
     },

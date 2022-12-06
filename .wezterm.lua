@@ -1,19 +1,20 @@
 local wezterm = require("wezterm")
 return {
-	font = wezterm.font("BlexMono Nerd Font Mono"),
-	weight = "Bold",
-	font_size = 15.7,
-	color_scheme = "Catppuccin Mocha",
+	font = wezterm.font("Arimo Nerd Font Mono Regular"),
+  stretch = "Expanded",
+  bold = true,
+	font_size = 16,
+	color_scheme = "Monokai Remastered",
 	check_for_updates = false,
 	keys = {
 		{
 			key = "e",
-			mods = "CTRL",
+			mods = "CMD",
 			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
 		{
 			key = "d",
-			mods = "CTRL",
+			mods = "CMD",
 			action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
 		{

@@ -1,6 +1,4 @@
-local status_ok, indent_blankline = pcall(require, "indent_blankline")
-if not status_ok then return end
-indent_blankline.setup(astronvim.user_plugin_opts("plugins.indent_blankline", {
+require("indent_blankline").setup(astronvim.user_plugin_opts("plugins.indent_blankline", {
   buftype_exclude = {
     "nofile",
     "terminal",
@@ -40,8 +38,8 @@ indent_blankline.setup(astronvim.user_plugin_opts("plugins.indent_blankline", {
     "operation_type",
   },
   show_trailing_blankline_indent = false,
-  use_treesitter = false,
-  char = "",
-  context_char = "",
-  show_current_context = false,
+  use_treesitter = true,
+  char = "▏",
+  context_char = "▏",
+  show_current_context = true,
 }))

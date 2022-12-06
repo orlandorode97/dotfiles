@@ -1,17 +1,16 @@
 local is_available = astronvim.is_available
 
-local maps = { n = {}, v = {}, t = {}, [""] = {} }
+local maps = { i = {}, n = {}, v = {}, t = {}, [""] = {} }
 
 maps[""]["<Space>"] = "<Nop>"
 
---Normal --
+-- Normal --
 -- Standard Operations
 maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Save" }
 maps.n["<leader>q"] = { "<cmd>q<cr>", desc = "Quit" }
 maps.n["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "No Highlight" }
-maps.n["<leader>u"] = { function() astronvim.toggle_url_match() end, desc = "Toggle URL Highlights" }
 maps.n["<leader>fn"] = { "<cmd>enew<cr>", desc = "New File" }
-maps.n["gx"] = { function() astronvim.url_opener() end, desc = "Open the file under cursor with system app" }
+maps.n["gx"] = { function() astronvim.system_open() end, desc = "Open the file under cursor with system app" }
 maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
 maps.n["<C-q>"] = { "<cmd>q!<cr>", desc = "Force quit" }
 maps.n["Q"] = "<Nop>"
@@ -23,14 +22,24 @@ maps.n["<leader>ps"] = { "<cmd>PackerSync<cr>", desc = "Packer Sync" }
 maps.n["<leader>pS"] = { "<cmd>PackerStatus<cr>", desc = "Packer Status" }
 maps.n["<leader>pu"] = { "<cmd>PackerUpdate<cr>", desc = "Packer Update" }
 
+-- AstroNvim
+maps.n["<leader>pa"] = { "<cmd>AstroUpdatePackages<cr>", desc = "Update Packer and Mason" }
+maps.n["<leader>pA"] = { "<cmd>AstroUpdate<cr>", desc = "AstroNvim Update" }
+maps.n["<leader>pv"] = { "<cmd>AstroVersion<cr>", desc = "AstroNvim Version" }
+maps.n["<leader>pl"] = { "<cmd>AstroChangelog<cr>", desc = "AstroNvim Changelog" }
+
 -- Alpha
-if is_available "alpha-nvim" then maps.n["<leader>d"] = { "<cmd>Alpha<cr>", desc = "Alpha Dashboard" } end
+if is_available "alpha-nvim" then
+  maps.n["<leader>d"] = { function() require("alpha").start() end, desc = "Alpha Dashboard" }
+end
 
 -- Bufdelete
 if is_available "bufdelete.nvim" then
-  maps.n["<leader>c"] = { "<cmd>Bdelete<cr>", desc = "Close window" }
+  maps.n["<leader>c"] = { function() require("bufdelete").bufdelete(0, false) end, desc = "Close buffer" }
+  maps.n["<leader>C"] = { function() require("bufdelete").bufdelete(0, true) end, desc = "Force close buffer" }
 else
-  maps.n["<leader>c"] = { "<cmd>bdelete<cr>", desc = "Close window" }
+  maps.n["<leader>c"] = { "<cmd>bdelete<cr>", desc = "Close buffer" }
+  maps.n["<leader>C"] = { "<cmd>bdelete!<cr>", desc = "Force close buffer" }
 end
 
 -- Navigate buffers
@@ -83,8 +92,10 @@ if is_available "neovim-session-manager" then
 end
 
 -- Package Manager
--- TODO: v2 rework these key bindings to be more general
-if is_available "mason.nvim" then maps.n["<leader>lI"] = { "<cmd>Mason<cr>", desc = "LSP installer" } end
+if is_available "mason.nvim" then
+  maps.n["<leader>pI"] = { "<cmd>Mason<cr>", desc = "Mason Installer" }
+  maps.n["<leader>pU"] = { "<cmd>MasonUpdateAll<cr>", desc = "Mason Update" }
+end
 
 -- LSP Installer
 if is_available "mason-lspconfig.nvim" then maps.n["<leader>li"] = { "<cmd>LspInfo<cr>", desc = "LSP information" } end
@@ -104,7 +115,7 @@ if is_available "smart-splits.nvim" then
   maps.n["<C-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" }
 else
   maps.n["<C-h>"] = { "<C-w>h", desc = "Move to left split" }
-  -- maps.n["<C-j>"] = { "<C-w>j", desc = "Move to below split" }
+  maps.n["<C-j>"] = { "<C-w>j", desc = "Move to below split" }
   maps.n["<C-k>"] = { "<C-w>k", desc = "Move to above split" }
   maps.n["<C-l>"] = { "<C-w>l", desc = "Move to right split" }
   maps.n["<C-Up>"] = { "<cmd>resize -2<CR>", desc = "Resize split up" }
@@ -114,7 +125,9 @@ else
 end
 
 -- SymbolsOutline
-if is_available "aerial.nvim" then maps.n["<leader>lS"] = { "<cmd>AerialToggle<cr>", desc = "Symbols outline" } end
+if is_available "aerial.nvim" then
+  maps.n["<leader>lS"] = { function() require("aerial").toggle() end, desc = "Symbols outline" }
+end
 
 -- Telescope
 if is_available "telescope.nvim" then
@@ -144,11 +157,13 @@ if is_available "telescope.nvim" then
   maps.n["<leader>sb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
   maps.n["<leader>sh"] = { function() require("telescope.builtin").help_tags() end, desc = "Search help" }
   maps.n["<leader>sm"] = { function() require("telescope.builtin").man_pages() end, desc = "Search man" }
-  maps.n["<leader>sn"] =
-    { function() require("telescope").extensions.notify.notify() end, desc = "Search notifications" }
   maps.n["<leader>sr"] = { function() require("telescope.builtin").registers() end, desc = "Search registers" }
   maps.n["<leader>sk"] = { function() require("telescope.builtin").keymaps() end, desc = "Search keymaps" }
   maps.n["<leader>sc"] = { function() require("telescope.builtin").commands() end, desc = "Search commands" }
+  if astronvim.is_available "nvim-notify" then
+    maps.n["<leader>sn"] =
+      { function() require("telescope").extensions.notify.notify() end, desc = "Search notifications" }
+  end
   maps.n["<leader>ls"] = {
     function()
       local aerial_avail, _ = pcall(require, "aerial")
@@ -169,31 +184,67 @@ end
 -- Terminal
 if is_available "toggleterm.nvim" then
   local toggle_term_cmd = astronvim.toggle_term_cmd
-  -- maps.n["<C-j>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }
-  maps.n["<leader>gg"] = { function() toggle_term_cmd "lazygit" end, desc = "ToggleTerm lazygit" }
-  maps.n["<leader>tn"] = { function() toggle_term_cmd "node" end, desc = "ToggleTerm node" }
-  maps.n["<leader>tu"] = { function() toggle_term_cmd "ncdu" end, desc = "ToggleTerm NCDU" }
-  maps.n["<leader>tt"] = { function() toggle_term_cmd "htop" end, desc = "ToggleTerm htop" }
-  maps.n["<leader>tp"] = { function() toggle_term_cmd "python" end, desc = "ToggleTerm python" }
-  maps.n["<leader>tl"] = { function() toggle_term_cmd "lazygit" end, desc = "ToggleTerm lazygit" }
+  if vim.fn.executable "lazygit" == 1 then
+    maps.n["<leader>gg"] = { function() toggle_term_cmd "lazygit" end, desc = "ToggleTerm lazygit" }
+    maps.n["<leader>tl"] = { function() toggle_term_cmd "lazygit" end, desc = "ToggleTerm lazygit" }
+  end
+  if vim.fn.executable "node" == 1 then
+    maps.n["<leader>tn"] = { function() toggle_term_cmd "node" end, desc = "ToggleTerm node" }
+  end
+  if vim.fn.executable "gdu" == 1 then
+    maps.n["<leader>tu"] = { function() toggle_term_cmd "gdu" end, desc = "ToggleTerm gdu" }
+  end
+  if vim.fn.executable "btm" == 1 then
+    maps.n["<leader>tt"] = { function() toggle_term_cmd "btm" end, desc = "ToggleTerm btm" }
+  end
+  if vim.fn.executable "python" == 1 then
+    maps.n["<leader>tp"] = { function() toggle_term_cmd "python" end, desc = "ToggleTerm python" }
+  end
   maps.n["<leader>tf"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm float" }
   maps.n["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm horizontal split" }
   maps.n["<C-j>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm vertical split" }
+  maps.n["<F7>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }
+  maps.t["<F7>"] = maps.n["<F7>"]
+  maps.n["<C-'>"] = maps.n["<F7>"]
+  maps.t["<C-'>"] = maps.n["<F7>"]
 end
 
 -- Stay in indent mode
 maps.v["<"] = { "<gv", desc = "unindent line" }
 maps.v[">"] = { ">gv", desc = "indent line" }
 
--- Improved Terminal Mappings
-maps.t["<esc>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" }
-maps.t["jk"] = { "<C-\\><C-n>", desc = "Terminal normal mode" }
+-- Improved Terminal Navigation
 maps.t["<C-h>"] = { "<c-\\><c-n><c-w>h", desc = "Terminal left window navigation" }
 maps.t["<C-j>"] = { "<c-\\><c-n><c-w>j", desc = "Terminal down window navigation" }
 maps.t["<C-k>"] = { "<c-\\><c-n><c-w>k", desc = "Terminal up window navigation" }
-maps.t["<C-l>"] = { "<c-\\><c-n><c-w>l", desc = "Terminal right window naviation" }
+maps.t["<C-l>"] = { "<c-\\><c-n><c-w>l", desc = "Terminal right window navigation" }
 
--- dap
+-- Custom menu for modification of the user experience
+if is_available "nvim-autopairs" then
+  maps.n["<leader>ua"] = { function() astronvim.ui.toggle_autopairs() end, desc = "Toggle autopairs" }
+end
+maps.n["<leader>ub"] = { function() astronvim.ui.toggle_background() end, desc = "Toggle background" }
+if is_available "nvim-cmp" then
+  maps.n["<leader>uc"] = { function() astronvim.ui.toggle_cmp() end, desc = "Toggle autocompletion" }
+end
+if is_available "nvim-colorizer.lua" then
+  maps.n["<leader>uC"] = { "<cmd>ColorizerToggle<cr>", desc = "Toggle color highlight" }
+end
+maps.n["<leader>uS"] = { function() astronvim.ui.toggle_conceal() end, desc = "Toggle conceal" }
+maps.n["<leader>ud"] = { function() astronvim.ui.toggle_diagnostics() end, desc = "Toggle diagnostics" }
+maps.n["<leader>ug"] = { function() astronvim.ui.toggle_signcolumn() end, desc = "Toggle signcolumn" }
+maps.n["<leader>ui"] = { function() astronvim.ui.set_indent() end, desc = "Change indent setting" }
+maps.n["<leader>ul"] = { function() astronvim.ui.toggle_statusline() end, desc = "Toggle statusline" }
+maps.n["<leader>un"] = { function() astronvim.ui.change_number() end, desc = "Change line numbering" }
+maps.n["<leader>us"] = { function() astronvim.ui.toggle_spell() end, desc = "Toggle spellcheck" }
+maps.n["<leader>up"] = { function() astronvim.ui.toggle_paste() end, desc = "Toggle paste mode" }
+maps.n["<leader>ut"] = { function() astronvim.ui.toggle_tabline() end, desc = "Toggle tabline" }
+maps.n["<leader>uu"] = { function() astronvim.ui.toggle_url_match() end, desc = "Toggle URL highlight" }
+maps.n["<leader>uw"] = { function() astronvim.ui.toggle_wrap() end, desc = "Toggle wrap" }
+maps.n["<leader>uy"] = { function() astronvim.ui.toggle_syntax() end, desc = "Toggle syntax highlight" }
+maps.n["<leader>uN"] = { function() astronvim.ui.toggle_ui_notifications() end, desc = "Toggle UI notifications" }
+
+
 maps.n["<F5>"] = {"<cmd> DapContinue <CR>", desc = "continue to the next breakpoint"}
 maps.n["<F10>"] = {"<cmd> DapStepOver <CR>", desc = "step over"}
 maps.n["<F11>"] = {"<cmd> DapStepStopInto <CR>", desc = "step into"}
@@ -210,6 +261,5 @@ maps.n["<leader>dt"] = {
 
 -- Trouble neovim
 maps.n["<leader>tb"] = {"<cmd> TroubleToggle <CR>", desc = "toggle trouble dashboard"}
-
 
 astronvim.set_mappings(astronvim.user_plugin_opts("mappings", maps))
