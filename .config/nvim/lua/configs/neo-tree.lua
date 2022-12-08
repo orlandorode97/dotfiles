@@ -20,10 +20,10 @@ require("neo-tree").setup(astronvim.user_plugin_opts("plugins.neo-tree", {
       with_expanders = false,
     },
     icon = {
-      folder_closed = "",
-      folder_open = "",
-      folder_empty = "",
-      default = "",
+      folder_closed = "",
+      folder_open = "",
+      folder_empty = "",
+      default = "",
     },
     git_status = {
       symbols = {

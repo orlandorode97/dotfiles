@@ -212,6 +212,10 @@ local config = {
 
     -- Add overrides for LSP server settings, the keys are the name of the server
     ["server-settings"] = {
+       -- grammarly = {
+       --         cmd = {"grammarly-languageserver", "--stdio"},
+       --         filetypes = {"markdown", "go"}
+       -- }
       -- example for addings schemas to yamlls
       -- yamlls = { -- override table for require("lspconfig").yamlls.setup({...})
       --   settings = {

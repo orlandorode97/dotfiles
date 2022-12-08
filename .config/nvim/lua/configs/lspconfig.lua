@@ -9,3 +9,5 @@ if astronvim.is_available "mason-lspconfig.nvim" then
 else
   setup_servers()
 end
+
+

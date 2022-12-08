@@ -12,4 +12,6 @@ require("nvim-web-devicons").set_icon(astronvim.user_plugin_opts("plugins.nvim-w
   woff2 = { icon = "", name = "WebOpenFontFormat2" },
   xz = { icon = "", name = "Xz" },
   zip = { icon = "", name = "Zip" },
+  go = { icon = "ﳑ", name = "Go", color = "#01ADD8"},
+  json = {icon = "ﬥ", name = "Json", color = "#fff400" }
 }))
