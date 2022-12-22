@@ -26,7 +26,7 @@ local config = {
   },
 
   -- Set colorscheme to use
-  colorscheme = "moonfly",
+  colorscheme = "catppuccin",
 
   -- Add highlight groups in any theme
   highlights = {
@@ -286,8 +286,14 @@ local config = {
         { "rebelot/kanagawa.nvim" },
         -- tokyonight theme
         {  "folke/tokyonight.nvim"},
+        -- aura dark theme
+        { "techtuner/aura-neovim"},
         -- tokyodark theme
         { "tiagovla/tokyodark.nvim" },
+        -- enfocado theme
+        { "wuelnerdotexe/vim-enfocado" },
+        -- oxocarbon theme
+        { "nyoom-engineering/oxocarbon.nvim" },
         {
           "nvim-lualine/lualine.nvim",
           config = function()

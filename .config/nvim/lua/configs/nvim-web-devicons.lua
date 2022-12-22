@@ -13,5 +13,5 @@ require("nvim-web-devicons").set_icon(astronvim.user_plugin_opts("plugins.nvim-w
   xz = { icon = "", name = "Xz" },
   zip = { icon = "", name = "Zip" },
   go = { icon = "ﳑ", name = "Go", color = "#01ADD8"},
-  json = {icon = "ﬥ", name = "Json", color = "#fff400" }
+  json = {icon = "ﬥ", name = "Json", color = "#fff400" },
 }))

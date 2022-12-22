@@ -1,7 +1,6 @@
 local wezterm = require("wezterm")
 return {
-	font = wezterm.font("Arimo Nerd Font Mono Regular"),
-  stretch = "Expanded",
+	font = wezterm.font("Hack Nerd Font Mono"),
   bold = true,
 	font_size = 16,
 	color_scheme = "Monokai Remastered",
