@@ -3,7 +3,7 @@ return {
 	font = wezterm.font("Hack Nerd Font Mono"),
   bold = true,
 	font_size = 16,
-	color_scheme = "Monokai Remastered",
+	color_scheme = "Catppuccin Frappe",
 	check_for_updates = false,
 	keys = {
 		{

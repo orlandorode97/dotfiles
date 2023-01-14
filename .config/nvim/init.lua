@@ -124,9 +124,9 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
-vim.api.nvim_set_hl(0,'DapBreakpoint', { ctermbg=0, bg='#993939' })
-vim.api.nvim_set_hl(0,'DapLogPoint', { ctermbg=0, bg='#61afef' })
-vim.api.nvim_set_hl(0,'DapStopped', { ctermbg=0, bg='#98c379' })
+vim.api.nvim_set_hl(0,'DapBreakpoint', { ctermbg=0})
+vim.api.nvim_set_hl(0,'DapLogPoint', { ctermbg=0})
+vim.api.nvim_set_hl(0,'DapStopped', { ctermbg=0})
 
 
 vim.fn.sign_define('DapBreakpoint', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
