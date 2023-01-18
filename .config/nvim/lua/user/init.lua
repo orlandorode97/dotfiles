@@ -26,7 +26,7 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "catppuccin-frappe",
+        colorscheme = "bluloco",
 
         -- Add highlight groups in any theme
         highlights = {
@@ -292,6 +292,9 @@ local config = {
                         { "tiagovla/tokyodark.nvim" },
                         -- enfocado theme
                         { "wuelnerdotexe/vim-enfocado" },
+                        { "rktjmp/lush.nvim" },
+                        -- bluloco theme
+                        { "uloco/bluloco.nvim" },
                         -- oxocarbon theme
                         { "nyoom-engineering/oxocarbon.nvim" },
                         {
