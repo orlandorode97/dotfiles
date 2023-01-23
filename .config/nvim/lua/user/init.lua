@@ -295,6 +295,10 @@ local config = {
                         { "rktjmp/lush.nvim" },
                         -- bluloco theme
                         { "uloco/bluloco.nvim" },
+                        -- Palenightfall theme
+                        { "JoosepAlviste/palenightfall.nvim" },
+                        -- Nordic theme
+                        { "AlexvZyl/nordic.nvim" },
                         -- modes nvim for current line
                         { "mvllow/modes.nvim",
                                 config = function()
