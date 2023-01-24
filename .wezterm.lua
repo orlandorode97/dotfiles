@@ -293,7 +293,6 @@ return {
 	show_update_window = false,
 	check_for_updates = false,
 	line_height = 1.5,
-	window_decorations = "RESIZE",
 	window_close_confirmation = "NeverPrompt",
 	audible_bell = "Disabled",
 	window_padding = {
