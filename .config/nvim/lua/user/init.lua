@@ -26,7 +26,7 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "bluloco",
+        colorscheme = "palenightfall",
 
         -- Add highlight groups in any theme
         highlights = {
@@ -347,7 +347,7 @@ local config = {
                                                         lualine_a = {
                                                                 {
                                                                         function()
-                                                                                return ""
+                                                                                return ""
                                                                         end,
                                                                         separator = { left = "", right = "" },
                                                                 },
@@ -385,7 +385,7 @@ local config = {
                                                         lualine_c = {
                                                                 {
                                                                         function()
-                                                                                return ''
+                                                                                return ''
                                                                         end,
                                                                         color = { bg = '#8FCDA9', fg = '#121319' },
                                                                         separator = { left = '', right = '' },

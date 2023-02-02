@@ -1,150 +1,3 @@
-##format = "$directory $all \n$character"
-### right_format = """$git_branch$git_status$cmd_duration$directory"""
-##right_format = """$git_branch$git_status$cmd_duration"""
-##
-### Disable the blank line at the start of the prompt
-##add_newline = false
-##
-##[line_break]
-##disabled = true
-##
-##[character]
-##success_symbol = " [](#679abc)"
-##error_symbol = " [](#df5b61)"
-##
-##[hostname]
-##ssh_only = true
-##format = "[$hostname](bold blue) "
-##disabled = false
-##
-##[cmd_duration]
-##min_time = 1
-##format = "[](fg:#1c252c bg:none)[$duration]($style)[](fg:#1c252c bg:#1c252c)[](fg:#bc83e3 bg:#1c252c)[ ](fg:#1c252c bg:#bc83e3)[](fg:#bc83e3 bg:none) "
-##disabled = true
-##style = "fg:#d9d7d6 bg:#1c252c"
-##
-##[directory]
-##truncation_length = 10
-##truncate_to_repo = true                                                                                                                                # truncates directory to root folder if in github truncate_to_repo
-##format = "[](fg:#1c252c bg:none)[$path]($style)[](fg:#1c252c bg:#1c252c)[](fg:#78b892 bg:#1c252c)[](fg:#1c252c bg:#78b892)[](fg:#78b892 bg:none)"
-##style = "bold fg:white bg:#1c252c"
-##
-##[git_branch]
-##format = "[](fg:red bg:none)[$branch]($style)[ ](fg:red bg:none)[](fg:#78b892 bg:#1c252c)[ ](fg:#282c34 bg:#78b892)[](fg:#78b892 bg:none) "
-##style = "fg:#1c252c bg:red"
-##
-##[git_status]
-##disabled = true
-##
-##[battery]
-##disabled = true
-##
-##[git_commit]
-##format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
-##style = "green"
-##
-##[git_state]
-##rebase = "REBASING"
-##merge = "MERGING"
-##revert = "REVERTING"
-##cherry_pick = "CHERRY-PICKING"
-##bisect = "BISECTING"
-##am = "AM"
-##am_or_rebase = "AM/REBASE"
-##style = "yellow"
-##format = '\([$state( $progress_current/$progress_total)]($style)\) '
-##
-##
-##[docker_context]
-##symbol = " "
-##format = "via [$symbol$context]($style) "
-##style = "blue bold"
-##only_with_files = true
-##detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
-##detect_folders = []
-##disabled = false
-##
-##[golang]
-##format = "[ﳑ $version](bold fg:#4bb8fd) "
-##
-##[package]
-##disabled = true
-##symbol = " "
-##format = "[$symbol$version]($style)"
-##
-##[gcloud]
-##disabled = true
-##
-##[rust]
-##style = "red"
-##symbol = " "
-##format = "[$symbol($version )]($style)"
-##
-##[nodejs]
-##style = "bold fg:#ACE791"
-##
-##[aws]
-##symbol = "  "
-##
-##[conda]
-##symbol = " "
-##
-##[dart]
-##symbol = " "
-##format = "via [$symbol]($style)"
-##
-##[elixir]
-##symbol = " "
-##format = 'via [$symbol]($style)'
-##
-##[elm]
-##symbol = " "
-##
-##[java]
-##symbol = " "
-##format = 'via [$symbol]($style)'
-##
-##[julia]
-##symbol = " "
-##
-##[memory_usage]
-##symbol = " "
-##
-##[nim]
-##symbol = " "
-##
-##[nix_shell]
-##symbol = " "
-##
-##[perl]
-##symbol = " "
-##
-##[php]
-##symbol = " "
-##
-##[python]
-##symbol = " "
-##format = 'via [$symbol]($style)'
-##
-##[ruby]
-##symbol = " "
-##disabled = true
-##
-##[scala]
-##symbol = " "
-##
-##[shlvl]
-##symbol = " "
-##
-##[swift]
-##symbol = "ﯣ "
-##format = 'via [$symbol]($style)'
-
-
-## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
-## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
-## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
-
 format = "$directory $all \n$character"
 # right_format = """$git_branch$git_status$cmd_duration$directory"""
 right_format = """$git_branch$git_status$cmd_duration"""
@@ -155,11 +8,9 @@ add_newline = false
 [line_break]
 disabled = true
 
-
 [character]
 success_symbol = " [](#6791c9)"
 error_symbol = " [](#df5b61)"
-vicmd_symbol = "[  ](#78b892)"
 
 [hostname]
 ssh_only = true
@@ -168,7 +19,7 @@ disabled = false
 
 [directory]
 format = "[](fg:#1c252c bg:none)[$path]($style)[](fg:#1c252c bg:#1c252c)[](fg:#6791c9 bg:#1c252c)[](fg:#1c252c bg:#6791c9)[](fg:#6791c9 bg:none)"
-style = "fg:#d9d7d6 bg:#1c252c"
+style = "fg:#85de67 bg:#1c252c"
 truncation_length = 3
 truncate_to_repo = false
 

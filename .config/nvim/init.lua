@@ -26,7 +26,7 @@ local dap, dapui = require("dap"), require("dapui")
 require('nvim-dap-virtual-text').setup()
 require('dap-go').setup()
 require('dapui').setup({
- icons = { expanded = "▾", collapsed = "▸" },
+  icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
     -- Use a table to apply multiple mappings
     expand = { "<CR>", "<2-LeftMouse>" },
@@ -49,7 +49,7 @@ require('dapui').setup({
   layouts = {
     {
       elements = {
-      -- Elements can be strings or table with id and size keys.
+        -- Elements can be strings or table with id and size keys.
         { id = "scopes", size = 0.25 },
         "watches",
       },
@@ -85,7 +85,7 @@ dap.adapters.delve = {
   port = '${port}',
   executable = {
     command = 'dlv',
-    args = {'dap', '-l', '127.0.0.1:${port}'},
+    args = { 'dap', '-l', '127.0.0.1:${port}' },
   }
 }
 
@@ -104,7 +104,7 @@ dap.configurations.go = {
     mode = "test",
     program = "${file}"
   },
--- works with go.mod packages and sub packages
+  -- works with go.mod packages and sub packages
   {
     type = "delve",
     name = "Debug test (go.mod)",
@@ -124,13 +124,11 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
-vim.api.nvim_set_hl(0,'DapBreakpoint', { ctermbg=0, bg='#993939' })
-vim.api.nvim_set_hl(0,'DapLogPoint', { ctermbg=0, bg='#61afef' })
-vim.api.nvim_set_hl(0,'DapStopped', { ctermbg=0, bg='#98c379' })
-
-
-vim.fn.sign_define('DapBreakpoint', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
-vim.fn.sign_define('DapBreakpointCondition', { text='ﳁ', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
-vim.fn.sign_define('DapBreakpointRejected', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl= 'DapBreakpoint' })
-vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', linehl='DapLogPoint', numhl= 'DapLogPoint' })
-vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
+vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint',
+  numhl = 'DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointCondition',
+  { text = 'ﳁ', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointRejected',
+  { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' })
+vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })

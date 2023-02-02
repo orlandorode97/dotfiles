@@ -39,7 +39,7 @@ require("indent_blankline").setup(astronvim.user_plugin_opts("plugins.indent_bla
   },
   show_trailing_blankline_indent = false,
   use_treesitter = true,
-  char = "▏",
-  context_char = "▏",
+  char = "",
+  context_char = "",
   show_current_context = true,
 }))
