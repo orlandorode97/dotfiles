@@ -26,7 +26,7 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "palenightfall",
+        colorscheme = "nordic",
 
         -- Add highlight groups in any theme
         highlights = {
@@ -297,6 +297,8 @@ local config = {
                         { "uloco/bluloco.nvim" },
                         -- Palenightfall theme
                         { "JoosepAlviste/palenightfall.nvim" },
+                        -- dbml syntax
+                        { "jidn/vim-dbml" },
                         -- Nordic theme
                         { "AlexvZyl/nordic.nvim" },
                         -- modes nvim for current line
