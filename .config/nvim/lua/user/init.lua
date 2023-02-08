@@ -170,7 +170,15 @@ local config = {
         lsp = {
                 -- enable servers that you already have installed without mason
                 servers = {
-                        -- "pyright"
+                        "gopls",
+                        "dockerls",
+                        "rust_analyzer",
+                        "bashls",
+                        "sumneko_lua",
+                        "taplo",
+                        "bufls",
+                        "yamlls",
+                        "jsonls"
                 },
                 formatting = {
                         -- control auto formatting on save
@@ -520,7 +528,25 @@ local config = {
                         return config -- return final config table
                 end,
                 treesitter = { -- overrides `require("treesitter").setup(...)`
-                        -- ensure_installed = { "lua" },
+                        ensure_installed = {
+                                "bash",
+                                "cmake",
+                                "dockerfile",
+                                "dot",
+                                "go",
+                                "gomod",
+                                "help",
+                                "json",
+                                "lua",
+                                "make",
+                                "markdown",
+                                "proto",
+                                "rust",
+                                "toml",
+                                "vim",
+                                "yaml",
+                                "yang"
+                        },
                 },
                 -- use mason-lspconfig to configure LSP installations
                 ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`

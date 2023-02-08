@@ -36,8 +36,8 @@ setup(astronvim.user_plugin_opts("plugins.cmp", {
     select = false,
   },
   window = {
-    completion = cmp.config.window.bordered(border_opts),
-    documentation = cmp.config.window.bordered(border_opts),
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = {
     ["<Up>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
