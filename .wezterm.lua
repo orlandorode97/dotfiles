@@ -114,8 +114,8 @@ local function get_process(tab)
 					{ Text = wezterm.nerdfonts.mdi_hexagon },
 			},
 			["zsh"] = {
-					{ Foreground = { Color = colors.green } },
-					{ Text = wezterm.nerdfonts.oct_terminal },
+					{ Foreground = { Color = colors.teal } },
+					{ Text = wezterm.nerdfonts.cod_terminal_bash },
 			},
 			["bash"] = {
 					{ Foreground = { Color = colors.subtext0 } },
@@ -165,10 +165,6 @@ local function get_process(tab)
 					{ Foreground = { Color = colors.mauve } },
 					{ Text = wezterm.nerdfonts.dev_github_badge },
 			},
-			["brew"] = {
-					{ Foreground = { Color = colors.red } },
-					{ Text = wezterm.nerdfonts.dev_ruby }
-			}
 	}
 
 	local process_name = string.gsub(tab.active_pane.foreground_process_name, "(.*[/\\])(.*)", "%2")
@@ -183,8 +179,8 @@ local function get_current_working_dir(tab)
 	local current_dir = tab.active_pane.current_working_dir
 	local HOME_DIR = string.format("file://%s", os.getenv("HOME"))
 
-	return current_dir == HOME_DIR and string.format(" %s %s", wezterm.nerdfonts.fa_folder, "")
-			or string.format(" %s %s", wezterm.nerdfonts.fa_folder, string.gsub(current_dir, "(.*[/\\])(.*)", "%2"))
+	return current_dir == HOME_DIR and "  ~"
+			or string.format("  %s", string.gsub(current_dir, "(.*[/\\])(.*)", "%2"))
 end
 
 wezterm.on("format-tab-title", function(tab)
@@ -287,7 +283,7 @@ return {
 						background = colors.crust,
 						active_tab = {
 								bg_color = "none",
-								fg_color = colors.peach,
+								fg_color = colors.green,
 								intensity = "Bold",
 								underline = "None",
 								italic = false,
@@ -295,7 +291,7 @@ return {
 						},
 						inactive_tab = {
 								bg_color = colors.crust,
-								fg_color = colors.lavender,
+								fg_color = colors.surface2
 						},
 						inactive_tab_hover = {
 								bg_color = colors.mantle,
