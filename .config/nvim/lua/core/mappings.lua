@@ -1,6 +1,6 @@
 local is_available = astronvim.is_available
 
-local maps = { i = {}, n = {}, v = {}, t = {}, [""] = {} }
+local maps = { i = {}, n = {}, v = {}, t = {},[""] = {} }
 
 maps[""]["<Space>"] = "<Nop>"
 
@@ -57,8 +57,8 @@ end
 if is_available "Comment.nvim" then
   maps.n["<leader>/"] = { function() require("Comment.api").toggle.linewise.current() end, desc = "Comment line" }
   maps.v["<leader>/"] = {
-    "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
-    desc = "Toggle comment line",
+      "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+      desc = "Toggle comment line",
   }
 end
 
@@ -88,7 +88,7 @@ if is_available "neovim-session-manager" then
   maps.n["<leader>Sd"] = { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" }
   maps.n["<leader>Sf"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" }
   maps.n["<leader>S."] =
-    { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
+  { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
 end
 
 -- Package Manager
@@ -133,27 +133,27 @@ end
 if is_available "telescope.nvim" then
   maps.n["<C-f>"] = { function() require("telescope.builtin").live_grep() end, desc = "Search words" }
   maps.n["<leader>fW"] = {
-    function()
-      require("telescope.builtin").live_grep {
-        additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
-      }
-    end,
-    desc = "Search words in all files",
+      function()
+        require("telescope.builtin").live_grep {
+            additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
+        }
+      end,
+      desc = "Search words in all files",
   }
   maps.n["<leader>gt"] = { function() require("telescope.builtin").git_status() end, desc = "Git status" }
   maps.n["<leader>gb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
   maps.n["<leader>gc"] = { function() require("telescope.builtin").git_commits() end, desc = "Git commits" }
   maps.n["<C-p>"] = { function() require("telescope.builtin").find_files() end, desc = "Search files" }
   maps.n["<leader>fF"] = {
-    function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
-    desc = "Search all files",
+      function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
+      desc = "Search all files",
   }
   maps.n["<leader>fb"] = { function() require("telescope.builtin").buffers() end, desc = "Search buffers" }
   maps.n["<leader>fh"] = { function() require("telescope.builtin").help_tags() end, desc = "Search help" }
   maps.n["<leader>fm"] = { function() require("telescope.builtin").marks() end, desc = "Search marks" }
   maps.n["<leader>fo"] = { function() require("telescope.builtin").oldfiles() end, desc = "Search history" }
   maps.n["<leader>fc"] =
-    { function() require("telescope.builtin").grep_string() end, desc = "Search for word under cursor" }
+  { function() require("telescope.builtin").grep_string() end, desc = "Search for word under cursor" }
   maps.n["<leader>sb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
   maps.n["<leader>sh"] = { function() require("telescope.builtin").help_tags() end, desc = "Search help" }
   maps.n["<leader>sm"] = { function() require("telescope.builtin").man_pages() end, desc = "Search man" }
@@ -162,21 +162,21 @@ if is_available "telescope.nvim" then
   maps.n["<leader>sc"] = { function() require("telescope.builtin").commands() end, desc = "Search commands" }
   if astronvim.is_available "nvim-notify" then
     maps.n["<leader>sn"] =
-      { function() require("telescope").extensions.notify.notify() end, desc = "Search notifications" }
+    { function() require("telescope").extensions.notify.notify() end, desc = "Search notifications" }
   end
   maps.n["<leader>ls"] = {
-    function()
-      local aerial_avail, _ = pcall(require, "aerial")
-      if aerial_avail then
-        require("telescope").extensions.aerial.aerial()
-      else
-        require("telescope.builtin").lsp_document_symbols()
-      end
-    end,
-    desc = "Search symbols",
+      function()
+        local aerial_avail, _ = pcall(require, "aerial")
+        if aerial_avail then
+          require("telescope").extensions.aerial.aerial()
+        else
+          require("telescope.builtin").lsp_document_symbols()
+        end
+      end,
+      desc = "Search symbols",
   }
   maps.n["<leader>lG"] =
-    { function() require("telescope.builtin").lsp_workspace_symbols() end, desc = "Search workspace symbols" }
+  { function() require("telescope.builtin").lsp_workspace_symbols() end, desc = "Search workspace symbols" }
   maps.n["<leader>lR"] = { function() require("telescope.builtin").lsp_references() end, desc = "Search references" }
   maps.n["<leader>lD"] = { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" }
 end
@@ -245,21 +245,22 @@ maps.n["<leader>uy"] = { function() astronvim.ui.toggle_syntax() end, desc = "To
 maps.n["<leader>uN"] = { function() astronvim.ui.toggle_ui_notifications() end, desc = "Toggle UI notifications" }
 
 
-maps.n["<F5>"] = {"<cmd> DapContinue <CR>", desc = "continue to the next breakpoint"}
-maps.n["<F10>"] = {"<cmd> DapStepOver <CR>", desc = "step over"}
-maps.n["<F11>"] = {"<cmd> DapStepStopInto <CR>", desc = "step into"}
-maps.n["<F12>"] = {"<cmd> DapStepOut <CR>", desc = "step out"}
-maps.n["<leader>de"] = {"<cmd> DapTerminate <CR>", desc = "stop dap debuggin"}
-maps.n["<leader>B"] = { "<cmd> :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) <CR>", desc = "toogle a breakpoint"}
-maps.n["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", desc = "toogle a breakpoint"}
+maps.n["<F5>"] = { "<cmd> DapContinue <CR>", desc = "continue to the next breakpoint" }
+maps.n["<F10>"] = { "<cmd> DapStepOver <CR>", desc = "step over" }
+maps.n["<F11>"] = { "<cmd> DapStepStopInto <CR>", desc = "step into" }
+maps.n["<F12>"] = { "<cmd> DapStepOut <CR>", desc = "step out" }
+maps.n["<leader>de"] = { "<cmd> DapTerminate <CR>", desc = "stop dap debuggin" }
+maps.n["<leader>B"] = { "<cmd> :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) <CR>",
+    desc = "toogle a breakpoint" }
+maps.n["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", desc = "toogle a breakpoint" }
 maps.n["<leader>dt"] = {
-   function ()
+    function()
       require("dap-go").debug_test()
-   end,
-   desc = "start go dap debug test"
+    end,
+    desc = "start go dap debug test"
 }
 
 -- Trouble neovim
-maps.n["<leader>tb"] = {"<cmd> TroubleToggle <CR>", desc = "toggle trouble dashboard"}
+maps.n["<leader>tb"] = { "<cmd> TroubleToggle <CR>", desc = "toggle trouble dashboard" }
 
 astronvim.set_mappings(astronvim.user_plugin_opts("mappings", maps))

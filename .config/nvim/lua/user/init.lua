@@ -29,36 +29,36 @@ local config = {
     -- Add highlight groups in any theme
     highlights = {
         init = function()
-                -- get highlights from highlight groups
-                local normal = astronvim.get_hlgroup "Normal"
-                local fg, bg = normal.fg, normal.bg
-                local bg_alt = astronvim.get_hlgroup("Visual").bg
-                local green = astronvim.get_hlgroup("String").fg
-                local red = astronvim.get_hlgroup("Error").fg
-                -- return a table of highlights for telescope based on colors gotten from highlight groups
-                return {
-                    TelescopeBorder = { fg = bg_alt, bg = bg },
-                    TelescopeNormal = { bg = bg },
-                    TelescopePreviewBorder = { fg = bg, bg = bg },
-                    TelescopePreviewNormal = { bg = bg },
-                    TelescopePreviewTitle = { fg = bg, bg = green },
-                    TelescopePromptBorder = { fg = bg_alt, bg = bg_alt },
-                    TelescopePromptNormal = { fg = fg, bg = bg_alt },
-                    TelescopePromptPrefix = { fg = red, bg = bg_alt },
-                    TelescopePromptTitle = { fg = bg, bg = red },
-                    TelescopeResultsBorder = { fg = bg, bg = bg },
-                    TelescopeResultsNormal = { bg = bg },
-                    TelescopeResultsTitle = { fg = bg, bg = bg },
-                }
+            -- get highlights from highlight groups
+            local normal = astronvim.get_hlgroup "Normal"
+            local fg, bg = normal.fg, normal.bg
+            local bg_alt = astronvim.get_hlgroup("Visual").bg
+            local green = astronvim.get_hlgroup("String").fg
+            local red = astronvim.get_hlgroup("Error").fg
+            -- return a table of highlights for telescope based on colors gotten from highlight groups
+            return {
+                TelescopeBorder = { fg = bg_alt, bg = bg },
+                TelescopeNormal = { bg = bg },
+                TelescopePreviewBorder = { fg = bg, bg = bg },
+                TelescopePreviewNormal = { bg = bg },
+                TelescopePreviewTitle = { fg = bg, bg = green },
+                TelescopePromptBorder = { fg = bg_alt, bg = bg_alt },
+                TelescopePromptNormal = { fg = fg, bg = bg_alt },
+                TelescopePromptPrefix = { fg = red, bg = bg_alt },
+                TelescopePromptTitle = { fg = bg, bg = red },
+                TelescopeResultsBorder = { fg = bg, bg = bg },
+                TelescopeResultsNormal = { bg = bg },
+                TelescopeResultsTitle = { fg = bg, bg = bg },
+            }
         end,
         -- duskfox = { -- a table of overrides/changes to the default
         --   Normal = { bg = "#000000" },
         -- },
         default_theme = function(highlights) -- or a function that returns a new table of colors to set
-                local C = require "default_theme.colors"
+            local C = require "default_theme.colors"
 
-                highlights.Normal = { fg = C.fg, bg = C.bg }
-                return highlights
+            highlights.Normal = { fg = C.fg, bg = C.bg }
+            return highlights
         end,
     },
     -- set vim options here (vim.<first_key>.<second_key> = value)
@@ -109,28 +109,28 @@ local config = {
     -- Default theme configuration
     default_theme = {
         colors = function(C)
-                C.telescope_green = C.green
-                C.telescope_red = C.red
-                C.telescope_fg = C.fg
-                C.telescope_bg = C.black_1
-                C.telescope_bg_alt = C.bg_1
-                return C
+            C.telescope_green = C.green
+            C.telescope_red = C.red
+            C.telescope_fg = C.fg
+            C.telescope_bg = C.black_1
+            C.telescope_bg_alt = C.bg_1
+            return C
         end,
         highlights = function(hl)
-                local C = require "default_theme.colors"
-                hl.TelescopeBorder = { fg = C.telescope_bg_alt, bg = C.telescope_bg }
-                hl.TelescopeNormal = { bg = C.telescope_bg }
-                hl.TelescopePreviewBorder = { fg = C.telescope_bg, bg = C.telescope_bg }
-                hl.TelescopePreviewNormal = { bg = C.telescope_bg }
-                hl.TelescopePreviewTitle = { fg = C.telescope_bg, bg = C.telescope_green }
-                hl.TelescopePromptBorder = { fg = C.telescope_bg_alt, bg = C.telescope_bg_alt }
-                hl.TelescopePromptNormal = { fg = C.telescope_fg, bg = C.telescope_bg_alt }
-                hl.TelescopePromptPrefix = { fg = C.telescope_red, bg = C.telescope_bg_alt }
-                hl.TelescopePromptTitle = { fg = C.telescope_bg, bg = C.telescope_red }
-                hl.TelescopeResultsBorder = { fg = C.telescope_bg, bg = C.telescope_bg }
-                hl.TelescopeResultsNormal = { bg = C.telescope_bg }
-                hl.TelescopeResultsTitle = { fg = C.telescope_bg, bg = C.telescope_bg }
-                return hl
+            local C = require "default_theme.colors"
+            hl.TelescopeBorder = { fg = C.telescope_bg_alt, bg = C.telescope_bg }
+            hl.TelescopeNormal = { bg = C.telescope_bg }
+            hl.TelescopePreviewBorder = { fg = C.telescope_bg, bg = C.telescope_bg }
+            hl.TelescopePreviewNormal = { bg = C.telescope_bg }
+            hl.TelescopePreviewTitle = { fg = C.telescope_bg, bg = C.telescope_green }
+            hl.TelescopePromptBorder = { fg = C.telescope_bg_alt, bg = C.telescope_bg_alt }
+            hl.TelescopePromptNormal = { fg = C.telescope_fg, bg = C.telescope_bg_alt }
+            hl.TelescopePromptPrefix = { fg = C.telescope_red, bg = C.telescope_bg_alt }
+            hl.TelescopePromptTitle = { fg = C.telescope_bg, bg = C.telescope_red }
+            hl.TelescopeResultsBorder = { fg = C.telescope_bg, bg = C.telescope_bg }
+            hl.TelescopeResultsNormal = { bg = C.telescope_bg }
+            hl.TelescopeResultsTitle = { fg = C.telescope_bg, bg = C.telescope_bg }
+            return hl
         end,
         -- enable or disable highlighting for extra plugins
         plugins = {
@@ -168,7 +168,6 @@ local config = {
             "dockerls",
             "rust_analyzer",
             "bashls",
-            "sumneko_lua",
             "taplo",
             "bufls",
             "yamlls",
@@ -257,7 +256,6 @@ local config = {
     -- Configure plugins
     plugins = {
         init = {
-
             -- catppuccin theme
             { "catppuccin/nvim",                 as = "catppuccin" },
             -- nvim dap for debugger
@@ -280,8 +278,6 @@ local config = {
             { "pineapplegiant/spaceduck" },
             -- Git diff view
             { "sindrets/diffview.nvim" },
-            -- Multiple cursors
-            { "terryma/vim-multiple-cursors" },
             -- Kanaga theme
             { "rebelot/kanagawa.nvim" },
             -- tokyonight theme
@@ -301,180 +297,182 @@ local config = {
             { "jidn/vim-dbml" },
             -- Nordic theme
             { "AlexvZyl/nordic.nvim" },
+            -- Multi cursors
+            { "mg979/vim-visual-multi" },
             -- modes nvim for current line
             { "mvllow/modes.nvim",
                 config = function()
-                        require('modes').setup({
-                            colors = {
-                                copy = "#f5c359",
-                                delete = "#c75c6a",
-                                insert = "#78ccc5",
-                                visual = "#9745be",
-                            },
-                            -- Set opacity for cursorline and number background
-                            line_opacity = 0.15,
-                            -- Enable cursor highlights
-                            set_cursor = true,
-                            -- Enable cursorline initially, and disable cursorline for inactive windows
-                            -- or ignored filetypes
-                            set_cursorline = true,
-                            -- Enable line number highlights to match cursorline
-                            set_number = true,
-                            -- Disable modes highlights in specified filetypes
-                            -- Please PR commonly ignored filetypes
-                            ignore_filetypes = { 'NvimTree', 'TelescopePrompt' }
-                        })
+                    require('modes').setup({
+                        colors = {
+                            copy = "#f5c359",
+                            delete = "#c75c6a",
+                            insert = "#78ccc5",
+                            visual = "#9745be",
+                        },
+                        -- Set opacity for cursorline and number background
+                        line_opacity = 0.15,
+                        -- Enable cursor highlights
+                        set_cursor = true,
+                        -- Enable cursorline initially, and disable cursorline for inactive windows
+                        -- or ignored filetypes
+                        set_cursorline = true,
+                        -- Enable line number highlights to match cursorline
+                        set_number = true,
+                        -- Disable modes highlights in specified filetypes
+                        -- Please PR commonly ignored filetypes
+                        ignore_filetypes = { 'NvimTree', 'TelescopePrompt' }
+                    })
                 end },
             -- oxocarbon theme
             { "nyoom-engineering/oxocarbon.nvim" },
             {
                 "nvim-lualine/lualine.nvim",
                 config = function()
-                        require("lualine").setup({
-                            options = {
-                                icons_enabled = true,
-                                theme = "catppuccin",
-                                component_separators = '|',
-                                section_separators = { left = '', right = '' },
-                                disabled_filetypes = {},
-                                always_divide_middle = true,
-                                globalstatus = true,
-                            },
-                            sections = {
-                                lualine_a = {
-                                    {
-                                        function()
-                                                return ""
-                                        end,
-                                        separator = { left = "", right = "" },
-                                    },
-                                },
-                                lualine_b = {
-                                    {
-                                        "filetype",
-                                        icon_only = true,
-                                        colored = true,
-                                        color = { bg = "#13141c", fg = "#ffffff" },
-                                    },
-                                    {
-                                        "filename",
-                                        color = { bg = "#13141c", fg = "#ffffff" },
-                                        separator = { left = "", right = "" },
-                                    },
-                                    {
-                                        "branch",
-                                        icon = "",
-                                        color = { bg = "#212430", fg = "#c296eb" },
-                                        separator = { left = "", right = "" },
-                                    },
-                                    {
-                                        "diff",
-                                        colored = true,
-                                        symbols = {
-                                            added = " ",
-                                            modified = " ",
-                                            removed = " ",
-                                        },
-                                        color = { bg = "#212430" },
-                                        separator = { left = "", right = "" },
-                                    },
-                                },
-                                lualine_c = {
-                                    {
-                                        function()
-                                                return ''
-                                        end,
-                                        color = { bg = '#8FCDA9', fg = '#121319' },
-                                        separator = { left = '', right = '' },
-                                    },
-                                    {
-                                        "diagnostics",
-                                        sources = { "nvim_lsp" },
-                                        sections = {
-                                            "info",
-                                            "error",
-                                            "warn",
-                                            "hint",
-                                        },
-                                        diagnostic_color = {
-                                            error = { fg = '#820e2d', bg = '#0f111a' },
-                                            warn = { fg = 'DiagnosticWarn',
-                                                bg = '#0f111a' },
-                                            info = { fg = 'DiaganosticInfo',
-                                                bg = '#0f111a' },
-                                            hint = { fg = '#92CDE7', bg = '#0f111a' },
-                                        },
-                                        colored = true,
-                                        update_in_insert = true,
-                                        always_visible = false,
-                                        symbols = {
-                                            error = " ",
-                                            warn = " ",
-                                            hint = " ",
-                                            info = " ",
-                                        },
-                                        separator = { left = "", right = "" },
-                                    },
-                                },
-                                lualine_x = {},
-                                lualine_y = {},
-                                lualine_z = {
-                                    {
-                                        "filesize",
-                                        color = "StatusLine",
-                                    },
-                                    {
-                                        function()
-                                                return ""
-                                        end,
-                                        separator = { left = "", right = "" },
-                                    },
-                                    {
-                                        "progress",
-                                        color = "StatusLine",
-                                    },
-                                    {
-                                        function()
-                                                return ""
-                                        end,
-                                        separator = { left = "", right = "" },
-                                    },
-                                    {
-                                        "location",
-                                        color = "StatusLine",
-                                    },
-                                    {
-                                        function()
-                                                return ""
-                                        end,
-                                        separator = { left = "", right = "" },
-                                    },
+                    require("lualine").setup({
+                        options = {
+                            icons_enabled = true,
+                            theme = "catppuccin",
+                            component_separators = '|',
+                            section_separators = { left = '', right = '' },
+                            disabled_filetypes = {},
+                            always_divide_middle = true,
+                            globalstatus = true,
+                        },
+                        sections = {
+                            lualine_a = {
+                                {
+                                    function()
+                                        return ""
+                                    end,
+                                    separator = { left = "", right = "" },
                                 },
                             },
-                            inactive_sections = {
-                                lualine_a = {},
-                                lualine_b = {},
-                                lualine_c = {},
-                                lualine_x = {},
-                                lualine_y = {},
-                                lualine_z = {},
+                            lualine_b = {
+                                {
+                                    "filetype",
+                                    icon_only = true,
+                                    colored = true,
+                                    color = { bg = "#13141c", fg = "#ffffff" },
+                                },
+                                {
+                                    "filename",
+                                    color = { bg = "#13141c", fg = "#ffffff" },
+                                    separator = { left = "", right = "" },
+                                },
+                                {
+                                    "branch",
+                                    icon = "",
+                                    color = { bg = "#212430", fg = "#c296eb" },
+                                    separator = { left = "", right = "" },
+                                },
+                                {
+                                    "diff",
+                                    colored = true,
+                                    symbols = {
+                                        added = " ",
+                                        modified = " ",
+                                        removed = " ",
+                                    },
+                                    color = { bg = "#212430" },
+                                    separator = { left = "", right = "" },
+                                },
                             },
-                            tabline = {},
-                            extensions = {},
-                        })
+                            lualine_c = {
+                                {
+                                    function()
+                                        return ''
+                                    end,
+                                    color = { bg = '#8FCDA9', fg = '#121319' },
+                                    separator = { left = '', right = '' },
+                                },
+                                {
+                                    "diagnostics",
+                                    sources = { "nvim_lsp" },
+                                    sections = {
+                                        "info",
+                                        "error",
+                                        "warn",
+                                        "hint",
+                                    },
+                                    diagnostic_color = {
+                                        error = { fg = '#820e2d', bg = '#0f111a' },
+                                        warn = { fg = 'DiagnosticWarn',
+                                            bg = '#0f111a' },
+                                        info = { fg = 'DiaganosticInfo',
+                                            bg = '#0f111a' },
+                                        hint = { fg = '#92CDE7', bg = '#0f111a' },
+                                    },
+                                    colored = true,
+                                    update_in_insert = true,
+                                    always_visible = false,
+                                    symbols = {
+                                        error = " ",
+                                        warn = " ",
+                                        hint = " ",
+                                        info = " ",
+                                    },
+                                    separator = { left = "", right = "" },
+                                },
+                            },
+                            lualine_x = {},
+                            lualine_y = {},
+                            lualine_z = {
+                                {
+                                    "filesize",
+                                    color = "StatusLine",
+                                },
+                                {
+                                    function()
+                                        return ""
+                                    end,
+                                    separator = { left = "", right = "" },
+                                },
+                                {
+                                    "progress",
+                                    color = "StatusLine",
+                                },
+                                {
+                                    function()
+                                        return ""
+                                    end,
+                                    separator = { left = "", right = "" },
+                                },
+                                {
+                                    "location",
+                                    color = "StatusLine",
+                                },
+                                {
+                                    function()
+                                        return ""
+                                    end,
+                                    separator = { left = "", right = "" },
+                                },
+                            },
+                        },
+                        inactive_sections = {
+                            lualine_a = {},
+                            lualine_b = {},
+                            lualine_c = {},
+                            lualine_x = {},
+                            lualine_y = {},
+                            lualine_z = {},
+                        },
+                        tabline = {},
+                        extensions = {},
+                    })
                 end,
             },
             {
                 "folke/trouble.nvim",
                 requires = "kyazdani42/nvim-web-devicons",
                 config = function()
-                        require("trouble").setup {
-                            use_diagnostic_signs = true,
-                            wrap = true,
-                            -- your configuration comes here
-                            -- or leave it empty to use the default settings
-                            -- refer to the configuration section below
-                        }
+                    require("trouble").setup {
+                        use_diagnostic_signs = true,
+                        wrap = true,
+                        -- your configuration comes here
+                        -- or leave it empty to use the default settings
+                        -- refer to the configuration section below
+                    }
                 end
             }
             -- You can disable default plugins as follows:
@@ -501,18 +499,18 @@ local config = {
         },
         -- All other entries override the require("<key>").setup({...}) call for default plugins
         ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
-                -- config variable is the default configuration table for the setup function call
-                -- local null_ls = require "null-ls"
+            -- config variable is the default configuration table for the setup function call
+            -- local null_ls = require "null-ls"
 
-                -- Check supported formatters and linters
-                -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-                -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-                config.sources = {
-                    -- Set a formatter
-                    -- null_ls.builtins.formatting.stylua,
-                    -- null_ls.builtins.formatting.prettier,
-                }
-                return config -- return final config table
+            -- Check supported formatters and linters
+            -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+            -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+            config.sources = {
+                -- Set a formatter
+                -- null_ls.builtins.formatting.stylua,
+                -- null_ls.builtins.formatting.prettier,
+            }
+            return config -- return final config table
         end,
         treesitter = { -- overrides `require("treesitter").setup(...)`
             ensure_installed = {
@@ -589,18 +587,18 @@ local config = {
     -- augroups/autocommands and custom filetypes also this just pure lua so
     -- anything that doesn't fit in the normal config locations above can go here
     polish = function()
-            -- Set up custom filetypes
-            -- vim.filetype.add {
-            --   extension = {
-            --     foo = "fooscript",
-            --   },
-            --   filename = {
-            --     ["Foofile"] = "fooscript",
-            --   },
-            --   pattern = {
-            --     ["~/%.config/foo/.*"] = "fooscript",
-            --   },
-            -- }
+        -- Set up custom filetypes
+        -- vim.filetype.add {
+        --   extension = {
+        --     foo = "fooscript",
+        --   },
+        --   filename = {
+        --     ["Foofile"] = "fooscript",
+        --   },
+        --   pattern = {
+        --     ["~/%.config/foo/.*"] = "fooscript",
+        --   },
+        -- }
     end,
 }
 
