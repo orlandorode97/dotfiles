@@ -215,9 +215,9 @@ return {
 	color_scheme = "MaterialOcean",
 	--	check_for_updates = false,
 	font = wezterm.font_with_fallback({
-		"Hack Nerd Font Mono",
-		"Liga SFMono Nerd Font",
-		"Apple Color Emoji",
+		--	"Hack Nerd Font Mono",
+		-- "FiraCode Nerd Font"
+		"OverpassMono Nerd Font"
 	}),
 	font_size = 15,
 	max_fps = 120,
