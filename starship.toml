@@ -9,7 +9,7 @@ add_newline = false
 disabled = true
 
 [character]
-success_symbol = " [](#6791c9)"
+success_symbol = " [](#85de67)"
 error_symbol = " [](#df5b61)"
 
 [hostname]

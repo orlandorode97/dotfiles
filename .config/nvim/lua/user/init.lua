@@ -5,6 +5,7 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 -- Set foldmethod
+vim.g.material_style = "deep ocean"
 local config = {
     -- Configure AstroNvim updates
     updater = {
@@ -25,7 +26,7 @@ local config = {
         -- },
     },
     -- Set colorscheme to use
-    colorscheme = "catppuccin",
+    colorscheme = "material",
     -- Add highlight groups in any theme
     highlights = {
         init = function()
@@ -299,6 +300,8 @@ local config = {
             { "AlexvZyl/nordic.nvim" },
             -- Multi cursors
             { "mg979/vim-visual-multi" },
+            -- Material theme
+            { "marko-cerovac/material.nvim" },
             -- modes nvim for current line
             { "mvllow/modes.nvim",
                 config = function()
