@@ -5,7 +5,6 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 -- Set foldmethod
-vim.g.material_style = "deep ocean"
 local config = {
     -- Configure AstroNvim updates
     updater = {
@@ -26,7 +25,7 @@ local config = {
         -- },
     },
     -- Set colorscheme to use
-    colorscheme = "material",
+    colorscheme = "tokyonight",
     -- Add highlight groups in any theme
     highlights = {
         init = function()
@@ -289,6 +288,7 @@ local config = {
             { "tiagovla/tokyodark.nvim" },
             -- enfocado theme
             { "wuelnerdotexe/vim-enfocado" },
+            -- lush for something
             { "rktjmp/lush.nvim" },
             -- bluloco theme
             { "uloco/bluloco.nvim" },
@@ -302,18 +302,20 @@ local config = {
             { "mg979/vim-visual-multi" },
             -- Material theme
             { "marko-cerovac/material.nvim" },
+            -- everforest theme
+            { "sainnhe/everforest" },
             -- modes nvim for current line
             { "mvllow/modes.nvim",
                 config = function()
                     require('modes').setup({
                         colors = {
                             copy = "#f5c359",
-                            delete = "#c75c6a",
+                            delete = "#c75c6E",
                             insert = "#78ccc5",
-                            visual = "#9745be",
+                            visual = "#c75c6a",
                         },
                         -- Set opacity for cursorline and number background
-                        line_opacity = 0.15,
+                        line_opacity = 1,
                         -- Enable cursor highlights
                         set_cursor = true,
                         -- Enable cursorline initially, and disable cursorline for inactive windows
