@@ -223,7 +223,7 @@ return {
 		-- "FiraCode Nerd Font"
 		"OverpassMono Nerd Font"
 	}),
-	font_size = 15,
+	font_size = 12,
 	max_fps = 120,
 	bold = true,
 	enable_wayland = false,
@@ -309,9 +309,26 @@ return {
 	keys = {
 		{
 			key = "e",
+			mods = "CTRL",
+			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+		},
+
+		{
+			key = "d",
+			mods = "CTRL",
+			action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+		},
+		{
+			key = "w",
+			mods = "CTRL",
+			action = wezterm.action.CloseCurrentPane({ confirm = false }),
+		},
+		{
+			key = "e",
 			mods = "CMD",
 			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
+
 		{
 			key = "d",
 			mods = "CMD",

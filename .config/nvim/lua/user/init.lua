@@ -257,7 +257,7 @@ local config = {
     plugins = {
         init = {
             -- catppuccin theme
-            { "catppuccin/nvim",                 as = "catppuccin" },
+            { "catppuccin/nvim", as = "catppuccin" },
             -- nvim dap for debugger
             { "mfussenegger/nvim-dap" },
             -- nvim dap for go debugger
@@ -265,7 +265,7 @@ local config = {
             -- nvim dap ui for debugger
             { "rcarriga/nvim-dap-ui" },
             -- moonfly theme
-            { 'bluz71/vim-moonfly-colors',       branch = 'cterm-compat' },
+            { 'bluz71/vim-moonfly-colors', branch = 'cterm-compat' },
             -- nvim dap for text in real time.
             { "theHamsta/nvim-dap-virtual-text" },
             -- rose pine theme
@@ -310,9 +310,9 @@ local config = {
                     require('modes').setup({
                         colors = {
                             copy = "#f5c359",
-                            delete = "#c75c6E",
-                            insert = "#78ccc5",
-                            visual = "#c75c6a",
+                            delete = "#c75c6a",
+                            insert = "#1e1e2e",
+                            visual = "#9745be",
                         },
                         -- Set opacity for cursorline and number background
                         line_opacity = 1,
@@ -330,6 +330,23 @@ local config = {
                 end },
             -- oxocarbon theme
             { "nyoom-engineering/oxocarbon.nvim" },
+            { "nvim-zh/colorful-winsep.nvim",
+                config = function()
+                    require("colorful-winsep").setup({
+                        -- timer refresh rate
+                        interval = 30,
+                        -- This plugin will not be activated for filetype in the following table.
+                        no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree" },
+                        -- Symbols for separator lines, the order: horizontal, vertical, top left, top right, bottom left, bottom right.
+                        symbols = { "━", "┃", "┏", "┓", "┗", "┛" },
+                        close_event = function()
+                            -- Executed after closing the window separator
+                        end,
+                        create_event = function()
+                            -- Executed after creating the window separator
+                        end,
+                    })
+                end },
             {
                 "nvim-lualine/lualine.nvim",
                 config = function()
