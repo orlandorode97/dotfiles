@@ -315,9 +315,9 @@ local config = {
                             visual = "#9745be",
                         },
                         -- Set opacity for cursorline and number background
-                        line_opacity = 1,
+                        line_opacity = 0.3,
                         -- Enable cursor highlights
-                        set_cursor = true,
+                        set_cursor = false,
                         -- Enable cursorline initially, and disable cursorline for inactive windows
                         -- or ignored filetypes
                         set_cursorline = true,
