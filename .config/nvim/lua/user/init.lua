@@ -338,7 +338,7 @@ local config = {
                             lualine_a = {
                                 {
                                     function()
-                                        return ""
+                                        return ""
                                     end,
                                     separator = { left = "", right = "" },
                                 },
@@ -414,14 +414,14 @@ local config = {
                             lualine_y = {},
                             lualine_z = {
                                 {
-                                    "filesize",
-                                    color = "StatusLine",
-                                },
-                                {
                                     function()
-                                        return ""
+                                        return ""
                                     end,
                                     separator = { left = "", right = "" },
+                                },
+                                {
+                                    "searchcount",
+                                    color = "StatusLine",
                                 },
                                 {
                                     "progress",

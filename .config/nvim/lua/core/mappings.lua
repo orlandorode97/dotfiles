@@ -57,8 +57,8 @@ end
 if is_available "Comment.nvim" then
   maps.n["<leader>/"] = { function() require("Comment.api").toggle.linewise.current() end, desc = "Comment line" }
   maps.v["<leader>/"] = {
-      "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
-      desc = "Toggle comment line",
+    "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+    desc = "Toggle comment line",
   }
 end
 
@@ -133,20 +133,20 @@ end
 if is_available "telescope.nvim" then
   maps.n["<C-f>"] = { function() require("telescope.builtin").live_grep() end, desc = "Search words" }
   maps.n["<leader>fW"] = {
-      function()
-        require("telescope.builtin").live_grep {
-            additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
-        }
-      end,
-      desc = "Search words in all files",
+    function()
+      require("telescope.builtin").live_grep {
+        additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
+      }
+    end,
+    desc = "Search words in all files",
   }
   maps.n["<leader>gt"] = { function() require("telescope.builtin").git_status() end, desc = "Git status" }
   maps.n["<leader>gb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
   maps.n["<leader>gc"] = { function() require("telescope.builtin").git_commits() end, desc = "Git commits" }
   maps.n["<C-p>"] = { function() require("telescope.builtin").find_files() end, desc = "Search files" }
   maps.n["<leader>fF"] = {
-      function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
-      desc = "Search all files",
+    function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
+    desc = "Search all files",
   }
   maps.n["<leader>fb"] = { function() require("telescope.builtin").buffers() end, desc = "Search buffers" }
   maps.n["<leader>fh"] = { function() require("telescope.builtin").help_tags() end, desc = "Search help" }
@@ -165,15 +165,15 @@ if is_available "telescope.nvim" then
     { function() require("telescope").extensions.notify.notify() end, desc = "Search notifications" }
   end
   maps.n["<leader>ls"] = {
-      function()
-        local aerial_avail, _ = pcall(require, "aerial")
-        if aerial_avail then
-          require("telescope").extensions.aerial.aerial()
-        else
-          require("telescope.builtin").lsp_document_symbols()
-        end
-      end,
-      desc = "Search symbols",
+    function()
+      local aerial_avail, _ = pcall(require, "aerial")
+      if aerial_avail then
+        require("telescope").extensions.aerial.aerial()
+      else
+        require("telescope.builtin").lsp_document_symbols()
+      end
+    end,
+    desc = "Search symbols",
   }
   maps.n["<leader>lG"] =
   { function() require("telescope.builtin").lsp_workspace_symbols() end, desc = "Search workspace symbols" }
@@ -250,14 +250,13 @@ maps.n["<F10>"] = { "<cmd> DapStepOver <CR>", desc = "step over" }
 maps.n["<F11>"] = { "<cmd> DapStepStopInto <CR>", desc = "step into" }
 maps.n["<F12>"] = { "<cmd> DapStepOut <CR>", desc = "step out" }
 maps.n["<leader>de"] = { "<cmd> DapTerminate <CR>", desc = "stop dap debuggin" }
-maps.n["<leader>B"] = { "<cmd> :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) <CR>",
-    desc = "toogle a breakpoint" }
 maps.n["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", desc = "toogle a breakpoint" }
+maps.n["<leader>bd"] = { "<cmd> lua require'dap'.clear_breakpoints() <CR>", desc = "clear breakpoints" }
 maps.n["<leader>dt"] = {
-    function()
-      require("dap-go").debug_test()
-    end,
-    desc = "start go dap debug test"
+  function()
+    require("dap-go").debug_test()
+  end,
+  desc = "start go dap debug test"
 }
 
 -- Trouble neovim
