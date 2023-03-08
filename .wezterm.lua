@@ -223,7 +223,7 @@ return {
 		-- "FiraCode Nerd Font"
 		"OverpassMono Nerd Font"
 	}),
-	font_size = 12,
+	font_size = 14.8,
 	max_fps = 120,
 	bold = true,
 	enable_wayland = false,
@@ -255,6 +255,7 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	disable_default_key_bindings = false,
 	front_end = "OpenGL",
+	default_cursor_style = "SteadyUnderline",
 	colors = {
 		scrollbar_thumb = colors.surface2,
 		compose_cursor = colors.flamingo,
@@ -307,22 +308,6 @@ return {
 		},
 	},
 	keys = {
-		{
-			key = "e",
-			mods = "CTRL",
-			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-		},
-
-		{
-			key = "d",
-			mods = "CTRL",
-			action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
-		},
-		{
-			key = "w",
-			mods = "CTRL",
-			action = wezterm.action.CloseCurrentPane({ confirm = false }),
-		},
 		{
 			key = "e",
 			mods = "CMD",

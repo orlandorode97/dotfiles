@@ -25,7 +25,7 @@ local config = {
         -- },
     },
     -- Set colorscheme to use
-    colorscheme = "tokyonight",
+    colorscheme = "rose-pine",
     -- Add highlight groups in any theme
     highlights = {
         init = function()
@@ -257,53 +257,29 @@ local config = {
     plugins = {
         init = {
             -- catppuccin theme
-            { "catppuccin/nvim", as = "catppuccin" },
+            { "catppuccin/nvim",                as = "catppuccin" },
             -- nvim dap for debugger
             { "mfussenegger/nvim-dap" },
             -- nvim dap for go debugger
             { "leoluz/nvim-dap-go" },
             -- nvim dap ui for debugger
             { "rcarriga/nvim-dap-ui" },
-            -- moonfly theme
-            { 'bluz71/vim-moonfly-colors', branch = 'cterm-compat' },
             -- nvim dap for text in real time.
             { "theHamsta/nvim-dap-virtual-text" },
-            -- rose pine theme
-            { "rose-pine/neovim" },
             -- git blame for commits.
             { "f-person/git-blame.nvim" },
             -- neovim plugin for golang
             { "fatih/vim-go" },
-            -- spaceduck theme
-            { "pineapplegiant/spaceduck" },
             -- Git diff view
             { "sindrets/diffview.nvim" },
-            -- Kanaga theme
-            { "rebelot/kanagawa.nvim" },
-            -- tokyonight theme
-            { "folke/tokyonight.nvim" },
-            -- aura dark theme
-            { "techtuner/aura-neovim" },
-            -- tokyodark theme
-            { "tiagovla/tokyodark.nvim" },
-            -- enfocado theme
-            { "wuelnerdotexe/vim-enfocado" },
-            -- lush for something
-            { "rktjmp/lush.nvim" },
-            -- bluloco theme
-            { "uloco/bluloco.nvim" },
-            -- Palenightfall theme
-            { "JoosepAlviste/palenightfall.nvim" },
             -- dbml syntax
             { "jidn/vim-dbml" },
-            -- Nordic theme
-            { "AlexvZyl/nordic.nvim" },
             -- Multi cursors
             { "mg979/vim-visual-multi" },
             -- Material theme
             { "marko-cerovac/material.nvim" },
-            -- everforest theme
-            { "sainnhe/everforest" },
+            -- rose pine theme
+            { "rose-pine/neovim" },
             -- modes nvim for current line
             { "mvllow/modes.nvim",
                 config = function()
@@ -328,8 +304,6 @@ local config = {
                         ignore_filetypes = { 'NvimTree', 'TelescopePrompt' }
                     })
                 end },
-            -- oxocarbon theme
-            { "nyoom-engineering/oxocarbon.nvim" },
             { "nvim-zh/colorful-winsep.nvim",
                 config = function()
                     require("colorful-winsep").setup({
