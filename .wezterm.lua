@@ -26,7 +26,7 @@ wezterm.on("ActivatePaneDirection-down", function(window, pane)
 	conditional_activate_pane(window, pane, "Down", "j")
 end)
 
-local catppuccin = {
+local custom_theme = {
 	dark = {
 		rosewater = "#F5E0DC",
 		flamingo = "#F2CDCD",
@@ -44,6 +44,7 @@ local catppuccin = {
 		lavender = "#B4BEFE",
 
 		text = "#CDD6F4",
+		text0 = "#e0def4",
 		subtext1 = "#BAC2DE",
 		subtext0 = "#A6ADC8",
 		overlay2 = "#9399B2",
@@ -56,6 +57,9 @@ local catppuccin = {
 		base = "#1E1E2E",
 		mantle = "#181825",
 		crust = "#11111B",
+
+		background = "#1f1d2e",
+		foreground_ = "#f4ede8",
 	},
 	light = {
 		rosewater = "#dc8a78",
@@ -89,7 +93,7 @@ local catppuccin = {
 	},
 }
 
-local colors = is_dark and catppuccin.dark or catppuccin.light
+local colors = is_dark and custom_theme.dark or custom_theme.light
 
 local function get_process(tab)
 	local process_icons = {
@@ -173,10 +177,6 @@ local function get_process(tab)
 			{ Foreground = { Color = colors.base } },
 			{ Text = wezterm.nerdfonts.dev_gnu },
 		},
-		["autoclick"] = {
-			{ Foreground = { Color = colors.yellow } },
-			{ Text = wezterm.nerdfonts.mdi_autorenew },
-		},
 	}
 
 	local process_name = string.gsub(tab.active_pane.foreground_process_name, "(.*[/\\])(.*)", "%2")
@@ -216,7 +216,7 @@ wezterm.on("update-right-status", function(window)
 end)
 
 return {
-	color_scheme = "MaterialOcean",
+	color_scheme = "rose-pine-moon",
 	--	check_for_updates = false,
 	font = wezterm.font_with_fallback({
 		--	"Hack Nerd Font Mono",
@@ -257,6 +257,8 @@ return {
 	front_end = "OpenGL",
 	default_cursor_style = "SteadyUnderline",
 	colors = {
+		background = colors.background,
+		foreground = colors.foreground,
 		scrollbar_thumb = colors.surface2,
 		compose_cursor = colors.flamingo,
 		ansi = {

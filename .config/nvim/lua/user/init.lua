@@ -25,7 +25,7 @@ local config = {
         -- },
     },
     -- Set colorscheme to use
-    colorscheme = "rose-pine",
+    colorscheme = "rose-pine-moon",
     -- Add highlight groups in any theme
     highlights = {
         init = function()
@@ -327,7 +327,7 @@ local config = {
                     require("lualine").setup({
                         options = {
                             icons_enabled = true,
-                            theme = "catppuccin",
+                            theme = "rose-pine",
                             component_separators = '|',
                             section_separators = { left = '', right = '' },
                             disabled_filetypes = {},
