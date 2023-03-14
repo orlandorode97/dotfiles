@@ -106,7 +106,7 @@ return {
         },
       },
       window = {
-        width = 45,
+        width = 35,
         mappings = {
           ["o"] = "open",
         },
