@@ -42,7 +42,6 @@ local custom_theme = {
 		sapphire = "#74C7EC",
 		blue = "#89B4FA",
 		lavender = "#B4BEFE",
-
 		text = "#CDD6F4",
 		text0 = "#e0def4",
 		subtext1 = "#BAC2DE",
@@ -53,11 +52,9 @@ local custom_theme = {
 		surface2 = "#585B70",
 		surface1 = "#45475A",
 		surface0 = "#313244",
-
 		base = "#1E1E2E",
 		mantle = "#181825",
 		crust = "#11111B",
-
 		background = "#1f1d2e",
 		foreground_ = "#f4ede8",
 	},
@@ -76,7 +73,6 @@ local custom_theme = {
 		sapphire = "#209FB5",
 		blue = "#1e66f5",
 		lavender = "#7287FD",
-
 		text = "#4C4F69",
 		subtext1 = "#5C5F77",
 		subtext0 = "#6C6F85",
@@ -86,7 +82,6 @@ local custom_theme = {
 		surface2 = "#ACB0BE",
 		surface1 = "#BCC0CC",
 		surface0 = "#CCD0DA",
-
 		base = "#FFFFFF",
 		mantle = "#E6E9EF",
 		crust = "#DCE0E8",
@@ -176,6 +171,10 @@ local function get_process(tab)
 		["make"] = {
 			{ Foreground = { Color = colors.base } },
 			{ Text = wezterm.nerdfonts.dev_gnu },
+		},
+		["lf"] = {
+			{ Foreground = { Color = colors.red } },
+			{ Text = wezterm.nerdfonts.mdi_file_tree },
 		},
 	}
 
