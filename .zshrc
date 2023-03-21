@@ -7,9 +7,14 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="/Users/orlando.romo/.oh-my-zsh"
 
 # Golang
-export PATH=$PATH:/usr/local/go/bin
+#export PATH=$PATH:/usr/local/go/bin
+#export GOPATH=$HOME/go
+#PATH=$GOPATH/bin:$PATH
+#export PATH="$PATH:$(go env GOPATH)/bin"
 export GOPATH=$HOME/go
-PATH=$GOPATH/bin:$PATH
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
+
 source $HOME/.cargo/env
 # DispatchHealth
 export ENVAR_AWS_SECRET_KEY="ur++X656KsLzxkPOTSWR2bVDl+z5S3kYUC/0bLqB"
@@ -17,10 +22,16 @@ export PATH=$HOME/dh-tools/dh-dev-tools:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH=$PATH:~/.gem/ruby/2.6.0/bin
 export GUM=$HOME/gum/gum.sh
+export GOPROXY="https://proxy.golang.org,direct"
+export GOPRIVATE=go.ftdr.com*,golang.frontdoorhome.com*
+
 
 # alias for logo-ls
 alias lsi="logo-ls -1"
 alias gotest="go test -v -run Test"
+alias gs="git status -s"
+alias personal="git config user.name 'Orlando Romo' && git config user.email 'orlando.romo.97@hotmail.com'"
+alias work="git config user.name 'Orlando Romo' && git config user.email 'orlando.romo@frontdoorhome.com'"
 # Ruby
 # Add rbenv to bash so that it loads every time you open a terminal
 # echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
@@ -144,8 +155,15 @@ export GEM_HOME="$HOME/.gem"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export GEM_HOME="/Users/orlando.romo/.gem"
-
+  export GITLAB_TOKEN="glpat-BQ31yEKhpgC9PVeC5vzx"
+export GITLAB_ID="orlandorode97"
 # . /usr/local/opt/asdf/libexec/asdf.sh
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig"
