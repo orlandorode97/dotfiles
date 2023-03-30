@@ -72,12 +72,12 @@ return {
       default_component_configs = {
         indent_markers = {
           enable = false,
-          inline_arrows = true,
+          inline_arrows = false,
           icons = {
-            corner = "└",
-            edge = "│",
-            item = "│",
-            bottom = "─",
+            corner = " ",
+            edge = " ",
+            item = " ",
+            bottom = " ",
             none = " ",
           },
         },

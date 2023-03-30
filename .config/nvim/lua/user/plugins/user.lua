@@ -9,6 +9,12 @@ return {
     --     require("lsp_signature").setup()
     --   end,
     -- }
+    -- Oxocarbon
+    {
+        "nyoom-engineering/oxocarbon.nvim",
+        event = "BufRead",
+        name = "oxocarbon"
+    },
     -- Plenary
     {
         "nvim-lua/plenary.nvim",
