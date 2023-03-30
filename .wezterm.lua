@@ -215,7 +215,7 @@ wezterm.on("update-right-status", function(window)
 end)
 
 return {
-	color_scheme = "rose-pine-moon",
+	color_scheme = "carbonfox",
 	--	check_for_updates = false,
 	font = wezterm.font_with_fallback({
 		--"Hack Nerd Font Mono",
