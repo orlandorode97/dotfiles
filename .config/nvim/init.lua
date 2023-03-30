@@ -61,8 +61,8 @@ require('dapui').setup({
     },
   },
   floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
+    max_height = nil,  -- These can be integers or a float between 0 and 1.
+    max_width = nil,   -- Floats will be treated as percentage of your screen.
     border = "single", -- Border style. Can be "single", "double" or "rounded"
     mappings = {
       close = { "q", "<Esc>" },
@@ -119,8 +119,12 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
-vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint',
-  numhl = 'DapBreakpoint' })
+vim.fn.sign_define('DapBreakpoint', {
+  text = '',
+  texthl = 'DapBreakpoint',
+  linehl = 'DapBreakpoint',
+  numhl = 'DapBreakpoint'
+})
 vim.fn.sign_define('DapBreakpointCondition',
   { text = 'ﳁ', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
 vim.fn.sign_define('DapBreakpointRejected',

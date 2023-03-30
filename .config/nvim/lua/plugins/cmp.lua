@@ -1,3 +1,31 @@
+local cmp_kinds = {
+  Text = '󰛖  ',
+  Method = '󰊕 ',
+  Function = '󰊕  ',
+  Constructor = '󰊕  ',
+  Field = '  ',
+  Variable = '  ',
+  Class = '  ',
+  Interface = '  ',
+  Module = '  ',
+  Property = '  ',
+  Unit = '  ',
+  Value = '  ',
+  Enum = '  ',
+  Keyword = '  ',
+  Snippet = '  ',
+  Color = '  ',
+  File = '  ',
+  Reference = '  ',
+  Folder = '  ',
+  EnumMember = '  ',
+  Constant = '  ',
+  Struct = '  ',
+  Event = '  ',
+  Operator = '  ',
+  TypeParameter = '  ',
+}
+
 return {
   {
     "L3MON4D3/LuaSnip",
@@ -35,9 +63,20 @@ return {
           return vim.g.cmp_enabled
         end,
         preselect = cmp.PreselectMode.None,
+        -- formatting = {
+        --   fields = { "kind", "abbr", "menu" },
+        --   format = lspkind_status_ok and lspkind.cmp_format(astronvim.lspkind) or nil,
+        -- },
         formatting = {
           fields = { "kind", "abbr", "menu" },
-          format = lspkind_status_ok and lspkind.cmp_format(astronvim.lspkind) or nil,
+          format = function(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. (strings[1] or "") .. " "
+            kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+            return kind
+          end,
         },
         snippet = {
           expand = function(args) luasnip.lsp_expand(args.body) end,
@@ -93,9 +132,9 @@ return {
         },
         sources = cmp.config.sources {
           { name = "nvim_lsp", priority = 1000 },
-          { name = "luasnip", priority = 750 },
-          { name = "buffer", priority = 500 },
-          { name = "path", priority = 250 },
+          { name = "luasnip",  priority = 750 },
+          { name = "buffer",   priority = 500 },
+          { name = "path",     priority = 250 },
         },
       }
     end,

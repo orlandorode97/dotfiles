@@ -9,6 +9,12 @@ return {
     --     require("lsp_signature").setup()
     --   end,
     -- }
+    -- Palenightfall
+    {
+        "JoosepAlviste/palenightfall.nvim",
+        event = "BufRead",
+        name = "palenightfall"
+    },
     -- Oxocarbon
     {
         "nyoom-engineering/oxocarbon.nvim",
@@ -139,7 +145,7 @@ return {
                 no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree" },
                 -- Symbols for separator lines, the order: horizontal, vertical, top left, top right, bottom left, bottom right.
                 event = "BufRead",
-                symbols = { "━", "┃", "┏", "┓", "┗", "┛" },
+                symbols = { "─", "│", "╭", "╮", "╰", "╯" },
                 close_event = function()
                     -- Executed after closing the window separator
                 end,
