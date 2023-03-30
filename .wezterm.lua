@@ -218,9 +218,9 @@ return {
 	color_scheme = "rose-pine-moon",
 	--	check_for_updates = false,
 	font = wezterm.font_with_fallback({
-		--	"Hack Nerd Font Mono",
-		-- "FiraCode Nerd Font"
-		"OverpassMono Nerd Font"
+		--"Hack Nerd Font Mono",
+		"FiraCode Nerd Font"
+		--"OverpassMono Nerd Font"
 	}),
 	font_size = 14.8,
 	max_fps = 120,
