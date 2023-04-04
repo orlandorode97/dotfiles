@@ -15,6 +15,12 @@ return {
         event = "BufRead",
         name = "palenightfall"
     },
+    -- nvim tree sitter context
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        event = "BufRead",
+        name = "nvim-treesitter-context"
+    },
     -- Oxocarbon
     {
         "nyoom-engineering/oxocarbon.nvim",
