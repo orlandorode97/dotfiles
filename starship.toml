@@ -9,8 +9,8 @@ add_newline = false
 disabled = true
 
 [character]
-success_symbol = " [](#c4a7e7)"
-error_symbol = " [](#eb6f92)"
+success_symbol = " [](#c3e88d)"
+error_symbol = " [](#f07178)"
 
 [hostname]
 ssh_only = true
@@ -18,14 +18,14 @@ format = "[$hostname](bold blue) "
 disabled = false
 
 [directory]
-format = "[](fg:#403d52 bg:none)[$path]($style)[](fg:#403d52 bg:#403d52)[](fg:#9ccfd8 bg:#403d52)[](fg:#403d52 bg:#9ccfd8)[](fg:#9ccfd8 bg:none)"
-style = "fg:#f6c177 bg:#403d52"
+format = "[](fg:#303348 bg:none)[$path]($style)[](fg:#303348 bg:#303348)[](fg:#82aaff bg:#303348)[](fg:#303348 bg:#82aaff)[](fg:#82aaff bg:none)"
+style = "fg:#f78c6c bg:#303348"
 truncation_length = 3
 truncate_to_repo = false
 
 [git_branch]
-format = "[](fg:#403d52 bg:none)[$branch]($style)[](fg:#403d52 bg:#403d52)[](fg:#9ccfd8 bg:#403d52)[](fg:#282c34 bg:#9ccfd8)[](fg:#9ccfd8 bg:none) "
-style = "fg:#f6c177 bg:#403d52"
+format = "[](fg:#303348 bg:none)[$branch]($style)[](fg:#303348 bg:#303348)[](fg:#82aaff bg:#303348)[](fg:#282c34 bg:#82aaff)[](fg:#82aaff bg:none) "
+style = "fg:#f78c6c bg:#303348"
 
 [git_status]
 disabled = true
