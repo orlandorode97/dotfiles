@@ -9,6 +9,18 @@ return {
     --     require("lsp_signature").setup()
     --   end,
     -- }
+    -- nvim treesitter rainbow
+    {
+        "HiPhish/nvim-ts-rainbow2",
+        event = "BufRead",
+        name = "nvim-ts-rainbow2"
+    },
+    -- nvim treesitter rainbow
+    {
+        "p00f/nvim-ts-rainbow",
+        event = "BufRead",
+        name = "nvim-ts-rainbow"
+    },
     -- Palenightfall
     {
         "JoosepAlviste/palenightfall.nvim",
