@@ -15,6 +15,18 @@ return {
         event = "BufRead",
         name = "nvim-ts-rainbow2"
     },
+    -- oh-lucy
+    {
+        "Yazeed1s/oh-lucy.nvim",
+        event = "BufRead",
+        name = "oh-lucy"
+    },
+    -- mellow
+    {
+        "kvrohit/mellow.nvim",
+        event = "BufRead",
+        name = "mellow"
+    },
     -- nvim treesitter rainbow
     {
         "p00f/nvim-ts-rainbow",

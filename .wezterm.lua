@@ -222,7 +222,7 @@ return {
 		"FiraCode Nerd Font"
 		--"OverpassMono Nerd Font"
 	}),
-	font_size = 14.8,
+	font_size = 14,
 	max_fps = 120,
 	bold = true,
 	enable_wayland = false,
