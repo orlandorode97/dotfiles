@@ -13,5 +13,5 @@ git clone https://github.com/rose-pine/wallpapers.git ${HOME}/wallpapers
 echo "Wallpapers cloned!"
 
 echo "Installing brew packages"
-brew install buf helix k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc lf gitui
+brew install git buf helix k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc lf gitui
 echo "Done!"
