@@ -9,6 +9,12 @@ return {
     --     require("lsp_signature").setup()
     --   end,
     -- }
+    -- onedark pro
+    {
+        "loctvl842/monokai-pro.nvim",
+        event = "BufRead",
+        name = "monokai-pro"
+    },
     -- nvim treesitter rainbow
     {
         "HiPhish/nvim-ts-rainbow2",

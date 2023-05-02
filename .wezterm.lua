@@ -215,7 +215,7 @@ wezterm.on("update-right-status", function(window)
 end)
 
 return {
-	color_scheme = "carbonfox",
+	color_scheme = "Afterglow",
 	--	check_for_updates = false,
 	font = wezterm.font_with_fallback({
 		--"Hack Nerd Font Mono",
@@ -224,7 +224,6 @@ return {
 	}),
 	font_size = 14,
 	max_fps = 120,
-	bold = true,
 	enable_wayland = false,
 	pane_focus_follows_mouse = false,
 	warn_about_missing_glyphs = false,
@@ -256,8 +255,6 @@ return {
 	front_end = "OpenGL",
 	default_cursor_style = "SteadyUnderline",
 	colors = {
-		background = colors.background,
-		foreground = colors.foreground,
 		scrollbar_thumb = colors.surface2,
 		compose_cursor = colors.flamingo,
 		ansi = {
