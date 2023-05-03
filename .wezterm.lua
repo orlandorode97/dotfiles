@@ -222,6 +222,7 @@ return {
 		"FiraCode Nerd Font"
 		--"OverpassMono Nerd Font"
 	}),
+	scrollback_lines = 50000,
 	font_size = 14,
 	max_fps = 120,
 	enable_wayland = false,
@@ -311,7 +312,8 @@ return {
 			mods = "CMD",
 			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
-
+		{ key = 'PageUp',   mods = 'SHIFT', action = wezterm.action.ScrollToTop },
+		{ key = 'PageDown', mods = 'SHIFT', action = wezterm.action.ScrollToBottom },
 		{
 			key = "d",
 			mods = "CMD",
