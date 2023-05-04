@@ -15,12 +15,6 @@ return {
         event = "BufRead",
         name = "monokai-pro"
     },
-    -- nvim treesitter rainbow
-    {
-        "HiPhish/nvim-ts-rainbow2",
-        event = "BufRead",
-        name = "nvim-ts-rainbow2"
-    },
     -- oh-lucy
     {
         "Yazeed1s/oh-lucy.nvim",
@@ -32,12 +26,6 @@ return {
         "kvrohit/mellow.nvim",
         event = "BufRead",
         name = "mellow"
-    },
-    -- nvim treesitter rainbow
-    {
-        "p00f/nvim-ts-rainbow",
-        event = "BufRead",
-        name = "nvim-ts-rainbow"
     },
     -- Palenightfall
     {

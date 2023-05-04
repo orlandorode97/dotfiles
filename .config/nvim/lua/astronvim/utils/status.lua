@@ -401,9 +401,10 @@ function M.provider.foldcolumn(opts)
         for col = 1, width do
           str = str
               .. (
-              ((closed and (col == foldinfo.level or col == width)) and foldclosed)
-              or ((foldinfo.start == vim.v.lnum and first_level + col > foldinfo.llevel) and foldopen)
-              or foldsep
+                (vim.v.virtnum ~= 0 and foldsep)
+                or ((closed and (col == foldinfo.level or col == width)) and foldclosed)
+                or ((foldinfo.start == vim.v.lnum and first_level + col > foldinfo.llevel) and foldopen)
+                or foldsep
               )
           if col == foldinfo.level then
             str = str .. (" "):rep(width - col)
@@ -640,9 +641,9 @@ function M.provider.unique_path(opts)
     end
     return M.utils.stylize(
       (
-      opts.max_length > 0
-      and #unique_path > opts.max_length
-      and string.sub(unique_path, 1, opts.max_length - 2) .. get_icon "Ellipsis" .. "/"
+        opts.max_length > 0
+        and #unique_path > opts.max_length
+        and string.sub(unique_path, 1, opts.max_length - 2) .. get_icon "Ellipsis" .. "/"
       ) or unique_path,
       opts
     )
@@ -737,14 +738,14 @@ function M.provider.lsp_progress(opts)
     return M.utils.stylize(
       Lsp
       and (
-      get_icon("LSP" .. ((Lsp.percentage or 0) >= 70 and { "Loaded", "Loaded", "Loaded" } or {
-        "Loading1",
-        "Loading2",
-        "Loading3",
-      })[math.floor(vim.loop.hrtime() / 12e7) % 3 + 1])
-      .. (Lsp.title and " " .. Lsp.title or "")
-      .. (Lsp.message and " " .. Lsp.message or "")
-      .. (Lsp.percentage and " (" .. Lsp.percentage .. "%)" or "")
+        get_icon("LSP" .. ((Lsp.percentage or 0) >= 70 and { "Loaded", "Loaded", "Loaded" } or {
+          "Loading1",
+          "Loading2",
+          "Loading3",
+        })[math.floor(vim.loop.hrtime() / 12e7) % 3 + 1])
+        .. (Lsp.title and " " .. Lsp.title or "")
+        .. (Lsp.message and " " .. Lsp.message or "")
+        .. (Lsp.percentage and " (" .. Lsp.percentage .. "%)" or "")
       ),
       opts
     )

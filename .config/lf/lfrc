@@ -103,5 +103,4 @@ cmd zip ${{
 
 ## for icons
 set icons
-set hidden true
 set ignorecase true
