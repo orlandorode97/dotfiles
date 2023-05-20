@@ -74,7 +74,7 @@ M.format_opts.filter = function(client)
 end
 
 --- Helper function to set up a given server with the Neovim LSP client
--- @param server the name of the server to be setup
+---@param server string The name of the server to be setup
 M.setup = function(server)
   -- if server doesn't exist, set it up from user server definition
   local config_avail, config = pcall(require, "lspconfig.server_configurations." .. server)
@@ -85,6 +85,20 @@ M.setup = function(server)
   local opts = M.config(server)
   local setup_handler = setup_handlers[server] or setup_handlers[1]
   if not vim.tbl_contains(astronvim.lsp.skip_setup, server) and setup_handler then setup_handler(server, opts) end
+end
+
+--- Helper function to check if any active LSP clients given a filter provide a specific capability
+---@param capability string The server capability to check for (example: "documentFormattingProvider")
+---@param filter vim.lsp.get_active_clients.filter|nil (table|nil) A table with
+---              key-value pairs used to filter the returned clients.
+---              The available keys are:
+---               - id (number): Only return clients with the given id
+---               - bufnr (number): Only return clients attached to this buffer
+---               - name (string): Only return clients with the given name
+---@return boolean # Whether or not any of the clients provide the capability
+function M.has_capability(capability, filter)
+  local clients = vim.lsp.get_active_clients(filter)
+  return not tbl_isempty(vim.tbl_map(function(client) return client.server_capabilities[capability] end, clients))
 end
 
 local function add_buffer_autocmd(augroup, bufnr, autocmds)
@@ -102,9 +116,14 @@ local function add_buffer_autocmd(augroup, bufnr, autocmds)
   end
 end
 
+local function del_buffer_autocmd(augroup, bufnr)
+  local cmds_found, cmds = pcall(vim.api.nvim_get_autocmds, { group = augroup, buffer = bufnr })
+  if cmds_found then vim.tbl_map(function(cmd) vim.api.nvim_del_autocmd(cmd.id) end, cmds) end
+end
+
 --- The `on_attach` function used by AstroNvim
--- @param client the LSP client details when attaching
--- @param bufnr the number of the buffer that the LSP client is attaching to
+---@param client table The LSP client details when attaching
+---@param bufnr number The buffer that the LSP client is attaching to
 M.on_attach = function(client, bufnr)
   local capabilities = client.server_capabilities
   local lsp_mappings = {
@@ -150,10 +169,14 @@ M.on_attach = function(client, bufnr)
       events = { "InsertLeave", "BufEnter" },
       desc = "Refresh codelens",
       callback = function()
+        if not M.has_capability("codeLensProvider", { bufnr = bufnr }) then
+          del_buffer_autocmd("lsp_codelens_refresh", bufnr)
+          return
+        end
         if vim.g.codelens_enabled then vim.lsp.codelens.refresh() end
       end,
     })
-    vim.lsp.codelens.refresh()
+    if vim.g.codelens_enabled then vim.lsp.codelens.refresh() end
     lsp_mappings.n["<leader>ll"] = {
       function() vim.lsp.codelens.refresh() end,
       desc = "LSP CodeLens refresh",
@@ -202,9 +225,13 @@ M.on_attach = function(client, bufnr)
         events = "BufWritePre",
         desc = "autoformat on save",
         callback = function()
+          if not M.has_capability("documentFormattingProvider", { bufnr = bufnr }) then
+            del_buffer_autocmd("lsp_auto_format", bufnr)
+            return
+          end
           local autoformat_enabled = vim.b.autoformat_enabled
           if autoformat_enabled == nil then autoformat_enabled = vim.g.autoformat_enabled end
-          if autoformat_enabled then
+          if autoformat_enabled and ((not autoformat.filter) or autoformat.filter(bufnr)) then
             vim.lsp.buf.format(require("astronvim.utils").extend_tbl(M.format_opts, { bufnr = bufnr }))
           end
         end,
@@ -225,7 +252,13 @@ M.on_attach = function(client, bufnr)
       {
         events = { "CursorHold", "CursorHoldI" },
         desc = "highlight references when cursor holds",
-        callback = function() vim.lsp.buf.document_highlight() end,
+        callback = function()
+          if not M.has_capability("documentHighlightProvider", { bufnr = bufnr }) then
+            del_buffer_autocmd("lsp_document_highlight", bufnr)
+            return
+          end
+          vim.lsp.buf.document_highlight()
+        end,
       },
       {
         events = { "CursorMoved", "CursorMovedI" },
@@ -282,9 +315,13 @@ M.on_attach = function(client, bufnr)
   end
 
   if capabilities.workspaceSymbolProvider then
-    lsp_mappings.n["<leader>lG"] = {
-      function() vim.lsp.buf.workspace_symbol() end,
-      desc = "Search workspace symbols",
+    lsp_mappings.n["<leader>lG"] = { function() vim.lsp.buf.workspace_symbol() end, desc = "Search workspace symbols" }
+  end
+
+  if capabilities.semanticTokensProvider and vim.lsp.semantic_tokens then
+    lsp_mappings.n["<leader>uY"] = {
+      function() require("astronvim.utils.ui").toggle_buffer_semantic_tokens(bufnr) end,
+      desc = "Toggle LSP semantic highlight (buffer)",
     }
   end
 
@@ -301,12 +338,16 @@ M.on_attach = function(client, bufnr)
       lsp_mappings.n.gT[1] = function() require("telescope.builtin").lsp_type_definitions() end
     end
     if lsp_mappings.n["<leader>lG"] then
-      lsp_mappings.n["<leader>lG"][1] = function() require("telescope.builtin").lsp_workspace_symbols() end
+      lsp_mappings.n["<leader>lG"][1] = function()
+        vim.ui.input({ prompt = "Symbol Query: " }, function(query)
+          if query then require("telescope.builtin").lsp_workspace_symbols { query = query } end
+        end)
+      end
     end
   end
 
   if not vim.tbl_isempty(lsp_mappings.v) then
-    lsp_mappings.v["<leader>l"] = { name = (vim.g.icons_enabled and " " or "") .. "LSP" }
+    lsp_mappings.v["<leader>l"] = { desc = (vim.g.icons_enabled and " " or "") .. "LSP" }
   end
   utils.set_mappings(user_opts("lsp.mappings", lsp_mappings), { buffer = bufnr })
 
@@ -331,8 +372,8 @@ M.capabilities = user_opts("lsp.capabilities", M.capabilities)
 M.flags = user_opts "lsp.flags"
 
 --- Get the server configuration for a given language server to be provided to the server's `setup()` call
--- @param  server_name the name of the server
--- @return the table of LSP options used when setting up the given language server
+---@param server_name string The name of the server
+---@return table # The table of LSP options used when setting up the given language server
 function M.config(server_name)
   local server = require("lspconfig")[server_name]
   local lsp_opts = require("astronvim.utils").extend_tbl(
@@ -344,6 +385,10 @@ function M.config(server_name)
     if schemastore_avail then
       lsp_opts.settings = { json = { schemas = schemastore.json.schemas(), validate = { enable = true } } }
     end
+  end
+  if server_name == "yamlls" then -- by default add yaml schemas
+    local schemastore_avail, schemastore = pcall(require, "schemastore")
+    if schemastore_avail then lsp_opts.settings = { yaml = { schemas = schemastore.yaml.schemas() } } end
   end
   if server_name == "lua_ls" then -- by default initialize neodev and disable third party checking
     pcall(require, "neodev")

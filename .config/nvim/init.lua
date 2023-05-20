@@ -18,7 +18,7 @@ end
 require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)
 local dap, dapui = require("dap"), require("dapui")
 
-require('nvim-dap-virtual-text').setup()
+require('nvim-dap-virtual-text').setup({})
 require('dap-go').setup()
 require('dapui').setup({
   icons = { expanded = "▾", collapsed = "▸" },

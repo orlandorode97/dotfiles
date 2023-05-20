@@ -1,14 +1,10 @@
 return {
-    -- You can also add new plugins here as well:
-    -- Add plugins, the lazy syntax
-    -- "andweeb/presence.nvim",
-    -- {
-    --   "ray-x/lsp_signature.nvim",
-    --   event = "BufRead",
-    --   config = function()
-    --     require("lsp_signature").setup()
-    --   end,
-    -- }
+    -- Everblush/nvim
+    {
+        "Everblush/nvim",
+        event = "BufRead",
+        name = "everblush"
+    },
     -- onedark pro
     {
         "loctvl842/monokai-pro.nvim",
@@ -152,12 +148,14 @@ return {
                 -- Please PR commonly ignored filetypes
                 ignore_filetypes = { 'NvimTree', 'TelescopePrompt' }
             })
-        end
+        end,
+        enable = true,
+        event = "BufRead",
     },
     {
         "nvim-zh/colorful-winsep.nvim",
         enable = true,
-        event = "BufRead",
+        event = "WinNew",
         config = function()
             require("colorful-winsep").setup({
                 highlight = {
@@ -168,7 +166,6 @@ return {
                 -- This plugin will not be activated for filetype in the following table.
                 no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree" },
                 -- Symbols for separator lines, the order: horizontal, vertical, top left, top right, bottom left, bottom right.
-                event = "BufRead",
                 symbols = { "─", "│", "╭", "╮", "╰", "╯" },
                 close_event = function()
                     -- Executed after closing the window separator
@@ -182,11 +179,12 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         event = "BufRead",
+        enable = true,
         config = function()
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = "horizon",
+                    theme = "modus-vivendi",
                     component_separators = '|',
                     section_separators = { left = '', right = '' },
                     disabled_filetypes = {},
@@ -217,6 +215,7 @@ return {
                         {
                             "branch",
                             icon = "",
+                            colored = true,
                             color = { bg = "#212430", fg = "#c296eb" },
                             separator = { left = "", right = "" },
                         },
@@ -228,18 +227,11 @@ return {
                                 modified = " ",
                                 removed = " ",
                             },
-                            color = { bg = "#212430" },
+                            color = { bg = "#212430", fg = "#c296eb" },
                             separator = { left = "", right = "" },
                         },
                     },
                     lualine_c = {
-                        {
-                            function()
-                                return ''
-                            end,
-                            color = { bg = '#8FCDA9', fg = '#121319' },
-                            separator = { left = '', right = '' },
-                        },
                         {
                             "diagnostics",
                             sources = { "nvim_lsp" },

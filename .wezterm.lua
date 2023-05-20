@@ -176,6 +176,10 @@ local function get_process(tab)
 			{ Foreground = { Color = colors.red } },
 			{ Text = wezterm.nerdfonts.mdi_file_tree },
 		},
+		["cloud_sql_proxy"] = {
+			{ Foreground = { Color = colors.sapphire } },
+			{ Text = wezterm.nerdfonts.dev_google_cloud_platform },
+		},
 	}
 
 	local process_name = string.gsub(tab.active_pane.foreground_process_name, "(.*[/\\])(.*)", "%2")
@@ -219,7 +223,7 @@ return {
 	--	check_for_updates = false,
 	font = wezterm.font_with_fallback({
 		--"Hack Nerd Font Mono",
-		"FiraCode Nerd Font"
+		"FiraMono Nerd Font"
 		--"OverpassMono Nerd Font"
 	}),
 	scrollback_lines = 50000,

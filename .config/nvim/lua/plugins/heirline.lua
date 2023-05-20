@@ -4,8 +4,16 @@ return {
   opts = function()
     local status = require "astronvim.utils.status"
     return {
+      opts = {
+        disable_winbar_cb = function(args)
+          return status.condition.buffer_matches({
+            buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
+            filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
+          }, args.buf)
+        end,
+      },
       statusline = {
-                     -- statusline
+        -- statusline
         hl = { fg = "fg", bg = "bg" },
         status.component.mode(),
         status.component.git_branch(),
@@ -21,19 +29,9 @@ return {
         status.component.mode { surround = { separator = "right" } },
       },
       winbar = {
-                 -- winbar
-        static = {
-          disabled = {
-            buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
-            filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
-          },
-        },
+        -- winbar
         init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
         fallthrough = false,
-        {
-          condition = function(self) return vim.opt.diff:get() or status.condition.buffer_matches(self.disabled or {}) end,
-          init = function() vim.opt_local.winbar = nil end,
-        },
         {
           condition = function() return not status.condition.is_active() end,
           status.component.separated_path(),
@@ -50,7 +48,7 @@ return {
       },
       tabline = { -- bufferline
         {
-                  -- file tree padding
+          -- file tree padding
           condition = function(self)
             self.winid = vim.api.nvim_tabpage_list_wins(0)[1]
             return status.condition.buffer_matches(
@@ -61,10 +59,10 @@ return {
           provider = function(self) return string.rep(" ", vim.api.nvim_win_get_width(self.winid) + 1) end,
           hl = { bg = "tabline_bg" },
         },
-        status.heirline.make_buflist(status.component.tabline_file_info()),     -- component for each buffer tab
-        status.component.fill { hl = { bg = "tabline_bg" } },                   -- fill the rest of the tabline with background color
+        status.heirline.make_buflist(status.component.tabline_file_info()), -- component for each buffer tab
+        status.component.fill { hl = { bg = "tabline_bg" } },               -- fill the rest of the tabline with background color
         {
-                                                                                -- tab list
+          -- tab list
           condition = function() return #vim.api.nvim_list_tabpages() >= 2 end, -- only show tabs if there are more than one
           status.heirline.make_tablist {                                        -- component for each tab
             provider = status.provider.tabnr(),
