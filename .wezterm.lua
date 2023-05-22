@@ -113,11 +113,11 @@ local function get_process(tab)
 			{ Text = wezterm.nerdfonts.mdi_hexagon },
 		},
 		["zsh"] = {
-			{ Foreground = { Color = colors.teal } },
+			{ Foreground = { Color = colors.text0 } },
 			{ Text = wezterm.nerdfonts.cod_terminal_bash },
 		},
 		["bash"] = {
-			{ Foreground = { Color = colors.subtext0 } },
+			{ Foreground = { Color = colors.text0 } },
 			{ Text = wezterm.nerdfonts.cod_terminal_bash },
 		},
 		["paru"] = {
@@ -195,7 +195,7 @@ local function get_current_working_dir(tab)
 	local HOME_DIR = string.format("file://%s", os.getenv("HOME"))
 
 	return current_dir == HOME_DIR and "  ~"
-			or string.format("  %s", string.gsub(current_dir, "(.*[/\\])(.*)", "%2"))
+			or string.format("   %s", string.gsub(current_dir, "(.*[/\\])(.*)", "%2"))
 end
 
 wezterm.on("format-tab-title", function(tab)
