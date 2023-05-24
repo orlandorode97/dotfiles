@@ -211,19 +211,13 @@ wezterm.on("format-tab-title", function(tab)
 	})
 end)
 
-wezterm.on("update-right-status", function(window)
-	window:set_right_status(wezterm.format({
-		{ Attribute = { Intensity = "Bold" } },
-		{ Text = wezterm.strftime(" %A, %d %B %Y %I:%M %p ") },
-	}))
-end)
 
 return {
 	color_scheme = "Rosé Pine (base16)",
 	--	check_for_updates = false,
 	font = wezterm.font_with_fallback({
 		--"Hack Nerd Font Mono",
-		"FiraMono Nerd Font"
+		"JetBrainsMono Nerd Font"
 		--"OverpassMono Nerd Font"
 	}),
 	scrollback_lines = 50000,

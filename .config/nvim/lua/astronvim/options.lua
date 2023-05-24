@@ -21,7 +21,7 @@ local options = astronvim.user_opts("options", {
     history = 100,                           -- Number of commands to remember in a history table
     ignorecase = true,                       -- Case insensitive searching
     infercase = true,                        -- Infer cases in keyword completion
-    laststatus = 0,                          -- globalstatus
+    laststatus = 3,                          -- globalstatus
     linebreak = true,                        -- Wrap lines at 'breakat'
     mouse = "a",                             -- Enable mouse support
     number = true,                           -- Show numberline
@@ -55,7 +55,7 @@ local options = astronvim.user_opts("options", {
     lsp_handlers_enabled = true,                                        -- enable or disable default vim.lsp.handlers (hover and signatureHelp)
     cmp_enabled = true,                                                 -- enable completion at start
     autopairs_enabled = true,                                           -- enable autopairs at start
-    diagnostics_mode = 0,                                               -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
+    diagnostics_mode = 3,                                               -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
     icons_enabled = true,                                               -- disable icons in the UI (disable if no nerd font is available)
     ui_notifications_enabled = true,                                    -- disable notifications when toggling UI elements
   },

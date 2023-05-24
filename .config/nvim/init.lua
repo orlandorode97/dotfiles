@@ -11,12 +11,15 @@ end
 
 if astronvim.default_colorscheme then
   if not pcall(vim.cmd.colorscheme, astronvim.default_colorscheme) then
-    require("astronvim.utils").notify("Error setting up colorscheme: " .. astronvim.default_colorscheme, "error")
+    require("astronvim.utils").notify(
+      "Error setting up colorscheme: " .. astronvim.default_colorscheme,
+      vim.log.levels.ERROR
+    )
   end
 end
 
 require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)
-local dap, dapui = require("dap"), require("dapui")
+local dap, dapui = require('dap'), require('dapui')
 
 require('nvim-dap-virtual-text').setup({})
 require('dap-go').setup()
