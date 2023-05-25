@@ -104,8 +104,15 @@ local function get_current_working_folder_name(tab)
 
 	local HOME_DIR = string.format("file://%s", os.getenv("HOME"))
 
+	return cwd_uri == HOME_DIR and ""
+			or string.format(" %s", string.gsub(cwd_uri, "(.*[/\\])(.*)", "%2"))
+end
+
+local function get_home(tab)
+	local cwd_uri = tab.active_pane.current_working_dir
+	local HOME_DIR = string.format("file://%s", os.getenv("HOME"))
 	return cwd_uri == HOME_DIR and "  ~"
-			or string.format("  %s", string.gsub(cwd_uri, "(.*[/\\])(.*)", "%2"))
+			or " "
 end
 
 function Tab.setup()
@@ -117,6 +124,9 @@ function Tab.setup()
 			"ResetAttributes",
 			{ Text = get_process(tab) },
 			{ Text = " " },
+			{ Foreground = { Color = palette.yellow } },
+			{ Text = get_home(tab) },
+			{ Foreground = { Color = palette.text } },
 			{ Text = get_current_working_folder_name(tab) },
 			{ Foreground = { Color = palette.base } },
 			{ Text = "  ▕" },
