@@ -6,6 +6,7 @@ ln -s "${PWD}/.config/nvim" "${HOME}/.config/nvim"
 ln -s "${PWD}/.config/lf" "${HOME}/.config/lf"
 ln -s "${PWD}/.config/gitui" "${HOME}/.config/gitui"
 ln -s "${PWD}/.config/gh" "${HOME}/.config/gh"
+ln -s "${PWD}/.config/wezterm" "${HOME}/.config/wezterm"
 echo "In progress"
 echo "Config files done!"
 

@@ -9,8 +9,9 @@ add_newline = false
 disabled = true
 
 [character]
-success_symbol = " [](#c3e88d)"
-error_symbol = " [](#f07178)"
+success_symbol = "[λ](bold green)"
+error_symbol = "[λ](bold red)"
+vicmd_symbol = "[λ](bold green)"
 
 [hostname]
 ssh_only = true
@@ -18,14 +19,22 @@ format = "[$hostname](bold blue) "
 disabled = false
 
 [directory]
-format = "[](fg:#303348 bg:none)[$path]($style)[](fg:#303348 bg:#303348)[](fg:#82aaff bg:#303348)[](fg:#303348 bg:#82aaff)[](fg:#82aaff bg:none)"
-style = "fg:#f78c6c bg:#303348"
 truncation_length = 3
-truncate_to_repo = false
+fish_style_pwd_dir_length = 0
+use_logical_path = true
+format = '[$path]($style)[$read_only]($read_only_style)'
+style = 'fg:85  bold'
+disabled = false
+read_only = '🔒'
+read_only_style = 'red'
+truncation_symbol = ' '
+home_symbol = '~'
 
 [git_branch]
-format = "[](fg:#303348 bg:none)[$branch]($style)[](fg:#303348 bg:#303348)[](fg:#82aaff bg:#303348)[](fg:#282c34 bg:#82aaff)[](fg:#82aaff bg:none) "
-style = "fg:#f78c6c bg:#303348"
+format = '[ $symbol $branch(:$remote_branch)]($style) '
+style = 'fg:#E04D27'
+symbol = ''
+
 
 [git_status]
 disabled = true

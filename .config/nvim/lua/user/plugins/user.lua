@@ -1,45 +1,9 @@
 return {
-    -- Everblush/nvim
-    {
-        "Everblush/nvim",
-        event = "BufRead",
-        name = "everblush"
-    },
-    -- onedark pro
-    {
-        "loctvl842/monokai-pro.nvim",
-        event = "BufRead",
-        name = "monokai-pro"
-    },
-    -- oh-lucy
-    {
-        "Yazeed1s/oh-lucy.nvim",
-        event = "BufRead",
-        name = "oh-lucy"
-    },
-    -- mellow
-    {
-        "kvrohit/mellow.nvim",
-        event = "BufRead",
-        name = "mellow"
-    },
-    -- Palenightfall
-    {
-        "JoosepAlviste/palenightfall.nvim",
-        event = "BufRead",
-        name = "palenightfall"
-    },
     -- nvim tree sitter context
     {
         "nvim-treesitter/nvim-treesitter-context",
         event = "BufRead",
         name = "nvim-treesitter-context"
-    },
-    -- Oxocarbon
-    {
-        "nyoom-engineering/oxocarbon.nvim",
-        event = "BufRead",
-        name = "oxocarbon"
     },
     -- Plenary
     {
@@ -52,12 +16,6 @@ return {
         "akinsho/bufferline.nvim",
         event = "BufRead",
         name = 'bufferline'
-    },
-    -- catppuccin theme
-    {
-        "catppuccin/nvim",
-        event = "BufRead",
-        name = "catppuccin"
     },
     -- rose pine
     {
@@ -154,8 +112,8 @@ return {
     },
     {
         "nvim-zh/colorful-winsep.nvim",
-        enable = true,
-        event = "WinNew",
+        enable = false,
+        event = "BufRead",
         config = function()
             require("colorful-winsep").setup({
                 highlight = {
@@ -182,7 +140,7 @@ return {
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = "modus-vivendi",
+                    theme = "catppuccin",
                     component_separators = '|',
                     section_separators = { left = '', right = '' },
                     disabled_filetypes = {},
