@@ -83,7 +83,10 @@ dap.configurations.go = {
     type = "delve",
     name = "Debug",
     request = "launch",
-    program = "${fileDirname}"
+    program = "${fileDirname}",
+    args = {
+      "asb", "sale", "--sale_code", "BQ57J", "--deposit_id", "omg-st_01D2E0WA00SPDKRAN0P2NXQQXB", "--dealer_id", "2"
+    }
   },
   {
     type = "delve",

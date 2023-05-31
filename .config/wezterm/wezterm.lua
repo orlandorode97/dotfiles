@@ -8,7 +8,7 @@ Tab.setup()
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "Rosé Pine (base16)",
+	color_scheme = "Snazzy (base16)",
 	font = wezterm.font 'Liga SFMono Nerd Font',
 	scrollback_lines = 50000,
 	font_size = 14,

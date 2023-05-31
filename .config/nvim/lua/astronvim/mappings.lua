@@ -206,7 +206,7 @@ if is_available "telescope.nvim" then
     function() require("telescope").extensions.live_grep_args.live_grep_args() end,
     desc = "Search words"
   }
-  maps.n["<C-p>"] = { function() require("telescope.builtin").find_files() end, desc = "Search files" }
+  maps.n["<C-p>"] = { function() require("telescope.builtin").find_files({ hidden = true }) end, desc = "Search files" }
   maps.n["<leader>gb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
   maps.n["<leader>gc"] = { function() require("telescope.builtin").git_commits() end, desc = "Git commits" }
   maps.n["<leader>gt"] = { function() require("telescope.builtin").git_status() end, desc = "Git status" }
