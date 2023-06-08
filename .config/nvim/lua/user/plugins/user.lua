@@ -5,6 +5,11 @@ return {
         event = "BufRead",
         name = "nvim-treesitter-context"
     },
+    {
+        "navarasu/onedark.nvim",
+        event = "BufRead",
+        name = "onedark"
+    },
     -- Plenary
     {
         "nvim-lua/plenary.nvim",
