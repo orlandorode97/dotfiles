@@ -10,8 +10,8 @@ return {
     local get_icon = require("astronvim.utils").get_icon
     return {
       defaults = {
-        prompt_prefix = string.format("%s ", get_icon "Search"),
-        selection_caret = string.format("%s ", get_icon "Selected"),
+        prompt_prefix = "   ",
+        selection_caret = "󰜴 ",
         path_display = { "truncate" },
         sorting_strategy = "ascending",
         layout_config = {

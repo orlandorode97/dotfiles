@@ -6,6 +6,18 @@ return {
         name = "nvim-treesitter-context"
     },
     {
+        'Alexis12119/nightly.nvim',
+        name = "nightly",
+        enable = true,
+        event = "BufRead",
+    },
+    {
+        'Everblush/nvim',
+        name = "everblush",
+        enable = true,
+        event = "BufRead",
+    },
+    {
         "navarasu/onedark.nvim",
         event = "BufRead",
         name = "onedark"
@@ -145,7 +157,7 @@ return {
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = "catppuccin",
+                    theme = "everblush",
                     component_separators = '|',
                     section_separators = { left = '', right = '' },
                     disabled_filetypes = {},
