@@ -104,6 +104,7 @@ local function get_current_working_folder_name(tab)
 
 	local HOME_DIR = string.format("file://%s", os.getenv("HOME"))
 
+	local OMG = string.gsub(cwd_uri, 'OMG-[0-9]{0,6}', '%1')
 	return cwd_uri == HOME_DIR and ""
 			or string.format(" %s", string.gsub(cwd_uri, "(.*[/\\])(.*)", "%2"))
 end

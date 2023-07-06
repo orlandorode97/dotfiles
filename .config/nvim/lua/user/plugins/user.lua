@@ -6,6 +6,17 @@ return {
         name = "nvim-treesitter-context"
     },
     {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        event = "BufRead",
+        name = 'tokyonight',
+        config = function()
+            require('tokyonight').setup({
+                style = 'night'
+            })
+        end
+    },
+    {
         'Alexis12119/nightly.nvim',
         name = "nightly",
         enable = true,
@@ -65,7 +76,7 @@ return {
         "f-person/git-blame.nvim",
         event = "BufRead",
         name = 'git-blame',
-        enable = true
+        enable = true,
     },
     -- neovim plugin for golang
     {
@@ -154,10 +165,12 @@ return {
         event = "BufRead",
         enable = true,
         config = function()
+            vim.g.gitblame_display_virtual_text = 0
+            local git_blame = require('gitblame')
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = "everblush",
+                    theme = "catppuccin",
                     component_separators = '|',
                     section_separators = { left = '', right = '' },
                     disabled_filetypes = {},
@@ -237,8 +250,16 @@ return {
                             },
                             separator = { left = "", right = "" },
                         },
+                        {
+                            git_blame.get_current_blame_text,
+                            cond = git_blame.is_blame_text_available,
+                        }
                     },
-                    lualine_x = {},
+                    lualine_x = {
+                        {
+                            "diff",
+                        }
+                    },
                     lualine_y = {},
                     lualine_z = {
                         {
