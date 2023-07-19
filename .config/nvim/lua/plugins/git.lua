@@ -3,6 +3,7 @@ return {
   enabled = vim.fn.executable "git" == 1,
   event = "User AstroGitFile",
   opts = {
+    current_line_blame = true,
     signs = {
       add = { text = "" },
       change = { text = " " },

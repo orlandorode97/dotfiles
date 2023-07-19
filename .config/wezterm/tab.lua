@@ -41,6 +41,10 @@ local function get_process(tab)
 			{ Foreground = { Color = palette.sapphire } },
 			{ Text = wezterm.nerdfonts.mdi_language_go },
 		},
+		["gitui"] = {
+			{ Foreground = { Color = palette.maroon } },
+			{ Text = wezterm.nerdfonts.dev_git },
+		},
 		["git"] = {
 			{ Foreground = { Color = palette.peach } },
 			{ Text = wezterm.nerdfonts.dev_git },

@@ -366,5 +366,4 @@ maps.n["<leader>uy"] = { ui.toggle_syntax, desc = "Toggle syntax highlight" }
 
 maps.n["<leader>tb"] = { "<cmd> TroubleToggle <CR>", desc = "toggle trouble dashboard" }
 
-
 utils.set_mappings(astronvim.user_opts("mappings", maps))

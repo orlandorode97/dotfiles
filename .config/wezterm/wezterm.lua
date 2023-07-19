@@ -8,7 +8,7 @@ Tab.setup()
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "GitHub Dark",
+	color_scheme = "Catppuccin Frappé (Gogh)",
 	font = wezterm.font 'Liga SFMono Nerd Font',
 	scrollback_lines = 50000,
 	font_size = 14,

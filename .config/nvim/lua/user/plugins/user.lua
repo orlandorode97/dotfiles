@@ -71,13 +71,6 @@ return {
         "theHamsta/nvim-dap-virtual-text",
         event = "BufRead",
     },
-    -- git blame for commits.
-    {
-        "f-person/git-blame.nvim",
-        event = "BufRead",
-        name = 'git-blame',
-        enable = true,
-    },
     -- neovim plugin for golang
     {
         "fatih/vim-go",
@@ -165,12 +158,10 @@ return {
         event = "BufRead",
         enable = true,
         config = function()
-            vim.g.gitblame_display_virtual_text = 0
-            local git_blame = require('gitblame')
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = "catppuccin",
+                    theme = "everblush",
                     component_separators = '|',
                     section_separators = { left = '', right = '' },
                     disabled_filetypes = {},
@@ -250,16 +241,8 @@ return {
                             },
                             separator = { left = "", right = "" },
                         },
-                        {
-                            git_blame.get_current_blame_text,
-                            cond = git_blame.is_blame_text_available,
-                        }
                     },
-                    lualine_x = {
-                        {
-                            "diff",
-                        }
-                    },
+                    lualine_x = {},
                     lualine_y = {},
                     lualine_z = {
                         {
