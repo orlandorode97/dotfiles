@@ -9,9 +9,9 @@ add_newline = false
 disabled = true
 
 [character]
-success_symbol = "[λ](bold green)"
-error_symbol = "[λ](bold red)"
-vicmd_symbol = "[λ](bold green)"
+success_symbol = "[ π](bold green)"
+error_symbol = "[ π](bold red)"
+vicmd_symbol = "[ π](bold green)"
 
 [hostname]
 ssh_only = true
