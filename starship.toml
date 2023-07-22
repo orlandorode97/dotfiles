@@ -28,7 +28,7 @@ disabled = false
 read_only = '🔒'
 read_only_style = 'red'
 truncation_symbol = ' '
-home_symbol = '~'
+home_symbol = ' ~'
 
 [git_branch]
 format = '[ $symbol $branch(:$remote_branch)]($style) '
