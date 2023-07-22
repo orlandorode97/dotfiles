@@ -1,3 +1,6 @@
+
+palette = "catppuccin_mocha"
+
 format = "$directory $all \n$character"
 # right_format = """$git_branch$git_status$cmd_duration$directory"""
 right_format = """$git_branch$git_status$cmd_duration"""
@@ -10,8 +13,8 @@ disabled = true
 
 [character]
 success_symbol = "[ π](bold green)"
-error_symbol = "[ π](bold red)"
-vicmd_symbol = "[ π](bold green)"
+error_symbol = "[ π](bold peach)"
+vicmd_symbol = "[ π](bold maroon)"
 
 [hostname]
 ssh_only = true
@@ -23,7 +26,7 @@ truncation_length = 3
 fish_style_pwd_dir_length = 0
 use_logical_path = true
 format = '[$path]($style)[$read_only]($read_only_style)'
-style = 'fg:85  bold'
+style = 'fg:85  bold flamingo'
 disabled = false
 read_only = '🔒'
 read_only_style = 'red'
@@ -32,9 +35,8 @@ home_symbol = ' ~'
 
 [git_branch]
 format = '[ $symbol $branch(:$remote_branch)]($style) '
-style = 'fg:#E04D27'
+style = 'bold red'
 symbol = ''
-
 
 [git_status]
 disabled = true
@@ -61,14 +63,14 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 [docker_context]
 symbol = " "
 format = "via [$symbol$context]($style) "
-style = "blue bold"
+style = "teal bold"
 only_with_files = true
 detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
 detect_folders = []
 disabled = false
 
 [golang]
-format = "[ﳑ $version](bold fg:#3e8fb0) "
+format = "[ﳑ $version](bold teal) "
 
 [package]
 disabled = true
@@ -84,7 +86,7 @@ symbol = " "
 format = "[$symbol($version )]($style)"
 
 [nodejs]
-style = "bold fg:#ACE791"
+style = "bold red"
 
 [aws]
 symbol = "  "
@@ -142,3 +144,31 @@ symbol = " "
 [swift]
 symbol = "ﯣ "
 format = 'via [$symbol]($style)'
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
