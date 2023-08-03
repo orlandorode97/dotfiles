@@ -71,20 +71,17 @@ return {
         "theHamsta/nvim-dap-virtual-text",
         event = "BufRead",
     },
+    -- git blame for commits.
+    {
+        "f-person/git-blame.nvim",
+        event = "BufRead",
+        name = 'git-blame',
+        enable = true,
+    },
     -- neovim plugin for golang
     {
         "fatih/vim-go",
         event = "BufRead",
-    },
-    -- Git diff view
-    {
-        "sindrets/diffview.nvim",
-        event = "BufRead",
-        name = 'diffview',
-        enable = true,
-        dependencies = {
-            'nvim-lua/plenary.nvim'
-        }
     },
     -- dbml syntax
     {
