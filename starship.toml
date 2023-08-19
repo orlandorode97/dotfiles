@@ -1,15 +1,12 @@
-
 palette = "catppuccin_mocha"
 
-format = "$directory $all \n$character"
-# right_format = """$git_branch$git_status$cmd_duration$directory"""
-right_format = """$git_branch$git_status$cmd_duration"""
 
-# Disable the blank line at the start of the prompt
 add_newline = false
 
+format = "$directory $git_branch$git_status$cmd_duration $all"
+
 [line_break]
-disabled = true
+disabled = false
 
 [character]
 success_symbol = "[ π](bold green)"
@@ -58,7 +55,6 @@ am = "AM"
 am_or_rebase = "AM/REBASE"
 style = "yellow"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-
 
 [docker_context]
 symbol = " "
@@ -144,6 +140,7 @@ symbol = " "
 [swift]
 symbol = "ﯣ "
 format = 'via [$symbol]($style)'
+
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"

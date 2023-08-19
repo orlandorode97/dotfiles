@@ -6,6 +6,16 @@ return {
         name = "nvim-treesitter-context"
     },
     {
+        "nvim-treesitter/nvim-treesitter-context",
+        event = "BufRead",
+        name = "nvim-treesitter-context"
+    },
+    {
+        "kyazdani42/nvim-palenight.lua",
+        event = "BufRead",
+        name = "palenight"
+    },
+    {
         "folke/tokyonight.nvim",
         lazy = false,
         event = "BufRead",
@@ -17,6 +27,24 @@ return {
         end
     },
     {
+        "tjdevries/colorbuddy.nvim",
+        name = "colorbuddy",
+        enable = true,
+        event = "BufRead",
+    },
+    {
+        "sainnhe/edge",
+        name = "edge",
+        enable = true,
+        event = "BufRead",
+    },
+    {
+        'glepnir/zephyr-nvim',
+        name = "zephyr",
+        enable = true,
+        event = "BufRead",
+    },
+    {
         'Alexis12119/nightly.nvim',
         name = "nightly",
         enable = true,
@@ -25,6 +53,12 @@ return {
     {
         'Everblush/nvim',
         name = "everblush",
+        enable = true,
+        event = "BufRead",
+    },
+    {
+        "nobbmaestro/nvim-andromeda",
+        name = "andromeda",
         enable = true,
         event = "BufRead",
     },

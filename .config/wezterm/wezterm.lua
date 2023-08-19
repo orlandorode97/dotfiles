@@ -8,10 +8,10 @@ Tab.setup()
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "Catppuccin Frappé (Gogh)",
+	color_scheme = "DanQing (base16)",
 	font = wezterm.font 'Liga SFMono Nerd Font',
 	scrollback_lines = 50000,
-	font_size = 14,
+	font_size = 13,
 	max_fps = 120,
 	enable_wayland = false,
 	pane_focus_follows_mouse = false,

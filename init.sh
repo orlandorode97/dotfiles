@@ -7,6 +7,27 @@ ln -s "${PWD}/.config/gitui" "${HOME}/.config/gitui"
 ln -s "${PWD}/.config/gh" "${HOME}/.config/gh"
 ln -s "${PWD}/.config/wezterm" "${HOME}/.config/wezterm"
 ln -s "${PWD}/.config/gh-dash" "${HOME}/.config/gh-dash"
+
+# custom aliases
+aliases=(
+    "lsi=\"logo-ls -1\""
+    "gotest=\"go test -v -run Test\""
+    "gs=\"git status -s\""
+    "prune=\"docker system prune --all --volumes\""
+    "dash=\"gh dash\""
+    "gitui=\"gitui -t tokyonight_storm.ron\""
+    "tree-add=\"git worktree add \$@\""
+    "tree-remove=\"git worktree remove \$@ --force\""
+    "gitlog=\"git log --pretty=format:'%C(auto)%h%Creset - %C(bold blue)%an%Creset, %Cgreen%ar%Creset : %s' --abbrev=7\""
+)
+zshrc="$HOME/.zshrc"
+for alias in "${aliases[@]}"; do
+  if  ! grep -q "$alias" "$zshrc"; then
+      echo -e "\n$alias" >> "$config_file"
+      echo "alias" "$alias" >> "$zshrc"
+  fi
+done
+
 echo "In progress"
 echo "Config files done!"
 
