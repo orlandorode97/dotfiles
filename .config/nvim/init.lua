@@ -127,3 +127,6 @@ vim.fn.sign_define('DapBreakpointRejected',
   { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
 vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' })
 vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
+
+vim.cmd('highlight Normal ctermbg=none guibg=none')
+vim.cmd('highlight NonText ctermbg=none guibg=none')

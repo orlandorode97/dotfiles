@@ -15,6 +15,12 @@ return {
         event = "BufRead",
         name = "palenight"
     },
+    -- {
+
+    --     "catppuccin/nvim",
+    --     event = "BufRead",
+    --     name = "catppuccin"
+    -- },
     {
         "folke/tokyonight.nvim",
         lazy = false,
@@ -192,7 +198,7 @@ return {
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = "everblush",
+                    theme = "material",
                     component_separators = '|',
                     section_separators = { left = '', right = '' },
                     disabled_filetypes = {},

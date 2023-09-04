@@ -123,9 +123,9 @@ end
 function Tab.setup()
 	wezterm.on("format-tab-title", function(tab)
 		return wezterm.format({
-			{ Attribute = { Intensity = "Half" } },
+			{ Attribute = { Intensity = "Normal" } },
 			{ Foreground = { Color = palette.text } },
-			{ Text = string.format(" %s  ", tab.tab_index + 1) },
+			{ Text = " " },
 			"ResetAttributes",
 			{ Text = get_process(tab) },
 			{ Text = " " },

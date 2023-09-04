@@ -1,4 +1,8 @@
+
 palette = "catppuccin_mocha"
+
+
+add_newline = false
 
 format = "$directory $git_branch$git_status$cmd_duration $all"
 
@@ -6,9 +10,9 @@ format = "$directory $git_branch$git_status$cmd_duration $all"
 disabled = false
 
 [character]
-success_symbol = "[  π](bold green)"
-error_symbol = "[  π](bold peach)"
-vicmd_symbol = "[  π](bold maroon)"
+success_symbol = "[ π](bold green)"
+error_symbol = "[ π](bold peach)"
+vicmd_symbol = "[ π](bold maroon)"
 
 [hostname]
 ssh_only = true
@@ -16,11 +20,11 @@ format = "[$hostname](bold blue) "
 disabled = false
 
 [directory]
-format = "[ ](fg:#1B2940 bg:none)[$path]($style)[](fg:#1B2940 bg:#1B2940)[](fg:#1B2940 bg:#1B2940)[](fg:#FE528C bg:#1B2940)[](fg:#1B2940 bg:none)"
-style = "fg:#FE528C bg:#1B2940"
 truncation_length = 3
 fish_style_pwd_dir_length = 0
 use_logical_path = true
+format = '[$path]($style)[$read_only]($read_only_style)'
+style = 'fg:85  bold flamingo'
 disabled = false
 read_only = '🔒'
 read_only_style = 'red'
@@ -29,8 +33,8 @@ home_symbol = ' ~'
 
 [git_branch]
 format = '[ $symbol $branch(:$remote_branch)]($style) '
-style = 'bold #FE528C'
-symbol = ' '
+style = 'bold red'
+symbol = ''
 
 [git_status]
 disabled = true
@@ -53,18 +57,17 @@ am_or_rebase = "AM/REBASE"
 style = "yellow"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
-
 [docker_context]
 symbol = " "
 format = "via [$symbol$context]($style) "
-style = "blue bold"
+style = "teal bold"
 only_with_files = true
 detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
 detect_folders = []
 disabled = false
 
 [golang]
-format = "[ﳑ $version](bold fg:#3e8fb0) "
+format = "[ﳑ $version](bold teal) "
 
 [package]
 disabled = true
@@ -80,7 +83,7 @@ symbol = " "
 format = "[$symbol($version )]($style)"
 
 [nodejs]
-style = "bold fg:#ACE791"
+style = "bold red"
 
 [aws]
 symbol = "  "
@@ -138,6 +141,7 @@ symbol = " "
 [swift]
 symbol = "ﯣ "
 format = 'via [$symbol]($style)'
+
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"

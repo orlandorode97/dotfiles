@@ -1,15 +1,14 @@
-local wezterm = require("wezterm")
 local Tab = require("tab")
 local theme = require("theme")
 local keys = require("keys")
 
 Tab.setup()
 
+
 return {
 	colors = theme.colors,
 	keys = keys,
 	color_scheme = "DanQing (base16)",
-	font = wezterm.font 'Liga SFMono Nerd Font',
 	scrollback_lines = 50000,
 	font_size = 13,
 	max_fps = 120,
@@ -18,7 +17,7 @@ return {
 	warn_about_missing_glyphs = false,
 	show_update_window = false,
 	check_for_updates = false,
-	line_height = 1.5,
+	line_height = 1.4,
 	window_close_confirmation = "NeverPrompt",
 	audible_bell = "Disabled",
 	window_padding = {
@@ -33,8 +32,11 @@ return {
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
 	show_new_tab_button_in_tab_bar = false,
-	window_background_opacity = 1.0,
+	window_background_opacity = 0.9,
+	macos_window_background_blur = 30,
+	enable_tab_bar = true,
 	tab_max_width = 50,
+	window_decorations = "RESIZE",
 	hide_tab_bar_if_only_one_tab = true,
 	disable_default_key_bindings = false,
 	front_end = "OpenGL",
