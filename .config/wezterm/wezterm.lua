@@ -32,7 +32,7 @@ return {
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
 	show_new_tab_button_in_tab_bar = false,
-	window_background_opacity = 0.9,
+	window_background_opacity = 0.90,
 	macos_window_background_blur = 30,
 	enable_tab_bar = true,
 	tab_max_width = 50,
