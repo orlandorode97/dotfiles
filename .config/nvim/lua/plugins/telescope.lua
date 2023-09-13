@@ -8,10 +8,6 @@ return {
   opts = function()
     local actions = require "telescope.actions"
     local get_icon = require("astronvim.utils").get_icon
-    vim.opt.winhighlight = "Normal:Normal,NormalNC:Normal,FloatBorder:Normal"
-    vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
-    vim.cmd("highlight NormalNC guibg=NONE ctermbg=NONE")
-    vim.cmd("highlight FloatBorder guibg=NONE ctermbg=NONE")
     return {
       defaults = {
         prompt_prefix = "   ",
