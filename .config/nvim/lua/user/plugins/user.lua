@@ -15,12 +15,12 @@ return {
         event = "BufRead",
         name = "palenight"
     },
-    -- {
+    {
 
-    --     "catppuccin/nvim",
-    --     event = "BufRead",
-    --     name = "catppuccin"
-    -- },
+        "projekt0n/caret.nvim",
+        event = "BufRead",
+        name = "caret"
+    },
     {
         "folke/tokyonight.nvim",
         lazy = false,

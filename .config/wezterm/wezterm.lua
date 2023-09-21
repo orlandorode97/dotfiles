@@ -8,7 +8,7 @@ Tab.setup()
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "DanQing (base16)",
+	color_scheme = "Ryuuko",
 	scrollback_lines = 50000,
 	font_size = 13,
 	max_fps = 120,
