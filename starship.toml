@@ -6,9 +6,9 @@ format = "$directory $git_branch$git_status$cmd_duration $all"
 disabled = false
 
 [character]
-success_symbol = "[  π](bold green)"
-error_symbol = "[  π](bold peach)"
-vicmd_symbol = "[  π](bold maroon)"
+success_symbol = "[ λ](bold #cee9af)"
+error_symbol = "[ λ](bold #b0362c)"
+vicmd_symbol = "[ λ](bold maroon)"
 
 [hostname]
 ssh_only = true
@@ -16,8 +16,7 @@ format = "[$hostname](bold blue) "
 disabled = false
 
 [directory]
-format = "[ ](fg:#1B2940 bg:none)[$path]($style)[](fg:#1B2940 bg:#1B2940)[](fg:#1B2940 bg:#1B2940)[](fg:#FE528C bg:#1B2940)[](fg:#1B2940 bg:none)"
-style = "fg:#FE528C bg:#1B2940"
+style = "bold fg:#b3e4aa"
 truncation_length = 3
 fish_style_pwd_dir_length = 0
 use_logical_path = true
@@ -28,8 +27,8 @@ truncation_symbol = ' '
 home_symbol = ' ~'
 
 [git_branch]
-format = '[ $symbol $branch(:$remote_branch)]($style) '
-style = 'bold #FE528C'
+format = '[$symbol $branch(:$remote_branch)]($style) '
+style = 'bold #e26d36'
 symbol = ' '
 
 [git_status]

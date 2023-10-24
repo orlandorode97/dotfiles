@@ -28,7 +28,7 @@ return {
         name = 'tokyonight',
         config = function()
             require('tokyonight').setup({
-                style = 'night'
+                style = 'storm'
             })
         end
     },
@@ -171,7 +171,7 @@ return {
     {
         "nvim-zh/colorful-winsep.nvim",
         enable = false,
-        event = "BufRead",
+        event = { "WinNew" },
         config = function()
             require("colorful-winsep").setup({
                 highlight = {
@@ -179,6 +179,7 @@ return {
                 },
                 -- timer refresh rate
                 interval = 30,
+                no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree" },
                 -- Symbols for separator lines, the order: horizontal, vertical, top left, top right, bottom left, bottom right.
                 symbols = { "─", "│", "╭", "╮", "╰", "╯" },
                 close_event = function()
@@ -198,7 +199,7 @@ return {
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = "material",
+                    theme = "rose-pine",
                     component_separators = '|',
                     section_separators = { left = '', right = '' },
                     disabled_filetypes = {},

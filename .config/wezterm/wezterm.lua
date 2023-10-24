@@ -1,3 +1,4 @@
+local wezterm = require("wezterm")
 local Tab = require("tab")
 local theme = require("theme")
 local keys = require("keys")
@@ -8,8 +9,9 @@ Tab.setup()
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "Ryuuko",
+	color_scheme = "Poimandres Storm",
 	scrollback_lines = 50000,
+	font = wezterm.font 'Liga SFMono Nerd Font',
 	font_size = 13,
 	max_fps = 120,
 	enable_wayland = false,
@@ -32,7 +34,6 @@ return {
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
 	show_new_tab_button_in_tab_bar = false,
-	window_background_opacity = 0.90,
 	macos_window_background_blur = 30,
 	enable_tab_bar = true,
 	tab_max_width = 50,
