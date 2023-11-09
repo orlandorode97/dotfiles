@@ -22,6 +22,18 @@ return {
         name = "caret"
     },
     {
+
+        "bluz71/vim-moonfly-colors",
+        event = "BufRead",
+        name = "moonfly"
+    },
+    {
+
+        "lunarvim/horizon.nvim",
+        event = "BufRead",
+        name = "horizon"
+    },
+    {
         "folke/tokyonight.nvim",
         lazy = false,
         event = "BufRead",
@@ -170,7 +182,8 @@ return {
     },
     {
         "nvim-zh/colorful-winsep.nvim",
-        enable = false,
+        enable = true,
+        commit = "db2923c8392bcc7476e8cb7aa312af4f624ca005",
         event = { "WinNew" },
         config = function()
             require("colorful-winsep").setup({
@@ -186,20 +199,27 @@ return {
                     -- Executed after closing the window separator
                 end,
                 create_event = function()
-                    -- Executed after creating the window separator
+                    local win_n = require("colorful-winsep.utils").calculate_number_windows()
+                    if win_n == 2 then
+                        local win_id = vim.fn.win_getid(vim.fn.winnr('h'))
+                        local filetype = vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(win_id), 'filetype')
+                        if filetype == "NvimTree" then
+                            require('colorful-winsep').NvimSeparatorDel()
+                        end
+                    end
                 end,
             })
         end
     },
     {
         "nvim-lualine/lualine.nvim",
-        event = "BufRead",
+        event = "VeryLazy",
         enable = true,
         config = function()
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = "rose-pine",
+                    theme = "horizon",
                     component_separators = '|',
                     section_separators = { left = '', right = '' },
                     disabled_filetypes = {},
@@ -220,18 +240,18 @@ return {
                             "filetype",
                             icon_only = true,
                             colored = true,
-                            color = { bg = "#13141c", fg = "#ffffff" },
+                            --                            color = { bg = "#13141c", fg = "#ffffff" },
                         },
                         {
                             "filename",
-                            color = { bg = "#13141c", fg = "#ffffff" },
+                            --  color = { bg = "#13141c", fg = "#ffffff" },
                             separator = { left = "", right = "" },
                         },
                         {
                             "branch",
                             icon = "",
                             colored = true,
-                            color = { bg = "#212430", fg = "#c296eb" },
+                            --                          color = { bg = "#212430", fg = "#c296eb" },
                             separator = { left = "", right = "" },
                         },
                         {
@@ -242,7 +262,7 @@ return {
                                 modified = " ",
                                 removed = " ",
                             },
-                            color = { bg = "#212430", fg = "#c296eb" },
+                            --                        color = { bg = "#212430", fg = "#c296eb" },
                             separator = { left = "", right = "" },
                         },
                     },

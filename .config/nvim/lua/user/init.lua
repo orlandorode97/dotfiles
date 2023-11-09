@@ -16,7 +16,7 @@ return {
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     },
   },
-  colorscheme = "edge",
+  colorscheme = "horizon",
   -- Set colorscheme to use
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
