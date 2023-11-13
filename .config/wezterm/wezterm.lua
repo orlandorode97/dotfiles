@@ -32,7 +32,7 @@ return {
 	initial_rows = 25,
 	enable_scroll_bar = false,
 	tab_bar_at_bottom = true,
-	use_fancy_tab_bar = false,
+	use_fancy_tab_bar = true,
 	show_new_tab_button_in_tab_bar = false,
 	macos_window_background_blur = 30,
 	enable_tab_bar = true,

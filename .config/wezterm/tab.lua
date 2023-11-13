@@ -108,7 +108,6 @@ local function get_current_working_folder_name(tab)
 
 	local HOME_DIR = string.format("file://%s", os.getenv("HOME"))
 
-	local OMG = string.gsub(cwd_uri, 'OMG-[0-9]{0,6}', '%1')
 	return cwd_uri == HOME_DIR and ""
 			or string.format(" %s", string.gsub(cwd_uri, "(.*[/\\])(.*)", "%2"))
 end
@@ -116,24 +115,19 @@ end
 local function get_home(tab)
 	local cwd_uri = tab.active_pane.current_working_dir
 	local HOME_DIR = string.format("file://%s", os.getenv("HOME"))
-	return cwd_uri == HOME_DIR and "  ~"
-			or " "
+	return cwd_uri == HOME_DIR and "  ~" or "     "
 end
 
 function Tab.setup()
 	wezterm.on("format-tab-title", function(tab)
 		return wezterm.format({
-			{ Attribute = { Intensity = "Normal" } },
-			{ Foreground = { Color = palette.text } },
 			{ Text = " " },
-			"ResetAttributes",
 			{ Text = get_process(tab) },
 			{ Text = " " },
-			{ Foreground = { Color = palette.yellow } },
+			{ Foreground = { Color = palette.peach } },
 			{ Text = get_home(tab) },
-			{ Foreground = { Color = palette.text } },
 			{ Text = get_current_working_folder_name(tab) },
-			{ Foreground = { Color = palette.base } },
+			{ Foreground = { Color = palette.peach } },
 			{ Text = "  ▕" },
 		})
 	end)
