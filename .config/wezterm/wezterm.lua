@@ -9,7 +9,7 @@ Tab.setup()
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "Poimandres Storm",
+	color_scheme = "Kolorit",
 	scrollback_lines = 50000,
 	font = wezterm.font 'Liga SFMono Nerd Font',
 	font_size = 13,

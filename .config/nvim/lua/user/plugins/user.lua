@@ -11,6 +11,11 @@ return {
         name = "nvim-treesitter-context"
     },
     {
+        "ixru/nvim-markdown",
+        event = "BufRead",
+        name = "nvim-markdown"
+    },
+    {
         "kyazdani42/nvim-palenight.lua",
         event = "BufRead",
         name = "palenight"
@@ -251,7 +256,7 @@ return {
                             "branch",
                             icon = "",
                             colored = true,
-                            --                          color = { bg = "#212430", fg = "#c296eb" },
+                            color = { bg = "#212430", fg = "#c296eb" },
                             separator = { left = "", right = "" },
                         },
                         {

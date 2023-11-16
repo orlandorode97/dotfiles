@@ -17,6 +17,7 @@ aliases=(
     "dash=\"gh dash\""
     "gitui=\"gitui -t tokyonight_storm.ron\""
     "tree-add=\"git worktree add \$@\""
+    "curl=\"curl \$@\" | jq"
     "tree-remove=\"git worktree remove \$@ --force\""
     "gitlog=\"git log --pretty=format:'%C(auto)%h%Creset - %C(bold blue)%an%Creset, %Cgreen%ar%Creset : %s' --abbrev=7\""
 )
