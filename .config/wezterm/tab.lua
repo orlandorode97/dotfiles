@@ -124,10 +124,10 @@ function Tab.setup()
 			{ Text = " " },
 			{ Text = get_process(tab) },
 			{ Text = " " },
-			{ Foreground = { Color = palette.peach } },
+			{ Foreground = { Color = palette.sapphire } },
 			{ Text = get_home(tab) },
 			{ Text = get_current_working_folder_name(tab) },
-			{ Foreground = { Color = palette.peach } },
+			{ Foreground = { Color = palette.sapphire } },
 			{ Text = "  ▕" },
 		})
 	end)
