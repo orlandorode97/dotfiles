@@ -35,15 +35,15 @@ return {
           },
           n = { ["q"] = actions.close },
         },
-        pickers = {
-          colorscheme = {
-            enable_preview = true
-          },
-          find_files = {
-            hidden = true
-          }
-        }
       },
+      pickers = {
+        colorscheme = {
+          enable_preview = true
+        },
+        find_files = {
+          hidden = false
+        }
+      }
     }
   end,
   config = require "plugins.configs.telescope",

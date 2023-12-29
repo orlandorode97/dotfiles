@@ -16,6 +16,11 @@ return {
         name = "nvim-markdown"
     },
     {
+        "craftzdog/solarized-osaka.nvim",
+        event = "BufRead",
+        name = "solarized-osaka"
+    },
+    {
         "kyazdani42/nvim-palenight.lua",
         event = "BufRead",
         name = "palenight"
