@@ -5,16 +5,16 @@ add_newline = false
 
 [character]
 # Note the use of Catppuccin color 'maroon'
-success_symbol = "[[ λ](green) ❯](maroon)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+success_symbol = "[ ](#8dd0b3)"
+error_symbol = "[](#ffb4b4)"
+vimcmd_symbol = "[❮](#8dd0b3)"
 
 [hostname]
 disabled = false
 
 [directory]
 truncation_length = 4
-style = "bold lavender"
+style = "bold #e4d3ff"
 fish_style_pwd_dir_length = 0
 format = '[$path]($style)[$read_only]($read_only_style) '
 read_only = '🔒'
@@ -24,7 +24,7 @@ home_symbol = ' ~'
 
 [git_branch]
 format = '[ $symbol $branch(:$remote_branch)]($style) '
-style = 'bold red'
+style = 'bold #ffb4b4'
 symbol = ''
 
 
