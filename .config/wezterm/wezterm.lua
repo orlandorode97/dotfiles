@@ -32,7 +32,7 @@ end)
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "Kolorit",
+	color_scheme = "Cobalt Neon (Gogh)",
 	scrollback_lines = 50000,
 	font = wezterm.font 'CaskaydiaCove Nerd Font Propo',
 	-- font = wezterm.font 'Ubuntu Nerd Font Propo',
@@ -40,7 +40,6 @@ return {
 	font_size = 14.3,
 	max_fps = 120,
 	enable_wayland = false,
-	pane_focus_follows_mouse = false,
 	warn_about_missing_glyphs = false,
 	show_update_window = false,
 	check_for_updates = false,
@@ -66,7 +65,7 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	disable_default_key_bindings = false,
 	front_end = "OpenGL",
-	default_cursor_style = "SteadyUnderline",
+	default_cursor_style = "BlinkingUnderline",
 	hyperlink_rules = {
 		{
 			regex = "\\b\\w+://[\\w.-]+:[0-9]{2,15}\\S*\\b",

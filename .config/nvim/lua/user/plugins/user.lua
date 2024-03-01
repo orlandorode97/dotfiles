@@ -1,10 +1,11 @@
 return {
-    -- nvim tree sitter context
     {
-        "nvim-treesitter/nvim-treesitter-context",
-        event = "BufRead",
-        name = "nvim-treesitter-context"
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
     },
+    -- nvim tree sitter context
     {
         "nvim-treesitter/nvim-treesitter-context",
         event = "BufRead",
@@ -33,91 +34,6 @@ return {
         event = "BufRead",
         name = "catppuccin",
     },
-    {
-        "ixru/nvim-markdown",
-        event = "BufRead",
-        name = "nvim-markdown"
-    },
-    {
-        "craftzdog/solarized-osaka.nvim",
-        event = "BufRead",
-        name = "solarized-osaka"
-    },
-    {
-        "kyazdani42/nvim-palenight.lua",
-        event = "BufRead",
-        name = "palenight"
-    },
-    {
-
-        "projekt0n/caret.nvim",
-        event = "BufRead",
-        name = "caret"
-    },
-    {
-
-        "bluz71/vim-moonfly-colors",
-        event = "BufRead",
-        name = "moonfly"
-    },
-    {
-
-        "lunarvim/horizon.nvim",
-        event = "BufRead",
-        name = "horizon"
-    },
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        event = "BufRead",
-        name = 'tokyonight',
-        config = function()
-            require('tokyonight').setup({
-                style = 'storm'
-            })
-        end
-    },
-    {
-        "tjdevries/colorbuddy.nvim",
-        name = "colorbuddy",
-        enable = true,
-        event = "BufRead",
-    },
-    {
-        "sainnhe/edge",
-        name = "edge",
-        enable = true,
-        event = "BufRead",
-    },
-    {
-        'glepnir/zephyr-nvim',
-        name = "zephyr",
-        enable = true,
-        event = "BufRead",
-    },
-    {
-        'Alexis12119/nightly.nvim',
-        name = "nightly",
-        enable = true,
-        event = "BufRead",
-    },
-    {
-        'Everblush/nvim',
-        name = "everblush",
-        enable = true,
-        event = "BufRead",
-    },
-    {
-        "nobbmaestro/nvim-andromeda",
-        name = "andromeda",
-        enable = true,
-        event = "BufRead",
-    },
-    {
-        "navarasu/onedark.nvim",
-        event = "BufRead",
-        name = "onedark"
-    },
     -- Plenary
     {
         "nvim-lua/plenary.nvim",
@@ -129,12 +45,6 @@ return {
         "akinsho/bufferline.nvim",
         event = "BufRead",
         name = 'bufferline'
-    },
-    -- rose pine
-    {
-        'rose-pine/neovim',
-        event = "BufRead",
-        name = 'rose-pine'
     },
     -- nvim dap for debugger
     {
@@ -168,22 +78,12 @@ return {
         "fatih/vim-go",
         event = "BufRead",
     },
-    -- dbml syntax
-    {
-        "jidn/vim-dbml",
-        event = "BufRead",
-    },
     -- Multi cursors
     {
         "mg979/vim-visual-multi",
         event = "BufRead",
         name = "vim-visual-multi",
         enable = true
-    },
-    -- Material theme
-    {
-        "marko-cerovac/material.nvim",
-        event = "BufRead",
     },
     -- modes nvim for current line
     {
@@ -222,6 +122,7 @@ return {
             require("colorful-winsep").setup({
                 highlight = {
                     fg = "#ea9a97",
+                    bg = "#000000"
                 },
                 -- timer refresh rate
                 interval = 30,

@@ -102,7 +102,6 @@ local palettes = themes[THEME_NAME]
 Theme.palette = palettes.dark
 
 Theme.colors = {
-	scrollbar_thumb = Theme.palette.surface2,
 	compose_cursor = Theme.palette.flamingo,
 	ansi = {
 		Theme.palette.subtext0,
