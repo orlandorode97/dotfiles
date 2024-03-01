@@ -103,26 +103,6 @@ Theme.palette = palettes.dark
 
 Theme.colors = {
 	compose_cursor = Theme.palette.flamingo,
-	ansi = {
-		Theme.palette.subtext0,
-		Theme.palette.red,
-		Theme.palette.green,
-		Theme.palette.yellow,
-		Theme.palette.flamingo,
-		Theme.palette.pink,
-		Theme.palette.teal,
-		Theme.palette.lavender,
-	},
-	brights = {
-		Theme.palette.subtext0,
-		Theme.palette.red,
-		Theme.palette.green,
-		Theme.palette.yellow,
-		Theme.palette.flamingo,
-		Theme.palette.pink,
-		Theme.palette.teal,
-		Theme.palette.surface1,
-	},
 	tab_bar = {
 		background = Theme.palette.crust,
 		active_tab = {
