@@ -102,7 +102,6 @@ local palettes = themes[THEME_NAME]
 Theme.palette = palettes.dark
 
 Theme.colors = {
-	compose_cursor = Theme.palette.flamingo,
 	tab_bar = {
 		background = Theme.palette.crust,
 		active_tab = {

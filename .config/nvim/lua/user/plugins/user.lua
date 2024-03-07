@@ -12,6 +12,11 @@ return {
         name = "nvim-treesitter-context"
     },
     {
+        "chrisbra/csv.vim",
+        event = "BufRead",
+        name = "csv"
+    },
+    {
         "folke/zen-mode.nvim",
         event = "BufRead",
         name = "zen-mode",

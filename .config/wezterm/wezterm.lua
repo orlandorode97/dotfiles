@@ -32,7 +32,7 @@ end)
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "rose-pine",
+	color_scheme = "Galaxy",
 	scrollback_lines = 50000,
 	font = wezterm.font 'CaskaydiaCove Nerd Font Propo',
 	-- font = wezterm.font 'Ubuntu Nerd Font Propo',
@@ -56,7 +56,7 @@ return {
 	initial_rows = 25,
 	enable_scroll_bar = false,
 	tab_bar_at_bottom = true,
-	use_fancy_tab_bar = true,
+	use_fancy_tab_bar = false,
 	show_new_tab_button_in_tab_bar = false,
 	macos_window_background_blur = 30,
 	enable_tab_bar = true,
