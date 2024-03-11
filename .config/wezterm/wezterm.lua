@@ -32,7 +32,7 @@ end)
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "Galaxy",
+	color_scheme = "Firewatch",
 	scrollback_lines = 50000,
 	font = wezterm.font 'CaskaydiaCove Nerd Font Propo',
 	-- font = wezterm.font 'Ubuntu Nerd Font Propo',

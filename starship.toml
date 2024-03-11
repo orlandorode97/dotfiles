@@ -5,27 +5,27 @@ add_newline = false
 
 [character]
 # Note the use of Catppuccin color 'maroon'
-success_symbol = "[ ](#8dd0b3)"
-error_symbol = "[](#ffb4b4)"
-vimcmd_symbol = "[❮](#8dd0b3)"
+success_symbol = "[ ](tex)"
+error_symbol = "[](red)"
+vimcmd_symbol = "[❮](text)"
 
 [hostname]
 disabled = false
 
 [directory]
 truncation_length = 4
-style = "bold #e4d3ff"
 fish_style_pwd_dir_length = 0
 format = '[$path]($style)[$read_only]($read_only_style) '
 read_only = '🔒'
 read_only_style = 'red'
 truncation_symbol = ' '
 home_symbol = ' ~'
+style = "bold mauve"
 
 [git_branch]
 format = '[ $symbol $branch(:$remote_branch)]($style) '
-style = 'bold #ffb4b4'
 symbol = ''
+style = "italic red"
 
 
 [git_status]
@@ -36,7 +36,6 @@ disabled = true
 
 [git_commit]
 format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
-style = "green"
 
 [git_state]
 rebase = "REBASING"
@@ -51,15 +50,15 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
 [docker_context]
 symbol = " "
+style = "bold blue"
 format = "via [$symbol$context]($style) "
-style = "teal bold"
 only_with_files = true
 detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
 detect_folders = []
 disabled = false
 
 [golang]
-format = "[ﳑ $version](bold teal) "
+format = "[ﳑ $version](bold sapphire) "
 
 [package]
 disabled = true
