@@ -17,6 +17,29 @@ return {
         name = "csv"
     },
     {
+        "michaelrommel/nvim-silicon",
+        event = "BufRead",
+        name = "silicon",
+        init = function()
+            local wk = require("which-key")
+            wk.register({
+                ["<leader>sc"] = { ":Silicon<CR>", "Snaptshot code" },
+            }, { mode = "v" })
+        end,
+        config = function()
+            require('silicon').setup({
+                font = "CaskaydiaCove Nerd Font Propo",
+                theme = "gruvbox-dark",
+                background = "#94e2d5",
+                window_title = function()
+                    return vim.fn.fnamemodify(
+                        vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t"
+                    )
+                end
+            })
+        end
+    },
+    {
         "folke/zen-mode.nvim",
         event = "BufRead",
         name = "zen-mode",
@@ -158,7 +181,7 @@ return {
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = "horizon",
+                    theme = "ayu_dark",
                     component_separators = '|',
                     section_separators = { left = '', right = '' },
                     disabled_filetypes = {},
