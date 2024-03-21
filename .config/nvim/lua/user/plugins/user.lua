@@ -17,6 +17,11 @@ return {
         name = "csv"
     },
     {
+        "rebelot/kanagawa.nvim",
+        event = "BufRead",
+        name = "kanagawa"
+    },
+    {
         "michaelrommel/nvim-silicon",
         event = "BufRead",
         name = "silicon",
@@ -57,22 +62,11 @@ return {
             }
         }
     },
-    {
-        "catppuccin/nvim",
-        event = "BufRead",
-        name = "catppuccin",
-    },
     -- Plenary
     {
         "nvim-lua/plenary.nvim",
         event = "BufRead",
         name = 'plenary'
-    },
-    -- bufferline
-    {
-        "akinsho/bufferline.nvim",
-        event = "BufRead",
-        name = 'bufferline'
     },
     -- nvim dap for debugger
     {
