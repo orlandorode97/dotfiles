@@ -1,5 +1,12 @@
 return {
     {
+        "oxfist/night-owl.nvim",
+        event = "BufRead",
+        config = function()
+            require('night-owl').setup()
+        end
+    },
+    {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
