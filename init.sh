@@ -20,6 +20,7 @@ aliases=(
     "curl=\"curl \$@\" | jq"
     "tree-remove=\"git worktree remove \$@ --force\""
     "gitlog=\"git log --pretty=format:'%C(auto)%h%Creset - %C(bold blue)%an%Creset, %Cgreen%ar%Creset : %s' --abbrev=7\""
+    "hfzf=\"history | fzf --tac --literal\""
 )
 zshrc="$HOME/.zshrc"
 for alias in "${aliases[@]}"; do

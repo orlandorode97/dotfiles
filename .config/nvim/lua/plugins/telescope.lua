@@ -7,7 +7,6 @@ return {
   cmd = "Telescope",
   opts = function()
     local actions = require "telescope.actions"
-    local get_icon = require("astronvim.utils").get_icon
     return {
       defaults = {
         prompt_prefix = "   ",

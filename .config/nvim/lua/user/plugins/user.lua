@@ -1,12 +1,5 @@
 return {
     {
-        "oxfist/night-owl.nvim",
-        event = "BufRead",
-        config = function()
-            require('night-owl').setup()
-        end
-    },
-    {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
@@ -24,9 +17,19 @@ return {
         name = "csv"
     },
     {
-        "rebelot/kanagawa.nvim",
+        "rose-pine/neovim",
         event = "BufRead",
-        name = "kanagawa"
+        name = "rose-pine"
+    },
+    {
+        "navarasu/onedark.nvim",
+        event = "BufRead",
+        name = "onedark"
+    },
+    {
+        "AlexvZyl/nordic.nvim",
+        event = "BufRead",
+        name = "nordic"
     },
     {
         "michaelrommel/nvim-silicon",
@@ -112,6 +115,12 @@ return {
         "mg979/vim-visual-multi",
         event = "BufRead",
         name = "vim-visual-multi",
+        enable = true
+    },
+    {
+        "nyoom-engineering/oxocarbon.nvim",
+        event = "BufRead",
+        name = "oxocarbon",
         enable = true
     },
     -- modes nvim for current line

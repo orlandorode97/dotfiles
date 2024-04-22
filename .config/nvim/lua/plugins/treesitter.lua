@@ -21,7 +21,8 @@ return {
   opts = {
     highlight = {
       enable = true,
-      disable = function(_, bufnr) return vim.api.nvim_buf_line_count(bufnr) > 10000 end,
+      -- disable = function(_, bufnr) return vim.api.nvim_buf_line_count(bufnr) > 10000 end,
+      disable = { "markdown" }
     },
     incremental_selection = { enable = true },
     indent = { enable = true },
