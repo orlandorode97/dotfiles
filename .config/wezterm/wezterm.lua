@@ -32,7 +32,7 @@ end)
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "Oxocarbon Dark (Gogh)",
+	color_scheme = "nightfox",
 	scrollback_lines = 50000,
 	font = wezterm.font 'Lilex Nerd Font',
 	-- font = wezterm.font 'Ubuntu Nerd Font Propo',
