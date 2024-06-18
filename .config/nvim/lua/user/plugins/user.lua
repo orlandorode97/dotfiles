@@ -335,6 +335,14 @@ return {
     },
     config = function()
       require("nvim-tree").setup {
+        on_attach = function(bufnr)
+          local function opts(desc)
+            return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+          end
+          local ok, api = pcall(require, "nvim-tree.api")
+          assert(ok, "api module is not found")
+          vim.keymap.set("n", "<CR>", api.node.open.tab_drop, opts "Tab drop")
+        end,
         view = {
           width = 38,
         },
@@ -383,10 +391,13 @@ return {
           update_root = true,
         },
         filters = {
-          dotfiles = true,
+          dotfiles = false,
         },
         sync_root_with_cwd = true,
         respect_buf_cwd = true,
+        git = {
+          enable = false,
+        },
       }
     end,
   },
