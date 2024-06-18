@@ -50,7 +50,7 @@ maps.n["<leader>pl"] = { "<cmd>AstroChangelog<cr>", desc = "AstroNvim Changelog"
 maps.n["<leader>c"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" }
 maps.n["<leader>C"] = { function() require("astronvim.utils.buffer").close(0, true) end, desc = "Force close buffer" }
 maps.n["<Tab>"] =
-{ function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
+  { function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
 maps.n["[b"] = {
   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
   desc = "Previous buffer",
@@ -66,7 +66,7 @@ maps.n["<b"] = {
 
 maps.n["<leader>b"] = sections.b
 maps.n["<leader>bc"] =
-{ function() require("astronvim.utils.buffer").close_all(true) end, desc = "Close all buffers except current" }
+  { function() require("astronvim.utils.buffer").close_all(true) end, desc = "Close all buffers except current" }
 maps.n["<leader>bC"] = { function() require("astronvim.utils.buffer").close_all() end, desc = "Close all buffers" }
 maps.n["<leader>bb"] = {
   function()
@@ -123,7 +123,7 @@ end
 if is_available "Comment.nvim" then
   maps.n["<leader>/"] = { function() require("Comment.api").toggle.linewise.current() end, desc = "Comment line" }
   maps.v["<leader>/"] =
-  { "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", desc = "Toggle comment line" }
+    { "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", desc = "Toggle comment line" }
 end
 
 -- GitSigns
@@ -141,20 +141,32 @@ if is_available "gitsigns.nvim" then
   maps.n["<leader>gd"] = { function() require("gitsigns").diffthis() end, desc = "View Git diff" }
 end
 
--- NeoTree
-if is_available "neo-tree.nvim" then
-  maps.n["<C-b>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" }
-  maps.n["<leader>o"] = {
-    function()
-      if vim.bo.filetype == "neo-tree" then
-        vim.cmd.wincmd "p"
-      else
-        vim.cmd.Neotree "focus"
-      end
-    end,
-    desc = "Toggle Explorer Focus",
-  }
-end
+-- -- NeoTree
+-- if is_available "neo-tree.nvim" then
+--   maps.n["<C-b>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" }
+--   maps.n["<leader>o"] = {
+--     function()
+--       if vim.bo.filetype == "neo-tree" then
+--         vim.cmd.wincmd "p"
+--       else
+--         vim.cmd.Neotree "focus"
+--       end
+--     end,
+--     desc = "Toggle Explorer Focus",
+--   }
+-- end
+
+maps.n["<C-b>"] = { "<cmd>NvimTreeToggle<cr>", desc = "Toggle Explorer" }
+-- maps.n["<leader>o"] = {
+--   function()
+--     if vim.bo.filetype == "neo-tree" then
+--       vim.cmd.wincmd "p"
+--     else
+--       vim.cmd.Neotree "focus"
+--     end
+--   end,
+--   desc = "Toggle Explorer Focus",
+-- }
 
 -- Session Manager
 if is_available "neovim-session-manager" then
@@ -164,7 +176,7 @@ if is_available "neovim-session-manager" then
   maps.n["<leader>Sd"] = { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" }
   maps.n["<leader>Sf"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" }
   maps.n["<leader>S."] =
-  { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
+    { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
 end
 
 -- Package Manager
@@ -204,9 +216,9 @@ end
 if is_available "telescope.nvim" then
   maps.n["<C-f>"] = {
     function() require("telescope").extensions.live_grep_args.live_grep_args() end,
-    desc = "Search words"
+    desc = "Search words",
   }
-  maps.n["<C-p>"] = { function() require("telescope.builtin").find_files({ hidden = true }) end, desc = "Search files" }
+  maps.n["<C-p>"] = { function() require("telescope.builtin").find_files { hidden = true } end, desc = "Search files" }
   maps.n["<leader>gb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
   maps.n["<leader>gc"] = { function() require("telescope.builtin").git_commits() end, desc = "Git commits" }
   maps.n["<leader>gt"] = { function() require("telescope.builtin").git_status() end, desc = "Git status" }
@@ -216,11 +228,11 @@ if is_available "telescope.nvim" then
     function()
       local cwd = vim.fn.stdpath "config" .. "/.."
       local search_dirs = {}
-      for _, dir in ipairs(astronvim.supported_configs) do                      -- search all supported config locations
-        if dir == astronvim.install.home then dir = dir .. "/lua/user" end      -- don't search the astronvim core files
+      for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
+        if dir == astronvim.install.home then dir = dir .. "/lua/user" end -- don't search the astronvim core files
         if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
       end
-      if vim.tbl_isempty(search_dirs) then                                      -- if no config folders found, show warning
+      if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
         utils.notify("No user configuration files found", "warn")
       else
         if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
@@ -235,7 +247,7 @@ if is_available "telescope.nvim" then
   }
   maps.n["<leader>fb"] = { function() require("telescope.builtin").buffers() end, desc = "Find buffers" }
   maps.n["<leader>fc"] =
-  { function() require("telescope.builtin").grep_string() end, desc = "Find for word under cursor" }
+    { function() require("telescope.builtin").grep_string() end, desc = "Find for word under cursor" }
   maps.n["<leader>fC"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
   maps.n["<leader>fF"] = {
     function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
@@ -246,12 +258,12 @@ if is_available "telescope.nvim" then
   maps.n["<leader>fm"] = { function() require("telescope.builtin").man_pages() end, desc = "Find man" }
   if is_available "nvim-notify" then
     maps.n["<leader>fn"] =
-    { function() require("telescope").extensions.notify.notify() end, desc = "Find notifications" }
+      { function() require("telescope").extensions.notify.notify() end, desc = "Find notifications" }
   end
   maps.n["<leader>fo"] = { function() require("telescope.builtin").oldfiles() end, desc = "Find history" }
   maps.n["<leader>fr"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" }
   maps.n["<leader>ft"] =
-  { function() require("telescope.builtin").colorscheme { enable_preview = true } end, desc = "Find themes" }
+    { function() require("telescope.builtin").colorscheme { enable_preview = true } end, desc = "Find themes" }
   maps.n["<leader>l"] = sections.l
   maps.n["<leader>lD"] = { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" }
   maps.n["<leader>ls"] = {
@@ -300,7 +312,7 @@ if is_available "nvim-dap" then
   -- modified function keys found with `showkey -a` in the terminal to get key code
   -- run `nvim -V3log +quit` and search through the "Terminal info" in the `log` file for the correct keyname
   maps.n["<F5>"] = { function() require("dap").continue() end, desc = "Debugger: Start" }
-  maps.n["<F17>"] = { function() require("dap").terminate() end, desc = "Debugger: Stop" }        -- Shift+F5
+  maps.n["<F17>"] = { function() require("dap").terminate() end, desc = "Debugger: Stop" } -- Shift+F5
   maps.n["<F29>"] = { function() require("dap").restart_frame() end, desc = "Debugger: Restart" } -- Control+F5
   maps.n["<F6>"] = { function() require("dap").pause() end, desc = "Debugger: Pause" }
   maps.n["<F9>"] = { function() require("dap").toggle_breakpoint() end, desc = "Debugger: Toggle Breakpoint" }
@@ -364,6 +376,6 @@ maps.n["<leader>uu"] = { ui.toggle_url_match, desc = "Toggle URL highlight" }
 maps.n["<leader>uw"] = { ui.toggle_wrap, desc = "Toggle wrap" }
 maps.n["<leader>uy"] = { ui.toggle_syntax, desc = "Toggle syntax highlight" }
 
-maps.n["<leader>tb"] = { "<cmd> TroubleToggle <CR>", desc = "toggle trouble dashboard" }
+maps.n["<leader>tb"] = { "<cmd> Trouble diagnostics toggle <CR>", desc = "toggle trouble dashboard" }
 
 utils.set_mappings(astronvim.user_opts("mappings", maps))

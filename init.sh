@@ -1,12 +1,13 @@
 #!/bin/bash
 echo "Setting up config files"
-ln -s "${PWD}/starship.toml" "${HOME}/.config/starship.toml"
+ln -s "${PWD}./.zshrc" "${HOME}/.zshrc"
 ln -s "${PWD}/.config/nvim" "${HOME}/.config/nvim"
 ln -s "${PWD}/.config/lf" "${HOME}/.config/lf"
 ln -s "${PWD}/.config/gitui" "${HOME}/.config/gitui"
 ln -s "${PWD}/.config/gh" "${HOME}/.config/gh"
 ln -s "${PWD}/.config/wezterm" "${HOME}/.config/wezterm"
 ln -s "${PWD}/.config/gh-dash" "${HOME}/.config/gh-dash"
+ln -s "${PWD}/.config/ohmyposh" "${HOME}/.config/ohmyposh"
 
 # custom aliases
 aliases=(
@@ -19,9 +20,10 @@ aliases=(
     "tree-add=\"git worktree add \$@\""
     "curl=\"curl \$@\" | jq"
     "tree-remove=\"git worktree remove \$@ --force\""
-    "gitlog=\"git log --pretty=format:'%C(auto)%h%Creset - %C(bold blue)%an%Creset, %Cgreen%ar%Creset : %s' --abbrev=7\""
+    "gitlog=\"git log --all --decorate --oneline --graph --pretty=format:'%C(auto)%h%Creset - %C(bold blue)%an%Creset, %Cgreen%ar%Creset : %s' --abbrev=7\""
     "hfzf=\"history | fzf --tac --literal\""
 )
+
 zshrc="$HOME/.zshrc"
 for alias in "${aliases[@]}"; do
   if  ! grep -q "$alias" "$zshrc"; then

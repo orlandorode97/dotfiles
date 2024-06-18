@@ -5,6 +5,7 @@ local keys = require("keys")
 
 Tab.setup()
 
+
 wezterm.on('user-var-changed', function(window, pane, name, value)
 	local overrides = window:get_config_overrides() or {}
 	if name == "ZEN_MODE" then
@@ -32,7 +33,7 @@ end)
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "nightfox",
+	color_scheme = "carbonfox",
 	scrollback_lines = 50000,
 	font = wezterm.font 'Lilex Nerd Font',
 	-- font = wezterm.font 'Ubuntu Nerd Font Propo',

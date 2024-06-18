@@ -102,6 +102,7 @@ local palettes = themes[THEME_NAME]
 Theme.palette = palettes.dark
 
 Theme.colors = {
+	foreground = '#FFF3B0',
 	tab_bar = {
 		background = Theme.palette.crust,
 		active_tab = {
