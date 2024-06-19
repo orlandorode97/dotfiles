@@ -12,16 +12,10 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "p:blue",
-          "style": "plain",
-          "template": "{{ .UserName }} ",
-          "type": "session"
-        },
-        {
           "foreground": "p:pink",
           "properties": {
             "folder_icon": "..\ue5fe..",
-            "home_icon": "~",
+            "home_icon": " ~",
             "style": "full"
           },
           "style": "plain",
