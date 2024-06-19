@@ -39,4 +39,6 @@ echo "Installing brew packages"
 brew install git buf k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc gitui gh fzf zoxide
 echo "Configuring gh"
 gh extension install dlvhdr/gh-dash
+echo "Installing npm packages"
+npm install -g typescript-language-server vscode-langservers-extracted
 echo "Done!"
