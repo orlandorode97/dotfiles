@@ -1,9 +1,6 @@
 -- settings
 local settings = require("diegoulloao.settings")
 
--- hi groups setter
-local set_hi_groups = require("diegoulloao.themes.highlights.ayu")
-
 -- set dark background
 vim.opt.background = "dark"
 
@@ -23,8 +20,5 @@ return {
 
     -- apply colorscheme
     ayu.colorscheme()
-
-    -- highlight groups
-    set_hi_groups()
   end,
 }

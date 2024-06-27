@@ -7,5 +7,4 @@ return {
   { "windwp/nvim-ts-autotag", dependencies = "nvim-treesitter", event = "InsertEnter" }, -- auto close html tags
   { "almo7aya/openingh.nvim", cmd = { "OpenInGHFile", "OpenInGHFileLines" } }, -- open buffer in github
   { "nvim-tree/nvim-web-devicons", lazy = true }, -- devicons
-  { "tpope/vim-surround", event = { "BufReadPre", "BufNewFile" } }, -- surround words by characters
 }

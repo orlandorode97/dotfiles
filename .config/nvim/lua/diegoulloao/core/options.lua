@@ -49,3 +49,10 @@ opt.pumheight = 10
 
 -- hide empty lines symbol ~
 opt.fillchars = { eob = " " }
+
+-- support fold
+opt.foldenable = true
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+
+vim.cmd("set foldmethod=indent")

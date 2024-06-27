@@ -7,6 +7,11 @@ return {
   },
   config = function()
     -- formatters and linters
-    require("mason-null-ls").setup({})
+    require("mason-null-ls").setup({
+       ensure_installed = {
+        "prettierd",
+        "stylua",
+      },
+    })
   end,
 }

@@ -20,3 +20,6 @@ keymap.set("n", "<leader><leader>m", "<cmd>MarkdownPreviewToggle<CR>") -- toggle
 
 -- zen mode
 keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>")
+
+-- toggle trouble window
+keymap.set("n", "<leader>tb", "<cmd> Trouble diagnostics toggle <CR>") -- toggle trouble diagnostics

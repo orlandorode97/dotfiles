@@ -3,8 +3,6 @@ return {
   cmd = { "ZenMode" },
   opts = {
     window = {
-      backdrop = 1,
-      width = 100,
       options = {
         signcolumn = "no", -- disable signcolumn
         number = false, -- disable number column

@@ -5,16 +5,16 @@ local settings = require("diegoulloao.settings")
 vim.opt.background = "dark"
 
 return {
-  "ellisonleao/gruvbox.nvim",
+  "neanias/everforest-nvim",
   dependencies = {
     "nvim-lualine/lualine.nvim", -- load lualine first (applies hi groups correctly)
   },
   lazy = false,
   priority = 1000,
-  enabled = settings.theme == "gruvbox",
+  enabled = settings.theme == "everforest",
   config = function()
     -- custom setup
-    require("gruvbox").setup({
+    require("everforest").setup({
       italic = {
         strings = false,
       },
@@ -22,6 +22,6 @@ return {
     })
 
     -- set colorscheme
-    vim.cmd([[ colorscheme gruvbox ]])
+    vim.cmd([[ colorscheme everforest ]])
   end,
 }

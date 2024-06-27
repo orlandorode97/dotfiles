@@ -25,7 +25,7 @@ return {
     renderer = {
       root_folder_label = false, -- hide root directory at the top
       indent_markers = {
-        enable = enable, -- folder level guide
+        enable = enable,         -- folder level guide
         icons = {
           corner = "└",
           edge = settings.indentChar,
@@ -61,13 +61,23 @@ return {
           enable = false,
         },
       },
+      file_popup = {
+        open_win_config = {
+          col = 1,
+          row = 1,
+          relative = "cursor",
+          border = "shadow",
+          style = "minimal",
+        },
+      },
     },
     update_focused_file = {
       enable = true,
       update_root = true,
     },
     filters = {
-      dotfiles = true,
+      dotfiles = false,
+      git_ignored = false,
     },
     sync_root_with_cwd = true,
     respect_buf_cwd = true,
