@@ -35,17 +35,21 @@ return {
       on_attach = on_attach,
     })
 
-
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
       settings = {
         Lua = {
           runtime = {
-            version = "LuaJIT"
+            version = "LuaJIT",
           },
-        }
-      }
+        },
+      },
+    })
+
+    lspconfig["intelephense"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     -- add borders to lsp info window

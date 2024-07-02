@@ -16,7 +16,7 @@ return {
       border = "single",
       sources = {
         formatting.prettierd.with({
-          extra_filetypes = { "svelte", "astro" },
+          extra_filetypes = { "svelte", "astro", "php" },
         }),
         formatting.stylua,
       },
