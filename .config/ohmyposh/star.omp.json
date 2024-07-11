@@ -44,12 +44,10 @@
           "type": "status"
         }
       ],
-      "type": "prompt",
-      "newline": true
+      "type": "prompt"
     },
     {
       "alignment": "left",
-      "filler": ".",
       "newline": true,
       "segments": [
         {

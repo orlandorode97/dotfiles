@@ -5,14 +5,13 @@ local keys = require("keys")
 
 Tab.setup()
 
-
-wezterm.on('user-var-changed', function(window, pane, name, value)
+wezterm.on("user-var-changed", function(window, pane, name, value)
 	local overrides = window:get_config_overrides() or {}
 	if name == "ZEN_MODE" then
 		local incremental = value:find("+")
 		local number_value = tonumber(value)
 		if incremental ~= nil then
-			while (number_value > 0) do
+			while number_value > 0 do
 				window:perform_action(wezterm.action.IncreaseFontSize, pane)
 				number_value = number_value - 1
 			end
@@ -29,13 +28,12 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
 	window:set_config_overrides(overrides)
 end)
 
-
 return {
 	colors = theme.colors,
 	keys = keys,
-	color_scheme = "carbonfox",
+	color_scheme = "Catppuccin Frappe",
 	scrollback_lines = 50000,
-	font = wezterm.font 'Lilex Nerd Font',
+	font = wezterm.font("Lilex Nerd Font"),
 	-- font = wezterm.font 'Ubuntu Nerd Font Propo',
 	-- font = wezterm.font 'InconsolataGo Nerd Font Mono',
 	font_size = 14.5,
