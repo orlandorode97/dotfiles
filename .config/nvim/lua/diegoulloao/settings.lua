@@ -1,5 +1,18 @@
 local settings = {
-  theme = "everforest", -- ayu|gruvbox|neofusion|spaceduck|catppuccin|tundra|cyberdream|rose-pine|everforest|mellow|material
+  -- theme:
+  --   * ayu
+  --   * gruvbox
+  --   * neofusion
+  --   * spaceduck
+  --   * catppuccin
+  --   * tundra
+  --   * cyberdream
+  --   * rose-pine
+  --   * everforest
+  --   * mellow
+  --   * material
+  --   * melange
+  theme = "melange",
   indentChar = "│", -- │, |, ¦, ┆, ┊
   separatorChar = "-", -- ─, -, .
   aspect = "clean", -- normal|clean

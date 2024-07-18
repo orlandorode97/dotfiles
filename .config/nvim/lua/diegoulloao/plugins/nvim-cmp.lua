@@ -8,7 +8,7 @@ local settings = require("diegoulloao.settings")
 local opt = vim.opt -- vim options
 
 -- set options
-opt.completeopt = "menu,menuone,noinsert"
+opt.completeopt = "menu,menuone,noselect"
 
 -- vscode like icons
 local cmp_kinds = {
@@ -70,8 +70,18 @@ return {
     -- custom setup
     cmp.setup({
       window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = {
+          border = "rounded", -- single|rounded|none
+          -- custom colors
+          -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLineBG,Search:None", -- BorderBG|FloatBorder
+          side_padding = settings.cmp_style == "default" and 1 or 0, -- padding at sides
+          col_offset = settings.cmp_style == "default" and -1 or -4, -- move floating box left or right
+        },
+        documentation = {
+          border = "rounded",                                                                         -- single|rounded|none
+          -- custom colors
+          winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLineBG,Search:None", -- BorderBG|FloatBorder
+        },
       },
       snippet = {
         expand = function(args)
