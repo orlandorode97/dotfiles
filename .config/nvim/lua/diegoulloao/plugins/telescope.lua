@@ -66,6 +66,9 @@ return {
         end,
       },
       pickers = {
+        colorscheme = {
+          enable_preview = true,
+        },
         find_files = {
           previewer = false,
           layout_config = {
