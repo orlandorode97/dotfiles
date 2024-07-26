@@ -30,11 +30,9 @@ end)
 
 return {
 	keys = keys,
-	color_scheme = "Mocha (dark) (terminal.sexy)",
+	color_scheme = "Snazzy",
 	scrollback_lines = 50000,
-	font = wezterm.font("Lilex Nerd Font", { weight = "Bold" }),
 	-- font = wezterm.font 'Ubuntu Nerd Font Propo',
-	-- font = wezterm.font 'InconsolataGo Nerd Font Mono',
 	font_size = 14.5,
 	max_fps = 120,
 	enable_wayland = false,

@@ -75,7 +75,7 @@ return {
           },
         },
         live_grep = {
-          previewer = false,
+          previewer = true,
           prompt_title = "Global Search",
           results_title = "", -- results
           layout_config = {
