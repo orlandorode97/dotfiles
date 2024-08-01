@@ -40,19 +40,6 @@ return {
         prompt_prefix = "  ", --  ›
         selection_caret = " › ",
         entry_prefix = "   ", -- each entry result prefix
-        -- winblend = 10, -- transparency: 0-100 | recommended: 10
-        layout_config = {
-          prompt_position = "top",
-          width = 0.7,
-          height = 0.6,
-        },
-        mappings = {
-          i = {
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-j>"] = actions.move_selection_next,
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-          },
-        },
         -- result numbers at the right: matches|total
         get_status_text = function(picker)
           local total = picker.stats.processed or 0
@@ -71,21 +58,9 @@ return {
         },
         find_files = {
           previewer = false,
-          layout_config = {
-            prompt_position = "top",
-            width = 0.6,
-            height = 0.5,
-          },
         },
         live_grep = {
           previewer = true,
-          prompt_title = "Global Search",
-          results_title = "", -- results
-          layout_config = {
-            prompt_position = "top",
-            width = 0.7,
-            height = 0.6,
-          },
         },
         current_buffer_fuzzy_find = {
           previewer = false,
