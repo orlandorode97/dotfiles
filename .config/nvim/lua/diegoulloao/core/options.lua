@@ -5,7 +5,7 @@ local opt = vim.opt -- vim options
 opt.showmode = false
 
 -- line numbers
-opt.relativenumber = true
+opt.relativenumber = false
 opt.number = true
 
 -- tabs & indentation
@@ -15,7 +15,7 @@ opt.expandtab = true
 opt.autoindent = true
 
 -- line wrapping
-opt.wrap = false
+opt.wrap = true
 
 -- search settings
 opt.ignorecase = true
@@ -38,8 +38,7 @@ opt.splitbelow = true
 -- dash as part of the word
 opt.iskeyword:append("-")
 
--- no backups
-opt.swapfile = false
+opt.swapfile = true
 
 -- autoread files when it changes
 opt.autoread = true

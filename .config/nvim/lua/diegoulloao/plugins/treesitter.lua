@@ -30,8 +30,29 @@ return {
         "comment",
         "regex",
         "astro",
+        "hurl",
       },
       auto_install = true,
+    })
+  end,
+  opts = function(_, _)
+    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+    parser_config.hurl = {
+      install_info = {
+        url = "/Users/orlandoromo/tree-sitter-hurl",
+        files = { "src/parser.c" },
+        branch = "main",
+        generate_requires_npm = false,
+        requires_generate_from_grammar = false,
+      },
+      filetype = "hurl",
+    }
+
+    vim.filetype.add({
+      extension = {
+        hurl = "hurl",
+      },
     })
   end,
 }

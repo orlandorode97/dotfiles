@@ -23,9 +23,10 @@ return {
       width = 38,
     },
     renderer = {
+      full_name = true,
       root_folder_label = false, -- hide root directory at the top
       indent_markers = {
-        enable = enable,         -- folder level guide
+        enable = enable, -- folder level guide
         icons = {
           corner = "└",
           edge = settings.indentChar,
@@ -37,10 +38,9 @@ return {
       icons = {
         glyphs = {
           folder = {
-            default = "",
-            open = "",
-            empty = "",
-            empty_open = "",
+            default = "",
+            open = "",
+            symlink = "",
           },
           git = {
             unstaged = "",
@@ -51,6 +51,12 @@ return {
             deleted = "",
             ignored = "◌",
           },
+        },
+        show = {
+          git = false,
+          file = true,
+          folder = true,
+          folder_arrow = false,
         },
       },
     },

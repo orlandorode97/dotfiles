@@ -8,6 +8,7 @@ ln -s "${PWD}/.config/gh" "${HOME}/.config/gh"
 ln -s "${PWD}/.config/wezterm" "${HOME}/.config/wezterm"
 ln -s "${PWD}/.config/gh-dash" "${HOME}/.config/gh-dash"
 ln -s "${PWD}/.config/ohmyposh" "${HOME}/.config/ohmyposh"
+ln -s "${PWD}/.config/starship.toml" "${HOME}/.config/starship.toml"
 
 # custom aliases
 aliases=(
@@ -22,6 +23,7 @@ aliases=(
     "tree-remove=\"git worktree remove \$@ --force\""
     "gitlog=\"git log --all --decorate --oneline --graph --pretty=format:'%C(auto)%h%Creset - %C(bold blue)%an%Creset, %Cgreen%ar%Creset : %s' --abbrev=7\""
     "hfzf=\"history | fzf --tac --literal\""
+    "cat=bat"
 )
 
 zshrc="$HOME/.zshrc"
@@ -36,7 +38,7 @@ echo "In progress"
 echo "Config files done!"
 
 echo "Installing brew packages"
-brew install git buf k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc gitui gh fzf zoxide
+brew install git buf k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc gitui gh fzf zoxide bat
 echo "Configuring gh"
 gh extension install dlvhdr/gh-dash
 echo "Installing npm packages"
