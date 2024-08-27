@@ -8,12 +8,11 @@ if wezterm.config_builder then
 end
 
 config.window_decorations = "RESIZE"
-config.color_scheme = "Catppuccin Mocha"
-config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
-config.font_size = 14.5
+config.font = wezterm.font("JetBrains Mono")
+config.font_size = 13
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.8
 config.macos_window_background_blur = 50
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = true
@@ -25,7 +24,7 @@ config.show_update_window = false
 config.check_for_updates = false
 -- Color palette for the backgrounds of each cell
 config.default_cursor_style = "SteadyUnderline"
-config.line_height = 1.1
+config.line_height = 1
 config.window_close_confirmation = "NeverPrompt"
 config.audible_bell = "Disabled"
 
@@ -36,8 +35,6 @@ config.launch_menu = {
   { args = { "top" } },
   { args = { "nvim", "." } },
 }
--- require("statusbar.right")
 require("tabline")
 
--- and finally, return the configuration to wezterm
 return config

@@ -12,14 +12,14 @@ local settings = {
   --   * mellow
   --   * material
   --   * melange
-  theme = "material",
+  theme = "rose-pine",
   indentChar = "│", -- │, |, ¦, ┆, ┊
   separatorChar = "-", -- ─, -, .
-  aspect = "clean", -- normal|clean
+  aspect = "normal", -- normal|clean
   lualine_separator = "triangle", -- rect|triangle|semitriangle|curve
   cmp_style = "nvchad", -- default|nvchad
   cmp_icons_style = "devicons", -- devicons|vscode
-  transparent_mode = true,
+  transparent_mode = false,
 }
 
 return settings

@@ -1,9 +1,6 @@
 -- settings
 local settings = require("diegoulloao.settings")
 
--- set dark background
-vim.opt.background = "dark"
-
 return {
   "ellisonleao/gruvbox.nvim",
   dependencies = {
@@ -15,10 +12,12 @@ return {
   config = function()
     -- custom setup
     require("gruvbox").setup({
+      terminal_colors = true, -- add neovim terminal colors
       italic = {
         strings = false,
       },
-      contrast = "", -- options: soft|hard|empty
+      contrast = "soft", -- options: soft|hard|empty
+      transparent_mode = true,
     })
 
     -- set colorscheme

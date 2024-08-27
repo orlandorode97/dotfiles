@@ -2,7 +2,7 @@
 local opt = vim.opt -- vim options
 
 -- hide -- INSERT on lualine
-opt.showmode = false
+opt.showmode = true
 
 -- line numbers
 opt.relativenumber = false
@@ -22,7 +22,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- cursor line
-opt.cursorline = true
+opt.cursorline = false
 
 -- appearance
 opt.termguicolors = true
