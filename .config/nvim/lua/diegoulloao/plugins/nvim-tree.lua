@@ -19,37 +19,40 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   opts = {
+    update_cwd = true,
+    hijack_cursor = true,
+    git = {
+      ignore = false,
+    },
+    actions = {
+      open_file = {
+        resize_window = true,
+      },
+    },
     view = {
-      width = 38,
+      width = 32,
     },
     renderer = {
-      full_name = true,
-      root_folder_label = false, -- hide root directory at the top
-      indent_markers = {
-        enable = enable, -- folder level guide
-        icons = {
-          corner = "└",
-          edge = settings.indentChar,
-          item = settings.indentChar,
-          bottom = "─",
-          none = " ",
-        },
-      },
+      highlight_git = true,
+      root_folder_modifier = ":t",
       icons = {
         glyphs = {
+          default = "",
+          symlink = "",
+          bookmark = "◉",
+          git = {
+            unstaged = "",
+            staged = "",
+            unmerged = "",
+            renamed = "",
+            deleted = "",
+            untracked = "",
+            ignored = "",
+          },
           folder = {
             default = "",
             open = "",
             symlink = "",
-          },
-          git = {
-            unstaged = "",
-            staged = "",
-            unmerged = "",
-            renamed = "➜",
-            untracked = "★",
-            deleted = "",
-            ignored = "◌",
           },
         },
         show = {
@@ -59,33 +62,9 @@ return {
           folder_arrow = false,
         },
       },
-    },
-    actions = {
-      open_file = {
-        quit_on_open = true,
-        window_picker = {
-          enable = false,
-        },
-      },
-      file_popup = {
-        open_win_config = {
-          col = 1,
-          row = 1,
-          relative = "cursor",
-          border = "shadow",
-          style = "minimal",
-        },
+      indent_markers = {
+        enable = true,
       },
     },
-    update_focused_file = {
-      enable = true,
-      update_root = true,
-    },
-    filters = {
-      dotfiles = false,
-      git_ignored = false,
-    },
-    sync_root_with_cwd = true,
-    respect_buf_cwd = true,
   },
 }

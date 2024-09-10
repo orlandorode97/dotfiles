@@ -8,14 +8,15 @@ if wezterm.config_builder then
 end
 
 config.window_decorations = "RESIZE"
-config.font = wezterm.font("JetBrains Mono")
-config.font_size = 13
+config.font = wezterm.font("FiraCode Nerd Font")
+config.font_size = 14
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 50
+config.window_background_opacity = 0.95
+config.macos_window_background_blur = 90
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = true
+config.color_scheme = "Gruvbox Dark (Gogh)"
 
 config.max_fps = 120
 config.enable_wayland = false

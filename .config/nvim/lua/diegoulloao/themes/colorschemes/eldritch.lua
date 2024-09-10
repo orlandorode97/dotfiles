@@ -1,20 +1,21 @@
 -- settings
 local settings = require("diegoulloao.settings")
 
--- set dark background
-vim.opt.background = "dark"
-vim.g.mellow_transparent = true
-
 return {
-  "mellow-theme/mellow.nvim",
+  "eldritch-theme/eldritch.nvim",
   dependencies = {
     "nvim-lualine/lualine.nvim", -- load lualine first (applies hi groups correctly)
   },
   lazy = false,
   priority = 1000,
-  enabled = settings.theme == "mellow",
+  enabled = settings.theme == "eldritch",
   config = function()
+    -- custom setup
+    require("eldritch").setup({
+      transparent = true,
+    })
+
     -- set colorscheme
-    vim.cmd([[ colorscheme mellow ]])
+    vim.cmd([[ colorscheme eldritch]])
   end,
 }

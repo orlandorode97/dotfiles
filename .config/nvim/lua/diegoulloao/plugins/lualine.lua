@@ -22,8 +22,8 @@ local get_lualine_theme = function()
   if not status then
     return require("lualine.themes.auto")
   end
-
-  -- export lualine theme
+  --
+  -- -- export lualine theme
   return lualine_theme
 end
 
@@ -95,7 +95,7 @@ return {
           {
             "filename",
             file_status = true, -- display file status (read only, modified)
-            path = 1, -- 0: just name, 1: relative path, 2: absolute path, 3: absolute path with ~ as home directory
+            path = 1,           -- 0: just name, 1: relative path, 2: absolute path, 3: absolute path with ~ as home directory
             symbols = {
               unnamed = "",
               readonly = "",

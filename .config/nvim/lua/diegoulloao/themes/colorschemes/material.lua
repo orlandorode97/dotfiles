@@ -2,8 +2,7 @@
 local settings = require("diegoulloao.settings")
 
 -- set dark background
-vim.opt.background = "dark"
-vim.g.material_style = "deep ocean"
+vim.g.material_style = "darker"
 
 return {
   "marko-cerovac/material.nvim",
@@ -16,14 +15,16 @@ return {
   config = function()
     local colors = require("material/colors")
     colors.main.pink = "#ff9cac"
+
     require("material").setup({
       contrast = {
-        sidebars = true,
-        floating_windows = false,
-        line_numbers = false,
-        sign_column = false,
-        cursor_line = false,
-        popup_menu = true,
+        terminal = false,            -- Enable contrast for the built-in terminal
+        sidebars = false,            -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
+        floating_windows = false,    -- Enable contrast for floating windows
+        cursor_line = false,         -- Enable darker background for the cursor line
+        lsp_virtual_text = false,    -- Enable contrasted background for lsp virtual text
+        non_current_windows = false, -- Enable contrasted background for non-current windows
+        filetypes = {},              -- Specify which filetypes get
       },
       styles = {
         comments = { italic = true },
@@ -34,10 +35,15 @@ return {
         "nvim-tree",
         "nvim-web-devicons",
         "indent-blankline",
+        "trouble",
+        "telescope",
       },
       disable = {
-        colored_cursor = true,
-        term_colors = true,
+        colored_cursor = false, -- Disable the colored cursor
+        borders = false,        -- Disable borders between vertically split windows
+        background = false,     -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+        term_colors = false,    -- Prevent the theme from setting terminal colors
+        eob_lines = false,      -- Hide the end-of-buffer lines
       },
       custom_highlights = {
         -- Git Commit Messages
@@ -52,7 +58,7 @@ return {
 
         -- NvimTree
         NvimTreeIndentMarker = { fg = colors.editor.selection },
-        NvimTreeFolderIcon = { fg = colors.editor.fg },
+        NvimTreeFolderIcon = { fg = colors.main.orange },
         NvimTreeFolderName = { fg = colors.main.blue },
         NvimTreeOpenedFolderName = { fg = colors.main.blue, italic = true },
         NvimTreeGitDirty = { fg = colors.main.yellow },

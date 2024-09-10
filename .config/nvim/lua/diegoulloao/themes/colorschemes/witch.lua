@@ -3,18 +3,16 @@ local settings = require("diegoulloao.settings")
 
 -- set dark background
 vim.opt.background = "dark"
-vim.g.mellow_transparent = true
 
 return {
-  "mellow-theme/mellow.nvim",
+  "sontungexpt/witch",
+  lazy = false,
+  enabled = settings.theme == "witch",
+  priority = 1000,
   dependencies = {
     "nvim-lualine/lualine.nvim", -- load lualine first (applies hi groups correctly)
   },
-  lazy = false,
-  priority = 1000,
-  enabled = settings.theme == "mellow",
   config = function()
-    -- set colorscheme
-    vim.cmd([[ colorscheme mellow ]])
+    require("witch").setup()
   end,
 }

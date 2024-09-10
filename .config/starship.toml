@@ -6,23 +6,23 @@ format = """\
 """
 
 [character]
-success_symbol = "[ ⭘ ]($bold fg:#7ABA78)"
-error_symbol = "[ ⭘ ]($bold fg:#FF8A8A)"
+success_symbol = "[ ⭘ ]($bold fg:#f7c67f)"
+error_symbol = "[ ⭘ ]($bold fg:#f16c75)"
 
 [directory]
 disabled = false
-format = "[ $path](bold fg:#F0EAAC)"
+format = "[ $path](bold fg:#37f499)"
 truncate_to_repo = false
 
 [git_status]
-format = " ([$all_status$ahead_behind](bold fg:#FD7E89))"
+format = " ([$all_status$ahead_behind](bold fg:#f16c75))"
 staged = "• "
 modified = "~ "
 untracked = "+ "
 deleted = "x "
 
 [git_branch]
-format = " [ $branch](bold fg:#FD7E89)"
+format = " [ $branch](bold fg:#f16c75)"
 
 [rust]
 format = "🦀 "
