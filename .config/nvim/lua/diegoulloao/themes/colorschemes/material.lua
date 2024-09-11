@@ -58,7 +58,7 @@ return {
 
         -- NvimTree
         NvimTreeIndentMarker = { fg = colors.editor.selection },
-        NvimTreeFolderIcon = { fg = colors.main.orange },
+        NvimTreeFolderIcon = { fg = colors.main.pink },
         NvimTreeFolderName = { fg = colors.main.blue },
         NvimTreeOpenedFolderName = { fg = colors.main.blue, italic = true },
         NvimTreeGitDirty = { fg = colors.main.yellow },

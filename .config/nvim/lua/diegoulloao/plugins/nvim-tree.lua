@@ -26,41 +26,63 @@ return {
     },
     actions = {
       open_file = {
-        resize_window = true,
+        quit_on_open = true,
+        window_picker = {
+          enable = false,
+        },
+      },
+      file_popup = {
+        open_win_config = {
+          col = 1,
+          row = 1,
+          relative = "cursor",
+          border = "shadow",
+          style = "minimal",
+        },
       },
     },
-    view = {
-      width = 32,
+    update_focused_file = {
+      enable = true,
+      update_root = true,
     },
-    renderer = {
-      highlight_git = true,
-      root_folder_modifier = ":t",
-      icons = {
-        glyphs = {
-          default = "",
-          symlink = "",
-          bookmark = "◉",
-          git = {
-            unstaged = "",
-            staged = "",
-            unmerged = "",
-            renamed = "",
-            deleted = "",
-            untracked = "",
-            ignored = "",
-          },
-          folder = {
-            default = "",
-            open = "",
-            symlink = "",
-          },
+    filters = {
+      dotfiles = false,
+      git_ignored = false,
+    },
+    sync_root_with_cwd = true,
+    respect_buf_cwd = true,
+  },
+  view = {
+    width = 32,
+  },
+  renderer = {
+    highlight_git = true,
+    root_folder_modifier = ":t",
+    icons = {
+      glyphs = {
+        default = "",
+        symlink = "",
+        bookmark = "◉",
+        git = {
+          unstaged = "",
+          staged = "",
+          unmerged = "",
+          renamed = "",
+          deleted = "",
+          untracked = "",
+          ignored = "",
         },
-        show = {
-          git = false,
-          file = true,
-          folder = true,
-          folder_arrow = false,
+        folder = {
+          default = "",
+          open = "",
+          symlink = "",
         },
+      },
+      show = {
+        git = false,
+        file = true,
+        folder = true,
+        folder_arrow = false,
       },
       indent_markers = {
         enable = true,
