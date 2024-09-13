@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+
 local keys = require("keys")
 
 local config = {}
@@ -6,6 +7,20 @@ local config = {}
 if wezterm.config_builder then
   config = wezterm.config_builder()
 end
+config.window_frame = {
+  border_left_width = "0.15cell",
+  border_right_width = "0.15cell",
+  border_bottom_height = "0.05cell",
+  border_top_height = "0.05cell",
+  border_left_color = "#ea9a97",
+  border_right_color = "#ea9a97",
+  border_bottom_color = "#ea9a97",
+  border_top_color = "#ea9a97",
+}
+
+config.colors = {
+  split = "#ea9a97",
+}
 
 config.window_decorations = "RESIZE"
 config.font = wezterm.font("FiraCode Nerd Font")

@@ -20,7 +20,8 @@ local settings = {
   --   * bamboo
   --   * mellifluous
   --   * oh-lucy
-  theme = "material",
+  --   *nightfox
+  theme = "nightfox",
   indentChar = "|",                   -- │, |, ¦, ┆, ┊
   separatorChar = "-",                -- ─, -, .
   aspect = "clean",                   -- normal|clean
