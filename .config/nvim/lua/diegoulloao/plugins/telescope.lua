@@ -13,6 +13,7 @@ return {
     -- addons
     "ahmedkhalf/project.nvim",
     "olimorris/persisted.nvim",
+    "MunifTanjim/nui.nvim",
   },
   cmd = "Telescope",
   config = function()
@@ -34,7 +35,7 @@ return {
     -- custom setup
     telescope.setup({
       defaults = {
-        layout_strategy = "vertical", -- vertical layout
+        layout_strategy = "flex", -- vertical layout
         sorting_strategy = "ascending",
         results_title = "",
         prompt_prefix = "  ", --  ›

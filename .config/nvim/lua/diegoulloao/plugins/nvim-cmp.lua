@@ -10,33 +10,32 @@ local opt = vim.opt -- vim options
 -- set options
 opt.completeopt = "menu,menuone,noselect"
 
--- vscode like icons
 local cmp_kinds = {
-  Text = "",
-  Method = "",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
-  Interface = "",
-  Module = "",
-  Property = "",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Text = "󰉿",
+  Method = "󰆧",
+  Function = "󰊕",
+  Constructor = "",
+  Field = "󰜢",
+  Variable = "󰀫",
+  Class = "󰠱",
+  Interface = "",
+  Module = "",
+  Property = "󰜢",
+  Unit = "󰑭",
+  Value = "󰎠",
+  Enum = "",
+  Keyword = "󰌋",
+  Snippet = "",
+  Color = "󰏘",
+  File = "󰈙",
+  Reference = "󰈇",
+  Folder = "󰉋",
+  EnumMember = "",
+  Constant = "󰏿",
+  Struct = "󰙅",
+  Event = "",
+  Operator = "󰆕",
+  TypeParameter = "",
 }
 
 return {
@@ -78,7 +77,7 @@ return {
           col_offset = settings.cmp_style == "default" and -1 or -4, -- move floating box left or right
         },
         documentation = {
-          border = "rounded",                                                                         -- single|rounded|none
+          border = "rounded", -- single|rounded|none
           -- custom colors
           winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLineBG,Search:None", -- BorderBG|FloatBorder
         },
@@ -89,21 +88,21 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ["<C-k>"] = cmp.mapping.select_prev_item(),         -- select previous suggestion
-        ["<S-tab>"] = cmp.mapping.select_prev_item(),       -- select previous suggestion (2)
-        ["<C-j>"] = cmp.mapping.select_next_item(),         -- select next suggestion
-        ["<tab>"] = cmp.mapping.select_next_item(),         -- select next suggestion (2)
-        ["<C-l>"] = cmp.mapping.scroll_docs(-4),            -- scroll docs down
-        ["<C-h>"] = cmp.mapping.scroll_docs(4),             -- scroll docs up
-        ["<C-e>"] = cmp.mapping.abort(),                    -- close completion window
-        ["<C-Space>"] = cmp.mapping.complete(),             -- show completion suggestions
+        ["<C-k>"] = cmp.mapping.select_prev_item(), -- select previous suggestion
+        ["<S-tab>"] = cmp.mapping.select_prev_item(), -- select previous suggestion (2)
+        ["<C-j>"] = cmp.mapping.select_next_item(), -- select next suggestion
+        ["<tab>"] = cmp.mapping.select_next_item(), -- select next suggestion (2)
+        ["<C-l>"] = cmp.mapping.scroll_docs(-4), -- scroll docs down
+        ["<C-h>"] = cmp.mapping.scroll_docs(4), -- scroll docs up
+        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
         ["<CR>"] = cmp.mapping.confirm({ select = false }), -- confirm suggestion
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" }, -- lsp
-        { name = "luasnip" },  -- luasnips
-        { name = "buffer" },   -- text within the current buffer
-        { name = "path" },     -- file system paths
+        { name = "luasnip" }, -- luasnips
+        { name = "buffer" }, -- text within the current buffer
+        { name = "path" }, -- file system paths
       }),
       formatting = {
         fields = settings.cmp_style == "nvchad" and { "kind", "abbr", "menu" } or nil,
@@ -124,11 +123,7 @@ return {
           -- strings[2] -> kind
 
           -- set different icon styles
-          if settings.cmp_icons_style == "vscode" then
-            fmt.kind = " " .. (cmp_kinds[strings[2]] or "") -- concatenate icon based on kind
-          else
-            fmt.kind = " " .. (strings[1] or "")            -- just use the default icon
-          end
+          fmt.kind = " " .. (cmp_kinds[strings[2]] or "") -- concatenate icon based on kind
 
           -- append customized kind text
           if settings.cmp_style == "nvchad" then
