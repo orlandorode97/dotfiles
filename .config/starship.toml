@@ -1,28 +1,62 @@
-add_newline = false
-format = """\
-  $directory\
-  $git_branch$git_commit$git_state$git_status\
-  $character\
-"""
+# add_newline = false
+# format = """\
+#   $directory\
+#   $git_branch$git_commit$git_state$git_status\
+#   $character\
+# """
+#
+# [character]
+# success_symbol = "[ ⭘ ]($bold fg:#f7c67f)"
+# error_symbol = "[ ⭘ ]($bold fg:#f16c75)"
+#
+# [directory]
+# disabled = false
+# format = "[ $path](bold fg:#37f499)"
+# truncate_to_repo = false
+#
+# [git_status]
+# format = " ([$all_status$ahead_behind](bold fg:#f16c75))"
+# staged = "• "
+# modified = "~ "
+# untracked = "+ "
+# deleted = "x "
+#
+# [git_branch]
+# format = " [ $branch](bold fg:#f16c75)"
+#
+# [rust]
+# format = "🦀 "
 
-[character]
-success_symbol = "[ ⭘ ]($bold fg:#f7c67f)"
-error_symbol = "[ ⭘ ]($bold fg:#f16c75)"
+format = "$directory $git_branch$fill\n [󱞪](fg:iris) "
+palette = "rose-pine-moon"
+
+[palettes.rose-pine-moon]
+overlay = '#393552'
+love = '#eb6f92'
+gold = '#f6c177'
+rose = '#ea9a97'
+pine = '#3e8fb0'
+foam = '#9ccfd8'
+iris = '#c4a7e7'
 
 [directory]
-disabled = false
-format = "[ $path](bold fg:#37f499)"
+format = "[](fg:overlay)[ $path ]($style)[](fg:overlay)"
+style = "bg:overlay fg:pine"
 truncate_to_repo = false
 
-[git_status]
-format = " ([$all_status$ahead_behind](bold fg:#f16c75))"
-staged = "• "
-modified = "~ "
-untracked = "+ "
-deleted = "x "
+[directory.substitutions]
+Documents = "󰈙"
+Downloads = " "
+Music = " "
+Pictures = " "
+
+[fill]
+style = "fg:overlay"
+symbol = " "
 
 [git_branch]
-format = " [ $branch](bold fg:#f16c75)"
+format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay)"
+style = "bg:overlay fg:foam"
+symbol = ""
 
-[rust]
-format = "🦀 "
+

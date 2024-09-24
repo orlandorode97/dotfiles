@@ -5,21 +5,21 @@ local keys = require("keys")
 local config = {}
 
 if wezterm.config_builder then
-  config = wezterm.config_builder()
+	config = wezterm.config_builder()
 end
 config.window_frame = {
-  border_left_width = "0.15cell",
-  border_right_width = "0.15cell",
-  border_bottom_height = "0.05cell",
-  border_top_height = "0.05cell",
-  border_left_color = "#ea9a97",
-  border_right_color = "#ea9a97",
-  border_bottom_color = "#ea9a97",
-  border_top_color = "#ea9a97",
+	border_left_width = "0.15cell",
+	border_right_width = "0.15cell",
+	border_bottom_height = "0.05cell",
+	border_top_height = "0.05cell",
+	border_left_color = "#ea9a97",
+	border_right_color = "#ea9a97",
+	border_bottom_color = "#ea9a97",
+	border_top_color = "#ea9a97",
 }
 
 config.colors = {
-  split = "#ea9a97",
+	split = "#ea9a97",
 }
 
 config.window_decorations = "RESIZE"
@@ -31,7 +31,7 @@ config.window_background_opacity = 0.95
 config.macos_window_background_blur = 90
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = true
-config.color_scheme = "Gruvbox Dark (Gogh)"
+config.color_scheme = "rose-pine"
 
 config.max_fps = 120
 config.enable_wayland = false
@@ -48,8 +48,8 @@ config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = keys
 
 config.launch_menu = {
-  { args = { "top" } },
-  { args = { "nvim", "." } },
+	{ args = { "top" } },
+	{ args = { "nvim", "." } },
 }
 require("tabline")
 
