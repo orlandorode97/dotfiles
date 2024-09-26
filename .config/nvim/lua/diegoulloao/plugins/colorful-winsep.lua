@@ -7,7 +7,7 @@ return {
   config = function()
     require("colorful-winsep").setup({
       highlight = {
-        fg = "#ea9a97",
+        fg = "#d7827e",
       },
       -- timer refresh rate
       interval = 30,
@@ -17,6 +17,14 @@ return {
       close_event = function()
         -- Executed after closing the window separator
       end,
+      events = { "WinEnter", "WinResized", "SessionLoadPost" },
+      anchor = {
+        left = { height = 1, x = -1, y = -1 },
+        right = { height = 1, x = -1, y = 0 },
+        up = { width = 0, x = -1, y = 0 },
+        bottom = { width = 0, x = 1, y = 0 },
+      },
+      smooth = true,
       create_event = function()
         local win_n = require("colorful-winsep.utils").calculate_number_windows()
         if win_n == 2 then

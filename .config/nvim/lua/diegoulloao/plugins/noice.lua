@@ -43,12 +43,18 @@ return {
       },
     },
     views = {
-      popup = {
-        win_options = {
-          winhighlight = {
-            Normal = "Normal",
-            FloatBorder = "BorderBG", -- BorderBG|FloatBorder
-          },
+      cmdline_popup = {
+        position = {
+          row = 5,
+          col = "50%",
+        },
+        size = {
+          width = 60,
+          height = "auto",
+        },
+        border = {
+          style = "rounded",
+          padding = { 0, 1 },
         },
       },
     },

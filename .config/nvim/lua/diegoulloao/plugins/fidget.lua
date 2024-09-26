@@ -8,7 +8,7 @@ return {
   enabled = false,
   opts = {
     text = {
-      spinner = "dots", -- dots | line | dots_scrolling | star
+      spinner = "star", -- dots | line | dots_scrolling | stari
     },
     window = {
       border = "rounded", -- single | double | shadow | rounded

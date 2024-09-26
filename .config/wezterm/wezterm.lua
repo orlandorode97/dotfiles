@@ -5,21 +5,23 @@ local keys = require("keys")
 local config = {}
 
 if wezterm.config_builder then
-	config = wezterm.config_builder()
+  config = wezterm.config_builder()
 end
 config.window_frame = {
-	border_left_width = "0.15cell",
-	border_right_width = "0.15cell",
-	border_bottom_height = "0.05cell",
-	border_top_height = "0.05cell",
-	border_left_color = "#ea9a97",
-	border_right_color = "#ea9a97",
-	border_bottom_color = "#ea9a97",
-	border_top_color = "#ea9a97",
+  border_left_width = "0.15cell",
+  border_right_width = "0.15cell",
+  border_bottom_height = "0.05cell",
+  border_top_height = "0.05cell",
+  border_left_color = "#d7827e",
+  border_right_color = "#d7827e",
+  border_bottom_color = "#d7827e",
+  border_top_color = "#d7827e",
 }
 
 config.colors = {
-	split = "#ea9a97",
+  split = "#d7827e",
+  selection_bg = "#d7827e",
+  selection_fg = "#0f0f0f",
 }
 
 config.window_decorations = "RESIZE"
@@ -48,8 +50,8 @@ config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = keys
 
 config.launch_menu = {
-	{ args = { "top" } },
-	{ args = { "nvim", "." } },
+  { args = { "top" } },
+  { args = { "nvim", "." } },
 }
 require("tabline")
 
