@@ -33,7 +33,7 @@ return {
       },
       file_popup = {
         open_win_config = {
-          col = 1,
+          col = 5,
           row = 1,
           relative = "cursor",
           border = "shadow",
@@ -53,7 +53,10 @@ return {
     respect_buf_cwd = true,
   },
   view = {
-    width = 32,
+    width = {
+      min = 30,
+      max = 600,
+    },
   },
   renderer = {
     highlight_git = true,
