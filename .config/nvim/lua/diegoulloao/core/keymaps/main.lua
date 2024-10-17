@@ -9,7 +9,11 @@ keymap.set("n", "<C-b>", "<cmd> NvimTreeToggle <CR> <cmd> NvimTreeResize 32<CR>"
 
 -- telescope keymaps
 keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>") -- find file in project
-keymap.set("n", "<C-f>", "<cmd>Telescope live_grep<CR>") -- find word in project
+keymap.set(
+  "n",
+  "<C-f>",
+  "<cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--hidden', '--glob', '!.git/*', '--with-filename', '--line-number', '--column', '--no-heading', '--fixed-strings', '--ignore-case' }}<CR>"
+) -- find word in project
 keymap.set("n", "<C-t>", "<cmd>Telescope buffers<CR>") -- buffers list
 
 -- git signs keymaps
