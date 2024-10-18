@@ -75,7 +75,14 @@ return {
       },
       -- man:124 for sections doc
       sections = {
-        lualine_a = { "progress" }, -- disable vim mode viewer
+        lualine_a = {
+          {
+            "mode",
+            icon = "",
+            separator = { left = "", right = "" },
+          },
+        },
+
         lualine_b = {
           {
             "branch",
@@ -95,7 +102,7 @@ return {
           {
             "filename",
             file_status = true, -- display file status (read only, modified)
-            path = 1,           -- 0: just name, 1: relative path, 2: absolute path, 3: absolute path with ~ as home directory
+            path = 1, -- 0: just name, 1: relative path, 2: absolute path, 3: absolute path with ~ as home directory
             symbols = {
               unnamed = "",
               readonly = "",
@@ -134,7 +141,38 @@ return {
           -- "fileformat",
         },
         lualine_y = {},
-        lualine_z = { "location" },
+        lualine_z = {
+          {
+            function()
+              return ""
+            end,
+            separator = { left = "", right = "" },
+          },
+          {
+            "searchcount",
+            color = "StatusLine",
+          },
+          {
+            "progress",
+            color = "StatusLine",
+          },
+          {
+            function()
+              return ""
+            end,
+            separator = { left = "", right = "" },
+          },
+          {
+            "location",
+            color = "StatusLine",
+          },
+          {
+            function()
+              return ""
+            end,
+            separator = { left = "", right = "" },
+          },
+        },
       },
       extensions = {
         "nvim-tree",
