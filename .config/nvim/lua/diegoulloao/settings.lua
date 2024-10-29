@@ -21,13 +21,13 @@ local settings = {
   --   * mellifluous
   --   * oh-lucy
   --   * nightfox
-  theme = "rose-pine",
-  indentChar = "|", -- │, |, ¦, ┆, ┊
-  separatorChar = "-", -- ─, -, .
-  aspect = "clean", -- normal|clean
+  theme = "catppuccin",
+  indentChar = "|",                   -- │, |, ¦, ┆, ┊
+  separatorChar = "-",                -- ─, -, .
+  aspect = "clean",                   -- normal|clean
   lualine_separator = "semitriangle", -- rect|triangle|semitriangle|curve
-  cmp_style = "nvchad", -- default|nvchad
-  cmp_icons_style = "devicons", -- devicons|vscode
+  cmp_style = "nvchad",               -- default|nvchad
+  cmp_icons_style = "devicons",       -- devicons|vscode
   transparent_mode = false,
 }
 
