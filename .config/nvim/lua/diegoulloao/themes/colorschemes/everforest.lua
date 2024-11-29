@@ -18,7 +18,10 @@ return {
       italic = {
         strings = false,
       },
-      contrast = "", -- options: soft|hard|empty
+      constrant = "soft",
+      on_highlights = function(hl, palette)
+        hl.NvimTreeFolderIcon = { fg = "#ff9cac" }
+      end,
     })
 
     -- set colorscheme

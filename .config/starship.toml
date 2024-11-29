@@ -35,13 +35,13 @@ overlay = '#393552'
 love = '#eb6f92'
 gold = '#f6c177'
 rose = '#ea9a97'
-pine = '#3e8fb0'
+pine = '#E0C386'
 foam = '#9ccfd8'
 iris = '#c4a7e7'
 
 [directory]
 format = "[](fg:overlay)[ $path ]($style)[](fg:overlay)"
-style = "bg:overlay fg:pine"
+style = "bg:overlay fg:iris"
 truncate_to_repo = false
 
 [directory.substitutions]
@@ -56,7 +56,7 @@ symbol = " "
 
 [git_branch]
 format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay)"
-style = "bg:overlay fg:foam"
+style = "bg:overlay fg:love"
 symbol = ""
 
 

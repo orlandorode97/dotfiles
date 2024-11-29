@@ -18,5 +18,6 @@ return {
     mods = "CMD",
     action = wezterm.action.CloseCurrentPane({ confirm = false }),
   },
-  { key = "F11", mods = "", action = wezterm.action.ToggleFullScreen },
+  { key = "F11", mods = "",    action = wezterm.action.ToggleFullScreen },
+  { key = "y",   mods = "CMD", action = wezterm.action.EmitEvent("toggle-colorscheme") },
 }
