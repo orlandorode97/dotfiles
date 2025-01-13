@@ -22,8 +22,11 @@ local settings = {
   --   * oh-lucy
   --   * nightfox
   --   * tokyogogh
-  theme = "everforest",
-  indentChar = "|", -- │, |, ¦, ┆, ┊
+  --   * nord
+  --   * nordic
+  --   * oxocarbon
+  theme = "nightfox",
+  indentChar = "", -- │, |, ¦, ┆, ┊
   separatorChar = "-", -- ─, -, .
   aspect = "clean", -- normal|clean
   lualine_separator = "semitriangle", -- rect|triangle|semitriangle|curve

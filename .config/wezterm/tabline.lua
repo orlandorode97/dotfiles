@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local theme_colors = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+local theme_colors = wezterm.color.get_builtin_schemes()["Catppuccin Frappe"]
 
 local process_icons = {
 	["docker"] = wezterm.nerdfonts.linux_docker,

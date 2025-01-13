@@ -15,6 +15,10 @@ return {
   enabled = settings.theme == "mellow",
   config = function()
     -- set colorscheme
+    vim.g.mellow_highlight_overrides = {
+      ["NvimTreeFolderIcon"] = { fg = "#ff9cac" },
+    }
+
     vim.cmd([[ colorscheme mellow ]])
   end,
 }
