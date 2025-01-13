@@ -8,6 +8,7 @@ ln -s "${PWD}/.config/gh" "${HOME}/.config/gh"
 ln -s "${PWD}/.config/wezterm" "${HOME}/.config/wezterm"
 ln -s "${PWD}/.config/gh-dash" "${HOME}/.config/gh-dash"
 ln -s "${PWD}/.config/ohmyposh" "${HOME}/.config/ohmyposh"
+ln -s "${PWD}/.config/ghostty" "${HOME}/.config/ghostty"
 ln -s "${PWD}/.config/starship.toml" "${HOME}/.config/starship.toml"
 
 # custom aliases
@@ -38,9 +39,9 @@ echo "In progress"
 echo "Config files done!"
 
 echo "Installing brew packages"
-brew install git buf k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc gitui gh fzf zoxide bat difftastic
+brew install git buf k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc gitui gh fzf zoxide bat
 echo "Configuring gh"
 gh extension install dlvhdr/gh-dash
 echo "Installing npm packages"
-npm install -g typescript-language-server vscode-langservers-extracted
+sudo npm install -g typescript-language-server vscode-langservers-extracted
 echo "Done!"
