@@ -61,6 +61,20 @@ return {
     lspconfig["intelephense"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      settings = {
+        intelephense = {
+          formatting = {
+            tabSize = 4,
+            insertSpaces = true,
+          },
+        },
+      },
+    })
+
+    -- For PHP files, use 4 spaces for indentation
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "php",
+      command = "setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab",
     })
 
     -- add borders to lsp info window

@@ -5,8 +5,10 @@ local opt = vim.opt -- vim options
 opt.showmode = true
 
 -- line numbers
-opt.relativenumber = false
 opt.number = true
+opt.relativenumber = true
+opt.wrap = false
+opt.cursorline = true
 
 -- tabs & indentation
 opt.tabstop = 2
@@ -20,12 +22,10 @@ opt.wrap = false
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
-
--- cursor line
-opt.cursorline = false
+opt.undofile = true
+opt.swapfile = true
 
 -- appearance
-opt.termguicolors = true
 opt.signcolumn = "yes"
 
 -- clipboard
@@ -37,8 +37,6 @@ opt.splitbelow = true
 
 -- dash as part of the word
 opt.iskeyword:append("-")
-
-opt.swapfile = true
 
 -- autoread files when it changes
 opt.autoread = true

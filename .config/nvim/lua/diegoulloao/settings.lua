@@ -25,13 +25,13 @@ local settings = {
   --   * nord
   --   * nordic
   --   * oxocarbon
-  theme = "nightfox",
-  indentChar = "", -- │, |, ¦, ┆, ┊
-  separatorChar = "-", -- ─, -, .
-  aspect = "clean", -- normal|clean
+  theme = "shadow",
+  indentChar = "",                    -- │, |, ¦, ┆, ┊
+  separatorChar = "-",                -- ─, -, .
+  aspect = "clean",                   -- normal|clean
   lualine_separator = "semitriangle", -- rect|triangle|semitriangle|curve
-  cmp_style = "nvchad", -- default|nvchad
-  cmp_icons_style = "devicons", -- devicons|vscode
+  cmp_style = "nvchad",               -- default|nvchad
+  cmp_icons_style = "devicons",       -- devicons|vscode
   transparent_mode = false,
 }
 

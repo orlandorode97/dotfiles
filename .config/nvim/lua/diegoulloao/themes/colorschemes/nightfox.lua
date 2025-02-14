@@ -21,6 +21,6 @@ return {
       },
     })
     -- set colorscheme
-    vim.cmd([[ colorscheme terafox]])
+    vim.cmd([[ colorscheme nightfox]])
   end,
 }
