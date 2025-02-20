@@ -33,7 +33,7 @@ config.window_background_opacity = 0.95
 config.macos_window_background_blur = 90
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = true
-config.color_scheme = "nordfox"
+config.color_scheme = "Espresso"
 
 config.max_fps = 120
 config.enable_wayland = false

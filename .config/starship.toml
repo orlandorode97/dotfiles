@@ -1,15 +1,14 @@
-
 format = "$directory $git_branch$fill\n [󱞪](fg:love) "
-palette = "rose-pine-moon"
+palette = "tokyo-night-storm-soft"
 
-[palettes.rose-pine-moon]
-overlay = '#393552'
-love = '#ee5396'
-gold = '#f6c177'
-rose = '#ea9a97'
-pine = '#E0C386'
-foam = '#569fba'
-iris = '#c4a7e7'
+[palettes.tokyo-night-storm-soft]
+overlay = '#1f2335'  # Background color
+love = '#f7768e'     # Red
+gold = '#e0af68'     # Yellow
+rose = '#bb9af7'     # Purple
+pine = '#abc111'     # Muted cyan (softer than #73daca)
+foam = '#7aa2f7'     # Blue (slightly muted)
+iris = '#9aa5ce'     # Light gray
 
 [directory]
 format = "[](fg:pine)[ $path ]($style)[](fg:pine)"
@@ -30,5 +29,3 @@ symbol = " "
 format = "[](fg:pine)[ $symbol $branch ]($style)[](fg:pine)"
 style = "bg:pine fg:overlay"
 symbol = ""
-
-
