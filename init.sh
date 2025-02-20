@@ -39,9 +39,11 @@ echo "In progress"
 echo "Config files done!"
 
 echo "Installing brew packages"
-brew install git buf k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc gitui gh fzf zoxide bat
+brew install git buf k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc gitui gh fzf zoxide bat curlie
 echo "Configuring gh"
 gh extension install dlvhdr/gh-dash
 echo "Installing npm packages"
 sudo npm install -g typescript-language-server vscode-langservers-extracted
+echo "Installing protols"
+cargo install protols
 echo "Done!"
