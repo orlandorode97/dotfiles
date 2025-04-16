@@ -51,6 +51,23 @@ return {
       on_attach = on_attach,
     })
 
+    lspconfig["prismals"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["yamlls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        yaml = {
+          format = {
+            enable = true,
+          },
+        },
+      },
+    })
+
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,

@@ -5,27 +5,16 @@ local settings = require("diegoulloao.settings")
 vim.opt.background = "dark"
 
 return {
-  "neanias/everforest-nvim",
+  "NTBBloodbath/doom-one.nvim",
   dependencies = {
     "nvim-lualine/lualine.nvim", -- load lualine first (applies hi groups correctly)
   },
   lazy = false,
   priority = 1000,
-  enabled = settings.theme == "everforest",
+  enabled = settings.theme == "doom-one",
   config = function()
-    -- custom setup
-    require("everforest").setup({
-      italic = {
-        strings = false,
-      },
-      constrant = "soft",
-      on_highlights = function(hl, palette)
-        hl.NvimTreeFolderIcon = { fg = "#ff9cac" }
-      end,
-    })
-
     -- set colorscheme
-    vim.cmd([[ colorscheme everforest ]])
+    vim.cmd([[ colorscheme doom-one ]])
 
     vim.api.nvim_create_autocmd("VimEnter", {
       callback = function()

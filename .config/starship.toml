@@ -1,18 +1,18 @@
 format = "$directory $git_branch$fill\n [󱞪](fg:love) "
-palette = "tokyo-night-storm-soft"
+palette = "custom-theme"
 
-[palettes.tokyo-night-storm-soft]
-overlay = '#1f2335'  # Background color
-love = '#f7768e'     # Red
-gold = '#e0af68'     # Yellow
-rose = '#bb9af7'     # Purple
-pine = '#abc111'     # Muted cyan (softer than #73daca)
-foam = '#7aa2f7'     # Blue (slightly muted)
-iris = '#9aa5ce'     # Light gray
+[palettes.custom-theme]
+overlay = '#1A1E23'  # Darker background color (like a deep navy-gray)
+love = '#FFB7B7'     # Soft pink/red
+gold = '#FFDEB4'     # Pastel yellow
+rose = '#E2C0FF'     # Lavender
+pine = '#FFDEB4'     # Using pastel yellow here (no green)
+foam = '#B7E3FF'     # Soft sky blue
+iris = '#D8D8D8'     # Very light gray (white)
 
 [directory]
-format = "[](fg:pine)[ $path ]($style)[](fg:pine)"
-style = "bg:pine fg:overlay"
+format = "[](fg:rose)[ $path ]($style)[](fg:rose)"
+style = "bg:rose fg:overlay"
 truncate_to_repo = false
 
 [directory.substitutions]
@@ -26,6 +26,6 @@ style = "fg:overlay"
 symbol = " "
 
 [git_branch]
-format = "[](fg:pine)[ $symbol $branch ]($style)[](fg:pine)"
-style = "bg:pine fg:overlay"
+format = "[](fg:foam)[ $symbol $branch ]($style)[](fg:foam)"
+style = "bg:foam fg:overlay"
 symbol = ""

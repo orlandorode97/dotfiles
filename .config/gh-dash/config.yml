@@ -55,15 +55,15 @@ pager:
 theme:
   colors:
     text:
-      primary: "#f8efcf"
-      secondary: "#bae1ff"
-      inverted: "#242347"
-      faint: "#f8efcf"
-      warning: "#ffb3ba"
-      success: "#baffc9"
+      primary: "#FFB6A1" # Soft pastel peachy pink
+      secondary: "#FFDC77" # Warm pastel yellow
+      inverted: "#5D4037" # Deep warm brown
+      faint: "#FAE3D9" # Light pastel cream
+      warning: "#FF847C" # Warm muted red
+      success: "#A8E6CF" # Soft pastel green
     background:
-      selected: "#242347"
+      selected: "#8D6E63" # Muted warm brown
     border:
-      primary: "#383B5B"
-      secondary: "#39386B"
-      faint: "#f8efcf"
+      primary: "#D9A78B" # Soft warm tan
+      secondary: "#F4A261" # Muted pastel orange
+      faint: "#FAE3D9" # Light pastel cream

@@ -138,6 +138,7 @@
 local config = function()
   local cmp = require("cmp")
   local lspkind = require("lspkind")
+  local luasnip = require("luasnip")
 
   vim.opt.completeopt = "menu,menuone,noselect"
 
@@ -162,13 +163,20 @@ local config = function()
         end
       end, { "i", "s" }),
     }),
-    sources = {
-      { name = "nvim_lsp" },
-      { name = "path" },
-    },
+    sources = cmp.config.sources({
+      { name = "buffer", priority = 50, keyword_length = 2 }, -- text within the current buffer
+      { name = "nvim_lsp" }, -- lsp
+      { name = "luasnip" }, -- luasnips
+      { name = "path" }, -- file system paths
+    }),
     window = {
       completion = { border = "solid" },
       documentation = { border = "solid" },
+    },
+    snippet = {
+      expand = function(args)
+        luasnip.lsp_expand(args.body)
+      end,
     },
     formatting = {
       fields = { "kind", "abbr", "menu" },
@@ -190,6 +198,12 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "onsails/lspkind.nvim",
     "hrsh7th/cmp-path",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
+    "rafamadriz/friendly-snippets",
   },
+  event = "InsertEnter",
   config = config,
 }

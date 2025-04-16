@@ -5,7 +5,7 @@ local keys = require("keys")
 local config = {}
 
 if wezterm.config_builder then
-	config = wezterm.config_builder()
+  config = wezterm.config_builder()
 end
 -- config.window_frame = {
 -- 	border_left_width = "0.30cell",
@@ -19,9 +19,9 @@ end
 -- }
 
 config.colors = {
-	split = "#F1DFB6",
-	selection_bg = "#F1DFB6",
-	selection_fg = "#0f0f0f",
+  split = "#F1DFB6",
+  selection_bg = "#F1DFB6",
+  selection_fg = "#0f0f0f",
 }
 
 config.window_decorations = "RESIZE"
@@ -33,7 +33,7 @@ config.window_background_opacity = 0.95
 config.macos_window_background_blur = 90
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = true
-config.color_scheme = "Espresso"
+config.color_scheme = "tokyonight-storm"
 
 config.max_fps = 120
 config.enable_wayland = false
@@ -48,32 +48,33 @@ config.audible_bell = "Disabled"
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = keys
+config.scrollback_lines = 10000
 
 config.launch_menu = {
-	{ args = { "top" } },
-	{ args = { "nvim", "." } },
+  { args = { "top" } },
+  { args = { "nvim", "." } },
 }
 
 config.inactive_pane_hsb = {
-	saturation = 1.0,
-	brightness = 1.0,
+  saturation = 1.0,
+  brightness = 1.0,
 }
 
 require("tabline")
 
 -- Custom any
 wezterm.on("toggle-colorscheme", function(win, _)
-	local overrides = win:get_config_overrides() or {}
-	if not overrides.color_scheme then
-		overrides.color_scheme = "dayfox"
-	else
-		if overrides.color_scheme == "nordfox" then
-			overrides.color_scheme = "dayfox"
-		else
-			overrides.color_scheme = "nordfox"
-		end
-	end
-	win:set_config_overrides(overrides)
+  local overrides = win:get_config_overrides() or {}
+  if not overrides.color_scheme then
+    overrides.color_scheme = "Tokyo Night Light (Gogh)"
+  else
+    if overrides.color_scheme == "tokyonight-storm" then
+      overrides.color_scheme = "Tokyo Night Light (Gogh)"
+    else
+      overrides.color_scheme = "tokyonight-storm"
+    end
+  end
+  win:set_config_overrides(overrides)
 end)
 
 return config

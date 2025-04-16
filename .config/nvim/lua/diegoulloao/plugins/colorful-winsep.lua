@@ -11,7 +11,7 @@ return {
       },
       -- timer refresh rate
       interval = 30,
-      no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest", "NvimTree" },
+      no_exec_files = { "packer", "TelescopePrompt", "mason", "CompetiTest" },
       -- Symbols for separator lines, the order: horizontal, vertical, top left, top right, bottom left, bottom right.
       symbols = { "─", "│", "╭", "╮", "╰", "╯" },
       close_event = function()

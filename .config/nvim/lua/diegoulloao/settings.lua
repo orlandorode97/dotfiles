@@ -25,7 +25,11 @@ local settings = {
   --   * nord
   --   * nordic
   --   * oxocarbon
-  theme = "shadow",
+  --   * rusty
+  --   * shadow
+  --   * kanagawa
+  --   * doom-one
+  theme = "doom-one",
   indentChar = "",                    -- │, |, ¦, ┆, ┊
   separatorChar = "-",                -- ─, -, .
   aspect = "clean",                   -- normal|clean

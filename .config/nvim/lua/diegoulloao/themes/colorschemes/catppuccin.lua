@@ -33,23 +33,23 @@ return {
         treesitter = true,
         treesitter_context = true,
       },
-      color_overrides = {
-        mocha = {
-          text = "#F4CDE9",
-          subtext1 = "#DEBAD4",
-          subtext0 = "#C8A6BE",
-          overlay2 = "#B293A8",
-          overlay1 = "#9C7F92",
-          overlay0 = "#866C7D",
-          surface2 = "#705867",
-          surface1 = "#5A4551",
-          surface0 = "#44313B",
-
-          base = "#352939",
-          mantle = "#211924",
-          crust = "#1a1016",
-        },
-      },
+      -- color_overrides = {
+      --   mocha = {
+      --     text = "#F4CDE9",
+      --     subtext1 = "#DEBAD4",
+      --     subtext0 = "#C8A6BE",
+      --     overlay2 = "#B293A8",
+      --     overlay1 = "#9C7F92",
+      --     overlay0 = "#866C7D",
+      --     surface2 = "#705867",
+      --     surface1 = "#5A4551",
+      --     surface0 = "#44313B",
+      --
+      --     base = "#352939",
+      --     mantle = "#211924",
+      --     crust = "#1a1016",
+      --   },
+      -- },
       custom_highlights = function(colors)
         return {
           NvimTreeFolderIcon = { fg = "#ff9cac" },
@@ -61,5 +61,10 @@ return {
     for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
       vim.api.nvim_set_hl(0, group, {})
     end
+    vim.api.nvim_create_autocmd("VimEnter", {
+      callback = function()
+        vim.cmd("highlight Visual guibg=#44475a guifg=NONE")
+      end,
+    })
   end,
 }
