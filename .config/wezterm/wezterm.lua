@@ -5,7 +5,7 @@ local keys = require("keys")
 local config = {}
 
 if wezterm.config_builder then
-  config = wezterm.config_builder()
+	config = wezterm.config_builder()
 end
 -- config.window_frame = {
 -- 	border_left_width = "0.30cell",
@@ -19,21 +19,38 @@ end
 -- }
 
 config.colors = {
-  split = "#F1DFB6",
-  selection_bg = "#F1DFB6",
-  selection_fg = "#0f0f0f",
+	foreground = "#ffffff",
+	background = "#16181a",
+
+	cursor_bg = "#ffffff",
+	cursor_fg = "#000000",
+	cursor_border = "#ffffff",
+
+	scrollbar_thumb = "#16181a",
+
+	ansi = { "#16181a", "#ff6e5e", "#5eff6c", "#f1ff5e", "#5ea1ff", "#bd5eff", "#5ef1ff", "#ffffff" },
+	brights = { "#3c4048", "#ff6e5e", "#5eff6c", "#f1ff5e", "#5ea1ff", "#bd5eff", "#5ef1ff", "#ffffff" },
+	indexed = { [16] = "#ffbd5e", [17] = "#ff6e5e" },
+
+	tab_bar = {
+		background = "rgb(22, 24, 26 / 20%)",
+	},
+
+	split = "#F1DFB6",
+	selection_bg = "#F1DFB6",
+	selection_fg = "#0f0f0f",
 }
 
 config.window_decorations = "RESIZE"
 config.font = wezterm.font("GeistMono Nerd Font", { weight = "Bold" })
 config.font_size = 14
 config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = true
 config.window_background_opacity = 0.95
+config.tab_max_width = 22
 config.macos_window_background_blur = 90
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = true
-config.color_scheme = "tokyonight-storm"
+-- config.color_scheme = "Harper"
 
 config.max_fps = 120
 config.enable_wayland = false
@@ -51,30 +68,30 @@ config.keys = keys
 config.scrollback_lines = 10000
 
 config.launch_menu = {
-  { args = { "top" } },
-  { args = { "nvim", "." } },
+	{ args = { "top" } },
+	{ args = { "nvim", "." } },
 }
 
 config.inactive_pane_hsb = {
-  saturation = 1.0,
-  brightness = 1.0,
+	saturation = 1.0,
+	brightness = 1.0,
 }
 
 require("tabline")
 
 -- Custom any
 wezterm.on("toggle-colorscheme", function(win, _)
-  local overrides = win:get_config_overrides() or {}
-  if not overrides.color_scheme then
-    overrides.color_scheme = "Tokyo Night Light (Gogh)"
-  else
-    if overrides.color_scheme == "tokyonight-storm" then
-      overrides.color_scheme = "Tokyo Night Light (Gogh)"
-    else
-      overrides.color_scheme = "tokyonight-storm"
-    end
-  end
-  win:set_config_overrides(overrides)
+	local overrides = win:get_config_overrides() or {}
+	if not overrides.color_scheme then
+		overrides.color_scheme = "Tokyo Night Light (Gogh)"
+	else
+		if overrides.color_scheme == "tokyonight-storm" then
+			overrides.color_scheme = "Tokyo Night Light (Gogh)"
+		else
+			overrides.color_scheme = "tokyonight-storm"
+		end
+	end
+	win:set_config_overrides(overrides)
 end)
 
 return config

@@ -29,7 +29,7 @@ local settings = {
   --   * shadow
   --   * kanagawa
   --   * doom-one
-  theme = "doom-one",
+  theme = "cyberdream",
   indentChar = "",                    -- │, |, ¦, ┆, ┊
   separatorChar = "-",                -- ─, -, .
   aspect = "clean",                   -- normal|clean

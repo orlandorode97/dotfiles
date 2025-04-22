@@ -1,8 +1,6 @@
 -- settings
 local settings = require("diegoulloao.settings")
 
--- set dark background
-
 return {
   "scottmckendry/cyberdream.nvim",
   lazy = false,
@@ -12,6 +10,17 @@ return {
     "nvim-lualine/lualine.nvim", -- load lualine first (applies hi groups correctly)
   },
   config = function()
-    vim.cmd([[ colorscheme cyberdream ]])
+    require("cyberdream").setup({
+      variant = "default",
+      transparent = false,
+      saturation = 0.5,
+      overrides = function(c)
+        return {
+          CursorLine = { bg = c.bg },
+          CursorLineNr = { fg = c.magenta },
+        }
+      end,
+    })
+    vim.cmd("colorscheme cyberdream")
   end,
 }
