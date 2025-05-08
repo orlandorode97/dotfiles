@@ -29,7 +29,8 @@ local settings = {
   --   * shadow
   --   * kanagawa
   --   * doom-one
-  theme = "cyberdream",
+  --   * kanso
+  theme = "kanso",
   indentChar = "",                    -- │, |, ¦, ┆, ┊
   separatorChar = "-",                -- ─, -, .
   aspect = "clean",                   -- normal|clean

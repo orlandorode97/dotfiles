@@ -1,84 +1,90 @@
-local colors = require("oldworld.palette")
+local colors = require("kanso.colors").setup({ theme = "ink" }).palette
 
 local extensions = require("diegoulloao.extensions.lualine")
+
 local modecolor = {
-  n = colors.red,
-  i = colors.cyan,
-  v = colors.purple,
-  [""] = colors.purple,
-  V = colors.red,
-  c = colors.yellow,
-  no = colors.red,
-  s = colors.yellow,
-  S = colors.yellow,
-  [""] = colors.yellow,
-  ic = colors.yellow,
-  R = colors.green,
-  Rv = colors.purple,
-  cv = colors.red,
-  ce = colors.red,
-  r = colors.cyan,
-  rm = colors.cyan,
-  ["r?"] = colors.cyan,
-  ["!"] = colors.red,
-  t = colors.bright_red,
+  n = colors.inkRed,
+  i = colors.inkTeal,
+  v = colors.inkViolet,
+  [""] = colors.inkViolet,
+  V = colors.inkRed,
+  c = colors.inkYellow,
+  no = colors.inkRed,
+  s = colors.inkYellow,
+  S = colors.inkYellow,
+  [""] = colors.inkYellow,
+  ic = colors.inkYellow,
+  R = colors.inkGreen,
+  Rv = colors.inkViolet,
+  cv = colors.inkRed,
+  ce = colors.inkRed,
+  r = colors.inkTeal,
+  rm = colors.inkTeal,
+  ["r?"] = colors.inkTeal,
+  ["!"] = colors.inkRed,
+  t = colors.inkOrange2,
 }
 
 local theme = {
   normal = {
-    a = { fg = colors.bg_dark, bg = colors.blue },
-    b = { fg = colors.blue, bg = colors.white },
-    c = { fg = colors.white, bg = colors.bg_dark },
-    z = { fg = colors.white, bg = colors.bg_dark },
+    a = { fg = colors.zen2, bg = colors.inkBlue },
+    b = { fg = colors.inkBlue, bg = colors.zen3 },
+    c = { fg = colors.inkWhite, bg = colors.zen3 },
+    z = { fg = colors.inkWhite, bg = colors.zen3 },
   },
-  insert = { a = { fg = colors.bg_dark, bg = colors.orange } },
-  visual = { a = { fg = colors.bg_dark, bg = colors.green } },
-  replace = { a = { fg = colors.bg_dark, bg = colors.green } },
+  insert = { a = { fg = colors.zen2, bg = colors.inkOrange } },
+  visual = { a = { fg = colors.zen2, bg = colors.inkGreen } },
+  replace = { a = { fg = colors.zen2, bg = colors.inkGreen } },
 }
 
+-- Space, filename, filetype, and other components will follow the same color scheme updates
 local space = {
   function()
     return " "
   end,
-  color = { bg = colors.bg_dark, fg = colors.blue },
+  color = { bg = colors.zen3, fg = colors.inkBlue },
 }
 
 local filename = {
   "filename",
-  color = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-  separator = { left = "", right = "" },
+  color = { bg = colors.inkBlue, fg = colors.zen2, gui = "bold" },
+  separator = { left = "|", right = "|" },
+  separator_color = { fg = colors.inkViolet }, -- Updated color for the separators
 }
 
 local filetype = {
   "filetype",
   icons_enabled = false,
-  color = { bg = colors.gray2, fg = colors.blue, gui = "italic,bold" },
-  separator = { left = "", right = "" },
+  color = { bg = colors.inkGreen2, fg = colors.inkBlue, gui = "italic,bold" },
+  separator = { left = "|", right = "|" },
+  separator_color = { fg = colors.inkYellow }, -- Updated color for the separators
 }
 
 local branch = {
   "branch",
   icon = "",
-  color = { bg = colors.green, fg = colors.bg, gui = "bold" },
-  separator = { left = "", right = "" },
+  color = { bg = colors.inkGreen, fg = colors.zen2, gui = "bold" },
+  separator = { left = "|", right = "|" },
+  separator_color = { fg = colors.inkOrange2 }, -- Updated color for the separators
 }
 
 local location = {
   "location",
-  color = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-  separator = { left = "", right = "" },
+  color = { bg = colors.inkYellow, fg = colors.zen3, gui = "bold" }, -- Updated fg to zen3 for better contrast
+  separator = { left = "|", right = "|" },
+  separator_color = { fg = colors.inkBlue }, -- Adjust separator color
 }
-
 local diff = {
   "diff",
-  color = { bg = colors.gray2, fg = colors.bg, gui = "bold" },
-  separator = { left = "", right = "" },
+  color = { bg = colors.pearlYellow, fg = colors.zen2, gui = "bold" },
+  separator = { left = "|", right = "|" },
   symbols = { added = " ", modified = " ", removed = " " },
+  separator_color = { fg = colors.inkRed }, -- Updated color for the separators
 
   diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.yellow },
-    removed = { fg = colors.red },
+    added = { fg = colors.pearlGreen3 },
+    modified = { fg = colors.inkYellow },
+    removed = { fg = colors.inkRed },
   },
 }
 
@@ -89,16 +95,18 @@ local macro = {
   cond = function()
     return require("noice").api.status.mode.has()
   end,
-  color = { fg = colors.red, bg = colors.bg_dark, gui = "italic,bold" },
+  color = { fg = colors.inkRed, bg = colors.zen3, gui = "italic,bold" },
+  separator_color = { fg = colors.inkTeal }, -- Updated color for the separators
 }
 
 local modes = {
   "mode",
   color = function()
     local mode_color = modecolor
-    return { bg = mode_color[vim.fn.mode()], fg = colors.bg_dark, gui = "bold" }
+    return { bg = mode_color[vim.fn.mode()], fg = colors.zen2, gui = "bold" }
   end,
-  separator = { left = "", right = "" },
+  separator = { left = "|", right = "|" },
+  separator_color = { fg = colors.inkViolet }, -- Updated color for the separators
 }
 
 local function getLspName()
@@ -162,21 +170,23 @@ local dia = {
   sources = { "nvim_diagnostic" },
   symbols = { error = " ", warn = " ", info = " ", hint = " " },
   diagnostics_color = {
-    error = { fg = colors.red },
-    warn = { fg = colors.yellow },
-    info = { fg = colors.purple },
-    hint = { fg = colors.cyan },
+    error = { fg = colors.inkRed },
+    warn = { fg = colors.inkYellow },
+    info = { fg = colors.inkViolet },
+    hint = { fg = colors.inkTeal },
   },
-  color = { bg = colors.gray2, fg = colors.blue, gui = "bold" },
-  separator = { left = "" },
+  color = { bg = colors.inkGreen2, fg = colors.inkBlue, gui = "bold" },
+  separator = { left = "|" },
+  separator_color = { fg = colors.inkOrange2 }, -- Updated color for the separators
 }
 
 local lsp = {
   function()
     return getLspName()
   end,
-  separator = { left = "", right = "" },
-  color = { bg = colors.purple, fg = colors.bg, gui = "italic,bold" },
+  separator = { left = "|", right = "|" },
+  separator_color = { fg = colors.inkViolet }, -- Updated color for the separators
+  color = { bg = colors.inkViolet, fg = colors.zen2, gui = "italic,bold" },
 }
 
 return {
@@ -230,18 +240,12 @@ return {
         lualine_y = { macro, space, branch, diff },
         lualine_z = {
           {
-            function()
-              return ""
-            end,
-            separator = { left = "", right = "" },
+            "location",
+            separator = { left = "|", right = "|" },
+            separator_color = { fg = colors.inkBlue },
+            color = { fg = colors.zen2, bg = colors.inkYellow },
           },
-          {
-            "searchcount",
-            color = "StatusLine",
-          },
-          dia,
           lsp,
-          location,
         },
       },
       inactive_sections = {
@@ -268,196 +272,3 @@ return {
     })
   end,
 }
-
--- require custom extensions
--- local extensions = require("diegoulloao.extensions.lualine")
---
--- -- require settings
--- local settings = require("diegoulloao.settings")
---
--- -- theme
--- local get_lualine_theme = function()
---   if settings.theme == "neofusion" then
---     local lualine_neofusion = require("neofusion.lualine")
---
---     -- swap modes
---     local tmp_mode = lualine_neofusion.normal
---     lualine_neofusion.normal = lualine_neofusion.visual
---     lualine_neofusion.visual = tmp_mode
---
---     return lualine_neofusion
---   end
---
---   -- require lualine theme
---   local status, lualine_theme = pcall(require, "lualine.themes." .. settings.theme)
---   if not status then
---     return require("lualine.themes.auto")
---   end
---   --
---   -- -- export lualine theme
---   return lualine_theme
--- end
---
--- -- customized separators
--- local lualine_separators = {
---   ["rect"] = {
---     section = { left = "", right = "" },
---     component = { left = "", right = "" },
---   },
---   ["triangle"] = {
---     section = { left = "", right = "" },
---     component = { left = "", right = "" },
---   },
---   ["semitriangle"] = {
---     section = { left = "", right = "" },
---     component = { left = "", right = "" },
---   },
---   ["curve"] = {
---     section = { left = "", right = "" },
---     component = { left = "", right = "" },
---   },
--- }
---
--- -- current separator
--- local separators = lualine_separators[settings.lualine_separator]
---
--- return {
---   "nvim-lualine/lualine.nvim",
---   dependencies = {
---     "folke/noice.nvim",
---     "nvim-tree/nvim-web-devicons",
---   },
---   config = function()
---     -- require noice
---     local noice = require("noice")
---
---     -- require lazy extensions
---     local lazy_status = require("lazy.status")
---
---     -- custom setup
---     require("lualine").setup({
---       options = {
---         theme = get_lualine_theme(),
---         globalstatus = true,
---         component_separators = separators.component,
---         section_separators = separators.section,
---         disabled_filetypes = { "dashboard", "packer", "help" },
---         ignore_focus = {}, -- add filetypes
---       },
---       -- man:124 for sections doc
---       sections = {
---         lualine_a = {
---           {
---             "mode",
---             icon = "",
---             separator = { left = "", right = "" },
---           },
---         },
---
---         lualine_b = {
---           {
---             "branch",
---             icon = "", -- disable icon
---             padding = { left = 1, right = 1 },
---           },
---         },
---         lualine_c = {
---           -- filetype icon
---           {
---             "filetype",
---             icon_only = true,
---             padding = { left = 2, right = 0 },
---             color = "_lualine_c_filetype",
---           },
---           -- filename
---           {
---             "filename",
---             file_status = true, -- display file status (read only, modified)
---             path = 1, -- 0: just name, 1: relative path, 2: absolute path, 3: absolute path with ~ as home directory
---             symbols = {
---               unnamed = "",
---               readonly = "",
---               modified = "",
---             },
---             padding = { left = 1 },
---             color = { gui = "bold" },
---           },
---         },
---         lualine_x = {
---           {
---             lazy_status.updates,
---             cond = lazy_status.has_updates,
---             -- color = { fg = "" },
---           },
---           -- number of changes in file
---           {
---             "diff",
---             colored = true,
---             padding = { right = 2 },
---             symbols = {
---               added = "+",
---               modified = "|",
---               removed = "-",
---             },
---           },
---           -- status like @recording
---           {
---             noice.api.statusline.mode.get,
---             cond = noice.api.statusline.mode.has,
---             -- color = { fg = "" },
---           },
---           -- "encoding",
---           -- "filetype",
---           -- "bo:filetype",
---           -- "fileformat",
---         },
---         lualine_y = {},
---         lualine_z = {
---           {
---             function()
---               return ""
---             end,
---             separator = { left = "", right = "" },
---           },
---           {
---             "searchcount",
---             color = "StatusLine",
---           },
---           {
---             "progress",
---             color = "StatusLine",
---           },
---           {
---             function()
---               return ""
---             end,
---             separator = { left = "", right = "" },
---           },
---           {
---             "location",
---             color = "StatusLine",
---           },
---           {
---             function()
---               return ""
---             end,
---             separator = { left = "", right = "" },
---           },
---         },
---       },
---       extensions = {
---         "nvim-tree",
---         "toggleterm",
---         "mason",
---         "fzf",
---         "quickfix",
---         "man",
---         "lazy",
---         extensions.telescope,
---         extensions.lspinfo,
---         extensions.saga,
---         extensions.btw,
---       },
---     })
---   end,
--- }

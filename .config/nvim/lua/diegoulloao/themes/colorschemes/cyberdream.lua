@@ -10,17 +10,24 @@ return {
     "nvim-lualine/lualine.nvim", -- load lualine first (applies hi groups correctly)
   },
   config = function()
-    require("cyberdream").setup({
-      variant = "default",
-      transparent = false,
-      saturation = 0.5,
-      overrides = function(c)
-        return {
-          CursorLine = { bg = c.bg },
-          CursorLineNr = { fg = c.magenta },
-        }
-      end,
-    })
-    vim.cmd("colorscheme cyberdream")
+    local function apply_theme()
+      require("cyberdream").setup({
+        variant = "default",
+        transparent = false,
+        saturation = 0.5,
+        overrides = function(c)
+          return {
+            NvimTreeFolderIcon = { fg = "#ff9cac" },
+          }
+        end,
+        extensions = {
+          treesitter = true,
+          treesittercontext = true,
+        },
+      })
+      vim.cmd("colorscheme cyberdream")
+    end
+
+    apply_theme()
   end,
 }

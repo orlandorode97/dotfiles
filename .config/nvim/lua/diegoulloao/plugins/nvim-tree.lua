@@ -1,7 +1,3 @@
-vim.g.loaded = 1
-vim.g.loaded_netrwPlugin = 1
-
--- custom setup
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
@@ -85,5 +81,7 @@ return {
         },
       },
     })
+
+    vim.cmd("colorscheme kanso")
   end,
 }
