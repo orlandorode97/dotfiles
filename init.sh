@@ -39,7 +39,7 @@ echo "In progress"
 echo "Config files done!"
 
 echo "Installing brew packages"
-brew install git buf k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc gitui gh fzf zoxide bat curlie
+brew install git buf k9s kubernetes-cli make ninja cmake automake protobuf protolint ripgrep sqlc gitui gh fzf zoxide bat curlie jq yq
 echo "Configuring gh"
 gh extension install dlvhdr/gh-dash
 echo "Installing npm packages"

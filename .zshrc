@@ -16,16 +16,7 @@ export PATH=$PATH:/Users/orlandoromo/omg
 export PATH=$PATH:/usr/local/go/bin 
 export PATH=$PATH:$GOPATH/bin
 
-alias staging-db='cloud_sql_proxy omg-staging-env:us-central1:staging --address 0.0.0.0 --port 3308'
-alias staging-db2='cloud_sql_proxy omg-staging-env:us-central1:staging-db-2-mysql8 --address 0.0.0.0 --port 3309'
-alias staging-db3='cloud_sql_proxy omg-staging-env:us-central1:staging-db-2-mysql8 --address 0.0.0.0 --port 3309'
-alias prod-db-writer='cloud_sql_proxy ordermygear-1125:us-central1:prod-db-1-writer --address 0.0.0.0 --port 3308'
-alias prod-db-reader='cloud_sql_proxy ordermygear-1125:us-central1:prod-db-1b-reader --address 0.0.0.0 --port 3307'
-alias prod-db-reader-1='cloud_sql_proxy ordermygear-1125:us-central1:prod-db-1-reader --address 0.0.0.0 --port 3313'
-alias prod-db2='cloud_sql_proxy ordermygear-1125:us-central1:prod-db-2 --address 0.0.0.0 --port 3309'
-alias prod-db3='cloud_sql_proxy ordermygear-1125:us-central1:prod-db-3-mysql8 --address 0.0.0.0 --port 3311'
 
-# export GH_TOKEN="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"
 export OMG_DEV_MODULES="catalog payment extra integration reporting"
 export PATH="/opt/homebrew/bin/xlsx2csv:$PATH"
 
@@ -122,6 +113,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(starship init zsh)"
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/robbyrussell.omp.json)"
 ulimit -n 8096
 
 export NVM_DIR="$HOME/.nvm"
@@ -140,18 +132,33 @@ alias gitlog="git log --all --decorate --oneline --graph --pretty=format:'%C(aut
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 alias gitui="gitui -t theme.ron"
 alias hfzf="history | fzf --tac --literal"
+alias omg="omg-dev start . && omg-dev run ."
+alias kubectl="HTTPS_PROXY=localhost:8888 kubectl"
 
 export PATH=/usr/local/opt/python/libexec/bin:/opt/homebrew/opt/mysql-client/bin:/Users/orlandoromo/.nvm/versions/node/v18.18.1/bin:/Users/orlandoromo/google-cloud-sdk/bin:/opt/homebrew/bin/xlsx2csv:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/laps:/Users/orlandoromo/.cargo/bin:/Users/orlandoromo/dev-cluster/scripts:/Users/orlandoromo/omg:/Users/orlandoromo/go/bin:/Users/orlandoromo/go/bin
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+alias curl="curl $@" | jq
+eval "$(zoxide init zsh)"
+alias gitui="gitui -t theme.ron"
+
+export PATH=$PATH:/usr/local/go/bin
+alias ar="yarn --cwd ~/ ar"
+
+alias cat="bat --plain" 
+
+. "$HOME/.local/bin/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias cat=bat
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/orlandoromo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/orlandoromo/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/orlandoromo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/orlandoromo/google-cloud-sdk/completion.zsh.inc'; fi
-alias curl="curl $@" | jq
-eval "$(zoxide init zsh)"
-alias gitui="gitui -t tokyonight_storm.ron"
 
-export PATH=$PATH:/usr/local/go/bin
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/bubbles.omp.json)"
