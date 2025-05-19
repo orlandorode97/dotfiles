@@ -82,6 +82,6 @@ return {
       },
     })
 
-    vim.cmd("colorscheme kanso")
+    vim.cmd("colorscheme duskfox")
   end,
 }

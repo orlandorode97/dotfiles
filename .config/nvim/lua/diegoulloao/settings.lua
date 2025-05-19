@@ -30,7 +30,7 @@ local settings = {
   --   * kanagawa
   --   * doom-one
   --   * kanso
-  theme = "kanso",
+  theme = "nightfox",
   indentChar = "",                    -- │, |, ¦, ┆, ┊
   separatorChar = "-",                -- ─, -, .
   aspect = "clean",                   -- normal|clean
