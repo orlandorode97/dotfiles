@@ -82,6 +82,6 @@ return {
       },
     })
 
-    vim.cmd("colorscheme duskfox")
+    vim.cmd("colorscheme melange")
   end,
 }

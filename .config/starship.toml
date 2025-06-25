@@ -1,14 +1,17 @@
 format = "$directory $git_branch$fill\n [󱞪](fg:love) "
-palette = "custom-theme"
+palette = "gruvbox"
 
-[palettes.custom-theme]
-overlay = '#1A1E23'  # Darker background color (like a deep navy-gray)
-love = '#FFB7B7'     # Soft pink/red
-gold = '#FFDEB4'     # Pastel yellow
-rose = '#E2C0FF'     # Lavender
-pine = '#FFDEB4'     # Using pastel yellow here (no green)
-foam = '#B7E3FF'     # Soft sky blue
-iris = '#D8D8D8'     # Very light gray (white)
+[palettes.gruvbox]
+# Backgrounds and foregrounds
+overlay = '#282828'  # dark bg0 :contentReference[oaicite:1]{index=1}
+iris    = '#ebdbb2'  # fg1 :contentReference[oaicite:2]{index=2}
+
+# Accent colors
+love    = '#fb4934'  # bright red :contentReference[oaicite:3]{index=3}
+gold    = '#fabd2f'  # bright yellow :contentReference[oaicite:4]{index=4}
+rose    = '#d3869b'  # bright purple :contentReference[oaicite:5]{index=5}
+pine    = '#8ec07c'  # bright aqua (used for branch) :contentReference[oaicite:6]{index=6}
+foam    = '#83a598'  # bright blue :contentReference[oaicite:7]{index=7}
 
 [directory]
 format = "[](fg:rose)[ $path ]($style)[](fg:rose)"
@@ -26,6 +29,7 @@ style = "fg:overlay"
 symbol = " "
 
 [git_branch]
-format = "[](fg:foam)[ $symbol $branch ]($style)[](fg:foam)"
-style = "bg:foam fg:overlay"
+format = "[](fg:pine)[ $symbol $branch ]($style)[](fg:pine)"
+style = "bg:pine fg:overlay"
 symbol = ""
+
