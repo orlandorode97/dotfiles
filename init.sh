@@ -43,7 +43,7 @@ brew install git buf k9s kubernetes-cli make ninja cmake automake protobuf proto
 echo "Configuring gh"
 gh extension install dlvhdr/gh-dash
 echo "Installing npm packages"
-sudo npm install -g typescript-language-server vscode-langservers-extracted
+sudo npm install -g typescript-language-server vscode-langservers-extracted dockerfile-language-server-nodejs
 echo "Installing protols"
 cargo install protols
 echo "Done!"

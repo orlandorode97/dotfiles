@@ -93,6 +93,16 @@ return {
       },
     })
 
+    lspconfig["docker_compose_language_service"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["dockerls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     -- For PHP files, use 4 spaces for indentation
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "php",
