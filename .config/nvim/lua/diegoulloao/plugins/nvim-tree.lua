@@ -82,6 +82,6 @@ return {
       },
     })
 
-    vim.cmd("colorscheme melange")
+    vim.cmd("colorscheme synthwave84")
   end,
 }

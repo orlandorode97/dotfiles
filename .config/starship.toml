@@ -1,21 +1,19 @@
 format = "$directory $git_branch$fill\n [󱞪](fg:love) "
-palette = "gruvbox"
+palette = "coolwave_bold"
 
-[palettes.gruvbox]
-# Backgrounds and foregrounds
-overlay = '#282828'  # dark bg0 :contentReference[oaicite:1]{index=1}
-iris    = '#ebdbb2'  # fg1 :contentReference[oaicite:2]{index=2}
+[palettes.coolwave_bold]
+overlay = '#2a2139'  # dark background
+iris    = '#f1f1f1'  # light fg text
 
-# Accent colors
-love    = '#fb4934'  # bright red :contentReference[oaicite:3]{index=3}
-gold    = '#fabd2f'  # bright yellow :contentReference[oaicite:4]{index=4}
-rose    = '#d3869b'  # bright purple :contentReference[oaicite:5]{index=5}
-pine    = '#8ec07c'  # bright aqua (used for branch) :contentReference[oaicite:6]{index=6}
-foam    = '#83a598'  # bright blue :contentReference[oaicite:7]{index=7}
+love    = '#ff4b4b'  # neon red
+gold    = '#ffe14b'  # neon yellow
+rose    = '#2de2e6'  # bright cyan
+pine    = '#08f7fe'  # teal/cyan
+foam    = '#7df9ff'  # soft neon blue
 
 [directory]
-format = "[](fg:rose)[ $path ]($style)[](fg:rose)"
-style = "bg:rose fg:overlay"
+format = "[](fg:gold)[ $path ]($style)[](fg:gold)"
+style = "bg:gold fg:overlay"
 truncate_to_repo = false
 
 [directory.substitutions]

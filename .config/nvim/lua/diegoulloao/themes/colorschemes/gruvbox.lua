@@ -18,6 +18,9 @@ return {
       },
       contrast = "soft", -- options: soft|hard|empty
       transparent_mode = true,
+      overrides = {
+        NvimTreeFolderIcon = { fg = "#d65d0e" },
+      },
     })
 
     -- set colorscheme

@@ -37,7 +37,7 @@ config.tab_max_width = 22
 config.macos_window_background_blur = 90
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = true
-config.color_scheme = "Tartan (terminal.sexy)"
+config.color_scheme = "synthwave-everything"
 
 config.max_fps = 120
 config.enable_wayland = false

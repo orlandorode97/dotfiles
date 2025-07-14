@@ -31,7 +31,7 @@ local settings = {
   --   * doom-one
   --   * kanso
   --   * aura
-  theme = "melange",
+  theme = "synthwave84",
   indentChar = "", -- │, |, ¦, ┆, ┊
   separatorChar = "-", -- ─, -, .
   aspect = "clean", -- normal|clean
