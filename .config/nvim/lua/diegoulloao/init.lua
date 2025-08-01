@@ -6,3 +6,4 @@ require("diegoulloao.core.keymaps.main")
 
 -- load plugins
 require("diegoulloao.plugins-setup")
+vim.cmd([[highlight GitSignsCurrentLineBlame guifg=Yellow]])

@@ -1,37 +1,5 @@
 local settings = {
-  -- themes:
-  --   * ayu
-  --   * gruvbox
-  --   * neofusion
-  --   * spaceduck
-  --   * catppuccin
-  --   * tundra
-  --   * cyberdream
-  --   * rose-pine
-  --   * everforest
-  --   * mellow
-  --   * material
-  --   * melange
-  --   * eldritch
-  --   * obscure
-  --   * witch
-  --   * calvera
-  --   * flow
-  --   * bamboo
-  --   * mellifluous
-  --   * oh-lucy
-  --   * nightfox
-  --   * tokyogogh
-  --   * nord
-  --   * nordic
-  --   * oxocarbon
-  --   * rusty
-  --   * shadow
-  --   * kanagawa
-  --   * doom-one
-  --   * kanso
-  --   * aura
-  theme = "synthwave84",
+  theme = "nightfox",
   indentChar = "", -- │, |, ¦, ┆, ┊
   separatorChar = "-", -- ─, -, .
   aspect = "clean", -- normal|clean

@@ -11,7 +11,7 @@ return {
   },
   lazy = false,
   priority = 1000,
-  enabled = settings.theme == "nightfox",
+  enabled = true,
   config = function()
     require("nightfox").setup({
       groups = {
