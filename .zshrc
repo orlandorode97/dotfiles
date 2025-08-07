@@ -34,6 +34,8 @@ alias gitui="gitui -t theme.ron"
 
 export PATH=$PATH:/usr/local/go/bin
 
+
+alias bat="batcat"
 alias cat="bat --plain" 
 
 export FZF_DEFAULT_OPTS='
