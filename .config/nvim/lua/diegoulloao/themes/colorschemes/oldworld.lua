@@ -8,7 +8,6 @@ return {
   },
   lazy = false,
   priority = 1000,
-  enabled = settings.theme == "oldworld",
   config = function()
     -- custom setup
     require("oldworld").setup({

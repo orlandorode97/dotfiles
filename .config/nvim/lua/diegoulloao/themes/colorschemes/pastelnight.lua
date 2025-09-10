@@ -5,7 +5,6 @@ vim.g.transparent_bg = true
 return {
   "pauchiner/pastelnight.nvim",
   lazy = false,
-  enabled = settings.theme == "pastelnight",
   priority = 1000,
   dependencies = {
     "nvim-lualine/lualine.nvim", -- load lualine first (applies hi groups correctly)

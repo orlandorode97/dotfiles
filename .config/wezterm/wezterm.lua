@@ -29,7 +29,7 @@ config.colors = {
 }
 
 config.window_decorations = "RESIZE"
-config.font = wezterm.font("GeistMono Nerd Font", {})
+config.font = wezterm.font("GeistMono Nerd Font", { weight = "Bold" })
 config.font_size = 14
 config.use_fancy_tab_bar = false
 -- config.window_background_opacity = 0.85
@@ -68,17 +68,15 @@ require("tabline")
 -- Custom any
 wezterm.on("toggle-colorscheme", function(win, _)
 	local overrides = win:get_config_overrides() or {}
-
-	if overrides.colors and overrides.colors.background == "#16181a" then
-		overrides.colors.background = "#eaeaea"
-		overrides.colors.foreground = "#16181a"
+	if not overrides.color_scheme then
+		overrides.color_scheme = "Tokyo Night Light (Gogh)"
 	else
-		overrides.colors = {
-			background = "#16181a",
-			foreground = "#eaeaea",
-		}
+		if overrides.color_scheme == "Bamboo" then
+			overrides.color_scheme = "Tokyo Night Light (Gogh)"
+		else
+			overrides.color_scheme = "Bamboo"
+		end
 	end
-
 	win:set_config_overrides(overrides)
 end)
 

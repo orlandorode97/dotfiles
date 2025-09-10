@@ -82,6 +82,6 @@ return {
       },
     })
 
-    vim.cmd("colorscheme oldworld")
+    vim.cmd("colorscheme gruvdark")
   end,
 }

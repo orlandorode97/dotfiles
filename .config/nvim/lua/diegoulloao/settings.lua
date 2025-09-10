@@ -1,5 +1,5 @@
 local settings = {
-  theme = "oldworld",
+  theme = "gruvdark",
   indentChar = "", -- │, |, ¦, ┆, ┊
   separatorChar = "-", -- ─, -, .
   aspect = "clean", -- normal|clean

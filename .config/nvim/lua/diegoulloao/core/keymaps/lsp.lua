@@ -8,11 +8,11 @@ local attach_keymaps = function(client, bufnr)
   -- set go to keybinds
   keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts) -- go to definition
   -- set documentation keybind
-  keymap.set("n", "<S-k>", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for the cursor
+  keymap.set("n", "<S-k>", "<cmd>Lspsaga hover_doc<CR>", opts)    -- show documentation for the cursor
 
   -- set code formatting by lsp
   keymap.set("n", "<leader>F", function()
-    vim.lsp.buf.format({ async = true })
+    vim.lsp.buf.format({ async = true, bufnr = bufnr })
   end, opts) -- format code
 
   -- typescript specific keybinds

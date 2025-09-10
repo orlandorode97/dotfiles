@@ -8,7 +8,6 @@ return {
   },
   lazy = false,
   priority = 1000,
-  enabled = settings.theme == "gruvbox",
   config = function()
     -- custom setup
     require("gruvbox").setup({

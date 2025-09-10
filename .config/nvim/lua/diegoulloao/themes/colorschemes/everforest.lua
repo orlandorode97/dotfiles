@@ -1,0 +1,11 @@
+-- settings
+local settings = require("diegoulloao.settings")
+
+return {
+  "sainnhe/everforest",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.cmd.colorscheme("everforest")
+  end,
+}
