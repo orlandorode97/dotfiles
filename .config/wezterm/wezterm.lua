@@ -37,7 +37,7 @@ config.tab_max_width = 22
 -- config.macos_window_background_blur = 90
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = true
-config.color_scheme = "Bamboo"
+config.color_scheme = "Gruvbox dark, medium (base16)"
 config.max_fps = 120
 config.enable_wayland = false
 config.warn_about_missing_glyphs = false
@@ -71,10 +71,10 @@ wezterm.on("toggle-colorscheme", function(win, _)
 	if not overrides.color_scheme then
 		overrides.color_scheme = "Tokyo Night Light (Gogh)"
 	else
-		if overrides.color_scheme == "Bamboo" then
+		if overrides.color_scheme == "Gruvbox dark, medium (base16)" then
 			overrides.color_scheme = "Tokyo Night Light (Gogh)"
 		else
-			overrides.color_scheme = "Bamboo"
+			overrides.color_scheme = "Gruvbox dark, medium (base16)"
 		end
 	end
 	win:set_config_overrides(overrides)

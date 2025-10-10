@@ -103,6 +103,11 @@ return {
       on_attach = on_attach,
     })
 
+    lspconfig["ruby_lsp"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     -- For PHP files, use 4 spaces for indentation
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "php",

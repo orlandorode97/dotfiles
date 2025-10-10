@@ -82,6 +82,6 @@ return {
       },
     })
 
-    vim.cmd("colorscheme gruvdark")
+    vim.cmd("colorscheme gruvbox-material")
   end,
 }
