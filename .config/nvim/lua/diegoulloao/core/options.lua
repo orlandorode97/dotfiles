@@ -15,6 +15,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
+opt.showtabline = 2
 
 -- line wrapping
 opt.wrap = false
@@ -53,3 +54,4 @@ opt.foldlevel = 99
 opt.foldlevelstart = 99
 
 vim.cmd("set foldmethod=indent")
+vim.cmd("set mouse=a")

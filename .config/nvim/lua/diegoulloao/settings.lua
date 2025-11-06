@@ -1,11 +1,11 @@
 local settings = {
-  theme = "gruvdark",
-  indentChar = "", -- │, |, ¦, ┆, ┊
-  separatorChar = "-", -- ─, -, .
-  aspect = "clean", -- normal|clean
+  theme = "nightfox",
+  indentChar = "",                    -- │, |, ¦, ┆, ┊
+  separatorChar = "-",                -- ─, -, .
+  aspect = "normal",                  -- normal|clean
   lualine_separator = "semitriangle", -- rect|triangle|semitriangle|curve
-  cmp_style = "nvchad", -- default|nvchad
-  cmp_icons_style = "devicons", -- devicons|vscode
+  cmp_style = "default",              -- default|nvchad
+  cmp_icons_style = "vscode",         -- devicons|vscode
   transparent_mode = false,
 }
 

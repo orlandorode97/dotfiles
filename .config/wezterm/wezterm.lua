@@ -29,12 +29,12 @@ config.colors = {
 }
 
 config.window_decorations = "RESIZE"
-config.font = wezterm.font("GeistMono Nerd Font", { weight = "Bold" })
+config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 config.font_size = 14
 config.use_fancy_tab_bar = false
--- config.window_background_opacity = 0.85
+config.window_background_opacity = 0.85
 config.tab_max_width = 22
--- config.macos_window_background_blur = 90
+config.macos_window_background_blur = 90
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = true
 config.color_scheme = "Gruvbox dark, medium (base16)"

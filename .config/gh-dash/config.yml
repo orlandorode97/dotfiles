@@ -51,19 +51,58 @@ keybindings:
   prs: []
 repoPaths: {}
 pager:
-  diff: ""
+  diff: delta
+showAuthorIcons: true
+smartFilteringAtLaunch: true
+
+ui:
+  sectionsShowCount: true
+table:
+  showSeparators: true
+  compact: false
+colors:
+  text:
+    primary: "#ffffff"
+    secondary: "#c6c6c6"
+    inverted: "#303030"
+    faint: "#8a8a8a"
+    warning: "#800000"
+    success: "#008000"
+  background:
+    selected: "#808080"
+  border:
+    primary: "#808080"
+    secondary: "#c0c0c0"
+    faint: "#000000"
+  inline:
+    icons:
+      newcontributor: "077"
+      contributor: "075"
+      collaborator: "178"
+      member: "178"
+      owner: "178"
+      unknownrole: "178"
+icons:
+  inline:
+    newcontributor: "󰎔"
+    contributor: ""
+    collaborator: ""
+    member: ""
+    owner: "󱇐"
+    unknownrole: "󱐡"
+
 theme:
   colors:
     text:
-      primary: "#FFB6A1" # Soft pastel peachy pink
-      secondary: "#FFDC77" # Warm pastel yellow
-      inverted: "#5D4037" # Deep warm brown
-      faint: "#FAE3D9" # Light pastel cream
-      warning: "#FF847C" # Warm muted red
-      success: "#A8E6CF" # Soft pastel green
+      primary: "#D1D5DB" # Light gray for primary text
+      secondary: "#A3B1C2" # Muted blue-gray for secondary text
+      inverted: "#1F2937" # Dark background for inverted text
+      faint: "#6B7280" # Soft gray for faint text
+      warning: "#F87171" # Soft red for warnings
+      success: "#34D399" # Soft green for success messages
     background:
-      selected: "#8D6E63" # Muted warm brown
+      selected: "#3B3F46" # Dimmed dark background for selected items
     border:
-      primary: "#D9A78B" # Soft warm tan
-      secondary: "#F4A261" # Muted pastel orange
-      faint: "#FAE3D9" # Light pastel cream
+      primary: "#4B5563" # Dimmed border for primary elements
+      secondary: "#9CA3AF" # Lighter border for secondary elements
+      faint: "#D1D5DB" # Very light border for faint elements
