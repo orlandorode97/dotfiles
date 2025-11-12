@@ -1,35 +1,67 @@
+# format = """
+# $character\
+# $directory\
+# $git_branch\
+# $git_status\
+# """
+#
+# add_newline = true
+#
+# [username]
+# show_always = true
+# style_user = "bold #FABD2F"  # bright yellow (Gruvbox gold)
+# style_root = "bold #FABD2F"
+# format = '[$user ]($style)'
+#
+# [character]
+# success_symbol = "[❯](bold #FE8019)"   # orange
+# error_symbol = "[❯](bold #FB4934)"     # red
+# vimcmd_symbol = "[❮](bold #B8BB26)"    # green
+#
+# [directory]
+# format = "[ $path/ ]($style)"
+# style = "#D79921" # yellow-orange
+# truncation_length = 1
+# truncation_symbol = ""
+#
+# [git_branch]
+# symbol = ""
+# format = '[$branch]($style)'
+# style = "#83A598" # faded blue
+#
+# [git_status]
+# format = ' [$all_status$ahead_behind]($style) '
+# style = "#8EC07C" # aqua-green
+
+
 format = """
-$character\
+$username\
 $directory\
 $git_branch\
 $git_status\
+$character\
 """
 
 add_newline = true
 
 [username]
 show_always = true
-style_user = "bold #FABD2F"  # bright yellow (Gruvbox gold)
-style_root = "bold #FABD2F"
-format = '[$user ]($style)'
+style_user = "bold #a1c181"  # tundra sage green
+style_root = "bold #fe7a7a"   # tundra coral red
+format = '[$user]($style) '
 
 [character]
-success_symbol = "[❯](bold #FE8019)"   # orange
-error_symbol = "[❯](bold #FB4934)"     # red
-vimcmd_symbol = "[❮](bold #B8BB26)"    # green
+success_symbol = "[❯](bold #6c9bcf)"   # tundra sky blue
+error_symbol = "[❯](bold #fe7a7a)"     # tundra coral red
+vimcmd_symbol = "[❮](bold #d8caac)"    # tundra warm beige
 
 [directory]
-format = "[ $path/ ]($style)"
-style = "#D79921" # yellow-orange
+format = "[$path]($style)"
+style = "bold #6c9bcf" # tundra sky blue
 truncation_length = 1
 truncation_symbol = ""
 
 [git_branch]
-symbol = ""
-format = '[$branch]($style)'
-style = "#83A598" # faded blue
-
-[git_status]
-format = ' [$all_status$ahead_behind]($style) '
-style = "#8EC07C" # aqua-green
-
+symbol = " "
+format = ' [$symbol$branch]($style)'
+style = "#a1c181" # tundra sage green
