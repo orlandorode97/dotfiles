@@ -14,11 +14,11 @@ local config = function()
     window = {
       completion = cmp.config.window.bordered({
         border = "rounded",
-        winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+        -- winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
       }),
       documentation = cmp.config.window.bordered({
         border = "rounded",
-        winhighlight = "Normal:CmpDoc,FloatBorder:CmpBorder,Search:None",
+        --winhighlight = "Normal:CmpDoc,FloatBorder:CmpBorder,Search:None",
       }),
     },
 
@@ -51,9 +51,9 @@ local config = function()
 
     sources = cmp.config.sources({
       { name = "nvim_lsp", priority = 1000 },
-      { name = "luasnip",  priority = 750 },
-      { name = "buffer",   priority = 500, keyword_length = 2 },
-      { name = "path",     priority = 250 },
+      { name = "luasnip", priority = 750 },
+      { name = "buffer", priority = 500, keyword_length = 2 },
+      { name = "path", priority = 250 },
     }),
 
     snippet = {
@@ -86,20 +86,6 @@ local config = function()
       }),
     },
   })
-
-  -- === Gruvbox Highlight Palette ===
-  -- bg: #282828 | fg: #ebdbb2 | accent: #fabd2f | border: #665c54
-
-  vim.cmd([[
-    highlight! CmpPmenu guibg=#282828 guifg=#ebdbb2
-    highlight! CmpSel guibg=#504945 guifg=#fabd2f gui=bold
-    highlight! CmpBorder guifg=#665c54 guibg=#282828
-    highlight! CmpDoc guibg=#1d2021 guifg=#ebdbb2
-    highlight! CmpItemAbbrMatch guifg=#fabd2f gui=bold
-    highlight! CmpItemAbbrMatchFuzzy guifg=#d79921 gui=bold
-    highlight! CmpItemKind guifg=#83a598
-    highlight! CmpItemMenu guifg=#928374
-  ]])
 end
 
 return {
@@ -116,4 +102,3 @@ return {
   event = "InsertEnter",
   config = config,
 }
-
