@@ -1,7 +1,10 @@
+local settings = require("diegoulloao.settings")
+
 return {
   "catppuccin/nvim",
   lazy = false,
   priority = 1000,
+  cond = settings.theme == "catppuccin-mocha",
   config = function()
     require("catppuccin").setup({
       highlight_overrides = {
@@ -12,6 +15,6 @@ return {
         end,
       },
     })
-    vim.cmd.colorscheme("catppuccin")
+    vim.cmd.colorscheme("catppuccin-mocha")
   end,
 }

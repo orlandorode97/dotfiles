@@ -97,6 +97,6 @@ return {
         },
       },
     })
-    vim.cmd("colorscheme tundra")
+    vim.cmd("colorscheme catppuccin-mocha")
   end,
 }

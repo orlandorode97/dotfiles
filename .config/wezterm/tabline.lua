@@ -33,9 +33,6 @@ local process_icons = {
 	["ssh"] = wezterm.nerdfonts.dev_google_cloud_platform,
 }
 
--- The filled in variant of the > symbol
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
-
 local function get_process(tab)
 	if not tab.active_pane or tab.active_pane.foreground_process_name == "" then
 		return tab.active_pane.foreground_process_name
@@ -62,16 +59,45 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		end
 	end
 
-	local edge_background = theme_colors.tab_bar["inactive_tab_edge"]
-	local background = theme_colors.tab_bar.inactive_tab["bg_color"]
-	local foreground = theme_colors.tab_bar.inactive_tab["fg_color"]
+	-- Gruvbox Dark Medium colors
+	local gruvbox_colors = {
+		-- Background colors
+		bg0 = "#282828",   -- dark0
+		bg1 = "#3c3836",   -- dark1
+		bg2 = "#504945",   -- dark2
+		bg3 = "#665c54",   -- dark3
+		bg4 = "#7c6f64",   -- dark4
+		-- Foreground colors
+		fg0 = "#fbf1c7",  -- light0
+		fg1 = "#ebdbb2",  -- light1
+		fg2 = "#d5c4a1",  -- light2
+		fg3 = "#bdae93",  -- light3
+		fg4 = "#a89984",  -- light4
+		-- Accent colors
+		blue = "#458588",
+		aqua = "#689d6a",
+		green = "#98971a",
+		yellow = "#d79921",
+		orange = "#d65d0e",
+		red = "#cc241d",
+		purple = "#b16286",
+		gray = "#928374",
+	}
+
+	-- Active tab: Blue background with light text
+	-- Inactive tab: bg1 background with fg4 text
+	-- Hover: bg2 background with fg1 text
+	local edge_background = gruvbox_colors.bg0
+	local background = gruvbox_colors.bg1
+	local foreground = gruvbox_colors.fg4
 
 	if tab.is_active then
-		background = theme_colors.tab_bar.active_tab["bg_color"]
-		foreground = theme_colors.tab_bar.active_tab["fg_color"]
+		background = gruvbox_colors.blue
+		foreground = gruvbox_colors.fg1
+		edge_background = gruvbox_colors.blue
 	elseif hover then
-		background = theme_colors.tab_bar.inactive_tab_hover["bg_color"]
-		foreground = theme_colors.tab_bar.inactive_tab_hover["fg_color"]
+		background = gruvbox_colors.bg2
+		foreground = gruvbox_colors.fg1
 	end
 
 	local edge_foreground = background
@@ -82,26 +108,22 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		return {
 			{ Background = { Color = edge_foreground } },
 			{ Foreground = { Color = edge_background } },
-			{ Text = SOLID_RIGHT_ARROW },
 			{ Background = { Color = background } },
-			{ Foreground = { Color = theme_colors.brights[7] } },
+			{ Foreground = { Color = gruvbox_colors.yellow } },
 			{ Text = title },
 			{ Background = { Color = edge_background } },
 			{ Foreground = { Color = edge_foreground } },
-			{ Text = SOLID_RIGHT_ARROW },
 		}
 	end
 
 	return {
 		{ Background = { Color = edge_foreground } },
 		{ Foreground = { Color = edge_background } },
-		{ Text = SOLID_RIGHT_ARROW },
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
 		{ Text = title },
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_RIGHT_ARROW },
 	}
 end)
 
@@ -138,16 +160,7 @@ wezterm.on("update-right-status", function(window, pane)
 		table.insert(cells, string.format("%.0f%%", b.state_of_charge * 100))
 	end
 
-	local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
-
-	local colors = {
-		theme_colors.brights[0],
-		"#d4c2e8",
-		"#c1a5e6",
-		"#b18fdd",
-		"#e0b0ff",
-		"#f5d9ff",
-	}
+	local colors = {}
 	-- local colors = theme_colors.ansi
 
 	-- Foreground color for the text across the fade
@@ -166,7 +179,7 @@ wezterm.on("update-right-status", function(window, pane)
 		table.insert(elements, { Text = " " .. text .. " " })
 		if not is_last then
 			table.insert(elements, { Foreground = { Color = colors[cell_no + 1] } })
-			table.insert(elements, { Text = SOLID_LEFT_ARROW })
+			table.insert(elements, {})
 		end
 		num_cells = num_cells + 1
 	end
