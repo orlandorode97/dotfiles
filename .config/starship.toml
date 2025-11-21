@@ -46,26 +46,26 @@ add_newline = true
 
 [username]
 show_always = true
-style_user = "bold #A78BFA"  # warm violet
-style_root = "bold #EF4444"  # vibrant red
+style_user = "bold #FF6B9D"  # soft coral pink
+style_root = "bold #FF4757"  # vibrant coral
 format = '[$user]($style) '
 
 [character]
-success_symbol = "[→](bold #10B981)"   # emerald green
-error_symbol = "[→](bold #F59E0B)"     # amber
-vimcmd_symbol = "[←](bold #6366F1)"    # indigo
+success_symbol = "[❯](bold #4ECDC4)"   # turquoise
+error_symbol = "[❯](bold #FF6B6B)"     # soft red
+vimcmd_symbol = "[❮](bold #95E1D3)"    # mint green
 
 [directory]
 format = "[$path]($style)"
-style = "bold #06B6D4" # cyan
+style = "bold #A8E6CF" # sea green
 truncation_length = 1
 truncation_symbol = ""
 
 [git_branch]
 symbol = " "
 format = ' [$symbol$branch]($style)'
-style = "#8B5CF6" # purple
+style = "#B8A9C9" # lavender
 
 [git_status]
 format = '[$all_status$ahead_behind]($style)'
-style = "#14B8A6" # teal
+style = "#6BCAE2" # sky blue
