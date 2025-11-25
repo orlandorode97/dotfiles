@@ -79,6 +79,6 @@ return {
     })
 
     -- Tu colorscheme o lo que quieras
-    vim.cmd("colorscheme catppuccin-mocha")
+    vim.cmd("colorscheme kanagawa-dragon")
   end,
 }

@@ -1,5 +1,5 @@
 local settings = {
-  theme = "catppuccin-mocha",
+  theme = "kanagawa-dragon",
   indentChar = "",                    -- │, |, ¦, ┆, ┊
   separatorChar = "-",                -- ─, -, .
   aspect = "normal",                  -- normal|clean
