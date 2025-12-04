@@ -1,5 +1,5 @@
 local settings = {
-  theme = "kanagawa-dragon",
+  theme = "kanagawa-wave",
   indentChar = "",                    -- │, |, ¦, ┆, ┊
   separatorChar = "-",                -- ─, -, .
   aspect = "normal",                  -- normal|clean

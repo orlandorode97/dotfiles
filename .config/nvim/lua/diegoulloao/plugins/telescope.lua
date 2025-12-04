@@ -14,6 +14,7 @@ return {
     "ahmedkhalf/project.nvim",
     "olimorris/persisted.nvim",
     "MunifTanjim/nui.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
   },
   cmd = "Telescope",
   config = function()
@@ -32,108 +33,78 @@ return {
     -- persisted extension for session management
     telescope.load_extension("persisted")
 
+    telescope.load_extension("ui-select")
+
     -- custom setup
     telescope.setup({
       defaults = {
-        layout_strategy = "flex", -- vertical layout
         sorting_strategy = "ascending",
-        results_title = "",
-        prompt_prefix = "  ", --  ›
-        selection_caret = " › ",
-        entry_prefix = "   ", -- each entry result prefix
-        -- result numbers at the right: matches|total
-        get_status_text = function(picker)
-          local total = picker.stats.processed or 0
-          local matches = total - (picker.stats.filtered or 0)
+        layout_strategy = "flex",
 
-          if matches == 0 and total == 0 then
-            return ""
-          end
+        -- NvChad UI style
+        prompt_prefix = "   ",
+        selection_caret = " ",
+        entry_prefix = "   ",
 
-          return string.format("%s|%s ", matches, total)
-        end,
-      },
-      pickers = {
-        colorscheme = {
-          enable_preview = true,
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+            preview_width = 0.55,
+          },
+          vertical = {
+            prompt_position = "top",
+          },
+          height = 0.85,
+          width = 0.80,
         },
+
+        -- NvChad border style
+        borderchars = {
+          prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+          results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+          preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        },
+
+        winblend = 0, -- transparency (NvChad default = 0)
+
+        file_ignore_patterns = {
+          "node_modules",
+          "%.git/",
+          "dist",
+          "build",
+          "__pycache__",
+        },
+      },
+
+      pickers = {
         find_files = {
+          theme = "dropdown",
+          previewer = false,
+          layout_config = { width = 0.6 },
+        },
+        buffers = {
+          theme = "dropdown",
+          previewer = false,
+        },
+        git_branches = {
+          theme = "dropdown",
+          previewer = false,
+        },
+        git_status = {
+          theme = "dropdown",
           previewer = false,
         },
         live_grep = {
           previewer = true,
         },
-        current_buffer_fuzzy_find = {
-          previewer = false,
-          prompt_title = "Search",
-          results_title = "", -- results
-          layout_config = {
-            prompt_position = "top",
-            width = 0.7,
-            height = 0.6,
-          },
-        },
-        buffers = {
-          previewer = false,
-          layout_config = {
-            prompt_position = "top",
-            width = 0.6,
-            height = 0.5,
-          },
-        },
-        git_bcommits = {
-          previewer = false,
-          layout_config = {
-            prompt_position = "top",
-            width = 0.7,
-            height = 0.6,
-          },
-        },
-        git_commits = {
-          previewer = false,
-          layout_config = {
-            prompt_position = "top",
-            width = 0.7,
-            height = 0.6,
-          },
-        },
-        git_status = {
-          previewer = false,
-          layout_config = {
-            prompt_position = "top",
-            width = 0.6,
-            height = 0.5,
-          },
-        },
-        git_branches = {
-          previewer = false,
-          layout_config = {
-            prompt_position = "top",
-            width = 0.6,
-            height = 0.5,
-          },
-          -- overwrite default behavior of checking out to dettached HEAD
-          mappings = {
-            i = { ["<cr>"] = actions.git_switch_branch },
-          },
-        },
-        diagnostics = {
-          previewer = false,
-          prompt_title = "Diagnostics",
-          layout_config = {
-            prompt_position = "top",
-            width = 0.6,
-            height = 0.5,
-          },
-        },
       },
+
       extensions = {
-        persisted = {
-          layout_config = {
-            prompt_position = "top",
-            width = 0.6,
-            height = 0.5,
-          },
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({
+            previewer = false,
+            sorting_strategy = "ascending",
+          }),
         },
       },
     })

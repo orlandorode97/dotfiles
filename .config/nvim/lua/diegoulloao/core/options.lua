@@ -1,57 +1,93 @@
--- for conciseness
-local opt = vim.opt -- vim options
+-- options.lua
+local opt = vim.opt
 
--- hide -- INSERT on lualine
-opt.showmode = true
+-- =========================================================
+-- Basics
+-- =========================================================
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
+opt.hidden = true   -- allow switching buffers without saving
+opt.autoread = true -- auto-reload file if changed on disk
+opt.backspace = { "indent", "eol", "start" }
+opt.mouse = "a"
 
--- line numbers
+-- =========================================================
+-- UI / Appearance
+-- =========================================================
 opt.number = true
 opt.relativenumber = true
-opt.wrap = false
 opt.cursorline = true
+opt.numberwidth = 4
+opt.wrap = false
+opt.signcolumn = "yes"
+opt.showmode = true           -- hide/disable if using lualine
+opt.fillchars = { eob = " " } -- remove ~ from empty lines
+opt.pumheight = 10
+opt.splitkeep = "screen"      -- prevent split jumping
+opt.termguicolors = true
 
--- tabs & indentation
+-- =========================================================
+-- Indentation & Tabs
+-- =========================================================
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
+opt.smartindent = true
 opt.showtabline = 2
 
--- line wrapping
-opt.wrap = false
+-- =========================================================
+-- Scrolling
+-- =========================================================
+opt.scrolloff = 8
+opt.sidescrolloff = 8
 
--- search settings
+-- =========================================================
+-- Search
+-- =========================================================
 opt.ignorecase = true
 opt.smartcase = true
+opt.incsearch = true
+opt.inccommand = "split" -- live preview for :%s substitutions
+
+-- =========================================================
+-- Files / Backup / Undo
+-- =========================================================
 opt.undofile = true
-opt.swapfile = true
 
--- appearance
-opt.signcolumn = "yes"
+-- Recommended: disable swap/backup if using Git everywhere
+opt.swapfile = false
+opt.backup = false
+opt.writebackup = false
 
--- clipboard
-opt.clipboard:append("unnamedplus")
+-- =========================================================
+-- Completion
+-- =========================================================
+opt.completeopt = { "menu", "menuone", "noselect" }
+opt.wildmenu = true
+opt.wildmode = { "longest:full", "full" }
 
--- split window
-opt.splitright = true
-opt.splitbelow = true
+-- =========================================================
+-- Performance
+-- =========================================================
+opt.updatetime = 200 -- faster diagnostic updates
+opt.timeoutlen = 400 -- faster key mappings
+opt.lazyredraw = true
+opt.ttyfast = true
 
--- dash as part of the word
-opt.iskeyword:append("-")
-
--- autoread files when it changes
-opt.autoread = true
-
--- completion window
-opt.pumheight = 10
-
--- hide empty lines symbol ~
-opt.fillchars = { eob = " " }
-
--- support fold
+-- =========================================================
+-- Folds
+-- =========================================================
 opt.foldenable = true
 opt.foldlevel = 99
 opt.foldlevelstart = 99
+opt.foldmethod = "indent" -- switch to treesitter later if needed
 
-vim.cmd("set foldmethod=indent")
-vim.cmd("set mouse=a")
+-- =========================================================
+-- Other quality-of-life
+-- =========================================================
+opt.clipboard:append("unnamedplus")
+opt.iskeyword:append("-")
+opt.splitright = true
+opt.splitbelow = true
+
