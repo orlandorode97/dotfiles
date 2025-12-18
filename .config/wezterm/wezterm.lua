@@ -5,31 +5,21 @@ local keys = require("keys")
 local config = {}
 
 if wezterm.config_builder then
-  config = wezterm.config_builder()
+	config = wezterm.config_builder()
 end
--- config.window_frame = {
--- 	border_left_width = "0.30cell",
--- 	border_right_width = "0.30cell",
--- 	border_bottom_height = "0.25cell",
--- 	border_top_height = "0.20cell",
--- 	border_left_color = "#F1DFB6",
--- 	border_right_color = "#F1DFB6",
--- 	border_bottom_color = "#F1DFB6",
--- 	border_top_color = "#F1DFB6",
--- }
 
 config.colors = {
-  tab_bar = {
-    background = "rgb(22, 24, 26 / 20%)",
-  },
+	tab_bar = {
+		background = "rgb(22, 24, 26 / 20%)",
+	},
 
-  split = "#F1DFB6",
-  selection_bg = "#F1DFB6",
-  selection_fg = "#0f0f0f",
+	split = "#F1DFB6",
+	selection_bg = "#F1DFB6",
+	selection_fg = "#0f0f0f",
 }
 
 config.window_decorations = "RESIZE"
-config.font = wezterm.font("Menlo")
+config.font = wezterm.font("Menlo", { weight = "Bold" })
 config.font_size = 14
 config.use_fancy_tab_bar = false
 config.window_background_opacity = 0.85
@@ -54,30 +44,30 @@ config.keys = keys
 config.scrollback_lines = 10000
 
 config.launch_menu = {
-  { args = { "top" } },
-  { args = { "nvim", "." } },
+	{ args = { "top" } },
+	{ args = { "nvim", "." } },
 }
 
 config.inactive_pane_hsb = {
-  saturation = 1.0,
-  brightness = 1.0,
+	saturation = 1.0,
+	brightness = 1.0,
 }
 
 require("tabline")
 
 -- Custom any
 wezterm.on("toggle-colorscheme", function(win, _)
-  local overrides = win:get_config_overrides() or {}
-  if not overrides.color_scheme then
-    overrides.color_scheme = "Tokyo Night Light (Gogh)"
-  else
-    if overrides.color_scheme == "Gruvbox dark, medium (base16)" then
-      overrides.color_scheme = "Tokyo Night Light (Gogh)"
-    else
-      overrides.color_scheme = "Gruvbox dark, medium (base16)"
-    end
-  end
-  win:set_config_overrides(overrides)
+	local overrides = win:get_config_overrides() or {}
+	if not overrides.color_scheme then
+		overrides.color_scheme = "Tokyo Night Light (Gogh)"
+	else
+		if overrides.color_scheme == "Gruvbox dark, medium (base16)" then
+			overrides.color_scheme = "Tokyo Night Light (Gogh)"
+		else
+			overrides.color_scheme = "Gruvbox dark, medium (base16)"
+		end
+	end
+	win:set_config_overrides(overrides)
 end)
 
 return config
