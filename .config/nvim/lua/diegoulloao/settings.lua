@@ -1,5 +1,5 @@
 local settings = {
-  theme = "kanagawa-wave",
+  theme = "gruvbox-material",
   indentChar = "",                    -- │, |, ¦, ┆, ┊
   separatorChar = "-",                -- ─, -, .
   aspect = "normal",                  -- normal|clean
