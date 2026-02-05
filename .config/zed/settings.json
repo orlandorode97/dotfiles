@@ -1,0 +1,143 @@
+{
+  "git": {
+    "enable_diff": true,
+    "enable_status": true,
+    "disable_git": false,
+    "path_style": "file_name_first",
+    "hunk_style": "staged_hollow",
+    "branch_picker": {
+      "show_author_name": true,
+    },
+    "blame": {
+      "show_avatar": true,
+    },
+    "inline_blame": {
+      "enabled": true,
+      "show_commit_summary": false,
+    },
+  },
+  "git_panel": {
+    "tree_view": true,
+  },
+  "show_whitespaces": "selection",
+  "allow_rewrap": "in_comments",
+  "show_wrap_guides": false,
+  "inline_code_actions": false,
+  "gutter": {
+    "min_line_number_digits": 1,
+  },
+  "snippet_sort_order": "top",
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": true,
+    },
+  },
+  "use_system_window_tabs": true,
+  "bottom_dock_layout": "full",
+  "preview_tabs": {
+    "enable_preview_from_file_finder": false,
+  },
+  "tabs": {
+    "git_status": true,
+    "close_position": "right",
+    "file_icons": true,
+  },
+  "title_bar": {
+    "show_branch_icon": true,
+  },
+  "status_bar": {
+    "active_encoding_button": "enabled",
+    "active_language_button": true,
+  },
+  "soft_wrap": "prefer_line",
+  "hard_tabs": false,
+  "vim": {
+    "use_smartcase_find": true,
+    "toggle_relative_line_numbers": true,
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "text_rendering_mode": "platform_default",
+  "theme": "Catppuccin Espresso (Blur) [Heavy]",
+  "project_panel": {
+    "dock": "left",
+    "button": false,
+  },
+  "cursor_shape": "bar",
+  "buffer_font_family": "JetBrains Mono",
+  "ui_font_family": "JetBrains Mono NL",
+  "buffer_line_height": "comfortable",
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Macchiato",
+    "dark": "Bearded Icon Theme",
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "ui_font_size": 15.0,
+  "buffer_font_size": 14.0,
+  "languages": {
+    "PHP": {
+      "language_servers": ["intelephense"],
+    },
+  },
+  "relative_line_numbers": "enabled",
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": false,
+    "show_nav_history_buttons": false,
+    "show": false,
+  },
+  "scrollbar": {
+    "axes": {
+      "vertical": true,
+      "horizontal": true,
+    },
+    "show": "never",
+  },
+  "show_call_status_icon": true,
+  "indent_guides": {
+    "enabled": false,
+  },
+  "profiles": {
+    "Focus": {
+      "ui_font_size": 15,
+      "buffer_font_size": 14,
+      "buffer_line_height": { "custom": 2.0 },
+      "tab_bar": {
+        "show": false,
+        "show_nav_history_buttons": false,
+      },
+      "toolbar": {
+        "breadcrumbs": false,
+        "quick_actions": false,
+      },
+      "gutter": {
+        "line_numbers": false,
+        "folds": false,
+        "breakpoints": false,
+        "runnables": false,
+        "min_line_number_digits": 0,
+      },
+      "indent_guides": {
+        "enabled": false,
+      },
+      "current_line_highlight": "none",
+      "scrollbar": {
+        "show": "never",
+        "cursors": false,
+        "git_diff": false,
+        "diagnostics": "none",
+        "search_results": false,
+        "selected_symbol": false,
+      },
+    },
+  },
+}

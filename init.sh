@@ -10,6 +10,7 @@ ln -s "${PWD}/.config/gh-dash" "${HOME}/.config/gh-dash"
 ln -s "${PWD}/.config/ohmyposh" "${HOME}/.config/ohmyposh"
 ln -s "${PWD}/.config/ghostty" "${HOME}/.config/ghostty"
 ln -s "${PWD}/.config/starship.toml" "${HOME}/.config/starship.toml"
+ln -s "${PWD}/.config/zed" "${HOME}/.config/"
 
 # custom aliases
 aliases=(
