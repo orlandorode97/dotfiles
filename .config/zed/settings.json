@@ -59,19 +59,19 @@
     "show": "never",
   },
   "text_rendering_mode": "platform_default",
-  "theme": "Catppuccin Espresso (Blur) [Heavy]",
+  "theme": "Tokyo Night Storm",
   "project_panel": {
     "dock": "left",
     "button": false,
   },
   "cursor_shape": "bar",
-  "buffer_font_family": "JetBrains Mono",
-  "ui_font_family": "JetBrains Mono NL",
+  "buffer_font_family": "Monaspace Neon",
+  "ui_font_family": "Monaspace Neon",
   "buffer_line_height": "comfortable",
   "icon_theme": {
     "mode": "system",
     "light": "Catppuccin Macchiato",
-    "dark": "Bearded Icon Theme",
+    "dark": "Symbols Icon Theme",
   },
   "telemetry": {
     "diagnostics": false,
@@ -87,6 +87,8 @@
   "languages": {
     "PHP": {
       "language_servers": ["intelephense"],
+      "formatter": "prettier",
+      "format_on_save": "off",
     },
   },
   "relative_line_numbers": "enabled",
