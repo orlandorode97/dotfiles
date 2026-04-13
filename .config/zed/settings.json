@@ -83,9 +83,9 @@
   },
   "text_rendering_mode": "platform_default",
   "theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "One Light",
-    "dark": "Tokyo Night",
+    "dark": "Ayu Dark",
   },
   "project_panel": {
     "dock": "left",
@@ -107,7 +107,7 @@
   "session": {
     "trust_all_worktrees": true,
   },
-  "base_keymap": "VSCode",
+  "base_keymap": "Emacs",
   "vim_mode": true,
   "ui_font_size": 15.0,
   "buffer_font_size": 14.0,
