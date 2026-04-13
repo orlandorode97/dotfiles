@@ -13,7 +13,7 @@ ZSH_THEME="robbyrussell"
 source $HOME/.cargo/env
 export PATH=$PATH:/Users/orlandoromo/dev-cluster/scripts
 export PATH=$PATH:/Users/orlandoromo/omg
-export PATH=$PATH:/usr/local/go/bin 
+export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 
 alias staging-db='cloud_sql_proxy omg-staging-env:us-central1:staging --address 0.0.0.0 --port 3308'
@@ -156,19 +156,28 @@ export PATH=$PATH:/usr/local/go/bin
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/bubbles.omp.json)"
 
+alias gitui="gitui -t theme.ron"
+alias cat="bat --plain"
 
+export FZF_DEFAULT_OPTS='
+  --color=fg:#ebdbb2,bg:#282828,hl:#fabd2f
+  --color=fg+:#282828,bg+:#fabd2f,hl+:#fe8019
+  --color=info:#83a598,prompt:#b8bb26,pointer:#fe8019
+  --color=marker:#d3869b,spinner:#d3869b,header:#458588
+  --layout=reverse
+  --border
+'
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+function hfzf() {
+  local selected_command
+  selected_command=$(fc -n -rl 1 | fzf --tac --literal --reverse --border --bind 'enter:accept')
+  if [[ -n "$selected_command" ]]; then
+    LBUFFER="$selected_command"
+  fi
+}
+zle -N hfzf
+bindkey '^R' hfzf
 
-
-
-
-
-
-
-
-
-
-
-
-
+export PATH=/Users/orlandoromo/.opencode/bin:$PATH
