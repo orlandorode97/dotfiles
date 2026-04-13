@@ -1,4 +1,26 @@
 {
+  "agent": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6",
+      "enable_thinking": true,
+      "effort": "high",
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "agent_servers": {
+    "OpenCode": {
+      "type": "custom",
+      "command": "opencode",
+      "args": ["acp"],
+    },
+  },
+  "edit_predictions": {
+    "provider": "zed",
+    "enabled_in_text_threads": false,
+  },
+  "show_edit_predictions": false,
   "git": {
     "enable_diff": true,
     "enable_status": true,
@@ -17,6 +39,7 @@
     },
   },
   "git_panel": {
+    "dock": "right",
     "tree_view": true,
   },
   "show_whitespaces": "selection",
@@ -59,7 +82,11 @@
     "show": "never",
   },
   "text_rendering_mode": "platform_default",
-  "theme": "Catppuccin Frappé (Blur) [Light]",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Tokyo Night",
+  },
   "project_panel": {
     "dock": "left",
     "button": false,
@@ -69,9 +96,9 @@
   "ui_font_family": "Monaspace Neon",
   "buffer_line_height": "comfortable",
   "icon_theme": {
-    "mode": "system",
+    "mode": "light",
     "light": "Catppuccin Macchiato",
-    "dark": "Symbols Icon Theme",
+    "dark": "Bearded Icons",
   },
   "telemetry": {
     "diagnostics": false,
@@ -86,9 +113,15 @@
   "buffer_font_size": 14.0,
   "languages": {
     "PHP": {
+      "show_edit_predictions": true,
       "language_servers": ["intelephense"],
       "formatter": "prettier",
       "format_on_save": "off",
+    },
+    "C": {
+      "format_on_save": "on",
+      "tab_size": 2,
+      "show_edit_predictions": true,
     },
   },
   "relative_line_numbers": "enabled",
@@ -141,5 +174,14 @@
         "selected_symbol": false,
       },
     },
+  },
+  "experimental.theme_overrides": {
+    "vim.normal.background": "#3e8fb0",
+    "vim.insert.background": "#9ccfd8",
+    "vim.visual.background": "#c4a7e7",
+    "vim.replace.background": "#eb6f92",
+    "vim.visual_line.background": "#c4a7e7",
+    "editor.diff.inserted_background": "#2ea04399",
+    "editor.diff.deleted_background": "#f8514999",
   },
 }
