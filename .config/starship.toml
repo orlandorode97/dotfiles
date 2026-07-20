@@ -1,42 +1,40 @@
 # ── Format ─────────────────────────────────────────────────────────────────
-# Suggestion: add $cmd_duration to know when a command was slow
 format = """
-$directory$git_branch$git_status$cmd_duration$character"""
-add_newline = false
+$directory$git_branch$git_status
+$character """
+add_newline = true
 
-# ── Directory ───────────────────────────────────────────────────────────────
+# ── Directory ────────────────────────────────────────────────────────────────
 [directory]
-style             = "bold #7DF9FF"   # electric cyan
+style             = "#c8c093"   # old white — soft, no accent
 format            = "[$path]($style) "
 truncation_length = 2
 truncation_symbol = ""
 read_only         = " 󰌾"
 
-# ── Git Branch ──────────────────────────────────────────────────────────────
+# ── Git Branch ─────────────────────────────────────────────────────────────
 [git_branch]
-symbol            = " "
-style             = "#C792EA"        # soft violet
-format            = "[$symbol$branch]($style) "
-truncation_symbol = ""
+symbol = ""
+style  = "#727169"              # fuji gray
+format = "[$branch]($style) "
 
-# ── Git Status ──────────────────────────────────────────────────────────────
-# Each symbol gets a semantic color instead of one flat style
+# ── Git Status ─────────────────────────────────────────────────────────────
+# A single dot when the tree is dirty — no per-state noise.
 [git_status]
-format     = "[$all_status$ahead_behind]($style) "
-style      = "#FF5370"               # fallback / conflicts
-conflicted = "[=](#FF5370)"          # red    — conflict
-ahead      = "[⇡${count}](#C3E88D)" # green  — ahead
-behind     = "[⇣${count}](#FF5370)" # red    — behind
-diverged   = "[⇡${ahead_count}⇣${behind_count}](#FFB86C)" # amber — diverged
-untracked  = "[?](#82AAFF)"          # blue   — untracked
-modified   = "[!](#FFB86C)"          # amber  — modified
-staged     = "[+](#C3E88D)"          # green  — staged
-renamed    = "[»](#82AAFF)"          # blue   — renamed
-deleted    = "[✘](#FF5370)"          # red    — deleted
+style      = "#54546d"          # dim gray dot
+format     = "[$modified$staged$untracked$deleted]($style)"
+modified   = "•"
+staged     = "•"
+untracked  = "•"
+deleted    = "•"
+conflicted = ""
+ahead      = ""
+behind     = ""
+diverged   = ""
+renamed    = ""
 
-
-# ── Prompt Character ────────────────────────────────────────────────────────
+# ── Prompt Character ─────────────────────────────────────────────────────────
 [character]
-success_symbol = "[❯](bold #C3E88D)" # green  — last cmd ok
-error_symbol   = "[❯](bold #FF5370)" # red    — last cmd failed
-vimcmd_symbol  = "[❮](bold #C792EA)" # violet — vim normal mode
+success_symbol = "[❯](#727169)"  # fuji gray — quiet ok
+error_symbol   = "[❯](#c34043)"  # autumn red — the only color
+vimcmd_symbol  = "[❮](#727169)"  # fuji gray — vim normal
