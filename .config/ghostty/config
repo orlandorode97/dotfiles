@@ -1,51 +1,41 @@
 font-family = "Monaspace Neon"
 font-size = 14
 
-keybind = cmd+d=new_split:down
-keybind = cmd+e=new_split:right
+theme = Chalkboard
 
-theme = Hopscotch
-
-shell-integration = "none"
-font-size = 14
-keybind = cmd+d=new_split:down
-keybind = cmd+e=new_split:right
-theme = mellow
-shell-integration = "none"
+shell-integration = none
+shell-integration-feature = path
 confirm-close-surface = false
+
+# Window
 window-padding-x = 8
 window-padding-y = 4
-window-padding-balance = false
-window-vsync = true
-window-decoration = auto
-macos-titlebar-style = transparent
-macos-icon = custom-style
-macos-icon-frame = plastic
-macos-icon-ghost-color = bdbdbd
-macos-icon-screen-color = 4d4d4d
-window-new-tab-position = end
-macos-window-shadow = false
-background-opacity = 0.85
-background-blur-radius = 40
-unfocused-split-opacity = 0.85
 window-padding-balance = true
-
 window-vsync = true
+window-decoration = none
+window-new-tab-position = end
 
-window-decoration = auto
+# macOS
+macos-titlebar-style = transparent
+macos-titlebar-proxy-icon = hidden
+macos-window-shadow = false
 macos-icon = custom-style
 macos-icon-frame = plastic
 macos-icon-ghost-color = bdbdbd
 macos-icon-screen-color = 4d4d4d
 
-window-new-tab-position = end
-macos-window-shadow = false
-
+# Background
 background-opacity = 0.85
 background-blur-radius = 40
-unfocused-split-opacity = 0.85
 
-macos-titlebar-proxy-icon = hidden
-window-decoration = none
+# Splits
+unfocused-split-opacity = 1
+
+# Keybinds - splits
+keybind = cmd+d=new_split:down
+keybind = cmd+e=new_split:right
+
+# Keybinds - tabs
 keybind = cmd+t=new_tab
-
+keybind = cmd+shift+]=next_tab
+keybind = cmd+shift+[=previous_tab

@@ -1,26 +1,78 @@
 {
-  "agent": {
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4-6",
-      "enable_thinking": true,
-      "effort": "high",
-    },
-    "favorite_models": [],
-    "model_parameters": [],
+  "theme": {
+    "mode": "dark",
+    "dark": "Rosé Pine Moon",
+    "light": "Rosé Pine Dawn",
   },
-  "agent_servers": {
-    "OpenCode": {
-      "type": "custom",
-      "command": "opencode",
-      "args": ["acp"],
-    },
+  "icon_theme": {
+    "mode": "light",
+    "light": "Catppuccin Macchiato",
+    "dark": "Catppuccin Macchiato",
   },
-  "edit_predictions": {
-    "provider": "zed",
-    "enabled_in_text_threads": false,
+  "buffer_font_family": "Monaspace Neon",
+  "buffer_font_size": 14.0,
+  "buffer_font_features": {
+    "calt": true,
+    "liga": true,
   },
+  "buffer_line_height": "comfortable",
+  "ui_font_family": "Monaspace Neon",
+  "ui_font_size": 15.0,
+  "soft_wrap": "none",
+  "hard_tabs": false,
+  "cursor_shape": "bar",
+  "show_whitespaces": "selection",
+  "allow_rewrap": "in_comments",
+  "relative_line_numbers": "enabled",
+  "snippet_sort_order": "top",
+  "gutter": {
+    "min_line_number_digits": 1,
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+  },
+  "centered_layout": {
+    "left_padding": 0.12,
+    "right_padding": 0.12,
+  },
+  "tab_bar": {
+    "show": false,
+  },
+  "scrollbar": {
+    "show": "never",
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "indent_guides": {
+    "enabled": false,
+  },
+  "show_wrap_guides": false,
   "show_edit_predictions": false,
+  "show_call_status_icon": false,
+  "inline_code_actions": false,
+  "preview_tabs": {
+    "enable_preview_from_file_finder": false,
+  },
+  "tabs": {
+    "git_status": true,
+    "close_position": "right",
+    "file_icons": true,
+  },
+  "status_bar": {
+    "active_encoding_button": "enabled",
+    "active_language_button": true,
+  },
+  "project_panel": {
+    "dock": "left",
+    "button": false,
+  },
+  "git_panel": {
+    "dock": "right",
+    "tree_view": true,
+  },
+  "bottom_dock_layout": "full",
   "git": {
     "enable_diff": true,
     "enable_status": true,
@@ -38,79 +90,79 @@
       "show_commit_summary": false,
     },
   },
-  "git_panel": {
-    "dock": "right",
-    "tree_view": true,
-  },
-  "show_whitespaces": "selection",
-  "allow_rewrap": "in_comments",
-  "show_wrap_guides": false,
-  "inline_code_actions": false,
-  "gutter": {
-    "min_line_number_digits": 1,
-  },
-  "snippet_sort_order": "top",
-  "terminal": {
-    "toolbar": {
-      "breadcrumbs": true,
-    },
-  },
-  "use_system_window_tabs": true,
-  "bottom_dock_layout": "full",
-  "preview_tabs": {
-    "enable_preview_from_file_finder": false,
-  },
-  "tabs": {
-    "git_status": true,
-    "close_position": "right",
-    "file_icons": true,
-  },
-  "title_bar": {
-    "show_branch_icon": true,
-  },
-  "status_bar": {
-    "active_encoding_button": "enabled",
-    "active_language_button": true,
-  },
-  "soft_wrap": "prefer_line",
-  "hard_tabs": false,
+  "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
     "toggle_relative_line_numbers": true,
   },
-  "minimap": {
-    "show": "never",
+  "experimental.theme_overrides": {
+    "vim.normal.background": "#8aadf4",
+    "vim.insert.background": "#a6da95",
+    "vim.visual.background": "#c6a0f6",
+    "vim.replace.background": "#ed8796",
+    "vim.visual_line.background": "#f5bde6",
   },
-  "text_rendering_mode": "platform_default",
-  "theme": {
-    "mode": "light",
-    "light": "One Light",
-    "dark": "Ayu Dark",
-  },
-  "project_panel": {
-    "dock": "left",
-    "button": false,
-  },
-  "cursor_shape": "bar",
-  "buffer_font_family": "Monaspace Neon",
-  "ui_font_family": "Monaspace Neon",
-  "buffer_line_height": "comfortable",
-  "icon_theme": {
-    "mode": "light",
-    "light": "Catppuccin Macchiato",
-    "dark": "Bearded Icons",
+  "base_keymap": "VSCode",
+  "use_system_window_tabs": true,
+  "session": {
+    "trust_all_worktrees": true,
   },
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
   },
-  "session": {
-    "trust_all_worktrees": true,
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": true,
+    },
   },
-  "base_keymap": "Emacs",
-  "vim_mode": true,
-  "ui_font_size": 15.0,
-  "buffer_font_size": 14.0,
+  "text_rendering_mode": "platform_default",
+  "agent": {
+    "dock": "right",
+    "default_model": {
+      "provider": "opencode",
+      "model": "zen/claude-sonnet-4-6",
+      "enable_thinking": false,
+    },
+    "inline_assistant_model": {
+      "provider": "opencode",
+      "model": "zen/claude-sonnet-4-6",
+      "enable_thinking": false,
+    },
+    "tool_permissions": {
+      "tools": {
+        "delete_path": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^/Users/orlandoromo/go/src/omg/storefront\\-app/backend/routes/checkout/",
+            },
+          ],
+        },
+        "terminal": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^cd\\s+/Users/orlandoromo/go/src/omg/teamdealeronline/apps/api/modules/orders/actions(\\s|$)",
+            },
+            { "pattern": "^grep\\b" },
+            { "pattern": "^git\\s+restore(\\s|$)" },
+          ],
+        },
+      },
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "agent_servers": {
+    "claude-acp": { "type": "registry" },
+    "cursor": { "type": "registry" },
+    "OpenCode": {
+      "type": "custom",
+      "command": "opencode",
+      "args": ["acp"],
+    },
+  },
   "languages": {
     "PHP": {
       "show_edit_predictions": true,
@@ -123,65 +175,5 @@
       "tab_size": 2,
       "show_edit_predictions": true,
     },
-  },
-  "relative_line_numbers": "enabled",
-  "tab_bar": {
-    "show_pinned_tabs_in_separate_row": false,
-    "show_nav_history_buttons": false,
-    "show": false,
-  },
-  "scrollbar": {
-    "axes": {
-      "vertical": true,
-      "horizontal": true,
-    },
-    "show": "never",
-  },
-  "show_call_status_icon": true,
-  "indent_guides": {
-    "enabled": false,
-  },
-  "profiles": {
-    "Focus": {
-      "ui_font_size": 15,
-      "buffer_font_size": 14,
-      "buffer_line_height": { "custom": 2.0 },
-      "tab_bar": {
-        "show": false,
-        "show_nav_history_buttons": false,
-      },
-      "toolbar": {
-        "breadcrumbs": false,
-        "quick_actions": false,
-      },
-      "gutter": {
-        "line_numbers": false,
-        "folds": false,
-        "breakpoints": false,
-        "runnables": false,
-        "min_line_number_digits": 0,
-      },
-      "indent_guides": {
-        "enabled": false,
-      },
-      "current_line_highlight": "none",
-      "scrollbar": {
-        "show": "never",
-        "cursors": false,
-        "git_diff": false,
-        "diagnostics": "none",
-        "search_results": false,
-        "selected_symbol": false,
-      },
-    },
-  },
-  "experimental.theme_overrides": {
-    "vim.normal.background": "#3e8fb0",
-    "vim.insert.background": "#9ccfd8",
-    "vim.visual.background": "#c4a7e7",
-    "vim.replace.background": "#eb6f92",
-    "vim.visual_line.background": "#c4a7e7",
-    "editor.diff.inserted_background": "#2ea04399",
-    "editor.diff.deleted_background": "#f8514999",
   },
 }
