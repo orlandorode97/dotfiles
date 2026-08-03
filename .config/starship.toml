@@ -1,40 +1,66 @@
-# ── Format ─────────────────────────────────────────────────────────────────
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
-$directory$git_branch$git_status
-$character """
+[](fg:subtle)\
+$directory\
+$git_branch\
+$git_status\
+[](fg:subtle)\
+$cmd_duration\
+$character"""
+
+right_format = "$time"
+
 add_newline = true
 
-# ── Directory ────────────────────────────────────────────────────────────────
-[directory]
-style             = "#c8c093"   # old white — soft, no accent
-format            = "[$path]($style) "
-truncation_length = 2
-truncation_symbol = ""
-read_only         = " 󰌾"
+palette = "chalkboard"
 
-# ── Git Branch ─────────────────────────────────────────────────────────────
-[git_branch]
-symbol = ""
-style  = "#727169"              # fuji gray
-format = "[$branch]($style) "
+[palettes.chalkboard]
+accent = "#aadadb"   # chalk teal
+subtle = "#6f6b74"   # muted slate grey
+good   = "#aadbaa"   # chalk green
+bad    = "#dbaaaa"   # chalk red
+warn   = "#dadbaa"   # chalk yellow
+time   = "#565261"   # dim grey
 
-# ── Git Status ─────────────────────────────────────────────────────────────
-# A single dot when the tree is dirty — no per-state noise.
-[git_status]
-style      = "#54546d"          # dim gray dot
-format     = "[$modified$staged$untracked$deleted]($style)"
-modified   = "•"
-staged     = "•"
-untracked  = "•"
-deleted    = "•"
-conflicted = ""
-ahead      = ""
-behind     = ""
-diverged   = ""
-renamed    = ""
-
-# ── Prompt Character ─────────────────────────────────────────────────────────
 [character]
-success_symbol = "[❯](#727169)"  # fuji gray — quiet ok
-error_symbol   = "[❯](#c34043)"  # autumn red — the only color
-vimcmd_symbol  = "[❮](#727169)"  # fuji gray — vim normal
+format = "$symbol "
+success_symbol = "[›](accent)"
+error_symbol = "[›](bad)"
+vimcmd_symbol = "[‹](good)"
+
+[directory]
+format = "[ $path ]($style)"
+style = "accent"
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+
+[git_branch]
+format = "[$branch]($style) "
+style = "subtle"
+
+[git_status]
+format = '[$all_status$ahead_behind]($style)'
+style = "warn"
+ahead = "↑${count} "
+behind = "↓${count} "
+diverged = "↕ "
+modified = "• "
+staged = "+ "
+untracked = "? "
+stashed = "≡ "
+conflicted = "! "
+deleted = "✘ "
+renamed = "» "
+
+[cmd_duration]
+min_time = 2000
+format = "[$duration]($style) "
+style = "subtle"
+
+[time]
+disabled = true
+format = "[$time]($style)"
+style = "time"
+time_format = "%H:%M"

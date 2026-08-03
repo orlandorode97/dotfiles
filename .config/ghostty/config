@@ -10,7 +10,7 @@ font-feature = +calt
 adjust-cell-height = 8%
 
 # ── Colors ───────────────────────────────────────────────────
-theme = Rose Pine Moon
+theme = Chalkboard
 selection-background = #44415a
 selection-foreground = #e0def4
 cursor-style = bar
