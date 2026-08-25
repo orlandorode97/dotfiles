@@ -2,7 +2,8 @@
 # Reload: ⌘⇧,
 
 # ── Typography ───────────────────────────────────────────────
-font-family = "Monaspace Neon"
+# font-family = "Monaspace Neon"
+font-family = "Departure Mono"
 font-size = 14
 font-thicken = true
 font-feature = +liga

@@ -14,21 +14,21 @@
       "provider": "opencode",
       "model": "zen/claude-sonnet-5",
       "enable_thinking": true,
-      "effort": "max",
+      "effort": "max"
     },
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": [],
+    "model_parameters": []
   },
   "git_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "outline_panel": {
-    "dock": "right",
+    "dock": "right"
   },
   "terminal": {
     "font_size": 12.0,
-    "dock": "bottom",
+    "dock": "bottom"
   },
   "project_panel": {
     "dock": "left",
@@ -38,20 +38,20 @@
     "git_status": true,
     "sticky_scroll": false,
     "indent_guides": {
-      "show": "never",
-    },
+      "show": "never"
+    }
   },
   "file_finder": {
-    "modal_max_width": "large",
+    "modal_max_width": "large"
   },
   "bottom_dock_layout": "full",
   "icon_theme": {
     "mode": "light",
     "light": "Warm Charmed Icons",
-    "dark": "Zed (Default)",
+    "dark": "Zed (Default)"
   },
   "vim": {
-    "toggle_relative_line_numbers": true,
+    "toggle_relative_line_numbers": true
   },
   "vim_mode": true,
   "multi_cursor_modifier": "cmd_or_ctrl",
@@ -60,42 +60,42 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Panda Nebula",
+    "dark": "Panda Nebula"
   },
   "show_edit_predictions": true,
   "tabs": {
     "git_status": true,
     "close_position": "right",
-    "file_icons": false,
+    "file_icons": false
   },
   "title_bar": {
     "show_branch_status_icon": false,
     "show_onboarding_banner": false,
     "show_menus": false,
     "show_user_picture": false,
-    "show_user_menu": false,
+    "show_user_menu": false
   },
   "status_bar": {
     "active_encoding_button": "enabled",
     "active_language_button": false,
     "cursor_position_button": false,
-    "experimental.show": false,
+    "experimental.show": false
   },
   "minimap": {
-    "show": "never",
+    "show": "never"
   },
   "scrollbar": {
-    "show": "never",
+    "show": "never"
   },
   "toolbar": {
     "breadcrumbs": false,
     "quick_actions": false,
     "selections_menu": false,
     "agent_review": false,
-    "code_actions": false,
+    "code_actions": false
   },
   "indent_guides": {
-    "enabled": false,
+    "enabled": false
   },
   "cursor_blink": false,
   "show_whitespaces": "none",
@@ -106,63 +106,63 @@
   "scroll_beyond_last_line": "off",
   "active_pane_modifiers": {
     "inactive_opacity": 0.75,
-    "border_size": 0.0,
+    "border_size": 0.0
   },
   "gutter": {
     "min_line_number_digits": 0,
     "folds": false,
-    "runnables": false,
+    "runnables": false
   },
-  "buffer_font_family": "Monaspace Neon",
-  "ui_font_family": "Monaspace Neon",
+  "buffer_font_family": "Departure Mono",
+  "ui_font_family": "Departure Mono",
   "languages": {
     "PHP": {
       "show_edit_predictions": true,
       "language_servers": ["intelephense"],
       "formatter": "prettier",
-      "format_on_save": "off",
+      "format_on_save": "off"
     },
     "C": {
       "format_on_save": "on",
       "tab_size": 2,
-      "show_edit_predictions": true,
+      "show_edit_predictions": true
     },
     "JSON": {
       "format_on_save": "on",
-      "tab_size": 2,
-    },
+      "tab_size": 2
+    }
   },
   "tab_bar": {
     "show_pinned_tabs_in_separate_row": false,
     "show_nav_history_buttons": false,
-    "show": true,
+    "show": true
   },
   "experimental.theme_overrides": {
     "vim.normal.background": "#3e8fb0",
     "vim.insert.background": "#9ccfd8",
     "vim.visual.background": "#c4a7e7",
     "vim.replace.background": "#eb6f92",
-    "vim.visual_line.background": "#c4a7e7",
+    "vim.visual_line.background": "#c4a7e7"
   },
   "format_on_save": "on",
   "agent_servers": {
     "opencode": {
-      "type": "registry",
+      "type": "registry"
     },
     "claude-acp": {
       "default_config_options": {
-        "model": "opus[1m]",
+        "model": "opus[1m]"
       },
-      "type": "registry",
+      "type": "registry"
     },
     "cursor": {
-      "type": "registry",
+      "type": "registry"
     },
     "OpenCode": {
       "type": "custom",
       "command": "opencode",
-      "args": ["acp"],
-    },
+      "args": ["acp"]
+    }
   },
   "theme_overrides": {
     "Aura Dark": {
@@ -173,9 +173,9 @@
       "panel.focused_border": "#4E466E",
       "players": [
         {
-          "cursor": "#BD9DFF",
-        },
-      ],
+          "cursor": "#BD9DFF"
+        }
+      ]
     },
     "Panda Nebula": {
       "border.variant": "#1e1e32",
@@ -185,9 +185,9 @@
       "panel.focused_border": "#1e1e32",
       "players": [
         {
-          "cursor": "#ffffff",
-        },
-      ],
-    },
-  },
+          "cursor": "#ffffff"
+        }
+      ]
+    }
+  }
 }
