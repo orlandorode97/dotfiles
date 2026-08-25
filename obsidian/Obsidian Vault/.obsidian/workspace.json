@@ -1,0 +1,269 @@
+{
+  "main": {
+    "id": "6830704f90ff802d",
+    "type": "split",
+    "children": [
+      {
+        "id": "07c9027aea21eeec",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e70b29635dfd95f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Curso de C/Clase 2 - Punteros en C.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Clase 2 - Punteros en C"
+            }
+          },
+          {
+            "id": "c8ece427586aa0cf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Curso de C/Clase 7 -  Structs.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Clase 7 -  Structs"
+            }
+          },
+          {
+            "id": "416b5d78f0698070",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Curso de C/Clase 9 - Punteros avanzados.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Clase 9 - Punteros avanzados"
+            }
+          },
+          {
+            "id": "d0a9d58c9f0924c7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Curso de C/Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a48a2a778a3cb22a",
+    "type": "split",
+    "children": [
+      {
+        "id": "afba1dca4c1adfff",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "238ae09036f2b83b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": true,
+                "collapseAll": false,
+                "extraContext": true,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "6efa195d9f4826ee",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "177dfbcd3f9a14ed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OMG/OMG-API/Design Docs/OMG-19332 Product Option Resources.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "OMG-19332 Product Option Resources"
+            }
+          },
+          {
+            "id": "c36cd5a29bfa2c47",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabeticalReverse",
+                "autoReveal": true
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 558.5026054382324
+  },
+  "right": {
+    "id": "938df88c6bb6479b",
+    "type": "split",
+    "children": [
+      {
+        "id": "6f4f4fae0180508b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dba6bc642532dc7d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "OMG/OMG-API/TODO/TODO.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for TODO"
+            }
+          },
+          {
+            "id": "412064f5b70f90e8",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "PERSONAL/Actividades/Actividades semanales.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Actividades semanales"
+            }
+          },
+          {
+            "id": "e2c2edd62421e631",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "1d6dd4a06e3176c9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Untitled.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Untitled"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 531.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "416b5d78f0698070",
+  "lastOpenFiles": [
+    "Curso de C/Clase 8 Archivos I0.md",
+    "Curso de C/Clase 9 - Punteros avanzados.md",
+    "Curso de C/Clase 6 - Memoria dinamica y ownership.md",
+    "Curso de C/Clase 7 -  Structs.md",
+    "Curso de C/Clase 2 - Punteros en C.md",
+    "Curso de C/Clase 3 - Aritmetica de Punteros.md",
+    "Curso de C/Clase 5 - Encapsulacion.md",
+    "Curso de C/Clase 4 - typedef y punteros a funcion..md",
+    "Curso de C/Clase 1 Fundamentos y modelo de memoria.md",
+    "Curso de C",
+    "Curso de desarrollo AI/Dia 2 Desarrollo con agents, skills, MCPs..md",
+    "Curso de desarrollo AI/Dia 1 Spec-Driven development.md",
+    "Curso de desarrollo AI/Curso de desarrollo AI.md",
+    "Curso de desarrollo AI/Notes.md",
+    "Curso de desarrollo AI/Dia 3 CI CD.md",
+    "Curso de desarrollo AI",
+    "grpc curso/Bloque 1/Bloque 1 -  Fundamentos de gRPC y Protocol Buffers.md",
+    "grpc curso/Bloque 2/Bloque 2 - Diseño y evolución de Protocol Buffers.md",
+    "grpc curso/gRPC en Go diseño e implementación para producción.md",
+    "grpc curso/Bloque 2",
+    "grpc curso/Bloque 1",
+    "grpc curso",
+    "Test.md",
+    "Possible questions.md",
+    "Events.md",
+    "Untitled.base",
+    "OMG-30664 Product importer.md",
+    "Para Spike.md",
+    "Sprint Reviews.md",
+    "dadf.md",
+    "asdas.md",
+    "Backup.md",
+    "Untitled 1",
+    "OMG/Spikes",
+    "Excalidraw",
+    "PERSONAL/Actividades",
+    "Untitled Diagram.svg",
+    "Untitled Diagram 1.svg",
+    "Untitled.canvas",
+    "OMG/OMG-API/Design Docs/Untitled.canvas"
+  ]
+}
