@@ -1,4 +1,4 @@
-# ── Ghostty · minimal glass terminal ─────────────────────────
+# ── Ghostty · minimal terminal · Tokyo Night ─────────────────
 # Reload: ⌘⇧,
 
 # ── Typography ───────────────────────────────────────────────
@@ -11,15 +11,17 @@ font-feature = +calt
 adjust-cell-height = 8%
 
 # ── Colors ───────────────────────────────────────────────────
-theme = Chalkboard
-selection-background = #44415a
-selection-foreground = #e0def4
+# Tokyo Night · bg #1a1b26 / fg #c0caf5
+theme = TokyoNight Night
+selection-background = #283457
+selection-foreground = #c0caf5
+cursor-color = #7dcfff
+cursor-text = #1a1b26
 cursor-style = bar
 cursor-style-blink = false
 
-# ── Glass window ─────────────────────────────────────────────
-background-opacity = 0.88
-background-blur = macos-glass-regular
+# ── Window ───────────────────────────────────────────────────
+background-opacity = 1.0
 window-padding-x = 16
 window-padding-y = 12
 window-padding-balance = true
@@ -37,7 +39,7 @@ confirm-close-surface = false
 
 # ── Splits ───────────────────────────────────────────────────
 unfocused-split-opacity = 1
-split-divider-color = #56526e
+split-divider-color = #292e42
 
 # ── Behavior ─────────────────────────────────────────────────
 shell-integration = none

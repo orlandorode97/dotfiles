@@ -1,11 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](fg:subtle)\
 $directory\
 $git_branch\
 $git_status\
-[](fg:subtle)\
+$golang\
 $cmd_duration\
 $character"""
 
@@ -13,15 +12,18 @@ right_format = "$time"
 
 add_newline = true
 
-palette = "chalkboard"
+palette = "tokyonight"
 
-[palettes.chalkboard]
-accent = "#aadadb"   # chalk teal
-subtle = "#6f6b74"   # muted slate grey
-good   = "#aadbaa"   # chalk green
-bad    = "#dbaaaa"   # chalk red
-warn   = "#dadbaa"   # chalk yellow
-time   = "#565261"   # dim grey
+# Matches the Ghostty "TokyoNight Night" theme (bg #1a1b26 / fg #c0caf5)
+[palettes.tokyonight]
+text   = "#c0caf5"   # pale blue-white
+accent = "#7dcfff"   # bright sky   — directory
+subtle = "#bb9af7"   # purple       — branch, cmd duration
+good   = "#9ece6a"   # lime         — vim cmd mode
+bad    = "#ff5555"   # red          — error prompt (non-zero exit)
+warn   = "#ff9e64"   # orange       — git status
+info   = "#73daca"   # teal         — go version
+time   = "#bb9af7"   # purple       — right-hand clock
 
 [character]
 format = "$symbol "
@@ -54,13 +56,19 @@ conflicted = "! "
 deleted = "✘ "
 renamed = "» "
 
+[golang]
+format = "[$symbol$version]($style) "
+symbol = "go "
+style = "info"
+version_format = "${raw}"
+
 [cmd_duration]
 min_time = 2000
 format = "[$duration]($style) "
 style = "subtle"
 
 [time]
-disabled = true
+disabled = false
 format = "[$time]($style)"
 style = "time"
 time_format = "%H:%M"
