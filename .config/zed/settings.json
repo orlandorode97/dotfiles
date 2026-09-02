@@ -60,7 +60,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Panda Nebula"
+    "dark": "Base16 Oxocarbon Dark"
   },
   "show_edit_predictions": true,
   "tabs": {

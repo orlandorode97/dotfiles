@@ -12,18 +12,18 @@ right_format = "$time"
 
 add_newline = true
 
-palette = "tokyonight"
+palette = "oxocarbon"
 
-# Matches the Ghostty "TokyoNight Night" theme (bg #1a1b26 / fg #c0caf5)
-[palettes.tokyonight]
-text   = "#c0caf5"   # pale blue-white
-accent = "#7dcfff"   # bright sky   — directory
-subtle = "#bb9af7"   # purple       — branch, cmd duration
-good   = "#9ece6a"   # lime         — vim cmd mode
-bad    = "#ff5555"   # red          — error prompt (non-zero exit)
-warn   = "#ff9e64"   # orange       — git status
-info   = "#73daca"   # teal         — go version
-time   = "#bb9af7"   # purple       — right-hand clock
+# Matches the Ghostty "Oxocarbon" theme (bg #161616 / fg #f2f4f8)
+[palettes.oxocarbon]
+text   = "#f2f4f8"   # off-white
+accent = "#00b4ff"   # blue         — directory
+subtle = "#c693ff"   # purple       — branch, cmd duration
+good   = "#00c15a"   # green        — vim cmd mode
+bad    = "#ff4297"   # magenta/red  — error prompt (non-zero exit)
+warn   = "#ff74b8"   # pink         — git status
+info   = "#00dfdb"   # cyan         — go version
+time   = "#c693ff"   # purple       — right-hand clock
 
 [character]
 format = "$symbol "
