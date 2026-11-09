@@ -12,9 +12,9 @@
   "agent": {
     "default_model": {
       "provider": "opencode",
-      "model": "zen/claude-sonnet-5",
+      "model": "zen/claude-opus-4-5",
       "enable_thinking": true,
-      "effort": "max"
+      "effort": "medium"
     },
     "dock": "right",
     "favorite_models": [],
@@ -113,8 +113,8 @@
     "folds": false,
     "runnables": false
   },
-  "buffer_font_family": "Departure Mono",
-  "ui_font_family": "Departure Mono",
+  "buffer_font_family": "BlexMono Nerd Font",
+  "ui_font_family": "BlexMono Nerd Font",
   "languages": {
     "PHP": {
       "show_edit_predictions": true,

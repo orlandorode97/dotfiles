@@ -1,74 +1,92 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# Maximalist: every segment is a colored pill (needs a Nerd Font).
+# Pill = "" (round left) + content + "" (round right).
+# Optional segments are wrapped in ( ) or are conditional modules, so no empty pills.
+
 format = """
+$hostname\
 $directory\
 $git_branch\
-$git_status\
 $golang\
-$cmd_duration\
+$nodejs\
+$python\
+$rust\
+$php\
+$java\
+$line_break\
 $character"""
-
-right_format = "$time"
 
 add_newline = true
 
-palette = "oxocarbon"
+palette = "catppuccin"
 
-# Matches the Ghostty "Oxocarbon" theme (bg #161616 / fg #f2f4f8)
-[palettes.oxocarbon]
-text   = "#f2f4f8"   # off-white
-accent = "#00b4ff"   # blue         — directory
-subtle = "#c693ff"   # purple       — branch, cmd duration
-good   = "#00c15a"   # green        — vim cmd mode
-bad    = "#ff4297"   # magenta/red  — error prompt (non-zero exit)
-warn   = "#ff74b8"   # pink         — git status
-info   = "#00dfdb"   # cyan         — go version
-time   = "#c693ff"   # purple       — right-hand clock
+# Matches the Ghostty "Catppuccin Mocha" theme (bg #1e1e2e / fg #cdd6f4)
+[palettes.catppuccin]
+dark   = "#1e1e2e"   # base, text on pills
+text   = "#cdd6f4"   # text
+accent = "#89b4fa"   # blue
+subtle = "#cba6f7"   # mauve
+good   = "#a6e3a1"   # green
+bad    = "#f38ba8"   # red
+warn   = "#f9e2af"   # yellow
+info   = "#94e2d5"   # teal
+pink   = "#f5c2e7"   # pink
 
 [character]
 format = "$symbol "
-success_symbol = "[›](accent)"
-error_symbol = "[›](bad)"
-vimcmd_symbol = "[‹](good)"
+success_symbol = "[❯](bold subtle)[❯](bold accent)[❯](bold info)"
+error_symbol = "[❯❯❯](bold bad)"
+vimcmd_symbol = "[❮❮❮](bold warn)"
+
+[os]
+disabled = false
+format = "[](fg:pink)[ $symbol ](fg:dark bg:pink)[](fg:pink) "
+
+[username]
+show_always = true
+format = "[](fg:info)[  $user ](fg:dark bg:info)[](fg:info) "
+
+[hostname]
+ssh_only = true
+format = "[](fg:subtle)[  $hostname ](fg:dark bg:subtle)[](fg:subtle) "
 
 [directory]
-format = "[ $path ]($style)"
-style = "accent"
+format = "[](fg:accent)[  $path$read_only ](fg:dark bg:accent)[](fg:accent) "
+read_only = " "
 truncation_length = 3
 truncate_to_repo = true
 truncation_symbol = "…/"
 
 [git_branch]
-format = "[$branch]($style) "
-style = "subtle"
-
-[git_status]
-format = '[$all_status$ahead_behind]($style)'
-style = "warn"
-ahead = "↑${count} "
-behind = "↓${count} "
-diverged = "↕ "
-modified = "• "
-staged = "+ "
-untracked = "? "
-stashed = "≡ "
-conflicted = "! "
-deleted = "✘ "
-renamed = "» "
+format = "[](fg:subtle)[  $branch ](fg:dark bg:subtle)[](fg:subtle) "
 
 [golang]
-format = "[$symbol$version]($style) "
-symbol = "go "
-style = "info"
+symbol = ""
+format = "[](fg:info)[ $symbol $version ](fg:dark bg:info)[](fg:info) "
 version_format = "${raw}"
 
-[cmd_duration]
-min_time = 2000
-format = "[$duration]($style) "
-style = "subtle"
+[nodejs]
+symbol = ""
+format = "[](fg:good)[ $symbol $version ](fg:dark bg:good)[](fg:good) "
+version_format = "${raw}"
 
-[time]
-disabled = false
-format = "[$time]($style)"
-style = "time"
-time_format = "%H:%M"
+[python]
+symbol = ""
+format = "[](fg:warn)[ $symbol $version ](fg:dark bg:warn)[](fg:warn) "
+version_format = "${raw}"
+
+[rust]
+symbol = ""
+format = "[](fg:bad)[ $symbol $version ](fg:dark bg:bad)[](fg:bad) "
+version_format = "${raw}"
+
+[php]
+symbol = ""
+format = "[](fg:pink)[ $symbol $version ](fg:dark bg:pink)[](fg:pink) "
+version_format = "${raw}"
+
+[java]
+symbol = ""
+format = "[](fg:warn)[ $symbol $version ](fg:dark bg:warn)[](fg:warn) "
+version_format = "${raw}"

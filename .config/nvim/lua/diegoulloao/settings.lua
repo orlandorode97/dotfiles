@@ -1,5 +1,5 @@
 local settings = {
-  theme = "oxocarbon",
+  theme = "nighfox",
   indentChar = "",                    -- │, |, ¦, ┆, ┊
   separatorChar = "-",                -- ─, -, .
   aspect = "clean",                   -- normal|clean

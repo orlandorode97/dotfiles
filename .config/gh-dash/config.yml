@@ -5,6 +5,8 @@ prSections:
     filters: is:open review-requested:@me
   - title: Involved
     filters: is:open involves:@me -author:@me
+  - title: Pop up PRs
+    filters: is:open org:OrderMyGear author:permanuno author:adamaoc author:TroyMeOut author:mcplana31 author:henriquecbuss-omg author:guilherme-omg author:LucianoMarcosOMG
 issuesSections:
   - title: My Issues
     filters: is:open author:@me
@@ -48,7 +50,11 @@ defaults:
   refetchIntervalMinutes: 30
 keybindings:
   issues: []
-  prs: []
+  prs:
+    - key: R
+      name: review PR
+      command: >
+        gh-review {{.RepoName}} {{.PrNumber}}
 repoPaths: {}
 pager:
   diff: delta

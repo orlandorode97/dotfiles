@@ -72,7 +72,7 @@ opt.wildmode = { "longest:full", "full" }
 -- =========================================================
 opt.updatetime = 200 -- faster diagnostic updates
 opt.timeoutlen = 400 -- faster key mappings
-opt.lazyredraw = true
+opt.lazyredraw = false
 opt.ttyfast = true
 
 -- =========================================================
@@ -90,4 +90,3 @@ opt.clipboard:append("unnamedplus")
 opt.iskeyword:append("-")
 opt.splitright = true
 opt.splitbelow = true
-

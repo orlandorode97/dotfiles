@@ -28,8 +28,6 @@ config.harfbuzz_features = { "catl=1", "clig=1", "liga=1" }
 config.font_size = 14
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = false
-config.window_background_opacity = 0.85
-config.macos_window_background_blur = 30
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = true
 config.color_scheme = "Catppuccin Mocha"
