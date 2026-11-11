@@ -47,7 +47,7 @@
   "bottom_dock_layout": "full",
   "icon_theme": {
     "mode": "light",
-    "light": "Warm Charmed Icons",
+    "light": "Gruvbox Material Icon Theme",
     "dark": "Zed (Default)"
   },
   "vim": {
@@ -60,7 +60,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Base16 Oxocarbon Dark"
+    "dark": "Duskfox"
   },
   "show_edit_predictions": true,
   "tabs": {
@@ -182,6 +182,20 @@
       "border": "#1e1e32",
       "title_bar.background": "#1e1e32",
       "panel.background": "#1e1e32",
+      "panel.focused_border": "#1e1e32",
+      "players": [
+        {
+          "cursor": "#ffffff"
+        }
+      ]
+    },
+    "Duskfox": {
+      "border.variant": "#1e1e32",
+      "border": "#1e1e32",
+      "title_bar.background": "#1e1e32",
+      "panel.background": "#1e1e32",
+      "text.muted": "#EEEDDD",
+      "ignored": "#EEEDDD",
       "panel.focused_border": "#1e1e32",
       "players": [
         {
