@@ -43,7 +43,28 @@ return {
         javascript = { "template_string" }, -- don't add pairs in javascript template string treesitter nodes
         java = false, -- don't check treesitter on java
       },
+      disable_filetype = { "TelescopePrompt", "spectre_panel", "snacks_picker_input" },
+      enable_check_bracket_line = true, -- don't add a closing pair if the line already has one
+      ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=], -- don't pair before words/quotes
+      fast_wrap = {
+        map = "<M-e>", -- Alt-e: wrap the next word/object with the pair you just typed
+        chars = { "{", "[", "(", '"', "'" },
+        pattern = [=[[%'%"%>%]%)%}%,]]=],
+        end_key = "$",
+        keys = "qwertyuiopzxcvbnmasdfghjkl",
+        check_comma = true,
+        highlight = "AutopairsFastWrapKey",
+        highlight_grey = "AutopairsFastWrapGrey",
+      },
     })
+
+    -- fast wrap colors (Catppuccin Mocha)
+    local function set_highlights()
+      vim.api.nvim_set_hl(0, "AutopairsFastWrapKey", { fg = "#1e1e2e", bg = "#f5c2e7", bold = true })
+      vim.api.nvim_set_hl(0, "AutopairsFastWrapGrey", { fg = "#6c7086" })
+    end
+    set_highlights()
+    vim.api.nvim_create_autocmd("ColorScheme", { callback = set_highlights })
 
     -- make autopairs and completion work together
     require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())

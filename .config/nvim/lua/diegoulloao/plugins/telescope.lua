@@ -35,6 +35,24 @@ return {
 
     telescope.load_extension("ui-select")
 
+    -- colored pill-like titles (Catppuccin Mocha)
+    local function set_highlights()
+      local set = vim.api.nvim_set_hl
+      set(0, "TelescopeNormal", { bg = "#181825" })
+      set(0, "TelescopeBorder", { fg = "#45475a", bg = "#181825" })
+      set(0, "TelescopePromptNormal", { bg = "#313244" })
+      set(0, "TelescopePromptBorder", { fg = "#313244", bg = "#313244" })
+      set(0, "TelescopePromptTitle", { fg = "#1e1e2e", bg = "#f38ba8", bold = true })
+      set(0, "TelescopePromptPrefix", { fg = "#f38ba8" })
+      set(0, "TelescopeResultsTitle", { fg = "#1e1e2e", bg = "#89b4fa", bold = true })
+      set(0, "TelescopePreviewTitle", { fg = "#1e1e2e", bg = "#a6e3a1", bold = true })
+      set(0, "TelescopeSelection", { bg = "#45475a", fg = "#cdd6f4", bold = true })
+      set(0, "TelescopeSelectionCaret", { fg = "#cba6f7", bg = "#45475a" })
+      set(0, "TelescopeMatching", { fg = "#89b4fa", bold = true })
+    end
+    set_highlights()
+    vim.api.nvim_create_autocmd("ColorScheme", { callback = set_highlights })
+
     -- custom setup
     telescope.setup({
       defaults = {
@@ -58,11 +76,11 @@ return {
           width = 0.80,
         },
 
-        -- NvChad border style
+        -- rounded borders
         borderchars = {
-          prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
-          results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-          preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+          prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+          results = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+          preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         },
 
         winblend = 0, -- transparency (NvChad default = 0)
