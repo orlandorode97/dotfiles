@@ -40,13 +40,13 @@ return {
       end,
     })
 
-    -- Catppuccin Mocha colors
+
     local function set_highlights()
       local set = vim.api.nvim_set_hl
-      set(0, "AlphaHeader", { fg = "#cba6f7" })
-      set(0, "AlphaButtons", { fg = "#89b4fa" })
-      set(0, "AlphaShortcut", { fg = "#f5c2e7", bold = true })
-      set(0, "AlphaFooter", { fg = "#6c7086", italic = true })
+      set(0, "AlphaHeader", { link = "Title" })
+      set(0, "AlphaButtons", { link = "Function" })
+      set(0, "AlphaShortcut", { link = "Special" })
+      set(0, "AlphaFooter", { link = "Comment" })
     end
     set_highlights()
     vim.api.nvim_create_autocmd("ColorScheme", { callback = set_highlights })

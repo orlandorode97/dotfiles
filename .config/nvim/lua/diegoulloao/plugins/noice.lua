@@ -8,7 +8,7 @@ return {
       stages = "fade",
       timeout = 2500,
       render = "compact",
-      background_colour = "#1e1e2e",
+      background_colour = "NormalFloat",
     })
 
     require("noice").setup({
@@ -34,8 +34,5 @@ return {
       },
     })
 
-    vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = "#cba6f7" })
-    vim.api.nvim_set_hl(0, "NoiceCmdlineIcon", { fg = "#89b4fa" })
-    vim.api.nvim_set_hl(0, "NoiceCmdlinePopupTitle", { fg = "#f9e2af" })
   end,
 }

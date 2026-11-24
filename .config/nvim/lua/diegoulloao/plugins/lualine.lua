@@ -1,18 +1,25 @@
--- Catppuccin Mocha palette
-local colors = {
-  bg = "#1e1e2e",
-  bg_alt = "#313244",
-  fg = "#cdd6f4",
-  fg_dim = "#a6adc8",
-  red = "#f38ba8",
-  green = "#a6e3a1",
-  yellow = "#f9e2af",
-  blue = "#89b4fa",
-  purple = "#cba6f7",
-  cyan = "#94e2d5",
-  pink = "#f5c2e7",
-  peach = "#fab387",
-}
+-- palette read from the active colorscheme
+local function hl(name, attr, fallback)
+  local v = vim.api.nvim_get_hl(0, { name = name, link = false })[attr]
+  return v and string.format("#%06x", v) or fallback
+end
+
+local colors = {}
+local function refresh_colors()
+  colors.bg = hl("Normal", "bg", "#1e1e2e")
+  colors.bg_alt = hl("CursorLine", "bg", hl("Visual", "bg", "#313244"))
+  colors.fg = hl("Normal", "fg", "#cdd6f4")
+  colors.fg_dim = hl("Comment", "fg", "#a6adc8")
+  colors.red = hl("DiagnosticError", "fg", "#f38ba8")
+  colors.green = hl("DiagnosticOk", "fg", hl("String", "fg", "#a6e3a1"))
+  colors.yellow = hl("DiagnosticWarn", "fg", "#f9e2af")
+  colors.blue = hl("Function", "fg", "#89b4fa")
+  colors.purple = hl("Keyword", "fg", "#cba6f7")
+  colors.cyan = hl("DiagnosticHint", "fg", "#94e2d5")
+  colors.pink = hl("Constant", "fg", "#f5c2e7")
+  colors.peach = hl("Number", "fg", "#fab387")
+end
+refresh_colors()
 
 -- Rounded pill edges (nerd font powerline glyphs)
 local L, R = vim.fn.nr2char(0xe0b6), vim.fn.nr2char(0xe0b4)
@@ -28,7 +35,7 @@ local function theme_for(color)
   }
 end
 
-local theme = {
+local function make_theme() return {
   normal = theme_for(colors.blue),
   insert = theme_for(colors.green),
   visual = theme_for(colors.purple),
@@ -36,9 +43,11 @@ local theme = {
   command = theme_for(colors.yellow),
   terminal = theme_for(colors.cyan),
   inactive = theme_for(colors.bg_alt),
-}
+} end
 
-local mode_colors = {
+local mode_colors = {}
+local function refresh_modes()
+  mode_colors = {
   n = colors.blue,
   i = colors.green,
   v = colors.purple,
@@ -47,7 +56,8 @@ local mode_colors = {
   c = colors.yellow,
   R = colors.red,
   t = colors.cyan,
-}
+  }
+end
 
 local function mode_color()
   return { bg = mode_colors[vim.fn.mode()] or colors.blue, fg = colors.bg, gui = "bold" }
@@ -96,10 +106,13 @@ return {
   event = "VeryLazy",
 
   config = function()
-    require("lualine").setup({
+    local function setup()
+      refresh_colors()
+      refresh_modes()
+      require("lualine").setup({
       options = {
         icons_enabled = true,
-        theme = theme,
+        theme = make_theme(),
         component_separators = "",
         section_separators = "",
         globalstatus = true,
@@ -246,5 +259,8 @@ return {
 
       extensions = { "nvim-tree", "toggleterm", "mason", "fzf", "quickfix", "man", "lazy" },
     })
+    end
+    setup()
+    vim.api.nvim_create_autocmd("ColorScheme", { callback = vim.schedule_wrap(setup) })
   end,
 }

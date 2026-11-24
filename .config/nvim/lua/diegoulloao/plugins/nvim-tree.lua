@@ -92,26 +92,6 @@ return {
       },
     })
 
-    -- Catppuccin Mocha colors
-    local function set_highlights()
-      local set = vim.api.nvim_set_hl
-      set(0, "NvimTreeNormal", { bg = "#181825" })
-      set(0, "NvimTreeEndOfBuffer", { bg = "#181825", fg = "#181825" })
-      set(0, "NvimTreeWinSeparator", { fg = "#181825", bg = "#181825" })
-      set(0, "NvimTreeCursorLine", { bg = "#313244", bold = true })
-      set(0, "NvimTreeRootFolder", { fg = "#cba6f7", bold = true })
-      set(0, "NvimTreeFolderName", { fg = "#89b4fa" })
-      set(0, "NvimTreeOpenedFolderName", { fg = "#89b4fa", bold = true })
-      set(0, "NvimTreeFolderIcon", { fg = "#f9e2af" })
-      set(0, "NvimTreeIndentMarker", { fg = "#45475a" })
-      set(0, "NvimTreeSpecialFile", { fg = "#f5c2e7", bold = true, underline = true })
-      set(0, "NvimTreeGitDirty", { fg = "#f9e2af" })
-      set(0, "NvimTreeGitNew", { fg = "#a6e3a1" })
-      set(0, "NvimTreeGitDeleted", { fg = "#f38ba8" })
-      set(0, "NvimTreeGitIgnored", { fg = "#6c7086" })
-    end
-    set_highlights()
-    vim.api.nvim_create_autocmd("ColorScheme", { callback = set_highlights })
 
   end,
 }

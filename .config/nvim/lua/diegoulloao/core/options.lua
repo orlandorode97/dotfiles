@@ -92,17 +92,3 @@ opt.iskeyword:append("-")
 opt.splitright = true
 opt.splitbelow = true
 
--- cursorline + line numbers colors (Catppuccin Mocha)
-local function set_line_highlights()
-  local set = vim.api.nvim_set_hl
-  set(0, "CursorLine", { bg = "#262637" })
-  set(0, "CursorLineNr", { fg = "#cba6f7", bg = "#262637", bold = true }) -- current number
-  set(0, "LineNr", { fg = "#585b70" })
-  set(0, "LineNrAbove", { fg = "#6c7086" })
-  set(0, "LineNrBelow", { fg = "#6c7086" })
-  set(0, "WinSeparator", { fg = "#45475a", bg = "NONE" })
-  set(0, "SignColumn", { bg = "NONE" })
-  set(0, "ColorColumn", { bg = "#262637" })
-end
-set_line_highlights()
-vim.api.nvim_create_autocmd("ColorScheme", { callback = set_line_highlights })

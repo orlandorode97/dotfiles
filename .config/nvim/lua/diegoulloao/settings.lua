@@ -1,5 +1,5 @@
 local settings = {
-  theme = "nighfox",
+  theme = "nightfox",
   indentChar = "",                    -- │, |, ¦, ┆, ┊
   separatorChar = "-",                -- ─, -, .
   aspect = "clean",                   -- normal|clean

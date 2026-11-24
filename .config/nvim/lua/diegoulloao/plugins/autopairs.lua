@@ -58,13 +58,9 @@ return {
       },
     })
 
-    -- fast wrap colors (Catppuccin Mocha)
-    local function set_highlights()
-      vim.api.nvim_set_hl(0, "AutopairsFastWrapKey", { fg = "#1e1e2e", bg = "#f5c2e7", bold = true })
-      vim.api.nvim_set_hl(0, "AutopairsFastWrapGrey", { fg = "#6c7086" })
-    end
-    set_highlights()
-    vim.api.nvim_create_autocmd("ColorScheme", { callback = set_highlights })
+
+    vim.api.nvim_set_hl(0, "AutopairsFastWrapKey", { link = "IncSearch" })
+    vim.api.nvim_set_hl(0, "AutopairsFastWrapGrey", { link = "Comment" })
 
     -- make autopairs and completion work together
     require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())

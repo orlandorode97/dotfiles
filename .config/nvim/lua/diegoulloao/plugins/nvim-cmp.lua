@@ -1,30 +1,10 @@
--- Catppuccin Mocha colors per completion kind
-local kind_colors = {
-  Text = "#a6adc8", Method = "#89b4fa", Function = "#89b4fa", Constructor = "#74c7ec",
-  Field = "#94e2d5", Variable = "#f5c2e7", Class = "#f9e2af", Interface = "#f9e2af",
-  Module = "#fab387", Property = "#94e2d5", Unit = "#a6e3a1", Value = "#fab387",
-  Enum = "#f9e2af", Keyword = "#cba6f7", Snippet = "#f38ba8", Color = "#f5c2e7",
-  File = "#89b4fa", Reference = "#f5c2e7", Folder = "#89b4fa", EnumMember = "#fab387",
-  Constant = "#fab387", Struct = "#f9e2af", Event = "#f38ba8", Operator = "#cba6f7",
-  TypeParameter = "#f2cdcd",
-}
-
 local function set_highlights()
   local set = vim.api.nvim_set_hl
-  set(0, "CmpPmenu", { bg = "#181825" })
-  set(0, "CmpSel", { bg = "#45475a", bold = true })
-  set(0, "CmpBorder", { fg = "#cba6f7", bg = "#181825" })
-  set(0, "CmpDoc", { bg = "#1e1e2e" })
-  set(0, "CmpDocBorder", { fg = "#89b4fa", bg = "#1e1e2e" })
-  set(0, "CmpItemAbbr", { fg = "#cdd6f4" })
-  set(0, "CmpItemAbbrDeprecated", { fg = "#6c7086", strikethrough = true })
-  set(0, "CmpItemAbbrMatch", { fg = "#89b4fa", bold = true })
-  set(0, "CmpItemAbbrMatchFuzzy", { fg = "#89b4fa", bold = true })
-  set(0, "CmpItemMenu", { fg = "#6c7086", italic = true })
-  set(0, "CmpGhostText", { fg = "#585b70", italic = true })
-  for kind, color in pairs(kind_colors) do
-    set(0, "CmpItemKind" .. kind, { fg = color })
-  end
+  set(0, "CmpPmenu", { link = "NormalFloat" })
+  set(0, "CmpSel", { link = "PmenuSel" })
+  set(0, "CmpBorder", { link = "FloatBorder" })
+  set(0, "CmpDoc", { link = "NormalFloat" })
+  set(0, "CmpDocBorder", { link = "FloatBorder" })
 end
 
 local config = function()

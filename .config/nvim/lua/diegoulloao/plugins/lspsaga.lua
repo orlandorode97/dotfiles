@@ -7,24 +7,6 @@ return {
   },
   config = function(_, opts)
     require("lspsaga").setup(opts)
-    local function set_highlights()
-      local set = vim.api.nvim_set_hl
-      set(0, "SagaNormal", { bg = "#181825" })
-      set(0, "SagaBorder", { fg = "#cba6f7", bg = "#181825" })
-      set(0, "SagaTitle", { fg = "#1e1e2e", bg = "#cba6f7", bold = true })
-      set(0, "SagaButton", { fg = "#89b4fa", bg = "#313244" })
-      set(0, "SagaSelect", { fg = "#f5c2e7", bold = true })
-      set(0, "SagaCount", { fg = "#1e1e2e", bg = "#a6e3a1" })
-      -- winbar breadcrumbs
-      set(0, "WinBar", { bg = "NONE" })
-      set(0, "WinBarNC", { bg = "NONE" })
-      set(0, "SagaSep", { fg = "#585b70", bg = "NONE" })
-      set(0, "SagaFolder", { fg = "#6c7086", bg = "NONE" })
-      set(0, "SagaFileName", { fg = "#f9e2af", bg = "NONE", bold = true })
-      set(0, "SagaFileIcon", { fg = "#f9e2af", bg = "NONE" })
-    end
-    set_highlights()
-    vim.api.nvim_create_autocmd("ColorScheme", { callback = set_highlights })
   end,
   opts = {
     scroll_preview = {

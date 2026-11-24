@@ -26,13 +26,8 @@ return {
   },
   config = function(_, opts)
     require("gitsigns").setup(opts)
-    local function set_highlights()
-      vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#6c7086", italic = true })
-      vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#a6e3a1" })
-      vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#f9e2af" })
-      vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#f38ba8" })
-    end
-    set_highlights()
-    vim.api.nvim_create_autocmd("ColorScheme", { callback = set_highlights })
+    local function blame() vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { link = "Comment" }) end
+    blame()
+    vim.api.nvim_create_autocmd("ColorScheme", { callback = blame })
   end,
 }

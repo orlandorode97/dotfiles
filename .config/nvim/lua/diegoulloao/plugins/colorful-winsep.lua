@@ -7,7 +7,7 @@ return {
   config = function()
     require("colorful-winsep").setup({
       highlight = {
-        fg = "#cba6f7",
+        fg = "#d7827e",
       },
       -- timer refresh rate
       interval = 30,
